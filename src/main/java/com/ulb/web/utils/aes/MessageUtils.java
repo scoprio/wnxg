@@ -3,8 +3,8 @@ package com.ulb.web.utils.aes;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.xwtec.iocp.common.utils.HttpUtils;
-import com.xwtec.iocp.modules.qifu.demo.Env;
+import com.ulb.web.demo.Env;
+import com.ulb.web.utils.HttpUtils;
 
 public class MessageUtils {
 	

@@ -4,9 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.alibaba.fastjson.JSONObject;
-import com.xwtec.iocp.modules.qifu.demo.Env;
-import com.xwtec.iocp.modules.qifu.demo.OApiException;
-import com.xwtec.iocp.modules.qifu.utils.HttpHelper;
+import com.ulb.web.demo.Env;
+import com.ulb.web.demo.OApiException;
+import com.ulb.web.utils.HttpHelper;
 
 public class GetAccessToken {
 	private static Logger log = LoggerFactory.getLogger(GetAccessToken.class);

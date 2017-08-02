@@ -2,9 +2,9 @@ package com.ulb.web.demo.eventchange;
 
 import java.util.List;
 import com.alibaba.fastjson.JSONObject;
-import com.xwtec.iocp.modules.qifu.demo.Env;
-import com.xwtec.iocp.modules.qifu.demo.OApiException;
-import com.xwtec.iocp.modules.qifu.utils.HttpHelper;
+import com.ulb.web.demo.Env;
+import com.ulb.web.demo.OApiException;
+import com.ulb.web.utils.HttpHelper;
 
 public class eventChangeHelper {
 	//注册事件回调接口
@@ -26,7 +26,7 @@ public class eventChangeHelper {
 		}
 	}
 	//查询事件回调接口
-	public static String getEventChange(String accessToken) throws OApiException{
+	public static String getEventChange(String accessToken) throws OApiException {
 		String url = Env.OAPI_HOST + "/call_back/get_call_back?" +
 				"access_token=" + accessToken;
 		JSONObject response = HttpHelper.httpGet(url);

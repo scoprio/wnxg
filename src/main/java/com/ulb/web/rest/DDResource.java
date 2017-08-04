@@ -20,30 +20,29 @@ import com.ulb.web.utils.aes.DingTalkEncryptor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Created by wangpeng on 02/08/2017.
  */
+
+@Controller
+@RequestMapping("ulb")
 public class DDResource {
 
     private static final Logger logger = LoggerFactory.getLogger(DDResource.class);
 
     @ResponseBody
-    @RequestMapping(value = "callback")
+    @RequestMapping(value = "/callback")
     public Object callBack(HttpServletRequest request, HttpServletResponse response) throws Exception{
-        /** url中的签名 **/
         String msgSignature = request.getParameter("signature");
         /** url中的时间戳 **/
         String timeStamp = request.getParameter("timestamp");
         /** url中的随机字符串 **/
         String nonce = request.getParameter("nonce");
-        logger.info("请求来的参数：==========");
-        logger.info("msgSignature:"+msgSignature);
-        logger.info("timestamp:"+timeStamp);
-        logger.info("nonce:"+nonce);
-        logger.info("=======================");
+
         /** post数据包数据中的加密数据 **/
         ServletInputStream sis = request.getInputStream();
         BufferedReader br = new BufferedReader(new InputStreamReader(sis));
@@ -53,11 +52,11 @@ public class DDResource {
             sb.append(line);
         }
 
-		/*post数据包数据中的加密数据转换成JSON对象，JSON对象的格式如下
-		 *  {
-    	 *	"encrypt":"1ojQf0NSvw2WPvW7LijxS8UvISr8pdDP+rXpPbcLGOmIBNbWetRg7IP0vdhVgkVwSoZBJeQwY2zhROsJq/HJ+q6tp1qhl9L1+ccC9ZjKs1wV5bmA9NoAWQiZ+7MpzQVq+j74rJQljdVyBdI/dGOvsnBSCxCVW0ISWX0vn9lYTuuHSoaxwCGylH9xRhYHL9bRDskBc7bO0FseHQQasdfghjkl"
-		 *	}
-		 */
+			/*post数据包数据中的加密数据转换成JSON对象，JSON对象的格式如下
+			 *  {
+	    	 *	"encrypt":"1ojQf0NSvw2WPvW7LijxS8UvISr8pdDP+rXpPbcLGOmIBNbWetRg7IP0vdhVgkVwSoZBJeQwY2zhROsJq/HJ+q6tp1qhl9L1+ccC9ZjKs1wV5bmA9NoAWQiZ+7MpzQVq+j74rJQljdVyBdI/dGOvsnBSCxCVW0ISWX0vn9lYTuuHSoaxwCGylH9xRhYHL9bRDskBc7bO0FseHQQasdfghjkl"
+			 *	}
+			 */
         JSONObject jsonEncrypt = JSONObject.parseObject(sb.toString());
         String encrypt = "";
 

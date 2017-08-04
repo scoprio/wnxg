@@ -86,17 +86,10 @@ public class DingTalkEncryptor {
      */
     public String getDecryptMsg(String msgSignature, String timeStamp, String nonce, String encryptMsg)throws DingTalkEncryptException {
         //校验签名
-    	System.out.println("校验签名==============");
-    	System.out.println("token:"+token);
-    	System.out.println("timeStamp:"+timeStamp);
-    	System.out.println("nonce:"+nonce);
-    	System.out.println("encryptMsg:"+encryptMsg);
         String signature = getSignature(token, timeStamp, nonce, encryptMsg);
-        System.out.println("signature:"+signature);
-        System.out.println("校验签名==============");
-//        if (!signature.equals(msgSignature)) {
-//            throw new DingTalkEncryptException(DingTalkEncryptException.COMPUTE_SIGNATURE_ERROR);
-//        }
+        if (!signature.equals(msgSignature)) {
+            throw new DingTalkEncryptException(DingTalkEncryptException.COMPUTE_SIGNATURE_ERROR);
+        }
         // 解密
         String result = decrypt(encryptMsg);
         return result;
@@ -140,7 +133,7 @@ public class DingTalkEncryptor {
      * @param text 需要解密的密文
      * @return 解密得到的明文
      */
-    public String decrypt(String text) throws DingTalkEncryptException {
+    private String decrypt(String text) throws DingTalkEncryptException {
         byte[] originalArr;
         try {
             // 设置解密模式为AES的CBC模式
@@ -153,7 +146,6 @@ public class DingTalkEncryptor {
             // 解密
             originalArr = cipher.doFinal(encrypted);
         } catch (Exception e) {
-        	e.printStackTrace();
             throw new DingTalkEncryptException(DingTalkEncryptException.COMPUTE_DECRYPT_TEXT_ERROR);
         }
 
@@ -168,7 +160,6 @@ public class DingTalkEncryptor {
             plainText = new String(Arrays.copyOfRange(bytes, 20, 20 + plainTextLegth), CHARSET);
             fromCorpid = new String(Arrays.copyOfRange(bytes, 20 + plainTextLegth, bytes.length), CHARSET);
         } catch (Exception e) {
-        	e.printStackTrace();
             throw new DingTalkEncryptException(DingTalkEncryptException.COMPUTE_DECRYPT_TEXT_LENGTH_ERROR);
         }
 

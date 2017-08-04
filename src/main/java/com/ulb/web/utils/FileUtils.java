@@ -11,9 +11,10 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.lang.StringUtils;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+
+import org.apache.http.util.TextUtils;
 
 public class FileUtils {
 	public static final String FILEPATH = "Permanent_Data";
@@ -104,7 +105,7 @@ public class FileUtils {
 			return null;
 		}
 	}
-   public static HashMap<Long, Long> toHashMap(JSONObject js)  
+   public static HashMap<Long, Long> toHashMap(JSONObject js)
    {  
 	   if(js == null){
 		   return null;
@@ -121,7 +122,7 @@ public class FileUtils {
            
            String value = js.getString(key);
            Long valueLong;
-           if(StringUtils.isEmpty(value)){
+           if(TextUtils.isEmpty(value)){
         	  valueLong = js.getLong(key);
            }else{
 	          valueLong = Long.valueOf(value);

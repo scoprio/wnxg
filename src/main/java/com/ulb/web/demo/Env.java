@@ -24,9 +24,9 @@ public class Env {
 	public static String agentid = Global.getConfig("QF_AGENTID");
 
 	public static final String CREATE_SUITE_KEY = "suite4xxxxxxxxxxxxxxx";
-	public static final String SUITE_KEY = Global.getConfig("QF_SUITE_KEY");   //"suitem7fcieglwwbzkdoj";
-	public static final String SUITE_SECRET = Global.getConfig("QF_SUITE_SECRET");   //"TzitXxO_W-bHIb1ukLHSaO5S1aZmS0w-WiLEVHf7xZID9aVI93P8nl_MehIqnUYc";
-	public static final String TOKEN = Global.getConfig("QF_TOKEN");   //"qingwawangzi";
-	public static final String ENCODING_AES_KEY = Global.getConfig("QF_ENCODING_AES_KEY");   //"70876zr9h6j9d4j70ec8fm04rervuhrebo4bbgao8jh";
+	public static final String SUITE_KEY = "";   //"suitem7fcieglwwbzkdoj";
+	public static final String SUITE_SECRET = "";   //"TzitXxO_W-bHIb1ukLHSaO5S1aZmS0w-WiLEVHf7xZID9aVI93P8nl_MehIqnUYc";
+	public static final String TOKEN = "wnxg20170801";//Global.getConfig("QF_TOKEN");   //"qingwawangzi";
+	public static final String ENCODING_AES_KEY = "u6itksu7i3oroy9ot1uor526c4zor522j3cupqax6sq";//Global.getConfig("QF_ENCODING_AES_KEY");   //"70876zr9h6j9d4j70ec8fm04rervuhrebo4bbgao8jh";
 	
 }

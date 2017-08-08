@@ -35,7 +35,7 @@ public class DDResource {
     private static final Logger logger = LoggerFactory.getLogger(DDResource.class);
 
     @ResponseBody
-    @RequestMapping(value = "/callback")
+    @RequestMapping(value = "/callback.shtml")
     public Object callBack(HttpServletRequest request, HttpServletResponse response) throws Exception{
         String msgSignature = request.getParameter("signature");
         /** url中的时间戳 **/
@@ -119,6 +119,8 @@ public class DDResource {
 		 *  不同的eventType的明文数据格式不同
 		 */
         JSONObject plainTextJson = JSONObject.parseObject(plainText);
+
+
         String eventType = plainTextJson.getString("EventType");
 		/* res是需要返回给钉钉服务器的字符串，一般为success
 		 * "check_create_suite_url"和"check_update_suite_url"事件为random字段
@@ -136,7 +138,9 @@ public class DDResource {
 				  "SuiteTicket": "adsadsad"
 				}
 			 */
-                Env.suiteTicket = plainTextJson.getString("SuiteTicket");
+                String  suiteTicket = plainTextJson.getString("SuiteTicket");
+
+                logger.info("最重要的东西 SuiteTicket："+ suiteTicket);
                 //获取到suiteTicket之后需要换取suiteToken，
                 String suiteToken = ServiceHelper.getSuiteToken(Env.SUITE_KEY, Env.SUITE_SECRET, Env.suiteTicket);
 			/*
@@ -188,7 +192,7 @@ public class DDResource {
 			 * access_token的过期时间为两个小时
 			 */
                 try {
-                    AuthHelper.getAccessToken();
+                    AuthHelper.getAccessToken(corpId);
 //				String accToken = null;
 //				String url = Env.OAPI_HOST + "/service/get_corp_token?" + "suite_access_token="
 //						+ FileUtils.getValue("ticket", "suiteToken");

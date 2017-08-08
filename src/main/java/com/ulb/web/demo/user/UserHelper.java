@@ -1,24 +1,25 @@
 package com.ulb.web.demo.user;
+
 import java.util.List;
 import java.util.Map;
 
+import com.alibaba.dingtalk.openapi.demo.Env;
+import com.alibaba.dingtalk.openapi.demo.OApiException;
+import com.alibaba.dingtalk.openapi.demo.utils.FileUtils;
+import com.alibaba.dingtalk.openapi.demo.utils.HttpHelper;
 import com.alibaba.fastjson.JSONObject;
 import com.dingtalk.open.client.ServiceFactory;
 import com.dingtalk.open.client.api.model.corp.CorpUserDetail;
 import com.dingtalk.open.client.api.model.corp.CorpUserDetailList;
 import com.dingtalk.open.client.api.model.corp.CorpUserList;
 import com.dingtalk.open.client.api.service.corp.CorpUserService;
-import com.ulb.web.demo.Env;
-import com.ulb.web.demo.OApiException;
-import com.ulb.web.utils.FileUtils;
-import com.ulb.web.utils.HttpHelper;
 
 public class UserHelper {
 
 	//创建成员
 	public static void createUser(String accessToken,CorpUserDetail userDetail) throws Exception {
 		CorpUserService corpUserService = ServiceFactory.getInstance().getOpenService(CorpUserService.class);
-		JSONObject js = (JSONObject)JSONObject.parse(userDetail.getOrderInDepts());
+		JSONObject js = (JSONObject) JSONObject.parse(userDetail.getOrderInDepts());
 		Map<Long, Long> orderInDepts = FileUtils.toHashMap(js);
 		
 		corpUserService.createCorpUser(accessToken, userDetail.getUserid(), userDetail.getName(), orderInDepts,
@@ -36,7 +37,7 @@ public class UserHelper {
 	//更新成员
 	public static void updateUser( String accessToken,CorpUserDetail userDetail) throws Exception {
 		CorpUserService corpUserService = ServiceFactory.getInstance().getOpenService(CorpUserService.class);
-		JSONObject js = (JSONObject)JSONObject.parse(userDetail.getOrderInDepts());
+		JSONObject js = (JSONObject) JSONObject.parse(userDetail.getOrderInDepts());
 		Map<Long, Long> orderInDepts = FileUtils.toHashMap(js);
 		
 		
@@ -107,15 +108,13 @@ public class UserHelper {
 				offset, size, order);
 	}
 
-
-	//TODO
-//	public static CorpUserBaseInfo getUserInfo(String accessToken, String code) throws Exception{
-//
-//		CorpUserService corpUserService = ServiceFactory.getInstance().getOpenService(CorpUserService.class);
-//		return corpUserService.getUserinfo(accessToken, code);
-//	}
+	public static CorpUserDetail getUserInfo(String accessToken, String code) throws Exception{
+		
+		CorpUserService corpUserService = ServiceFactory.getInstance().getOpenService(CorpUserService.class);
+		return corpUserService.getUserinfo(accessToken, code);
+	}
 	
-	public static JSONObject getAgentUserInfo(String ssoToken, String code) throws OApiException {
+	public static JSONObject getAgentUserInfo(String ssoToken, String code) throws OApiException  {
 		
 		String url = Env.OAPI_HOST + "/sso/getuserinfo?" + "access_token=" + ssoToken + "&code=" + code;
 		JSONObject response = HttpHelper.httpGet(url);

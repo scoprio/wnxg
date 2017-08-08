@@ -5,24 +5,24 @@ import java.net.URLDecoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Formatter;
 import java.util.Timer;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.alibaba.dingtalk.openapi.demo.Env;
+import com.alibaba.dingtalk.openapi.demo.OApiException;
+import com.alibaba.dingtalk.openapi.demo.OApiResultException;
+import com.alibaba.dingtalk.openapi.demo.utils.FileUtils;
+import com.alibaba.dingtalk.openapi.demo.utils.HttpHelper;
+import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.dingtalk.open.client.ServiceFactory;
 import com.dingtalk.open.client.api.model.corp.JsapiTicket;
-import com.dingtalk.open.client.api.service.corp.CorpConnectionService;
+import com.dingtalk.open.client.api.model.isv.CorpAuthToken;
 import com.dingtalk.open.client.api.service.corp.JsapiService;
-import com.dingtalk.open.client.common.SdkInitException;
-import com.dingtalk.open.client.common.ServiceException;
-import com.dingtalk.open.client.common.ServiceNotExistException;
-import com.ulb.web.demo.Env;
-import com.ulb.web.demo.OApiException;
-import com.ulb.web.demo.OApiResultException;
-import com.ulb.web.utils.FileUtils;
-import com.ulb.web.utils.HttpHelper;
+import com.dingtalk.open.client.api.service.isv.IsvService;
 
 public class AuthHelper {
 
@@ -45,25 +45,32 @@ public class AuthHelper {
 	 * 注：jsapi_ticket是在前端页面JSAPI做权限验证配置的时候需要使用的
 	 * 具体信息请查看开发者文档--权限验证配置
 	 */
-	public static String getAccessToken() throws OApiException {
+	public static String getAccessToken(String corpId) throws Exception {
 		long curTime = System.currentTimeMillis();
-		JSONObject accessTokenValue = (JSONObject) FileUtils.getValue("accesstoken", Env.CORP_ID);
+		JSONObject accessTokenValue = (JSONObject) FileUtils.getValue("accesstoken", corpId);
 		String accToken = "";
 		String jsTicket = "";
 		JSONObject jsontemp = new JSONObject();
 		if (accessTokenValue == null || curTime - accessTokenValue.getLong("begin_time") >= cacheTime) {
-			try
-			{
 			ServiceFactory serviceFactory = ServiceFactory.getInstance();
-	        CorpConnectionService corpConnectionService = serviceFactory.getOpenService(CorpConnectionService.class);
-	        accToken = corpConnectionService.getCorpToken(Env.CORP_ID, Env.CORP_SECRET);
-			// save accessToken
-			JSONObject jsonAccess = new JSONObject();
-			jsontemp.clear();
-			jsontemp.put("access_token", accToken);
-			jsontemp.put("begin_time", curTime);
-			jsonAccess.put(Env.CORP_ID, jsontemp);
-			FileUtils.write2File(jsonAccess, "accesstoken");
+
+			IsvService isvService = serviceFactory.getOpenService(IsvService.class);
+			CorpAuthToken corpAuthToken = isvService.getCorpToken((String)FileUtils.getValue("ticket", "suiteToken"), 
+					corpId,(String)FileUtils.getValue("permanentcode", corpId));
+			
+			if (corpAuthToken.getAccess_token() != null) {
+				// save accessToken
+				accToken = corpAuthToken.getAccess_token();
+				JSONObject jsonAccess = new JSONObject();
+				jsontemp.clear();
+				jsontemp.put("access_token", accToken);
+				jsontemp.put("begin_time", curTime);
+				jsonAccess.put(corpId, jsontemp);
+
+				FileUtils.write2File(jsonAccess, "accesstoken");
+			} else {
+				throw new OApiResultException("access_token");
+			}
 			
 			if(accToken.length() > 0){
 				
@@ -71,23 +78,14 @@ public class AuthHelper {
 
 				JsapiTicket JsapiTicket = jsapiService.getJsapiTicket(accToken, "jsapi");
 				jsTicket = JsapiTicket.getTicket();
+				
 				JSONObject jsonTicket = new JSONObject();
 				jsontemp.clear();
 				jsontemp.put("ticket", jsTicket);
 				jsontemp.put("begin_time", curTime);
-				jsonTicket.put(Env.CORP_ID, jsontemp);
+				jsonTicket.put(corpId, jsontemp);
 				FileUtils.write2File(jsonTicket, "jsticket");
 			}
-		} catch (SdkInitException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ServiceException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ServiceNotExistException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 		} else {
 			return accessTokenValue.getString("access_token");
@@ -97,38 +95,29 @@ public class AuthHelper {
 	}
 
 	// 正常的情况下，jsapi_ticket的有效期为7200秒，所以开发者需要在某个地方设计一个定时器，定期去更新jsapi_ticket
-	public static String getJsapiTicket(String accessToken) throws OApiException {
-		JSONObject jsTicketValue = (JSONObject) FileUtils.getValue("jsticket", Env.CORP_ID);
+	public static String getJsapiTicket(String accessToken, String corpId) throws Exception {
+		JSONObject jsTicketValue = (JSONObject) FileUtils.getValue("jsticket", corpId);
 		long curTime = System.currentTimeMillis();
 		String jsTicket = "";
 
 		 if (jsTicketValue == null || curTime -
 		 jsTicketValue.getLong("begin_time") >= cacheTime) {
-			ServiceFactory serviceFactory;
-			try {
-				serviceFactory = ServiceFactory.getInstance();
-				JsapiService jsapiService = serviceFactory.getOpenService(JsapiService.class);
+				ServiceFactory serviceFactory;
+				
+			serviceFactory = ServiceFactory.getInstance();
+			JsapiService jsapiService = serviceFactory.getOpenService(JsapiService.class);
 
-				JsapiTicket JsapiTicket = jsapiService.getJsapiTicket(accessToken, "jsapi");
-				jsTicket = JsapiTicket.getTicket();
+			JsapiTicket JsapiTicket = jsapiService.getJsapiTicket(accessToken, "jsapi");
+			jsTicket = JsapiTicket.getTicket();
+			
+			JSONObject jsonTicket = new JSONObject();
+			JSONObject jsontemp = new JSONObject();
+			jsontemp.clear();
+			jsontemp.put("ticket", jsTicket);
+			jsontemp.put("begin_time", curTime);
+			jsonTicket.put(corpId, jsontemp);
+			FileUtils.write2File(jsonTicket, "jsticket");
 
-				JSONObject jsonTicket = new JSONObject();
-				JSONObject jsontemp = new JSONObject();
-				jsontemp.clear();
-				jsontemp.put("ticket", jsTicket);
-				jsontemp.put("begin_time", curTime);
-				jsonTicket.put(Env.CORP_ID, jsontemp);
-				FileUtils.write2File(jsonTicket, "jsticket");
-			} catch (SdkInitException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ServiceException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ServiceNotExistException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			return jsTicket;
 		 } else {
 			 return jsTicketValue.getString("ticket");
@@ -164,6 +153,13 @@ public class AuthHelper {
 		String urlString = request.getRequestURL().toString();
 		String queryString = request.getQueryString();
 
+		// todo
+		String corpId = request.getParameter("corpid");
+		String appId = request.getParameter("appid");
+
+		System.out.println(df.format(new Date())+
+				" getconfig,url:" + urlString + " query:" + queryString + " corpid:" + corpId + " appid:" + appId);
+
 		String queryStringEncode = null;
 		String url;
 		if (queryString != null) {
@@ -172,7 +168,7 @@ public class AuthHelper {
 		} else {
 			url = urlString;
 		}
-		
+		System.out.println(url);
 		String nonceStr = "abcdefg";
 		long timeStamp = System.currentTimeMillis() / 1000;
 		String signedUrl = url;
@@ -182,22 +178,45 @@ public class AuthHelper {
 		String agentid = null;
 
 		try {
-			accessToken = AuthHelper.getAccessToken();
-	       
-			ticket = AuthHelper.getJsapiTicket(accessToken);
+			accessToken = AuthHelper.getAccessToken(corpId);
+			ticket = AuthHelper.getJsapiTicket(accessToken, corpId);
 			signature = AuthHelper.sign(ticket, nonceStr, timeStamp, signedUrl);
-			agentid = "";
-			
-		} catch (OApiException  e) {
+			agentid = AuthHelper.getAgentId(corpId, appId);
+
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String configValue = "{jsticket:'" + ticket + "',signature:'" + signature + "',nonceStr:'" + nonceStr + "',timeStamp:'"
-		+ timeStamp + "',corpId:'" + Env.CORP_ID + "',agentid:'" + agentid+  "'}";
-		System.out.println(configValue);
-		return configValue;
+
+		return "{jsticket:'" + ticket + "',signature:'" + signature + "',nonceStr:'" + nonceStr + "',timeStamp:'"
+				+ timeStamp + "',corpId:'" + corpId + "',agentid:'" + agentid+ "',appid:'" + appId + "'}";
 	}
 
+	public static String getAgentId(String corpId, String appId) throws OApiException {
+		String agentId = null;
+		String accessToken = FileUtils.getValue("ticket", "suiteToken").toString();
+		String url = "https://oapi.dingtalk.com/service/get_auth_info?suite_access_token=" + accessToken;
+		JSONObject args = new JSONObject();
+		args.put("suite_key", Env.SUITE_KEY);
+		args.put("auth_corpid", corpId);
+		args.put("permanent_code", FileUtils.getValue("permanentcode", corpId));
+		JSONObject response = HttpHelper.httpPost(url, args);
+
+		if (response.containsKey("auth_info")) {
+			JSONArray agents = (JSONArray) ((JSONObject) response.get("auth_info")).get("agent");
+
+			for (int i = 0; i < agents.size(); i++) {
+
+				if (((JSONObject) agents.get(i)).get("appid").toString().equals(appId)) {
+					agentId = ((JSONObject) agents.get(i)).get("agentid").toString();
+					break;
+				}
+			}
+		} else {
+			throw new OApiResultException("agentid");
+		}
+		return agentId;
+	}
 
 	public static String getSsoToken() throws OApiException {
 		String url = "https://oapi.dingtalk.com/sso/gettoken?corpid=" + Env.CORP_ID + "&corpsecret=" + Env.SSO_Secret;

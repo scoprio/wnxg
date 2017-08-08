@@ -1,32 +1,25 @@
 package com.ulb.web.demo;
 
 
-import com.ulb.web.config.Global;
 
 public class Env {
 	
 	public static final String OAPI_HOST = "https://oapi.dingtalk.com";
 	public static final String OA_BACKGROUND_URL = ""; 
-	public static final String CORP_ID = Global.getConfig("QF_CORP_ID");   //"ding83eec6969bab9bce35c2f4657eb6378f";
-	 
-	public static final String CORP_SECRET = Global.getConfig("QF_CORP_SECRET");   //"hWdnDeArrSHcEuYdbUK6Ua1XzyIz1LzlH8HGHegjQBAmbTK9hPBo2sco6M9q9bbj";
-	public static final String SSO_Secret = Global.getConfig("QF_SSO_Secret");   //"iMnW0U3hlzIrPDCl3lSg2cvrt9dxmgbmIYVAF9XYhnuhOAVXrXsiGqD4Uduvw0uw";
+	public static final String CORP_ID = "ding1357db912fad244f";
+	
+	public static final String SECRET = "";
+	public static final String SSO_Secret = "";
 
 	
-	public static String suiteTicket = "";
-	public static String authCode = ""; 
-	public static String suiteToken = ""; 
-	public static String access_token = ""; 
-	public static String jsapi_ticket = "";
-	public static long timeStamp = 0;
-	public static String nonceStr = "WNXGdingdingQF";
-	public static String signature = "";
-	public static String agentid = Global.getConfig("QF_AGENTID");
+	public static String suiteTicket; 
+	public static String authCode; 
+	public static String suiteToken; 
 
 	public static final String CREATE_SUITE_KEY = "suite4xxxxxxxxxxxxxxx";
-	public static final String SUITE_KEY = "";   //"suitem7fcieglwwbzkdoj";
-	public static final String SUITE_SECRET = "";   //"TzitXxO_W-bHIb1ukLHSaO5S1aZmS0w-WiLEVHf7xZID9aVI93P8nl_MehIqnUYc";
-	public static final String TOKEN = "wnxg20170801";//Global.getConfig("QF_TOKEN");   //"qingwawangzi";
-	public static final String ENCODING_AES_KEY = "u6itksu7i3oroy9ot1uor526c4zor522j3cupqax6sq";//Global.getConfig("QF_ENCODING_AES_KEY");   //"70876zr9h6j9d4j70ec8fm04rervuhrebo4bbgao8jh";
+	public static final String SUITE_KEY = "";
+	public static final String SUITE_SECRET = "";
+	public static final String TOKEN = "";
+	public static final String ENCODING_AES_KEY = "";
 	
 }

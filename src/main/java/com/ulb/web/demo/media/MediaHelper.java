@@ -1,12 +1,13 @@
 package com.ulb.web.demo.media;
 
 import java.io.File;
+
+import com.alibaba.dingtalk.openapi.demo.Env;
+import com.alibaba.dingtalk.openapi.demo.utils.HttpHelper;
 import com.alibaba.fastjson.JSONObject;
 import com.dingtalk.open.client.ServiceFactory;
 import com.dingtalk.open.client.api.model.corp.UploadResult;
 import com.dingtalk.open.client.api.service.corp.MediaService;
-import com.ulb.web.demo.Env;
-import com.ulb.web.utils.HttpHelper;
 
 public class MediaHelper {
 	
@@ -29,16 +30,6 @@ public class MediaHelper {
 		UploadResult uploadResult = mediaService.uploadMediaFile(accessToken, type, file);
 		
 		return uploadResult;
-//		String url = Env.OAPI_HOST + "/media/upload?" +
-//				"access_token=" + accessToken + "&type="  + type;
-//		JSONObject response = HttpHelper.uploadMedia(url, file);
-//		if (!response.containsKey("type") || !response.containsKey("media_id") || 
-//				response.containsKey("created_at")) {
-//			return JSON.parseObject(response.toJSONString(), MediaUploadResult.class);
-//		}
-//		else {
-//			throw new OApiResultException("type or media_id or create_at");
-//		}
 	}
 	
 	

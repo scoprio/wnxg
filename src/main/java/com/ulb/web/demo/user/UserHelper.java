@@ -2,17 +2,16 @@ package com.ulb.web.demo.user;
 
 import java.util.List;
 import java.util.Map;
-
-import com.alibaba.dingtalk.openapi.demo.Env;
-import com.alibaba.dingtalk.openapi.demo.OApiException;
-import com.alibaba.dingtalk.openapi.demo.utils.FileUtils;
-import com.alibaba.dingtalk.openapi.demo.utils.HttpHelper;
 import com.alibaba.fastjson.JSONObject;
 import com.dingtalk.open.client.ServiceFactory;
 import com.dingtalk.open.client.api.model.corp.CorpUserDetail;
 import com.dingtalk.open.client.api.model.corp.CorpUserDetailList;
 import com.dingtalk.open.client.api.model.corp.CorpUserList;
 import com.dingtalk.open.client.api.service.corp.CorpUserService;
+import com.ulb.web.demo.Env;
+import com.ulb.web.demo.OApiException;
+import com.ulb.web.demo.utils.FileUtils;
+import com.ulb.web.demo.utils.HttpHelper;
 
 public class UserHelper {
 
@@ -114,7 +113,7 @@ public class UserHelper {
 		return corpUserService.getUserinfo(accessToken, code);
 	}
 	
-	public static JSONObject getAgentUserInfo(String ssoToken, String code) throws OApiException  {
+	public static JSONObject getAgentUserInfo(String ssoToken, String code) throws OApiException {
 		
 		String url = Env.OAPI_HOST + "/sso/getuserinfo?" + "access_token=" + ssoToken + "&code=" + code;
 		JSONObject response = HttpHelper.httpGet(url);

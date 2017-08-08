@@ -10,12 +10,6 @@ import java.util.Formatter;
 import java.util.Timer;
 
 import javax.servlet.http.HttpServletRequest;
-
-import com.alibaba.dingtalk.openapi.demo.Env;
-import com.alibaba.dingtalk.openapi.demo.OApiException;
-import com.alibaba.dingtalk.openapi.demo.OApiResultException;
-import com.alibaba.dingtalk.openapi.demo.utils.FileUtils;
-import com.alibaba.dingtalk.openapi.demo.utils.HttpHelper;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.dingtalk.open.client.ServiceFactory;
@@ -23,6 +17,11 @@ import com.dingtalk.open.client.api.model.corp.JsapiTicket;
 import com.dingtalk.open.client.api.model.isv.CorpAuthToken;
 import com.dingtalk.open.client.api.service.corp.JsapiService;
 import com.dingtalk.open.client.api.service.isv.IsvService;
+import com.ulb.web.demo.Env;
+import com.ulb.web.demo.OApiException;
+import com.ulb.web.demo.OApiResultException;
+import com.ulb.web.demo.utils.FileUtils;
+import com.ulb.web.demo.utils.HttpHelper;
 
 public class AuthHelper {
 
@@ -218,17 +217,17 @@ public class AuthHelper {
 		return agentId;
 	}
 
-	public static String getSsoToken() throws OApiException {
-		String url = "https://oapi.dingtalk.com/sso/gettoken?corpid=" + Env.CORP_ID + "&corpsecret=" + Env.SSO_Secret;
-		JSONObject response = HttpHelper.httpGet(url);
-		String ssoToken;
-		if (response.containsKey("access_token")) {
-			ssoToken = response.getString("access_token");
-		} else {
-			throw new OApiResultException("Sso_token");
-		}
-		return ssoToken;
-
-	}
+//	public static String getSsoToken() throws OApiException {
+//		String url = "https://oapi.dingtalk.com/sso/gettoken?corpid=" + Env.CORP_ID + "&corpsecret=" + Env.SSO_Secret;
+//		JSONObject response = HttpHelper.httpGet(url);
+//		String ssoToken;
+//		if (response.containsKey("access_token")) {
+//			ssoToken = response.getString("access_token");
+//		} else {
+//			throw new OApiResultException("Sso_token");
+//		}
+//		return ssoToken;
+//
+//	}
 
 }

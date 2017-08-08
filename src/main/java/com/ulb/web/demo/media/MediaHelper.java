@@ -2,12 +2,12 @@ package com.ulb.web.demo.media;
 
 import java.io.File;
 
-import com.alibaba.dingtalk.openapi.demo.Env;
-import com.alibaba.dingtalk.openapi.demo.utils.HttpHelper;
 import com.alibaba.fastjson.JSONObject;
 import com.dingtalk.open.client.ServiceFactory;
 import com.dingtalk.open.client.api.model.corp.UploadResult;
 import com.dingtalk.open.client.api.service.corp.MediaService;
+import com.ulb.web.demo.Env;
+import com.ulb.web.demo.utils.HttpHelper;
 
 public class MediaHelper {
 	

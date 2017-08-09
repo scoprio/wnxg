@@ -41,7 +41,10 @@
 				<targetPath>lib/</targetPath>
 				<directory>lib/</directory>
 				<includes>
-					<include>**/*.jar</include>
+					<include>client-sdk.api-1.0.0.jar</include>
+					<include>client-sdk.core-1.0.0.jar</include>
+					<include>client-sdk.common-1.0.0.jar</include>
+					<include>client-sdk.spring-1.0.0.jar</include>
 				</includes>
 			</resource>
 
@@ -359,10 +362,28 @@
 		<!-- /Spring 升级4+ 依赖的JSON包 -->
 
 		<!-- dingding  -->
+
+		<dependency>
+			<groupId>com.ning</groupId>
+			<artifactId>async-http-client</artifactId>
+			<version>1.9.30</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpmime</artifactId>
+			<version>4.5.1</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.dingtalk.open</groupId>
 			<artifactId>client-sdk.api</artifactId>
-			<version>1.0.0</version>
+			<version>=</version>
 			<scope>system</scope>
 			<systemPath>${project.basedir}/src/main/resources/lib/client-sdk.api-1.0.0.jar</systemPath>
 		</dependency>
@@ -390,16 +411,8 @@
 			<scope>system</scope>
 			<systemPath>${project.basedir}/src/main/resources/lib/client-sdk.spring-1.0.0.jar</systemPath>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.5.3</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpmime</artifactId>
-			<version>4.5.1</version>
-		</dependency>
+
+
 
 	</dependencies>
 </project>

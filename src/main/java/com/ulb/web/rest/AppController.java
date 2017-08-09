@@ -40,4 +40,15 @@ public class AppController {
         return new ResponseEntity<>(serverInfoDTO, HttpStatus.OK);
     }
 
+
+    @RequestMapping(value = "/serverInfo.shtml",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+
+    public ResponseEntity<Void> getInfo(@RequestBody ServerDTO serverDTO) {
+        LOGGER.debug("REST request to post Server Info:"+ serverDTO.getPort());
+        LOGGER.debug("REST request to post Server Info:"+ serverDTO.getServerName());
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 }

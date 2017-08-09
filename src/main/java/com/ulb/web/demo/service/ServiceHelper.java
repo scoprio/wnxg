@@ -12,7 +12,7 @@ public class ServiceHelper {
 	
 	public static String getSuiteToken(String suite_key, String suite_secret,String suite_ticket) throws Exception{
 		
-		ServiceFactory serviceFactory = ServiceFactory.getInstance();
+ 		ServiceFactory serviceFactory = ServiceFactory.getInstance();
 		IsvService isvService = serviceFactory.getOpenService(IsvService.class);
 
 		SuiteToken suiteToken= isvService.getSuiteToken(suite_key, suite_secret, suite_ticket);

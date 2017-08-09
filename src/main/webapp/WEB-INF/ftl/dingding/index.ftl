@@ -2,7 +2,7 @@
 <html lang="zh-cn">
 	<head>
 		<meta charset="utf-8" />
-		<title>${token.nickname} —个人中心</title>
+		<title></title>
 		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
 		<link   rel="icon" href="${basePath}/favicon.ico" type="image/x-icon" />
 		<link   rel="shortcut icon" href="${basePath}/favicon.ico" />
@@ -32,9 +32,20 @@
 	<body data-target="#one" data-spy="scroll">
 
 		<br>
+
+
+        <table class="table table-bordered">
+            <tr>
+                <th>授权方Id</th>
+                <td>${_config.agentId}</td>
+            </tr>
+            <tr>
+                <th>授权方CropId</th>
+                <td>${_config.corpId}</td>
+            </tr>
+        </table>
 		<div style="padding-left:10px;">&nbsp;&nbsp;&nbsp;&nbsp;欢迎您：<div id="userName" style="display:inline-block;font-weight:bold"></div>&nbsp;成为钉钉开发者，您当前在钉钉的<code>userId</code>为：
 			<div id="userId" style="display:inline-block;font-weight:bold"></div> 。</div>
-		<div style="padding-left:10px;">&nbsp;&nbsp;&nbsp;&nbsp;我们为您提供了文档＋<code>api</code>帮助您快速的开发微应用并接入钉钉。</div>
 		<br>
 		<ul>
 			<li>

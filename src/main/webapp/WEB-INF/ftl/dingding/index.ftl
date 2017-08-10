@@ -8,14 +8,13 @@
 		<link   rel="shortcut icon" href="${basePath}/favicon.ico" />
 		<link href="${basePath}/js/common/bootstrap/3.3.5/css/bootstrap.min.css?${_v}" rel="stylesheet"/>
 		<link href="${basePath}/css/common/base.css?${_v}" rel="stylesheet"/>
-
-		<script  src="${basePath}/js/common/jquery/jquery1.8.3.min.js"></script>
-		<script  src="${basePath}/js/common/layer/layer.js"></script>
-		<script  src="${basePath}/js/common/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-        <script  src="${basePath}/js/dingding.demo.js"></script>
-
         <script>
+            var _config = {"agentId":'${_config.agentId}',
+							"corpId":'${_config.corpId}',
+			                "timeStamp":'${_config.timeStamp}',
+							"nonceStr":'${_config.nonceStr}',
+							"signature":'${_config.signature}'
+							}
             function openLink(url){
                 dd.biz.util.openLink({
 					 url:url,
@@ -26,8 +25,13 @@
 					 }
 				 });
             }
-
         </script>
+		<script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
+		<script  src="${basePath}/js/common/jquery/jquery1.8.3.min.js"></script>
+		<script  src="${basePath}/js/common/layer/layer.js"></script>
+		<script  src="${basePath}/js/common/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+        <script  src="${basePath}/js/dingding.demo.js"></script>
 	</head>
 	<body data-target="#one" data-spy="scroll">
 

@@ -45,7 +45,6 @@ public class DemoResource {
         String urlString = request.getRequestURL().toString();
         String queryString = request.getQueryString();
 
-        // todo
 
         String corpId = request.getParameter("corpid");
         String appId = request.getParameter("appid");
@@ -117,7 +116,7 @@ public class DemoResource {
             e.printStackTrace();
         }
         String userJson = JSON.toJSONString(user);
-
+        LOGGER.info("access user:"+userJson);
         return new ResponseEntity<>(userJson, HttpStatus.OK);
     }
 

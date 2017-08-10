@@ -6,13 +6,12 @@
  * _config comes from server-side template. see views/index.jade
  */
 
-var baseUrl = $("script[baseUrl]").attr('baseUrl');
 dd.config({
-			agentId :'${_config.agentId}',
-			corpId : '${_config.corpId}',
-			timeStamp : '${_config.timeStamp}',
-			nonceStr : '${_config.nonceStr}',
-			signature : '${_config.signature}',
+			agentId :_config.agentId,
+			corpId : _config.corpId,
+			timeStamp : _config.timeStamp,
+			nonceStr : _config.nonceStr,
+			signature : _config.signature,
 			type : 0,
 			jsApiList : [ 'runtime.info', 'biz.contact.choose',
 					'device.notification.confirm', 'device.notification.alert',
@@ -85,19 +84,18 @@ dd.ready(function() {
 
 
 	dd.runtime.permission.requestAuthCode({
-		corpId : '${_config.corpId}',
+		corpId : _config.corpId,
 		onSuccess : function(info) {
-//			alert('authcode: ' + info.code);
 			$.ajax({
-				url : baseUrl+'/dingding/authCode.shtml?code=' + info.code + '&corpid='
-						+ '${_config.corpId}',
+				url : '/dingding/authCode.shtml?code=' + info.code + '&corpid='
+						+ _config.corpId,
 				type : 'GET',
 				success : function(data, status, xhr) {
 					var info = JSON.parse(data);
-
+					
 					document.getElementById("userName").innerHTML = info.name;
 					document.getElementById("userId").innerHTML = info.userid;
-					
+
 					// 图片
 //					if(info.avatar.length != 0){
 //			            var img = document.getElementById("userImg");

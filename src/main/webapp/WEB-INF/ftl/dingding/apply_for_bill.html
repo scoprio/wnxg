@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>发票申请</title>
+		<link rel="stylesheet" type="text/css" href="css/reset_h5.css" />
+		<link rel="stylesheet" type="text/css" href="css/apply_for_bill.css" />
+	</head>
+
+	<body>
+		<div class="head"><input type="button" id="" value="查看开票历史" /></div>
+		<div class="has_bill" style="display: block;">
+			<form action="" method="post">
+				
+				
+			<table border="" cellspacing="" cellpadding="">
+				<tr>
+					<th>选择</th>
+					<th>下单日期</th>
+					<th>金额</th>
+					<th>支付方式</th>
+				</tr>
+				<tr>
+					<td class="pitch"></td>
+					<td>2017.06.15  15:30</td>
+					<td>280</td>
+					<td>支付宝</td>
+				</tr>
+				<tr>
+					<td class="pitch"></td>
+					<td>2017.06.15  15:30</td>
+					<td>280</td>
+					<td>支付宝</td>
+				</tr>
+				<tr>
+					<td class="pitch"></td>
+					<td>2017.06.15  15:30</td>
+					<td>280</td>
+					<td>支付宝</td>
+				</tr>
+			</table>
+			<ul>
+				<li><span>发票抬头：</span><input type="text" name="" id="" value="" /></li>
+				<li><span>企业税号：</span><input type="text" name="" id="" value="" /></li>
+				<li><span>联系人：</span><input type="text" name="" id="" value="" /></li>
+				<li><span>联系电话：</span><input type="tel" name="" id="" value="" /></li>
+				<li><span>邮寄地址：</span><input type="text" name="" id="" value="" /></li>
+			</ul>
+			<div class="submit_box">
+				<input type="button" value="提交申请" class="submit"/>
+			</div>
+			
+			</form>
+		</div>
+		<div class="nohas_bill" style="display: none;">
+			<div><img src="img/bill4.png"/></div>
+			<p>暂无订单项，没有可供开的发票</p>
+		</div>
+		<div class="notice">
+			<p class="notice_p">注意：</p>
+			<p>1、为了保证发票邮寄的安全性，公司统一选择顺丰快递，发票金额小于五百元的，快递费由客户个人承担，邮寄时选择到付；发票金额大于等于五百元的，快递费由万能小哥承担。</p>
+			<p>2、每月10号、20号为发票开具日，如遇当月申购发票用完，未能开具发票给客户，我们将于下个发票开具日为客户开具所申请的发票；</p>
+			<p>3、发票一经开具，非我司原因将无法重开，请务必仔细核对开票信息。</p>
+		</div>
+		<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$(".pitch").click(function(){
+					$(this).toggleClass('pitch_on')
+				})
+			})
+		</script>
+	</body>
+
+</html>

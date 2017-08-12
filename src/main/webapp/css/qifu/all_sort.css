@@ -1,0 +1,66 @@
+body,html{
+	height: 100%;
+	background: #fff;
+}
+.sort_left{
+	width: 1.94rem;
+	background: #f8f8f8;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.sort_left li{
+	text-align: center;
+	font-size: .28rem;
+	color: #222;
+	border-top: 1px solid #E0E0E0;
+	overflow: hidden;
+}
+.sort_left li div{
+	width: .68rem;
+	height: .68rem;
+	margin: .38rem auto .32rem;
+}
+.sort_left li p{
+	margin-bottom: .28rem;
+	font-size: .28rem;
+    color: #666;
+}
+.choosed{
+	background: #fff;
+	border-top: none !important;
+}
+.sort_right{
+	float: right;
+	width: 76%;
+}
+.sort_right .sort_r_con{
+	display: none;
+}
+.sort_right ul li{
+	overflow: hidden;
+	border-bottom: 1px solid #E0E0E0;
+}
+.sort_right .all_pic{
+	width: 1.48rem;
+	height: 1.48rem;
+	margin: .3rem;
+	float: left;
+} 
+.sort_right .all_pic img{
+	width: 100%;
+}
+.sort_right .all_price{
+	float: left;
+	margin: .3rem .3rem .3rem 0;
+}
+.all_price p:first-child{
+	color: #222;
+	font-size: .28rem;
+}
+.all_price p:last-child{
+	color: #ff943e;
+	font-size: .28rem;
+	margin-top: .6rem;
+}

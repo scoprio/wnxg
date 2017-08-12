@@ -1,0 +1,87 @@
+.search_city {
+	height: .9rem;
+	line-height: .9rem;
+	background: url(../img/city_search.png) no-repeat .3rem center;
+	background-size: 5%;
+	background-color: #fff;
+}
+
+.search_city input {
+	margin-left: .8rem;
+	width: 80%;
+	font-size: .26rem;
+}
+
+.fixed_location {
+	color: #ff943e !important;
+}
+
+.showLetter {
+	position: fixed;
+	color: #ff943e;
+	top: 50%;
+	left: 50%;
+	border-radius: 50%;
+	border: #ff943e 1px solid;
+	text-align: center;
+	display: none;
+}
+
+.showLetter span {
+	width: 1rem;
+	height: 1rem;
+	line-height: 1rem;
+	font-size: .6rem;
+}
+
+
+/*城市弹层*/
+
+.container {}
+
+.letter {
+	width: auto;
+	position: fixed;
+	top: 20%;
+	right: .2rem;
+	text-align: center;
+}
+
+.letter ul {
+	list-style-type: none;
+}
+
+.letter ul li a {
+	text-decoration: none;
+	color: #929292;
+	font-size: .26rem
+}
+
+.city {
+	overflow: hidden;
+}
+
+.city-list {
+	width: 100%;
+}
+
+.city-list .city-letter {
+	font-size: .26rem;
+	display: inline-block;
+	line-height: .38rem;
+	padding-left: .32rem;
+	box-sizing: border-box;
+	border-bottom: 1px solid #E0E0E0;
+	width: 100%;
+}
+
+.city-list p {
+	font-size: .28rem;
+	color: #222;
+	height: .88rem;
+	line-height: .88rem;
+	border-bottom: 1px solid #E0E0E0;
+	cursor: pointer;
+	background: #fff;
+	padding: 0 .3rem;
+}

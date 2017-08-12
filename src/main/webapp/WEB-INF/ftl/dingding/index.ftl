@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html>
 	<head>
-		<meta charset="utf-8" />
-		<title></title>
-		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
-		<link   rel="icon" href="${basePath}/favicon.ico" type="image/x-icon" />
-		<link   rel="shortcut icon" href="${basePath}/favicon.ico" />
-		<link href="${basePath}/js/common/bootstrap/3.3.5/css/bootstrap.min.css?${_v}" rel="stylesheet"/>
-		<link href="${basePath}/css/common/base.css?${_v}" rel="stylesheet"/>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>万能小哥</title>
+        <#--<link href="${basePath}/js/common/bootstrap/3.3.5/css/bootstrap.min.css?${_v}" rel="stylesheet"/>-->
+        <#--<link href="${basePath}/css/common/base.css?${_v}" rel="stylesheet"/>-->
+		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css" />
+		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/index.css" />
+		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/dropload.css"/>
+
         <script>
-            var _config = {"agentId":'${_config.agentId}',
-							"corpId":'${_config.corpId}',
-			                "timeStamp":'${_config.timeStamp}',
-							"nonceStr":'${_config.nonceStr}',
-							"signature":'${_config.signature}'
-							}
+            <#--var _config = {"agentId":'${_config.agentId}',-->
+                <#--"corpId":'${_config.corpId}',-->
+                <#--"timeStamp":'${_config.timeStamp}',-->
+                <#--"nonceStr":'${_config.nonceStr}',-->
+                <#--"signature":'${_config.signature}'-->
+            <#--}-->
             function openLink(url){
                 dd.biz.util.openLink({
 					 url:url,
@@ -26,104 +28,125 @@
 				 });
             }
         </script>
-		<script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
-		<script  src="${basePath}/js/common/jquery/jquery1.8.3.min.js"></script>
-		<script  src="${basePath}/js/common/layer/layer.js"></script>
-		<script  src="${basePath}/js/common/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+        <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
+        <script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/qifu/dropload.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/qifu/index.js" type="text/javascript" charset="utf-8"></script>
         <script  src="${basePath}/js/dingding.demo.js"></script>
 	</head>
-	<body data-target="#one" data-spy="scroll">
 
-		<br>
+	<body>
 
 
-        <table class="table table-bordered">
+    <div class="choose_city">
+        <a href="my.html" class="person_center"></a>
+        <a href="choose_city.html" class="city">北京</a>
+    </div>
+    <div class="banner"><img src="/images/banner.png"/></div>
+    <div class="tab">
+        <table border="0" cellspacing="0" cellpadding="0">
+
             <tr>
-                <th>授权方Id</th>
-                <td>${_config.agentId}</td>
-            </tr>
-            <tr>
-                <th>授权方CropId</th>
-                <td>${_config.corpId}</td>
+                <td>
+                    <a href="all_sort.html?type=work">
+                        <div><img src="/images/5.png" /></div>
+                        <p>办公设备维护</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="all_sort.html?type=light">
+                        <div><img src="/images/2.png" /></div>
+                        <p>办公电器保养</p>
+                    </a>
+                </td>
+                <td>
+                    <a href="all_sort.html?type=door">
+                        <div><img src="/images/3.png" /></div>
+                        <p>办公环境维修</p>
+                    </a>
+                </td>
+                <td class="monthly">
+                    <a href="all_sort.html?type=electricity">
+                        <div><img src="/images/4.png" /></div>
+                        <p>万能企业盾</p>
+                    </a>
+                </td>
             </tr>
         </table>
-		<div style="padding-left:10px;">&nbsp;&nbsp;&nbsp;&nbsp;欢迎您：<div id="userName" style="display:inline-block;font-weight:bold"></div>&nbsp;成为钉钉开发者，您当前在钉钉的<code>userId</code>为：
-			<div id="userId" style="display:inline-block;font-weight:bold"></div> 。</div>
-		<br>
-		<ul>
-			<li>
-				<div class="icon"><img src="list/num11.png" style="width: 25px; height: 25px"></div>
-				<div class="text">企业接入指南</div>
-			</li>
-			<!-- <li>
-				<div class="icon"><img src="list/heart2.png"></div>
-				<div class="text">企业授权</div>
-			</li>
-			<li>
-				<div class="icon"><img src="list/heart3.png"></div>
-				<div class="text">企业解授权</div>
-			</li> -->
-			<li>
-				<div class="icon"><img src="list/num2.png" style="width: 25px; height: 25px"></div>
-				<div class="text">使用JSAPI</div>
-			</li>
-			<li>
-				<div class="icon"><img src="list/num33.png" style="width: 25px; height: 25px"></div>
-				<div class="text">导航框架</div>
-			</li>
-			<li>
-				<div class="icon"><img src="list/num4.png" style="width: 25px; height: 25px"></div>
-				<div class="text">List展示（当前仅支持Android）</div>
-			</li>
-			<li>
-				<div class="icon"><img src="list/num5.png" style="width: 25px; height: 25px"></div>
-				<div class="text">侧拉展现（当前仅支持Android）</div>
-			</li>
-			<li>
-				<div class="icon"><img src="list/num6.png" style="width: 25px; height: 25px"></div>
-				<div class="text">Tab页面（当前仅支持Android）</div>
-			</li>
-			<li>
-				<div class="icon"><img src="list/num7.png" style="width: 25px; height: 25px"></div>
-				<div class="text">企业通讯录</div>
-			</li>
-		</ul>
-		<#--<script type="text/javascript">-->
-			<#--window.addEventListener('load', function() {-->
-				<#--setTimeout(function(){-->
-				<#--}, 500);-->
-			<#--});-->
+    </div>
+    <div class="hot_project">
+        <p class="hot_title">热门维修项目</p>
+        <ul></ul>
+    </div>
 
-			<#--var items = document.querySelectorAll('li');-->
-			<#--var i = 0;-->
-			<#--items[0].addEventListener('click',function(){-->
-				<#--/* window.location='http://ddtalk.github.io/dingTalkDoc/#企业接入指南'; */-->
-				<#--openLink('http://ddtalk.github.io/dingTalkDoc/#企业接入指南');-->
-			<#--});-->
-			<#--items[1].addEventListener('click',function(){-->
-				<#--openLink('http://h5.m.laiwang.com/home/ding.html');-->
-			<#--});-->
-			<#--items[2].addEventListener('click',function(){-->
-				<#--window.location='./nav/1.html';-->
-			<#--});-->
+    <#--<div style="padding-left:10px;">&nbsp;&nbsp;&nbsp;&nbsp;欢迎您：<div id="userName" style="display:inline-block;font-weight:bold"></div>&nbsp;成为钉钉开发者，您当前在钉钉的<code>userId</code>为：-->
+        <#--<div id="userId" style="display:inline-block;font-weight:bold"></div> 。</div>-->
 
+		<#--<div class="choose_city">-->
+			<#--<input type="" name="" id="" value="" class="person_center" />-->
+			<#--<input class="city" type="button" name="" id="" value="北京" />-->
+		<#--</div>-->
+		<#--<div class="tab">-->
+			<#--<table border="0" cellspacing="0" cellpadding="0">-->
 
-			<#--items[3].addEventListener('click', function(){-->
-				<#--window.location = './list/list.html';-->
-			<#--});-->
+				<#--<tr>-->
+					<#--<td>-->
+						<#--<a href="">-->
+							<#--<div><img src="${basePath}/images/2.png" /></div>-->
+							<#--<p>办公设备</p>-->
+						<#--</a>-->
+					<#--</td>-->
+					<#--<td>-->
+						<#--<a href="">-->
+							<#--<div><img src="${basePath}/images/3.png" /></div>-->
+							<#--<p>灯具电路</p>-->
+						<#--</a>-->
+					<#--</td>-->
+					<#--<td>-->
+						<#--<a href="">-->
+							<#--<div><img src="${basePath}/images/4.png" /></div>-->
+							<#--<p>门窗家具</p>-->
+						<#--</a>-->
+					<#--</td>-->
+					<#--<td>-->
+						<#--<a href="">-->
+							<#--<div><img src="${basePath}/images/5.png" /></div>-->
+							<#--<p>疏通管道</p>-->
+						<#--</a>-->
+					<#--</td>-->
+				<#--</tr>-->
+				<#--<tr>-->
+					<#--<td>-->
+						<#--<a href="">-->
+							<#--<div><img src="${basePath}/images/6.png" /></div>-->
+							<#--<p>空调养护</p>-->
+						<#--</a>-->
+					<#--</td>-->
+					<#--<td>-->
+						<#--<a href="">-->
+							<#--<div><img src="${basePath}/images/7.png" /></div>-->
+							<#--<p>墙面地面</p>-->
+						<#--</a>-->
+					<#--</td>-->
+					<#--<td class="monthly">-->
+						<#--<a href="">-->
+							<#--<div><img src="${basePath}/images/8.png" /></div>-->
+							<#--<p>IT运维</p>-->
+						<#--</a>-->
+					<#--</td>-->
+					<#--<td>-->
+					<#--</td>-->
+				<#--</tr>-->
+			<#--</table>-->
+		<#--</div>-->
+		<#--<div class="hot_project">-->
+			<#--<p class="hot_title">热门维修项目</p>-->
+			<#--<ul>-->
+			<#--</ul>-->
+		<#--</div>-->
 
-			<#--items[4].addEventListener('click',function(){-->
-				<#--window.location='./drawer/index.html';-->
-			<#--});-->
-			<#--items[5].addEventListener('click',function(){-->
-				<#--window.location='./tab/index.html';-->
-			<#--});-->
-			<#--items[6].addEventListener('click',function(){-->
-				<#--window.location='./contacts.jsp?corpid='+_config.corpId;-->
-			<#--});-->
-
-		<#--</script>-->
-			
+		
 	</body>
+
 </html>

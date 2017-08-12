@@ -1,0 +1,126 @@
+.choose_city{
+	height: .9rem;
+	background: #fff;
+	line-height: .9rem;
+	border-top: 1px solid #c7c7c7;
+	border-bottom: 1px solid #e0e0e0;
+}
+.choose_city .person_center{
+	width: .44rem;
+    height: .45rem;
+    background: url(../img/12-2.png) no-repeat center;
+    background-size: 90%;
+    margin-left: .3rem;
+    display: inline-block;
+    margin-top: .2rem;
+}
+.choose_city .city{
+	float: right;
+    padding: 0 .43rem 0 .3rem;
+    font-size: .28rem;
+    background: url(../img/1.png) no-repeat right center;
+    background-size: 23%;
+    line-height: .6rem;
+    margin-top: .15rem;
+    margin-right: .3rem;
+}
+.banner{
+	width: 100%;
+	height: 3rem;
+	overflow: hidden;
+}
+.tab,.tab table{
+	width: 100%;
+	background: #fff;
+}
+.tab{
+	margin-bottom: .2rem;
+}
+table tr td{
+	width: 25%;
+	box-sizing: border-box;
+	border-right: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+	text-align: center;
+	height: 1.9rem;
+}
+table tr td:last-child{
+	border-right: none;
+}
+.tab table tr td div{
+	width: .68rem;
+	height: .68rem;
+	margin: .4rem auto .2rem;
+}
+.tab table tr td div img{
+	width: 100%;
+}
+.tab table tr td p{
+	color: #222;
+	font-size: .24rem;
+}
+.tab table tr .monthly{
+	background: url(../img/9.png) no-repeat top right;
+	background-size: 50%;
+}
+.hot_project{
+	background: #fff;
+	overflow: hidden;
+}
+.hot_project .hot_title{
+	color: #929292;
+	font-size: .28rem;
+	box-sizing: border-box;
+	padding-left: .3rem;
+	height: .9rem;
+	line-height: .9rem;
+	border-bottom: 1px solid #e0e0e0;
+	border-top: 1px solid #e0e0e0;
+}
+.hot_project ul li .hot_pic{
+	width: 1.48rem;
+	height: 1.48rem;
+	margin: .3rem;
+	float: left;
+}
+.hot_project ul li{
+	overflow: hidden;
+	border-bottom: 1px solid #E0E0E0;
+}
+.hot_pic img{
+	width: 100%;
+}
+.hot_project ul li .hot_price{
+	float: left;
+	margin: .3rem 0;
+}
+.hot_price p:first-child{
+	
+	font-size: .28rem;
+}
+.hot_price p:last-child{
+	color: #ff943e;
+	font-size: .28rem;
+	margin-top: .6rem;
+}
+.hot_project ul li .hot_btn{
+	float: right;
+	margin-right: .3rem;
+}
+.hot_btn a{
+	display: inline-block;
+	width: 1.52rem;
+	height: .56rem;
+	line-height: .56rem;
+	background: none;
+	color: #ff943e;
+	border: 1px solid #ff943e;
+	border-radius: .08rem;
+	font-size: .28rem;
+	text-align: center;
+	-webkit-appearance: none;
+	margin: .74rem 0;
+}
+.weui-loadmore{
+	text-align: center;
+}

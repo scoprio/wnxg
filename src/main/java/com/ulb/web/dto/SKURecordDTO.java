@@ -7,20 +7,24 @@ import java.math.BigDecimal;
  */
 public class SKURecordDTO {
 
-    private String id;
+    private String rid;
 
     private String name;
 
     private BigDecimal price;
 
-    private String desc;
+    private String unit;
 
-    public String getId() {
-        return id;
+    private String content;
+
+    private String imgUrl;
+
+    public String getRid() {
+        return rid;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setRid(String rid) {
+        this.rid = rid;
     }
 
     public String getName() {
@@ -39,11 +43,27 @@ public class SKURecordDTO {
         this.price = price;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getUnit() {
+        return unit;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setUnit(String unit) {
+        this.unit = unit;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 }

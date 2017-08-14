@@ -36,5 +36,27 @@ $(function(){
             }, 100);
         }
     });
+// 选择城市
+    var current_city = ''
+    $('.city_current').click(function(){
+        $('.city-wrap').show()
+        $('.city-wrap').stop(true).animate({left:0},400,function(){
+
+        })
+    });
+    $('.city-list>p').click(function(event){
+        current_city = $(this).text();
+        console.log(current_city)
+        $('.choose_city .city_current').text(current_city)
+        $('.city-wrap').stop(true).animate({left:'100%'},400,function(){
+           $('.city-wrap').hide()
+        })
+    })
+    $('.city-wrap .back').click(function(){
+        $('.city-wrap').stop(true).animate({left:'100%'},400,function(){
+           $('.city-wrap').hide()
+        })
+    })
+
 
 })

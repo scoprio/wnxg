@@ -14,12 +14,12 @@
     display: inline-block;
     margin-top: .2rem;
 }
-.choose_city .city{
+.choose_city .city_current{
 	float: right;
     padding: 0 .43rem 0 .3rem;
     font-size: .28rem;
     background: url(/images/1.png) no-repeat right center;
-    background-size: 23%;
+    background-size: 0.22rem;
     line-height: .6rem;
     margin-top: .15rem;
     margin-right: .3rem;
@@ -123,4 +123,14 @@ table tr td:last-child{
 }
 .weui-loadmore{
 	text-align: center;
+}
+.city-wrap{
+	position: absolute;
+	top: 0;
+	left: 100%;
+	background: #f7f9ff;
+	width: 100%;
+	z-index: 66;
+	display: none;
+
 }

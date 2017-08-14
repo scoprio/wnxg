@@ -34,13 +34,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @Scope(value="prototype")
-@RequestMapping("ubl")
+@RequestMapping("ulb")
 public class UlbSKUResource {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(UlbSKUResource.class);
-
-    public static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
 
     @Inject
     private SKUService skuService;
@@ -54,7 +51,7 @@ public class UlbSKUResource {
             LOGGER.error("从服务请求SKU详情失败");
             e.printStackTrace();
         }
-        return new ModelAndView("dingding/index","sku",dto);
+        return new ModelAndView("dingding/place_order","sku",dto);
     }
 
 }

@@ -8,18 +8,80 @@
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css" />
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/place_order.css" />
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/webuploader.css" />
+
+        <script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/qifu/text_self_adaption.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/qifu/webuploader.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/qifu/wnxg_qf.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript">
+            $(function() {
+                $(".enter_in").click(function() {
+                    $('.datebox').fadeIn()
+                    $(".choosedate").animate({
+						 "bottom": "0"
+					 }, 500);
+                })
+                $(".cancelbtn").click(function() {
+                    $(".choosedate").animate({
+						 "bottom": "-3.36rem"
+					 }, 500, function() {
+                        $('.datebox').fadeOut();
+                    })
+                })
+                $('.fleft li').click(function() {
+                    $(this).addClass('add_bgcolor').find('span').css('color', '#fff').parent().siblings().removeClass('add_bgcolor').find('span').css('color', '#222');
+                    $('.fright li').eq($(this).index()).show().siblings().hide().find('span').removeClass('add_bgcolor');
+                })
+                $('.fright li span').click(function() {
+                    $(this).addClass('add_bgcolor').siblings().removeClass('add_bgcolor');
+                })
+
+                $(".checked_btn").click(function() {
+                    if($(this).prop('checked')) {
+                        $(this).css({
+                                        "background": "url(${basePath}/images/btn_press_tongyi.png) no-repeat center",
+                                        "background-size": "100%"
+                                    })
+                        $(".submit_btn").css("background", "#ff943e");
+
+                    } else {
+                        $(this).css({
+                                        "background": "url(${basePath}/images/btn_defult_tongyi.png) no-repeat center",
+                                        "background-size": "100%"
+                                    })
+                        $(".submit_btn").css("background", "#ccc");
+                        console.log(888)
+                    }
+                })
+
+                $(".add").click(function(){
+                    var carValue = $('.txt').text();
+                    carValue++
+                    $('.txt').text(carValue)
+                })
+                $(".jian").click(function(){
+                    var carValue =$('.txt').text();
+                    carValue--
+                    if(carValue<=1){
+                        carValue = 1
+                    }
+                    $('.txt').text(carValue)
+                })
+
+            })
+        </script>
 	</head>
 
 	<body>
 		<div class="flow border_bottom">
-			<div><img src="img/liucheng_1.png" /></div>
+			<div><img src="${basePath}/images/liucheng_1.png" /></div>
 		</div>
 		<form action="" method="post">
 			<div class="order_head border_bottom border_top">
-				<div class="head_img"><img src="img/10.png" /></div>
+				<div class="head_img"><img src="${sku.imgUrl}" /></div>
 				<div class="choose_num">
 					<p class="order_name">维修类目：<span>${sku.name}</span></p>
-					<p class="remark">${sku.desc}</p>
+					<p class="remark">${sku.content}</p>
 					<div>
 						<p class="num_change"><span class="jian">-</span><span class="txt">0</span><span class="add">+</span> </p>
 						<p class="priceshow"><i>&yen;</i><span>${sku.price}</span> <input type="button" name="" id="" value="服务说明" /></p>
@@ -137,67 +199,7 @@
 				</div>
 			</div>
 		</div>
-		<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/text_self_adaption.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/webuploader.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/wnxg_qf.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			$(function() {
-				$(".enter_in").click(function() {
-					$('.datebox').fadeIn()
-					$(".choosedate").animate({
-						"bottom": "0"
-					}, 500);
-				})
-				$(".cancelbtn").click(function() {
-					$(".choosedate").animate({
-						"bottom": "-3.36rem"
-					}, 500, function() {
-						$('.datebox').fadeOut();
-					})
-				})
-				$('.fleft li').click(function() {
-					$(this).addClass('add_bgcolor').find('span').css('color', '#fff').parent().siblings().removeClass('add_bgcolor').find('span').css('color', '#222');
-					$('.fright li').eq($(this).index()).show().siblings().hide().find('span').removeClass('add_bgcolor');
-				})
-				$('.fright li span').click(function() {
-					$(this).addClass('add_bgcolor').siblings().removeClass('add_bgcolor');
-				})
 
-				$(".checked_btn").click(function() {
-					if($(this).prop('checked')) {
-						$(this).css({
-							"background": "url(img/btn_press_tongyi.png) no-repeat center",
-							"background-size": "100%"
-						})
-						$(".submit_btn").css("background", "#ff943e");
-
-					} else {
-						$(this).css({
-							"background": "url(img/btn_defult_tongyi.png) no-repeat center",
-							"background-size": "100%"
-						})
-						$(".submit_btn").css("background", "#ccc");
-						console.log(888)
-					}
-				})
-				
-				$(".add").click(function(){
-					var carValue = $('.txt').text();
-					carValue++
-					$('.txt').text(carValue)
-				})
-				$(".jian").click(function(){
-					var carValue =$('.txt').text();
-					carValue--
-					if(carValue<=1){
-						carValue = 1
-					}
-					$('.txt').text(carValue)
-				})
-
-			})
-		</script>
 	</body>
 
 </html>

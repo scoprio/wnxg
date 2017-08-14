@@ -11,22 +11,13 @@ import net.sf.json.JSONObject;
 
 /**
  * 
- * 开发公司：SOJSON在线工具 <p>
- * 版权所有：© www.ulb.com<p>
- * 博客地址：http://www.sojson.com/blog/  <p>
  * <p>
  * 
  * Java原生版的 Serialize
  * 
  * <p>
  * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年6月2日 　<br/>
  *
- * @author zhou-baicheng
- * @email  so@ulb.com
- * @version 1.0,2016年6月2日 <br/>
- * 
  */
 @SuppressWarnings("unchecked")
 public class SerializeUtil {

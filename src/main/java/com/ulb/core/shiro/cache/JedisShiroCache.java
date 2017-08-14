@@ -10,23 +10,13 @@ import com.ulb.common.utils.LoggerUtils;
 import com.ulb.common.utils.SerializeUtil;
 
 /**
- * 
- * 开发公司：ulb.com<br/>
- * 版权：ulb.com<br/>
+ *
  * <p>
  * 
  * 缓存获取Manager
  * 
  * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年4月29日 　<br/>
- * <p>
- * *******
- * <p>
- * @author zhou-baicheng
- * @email  json@ulb.com
- * @version 1.0,2016年4月29日 <br/>
+ *
  * 
  */
 @SuppressWarnings("unchecked")

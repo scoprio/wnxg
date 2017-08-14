@@ -18,23 +18,12 @@ import com.ulb.permission.bo.UPermissionBo;
 import com.ulb.permission.service.PermissionService;
 import com.ulb.permission.service.RoleService;
 /**
- * 
- * 开发公司：itboy.net<br/>
- * 版权：itboy.net<br/>
+ *
  * <p>
  * 
  * 用户权限分配
- * 
  * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年5月26日 　<br/>
- * <p>
- * *******
- * <p>
- * @author zhou-baicheng
- * @email  i@itboy.net
- * @version 1.0,2016年5月26日 <br/>
+ *
  * 
  */
 @Controller

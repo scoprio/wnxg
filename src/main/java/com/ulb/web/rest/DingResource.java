@@ -11,14 +11,11 @@ import com.dingtalk.open.client.api.model.corp.CorpUserDetail;
 import com.ulb.web.demo.auth.AuthHelper;
 import com.ulb.web.demo.user.UserHelper;
 import com.ulb.web.dto.DingDingConfigDTO;
-import com.ulb.web.dto.ServerDTO;
-import com.ulb.web.dto.UserDTO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,9 +29,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RestController
 @Scope(value="prototype")
 @RequestMapping("dingding")
-public class DemoResource {
+public class DingResource {
 
-    public static final Logger LOGGER = LoggerFactory.getLogger(DemoResource.class);
+    public static final Logger LOGGER = LoggerFactory.getLogger(DingResource.class);
 
     public static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
@@ -44,7 +41,6 @@ public class DemoResource {
 
         String urlString = request.getRequestURL().toString();
         String queryString = request.getQueryString();
-
 
         String corpId = request.getParameter("corpid");
         String appId = request.getParameter("appid");
@@ -72,10 +68,15 @@ public class DemoResource {
         String agentid = null;
 
         try {
-            accessToken = AuthHelper.getAccessToken(corpId);
-            ticket = AuthHelper.getJsapiTicket(accessToken, corpId);
-            signature = AuthHelper.sign(ticket, nonceStr, timeStamp, signedUrl);
-            agentid = AuthHelper.getAgentId(corpId, appId);
+//            accessToken = AuthHelper.getAccessToken(corpId);
+//            ticket = AuthHelper.getJsapiTicket(accessToken, corpId);
+//            signature = AuthHelper.sign(ticket, nonceStr, timeStamp, signedUrl);
+//            agentid = AuthHelper.getAgentId(corpId, appId);
+
+            accessToken = "";
+            ticket = "";
+            signature = "";
+            agentid = "";
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -118,6 +119,12 @@ public class DemoResource {
         String userJson = JSON.toJSONString(user);
         LOGGER.info("access user:"+userJson);
         return new ResponseEntity<>(userJson, HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value="city",method=RequestMethod.GET)
+    public ModelAndView city(){
+        return new ModelAndView("dingding/choose_city");
     }
 
 }

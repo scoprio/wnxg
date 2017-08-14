@@ -6,22 +6,22 @@
  * _config comes from server-side template. see views/index.jade
  */
 
-// dd.config({
-// 			agentId :_config.agentId,
-// 			corpId : _config.corpId,
-// 			timeStamp : _config.timeStamp,
-// 			nonceStr : _config.nonceStr,
-// 			signature : _config.signature,
-// 			type : 0,
-// 			jsApiList : [ 'runtime.info',
-// 						  'biz.contact.choose',
-// 						  'device.notification.confirm',
-// 						  'device.notification.alert',
-// 						  'device.notification.prompt',
-// 						  'biz.ding.post',
-// 						  'biz.util.openLink',
-// 						  'device.geolocation.get']
-// 		});
+dd.config({
+			agentId :_config.agentId,
+			corpId : _config.corpId,
+			timeStamp : _config.timeStamp,
+			nonceStr : _config.nonceStr,
+			signature : _config.signature,
+			type : 0,
+			jsApiList : [ 'runtime.info',
+						  'biz.contact.choose',
+						  'device.notification.confirm',
+						  'device.notification.alert',
+						  'device.notification.prompt',
+						  'biz.ding.post',
+						  'biz.util.openLink',
+						  'device.geolocation.get']
+		});
 
 
 dd.ready(function() {
@@ -45,49 +45,62 @@ dd.ready(function() {
 	});
 	dd.ui.pullToRefresh.enable({
 	    onSuccess: function() {
+
 	    },
 	    onFail: function() {
 	    }
 	});
 
+	dd.device.notification.alert({
+		 message: "手动选择城市",
+		 title: "",//可传空
+		 buttonName: "确定",
+		 onSuccess : function() {
+
+
+			 //onSuccess将在点击button之后回调
+			 /*回调*/
+		 },
+		 onFail : function(err) {}
+	 });
 
 
 
-	dd.biz.navigation.setMenu({
-		backgroundColor : "#ADD8E6",
-		items : [
-			{
-				id:"此处可以设置帮助",//字符串
-			// "iconId":"file",//字符串，图标命名
-			  text:"帮助"
-			}
-			,
-			{
-				"id":"2",
-			"iconId":"photo",
-			  "text":"我们"
-			}
-			,
-			{
-				"id":"3",
-			"iconId":"file",
-			  "text":"你们"
-			}
-			,
-			{
-				"id":"4",
-			"iconId":"time",
-			  "text":"他们"
-			}
-		],
-		onSuccess: function(data) {
-			// alert(JSON.stringify(data));
-
-		},
-		onFail: function(err) {
-			// alert(JSON.stringify(err));
-		}
-	});
+	// dd.biz.navigation.setMenu({
+	// 	backgroundColor : "#ADD8E6",
+	// 	items : [
+	// 		{
+	// 			id:"此处可以设置帮助",//字符串
+	// 		// "iconId":"file",//字符串，图标命名
+	// 		  text:"帮助"
+	// 		}
+	// 		,
+	// 		{
+	// 			"id":"2",
+	// 		"iconId":"photo",
+	// 		  "text":"我们"
+	// 		}
+	// 		,
+	// 		{
+	// 			"id":"3",
+	// 		"iconId":"file",
+	// 		  "text":"你们"
+	// 		}
+	// 		,
+	// 		{
+	// 			"id":"4",
+	// 		"iconId":"time",
+	// 		  "text":"他们"
+	// 		}
+	// 	],
+	// 	onSuccess: function(data) {
+	// 		// alert(JSON.stringify(data));
+    //
+	// 	},
+	// 	onFail: function(err) {
+	// 		// alert(JSON.stringify(err));
+	// 	}
+	// });
 
 
 // 	dd.runtime.permission.requestAuthCode({
@@ -130,6 +143,24 @@ dd.ready(function() {
 		  coordinate : 1,
 		  withReGeocode : false,
 		  onSuccess: function(result) {
+			  var location = JSON.stringify(result);
+
+			  if(location.city && location.city.length()>0){
+				 $.data(cache_city, 'cache_city', location.city);
+			  }else {
+				  dd.device.notification.alert({
+					   message: "手动选择城市",
+					   title: "",//可传空
+					   buttonName: "确定",
+					   onSuccess : function() {
+
+
+						   //onSuccess将在点击button之后回调
+						   /*回调*/
+					   },
+					   onFail : function(err) {}
+				   });
+			  }
 
 			  // alert("dd 获取地址1："+result)
 			  // alert("dd 获取地址2："+JSON.stringify(result));
@@ -143,3 +174,5 @@ dd.ready(function() {
 dd.error(function(err) {
 	alert('dd error: ' + JSON.stringify(err));
 });
+
+

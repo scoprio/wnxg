@@ -5,23 +5,12 @@ import java.util.Calendar;
 import com.ulb.core.config.IConfig;
 
 /**
- * 
- * 开发公司：SOJSON在线工具 <p>
- * 版权所有：© www.ulb.com<p>
- * 博客地址：http://www.sojson.com/blog/  <p>
+ *
  * <p>
  * 
  * 静态变量
  * 
  * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年6月2日 　<br/>
- *
- * @author zhou-baicheng
- * @email  so@ulb.com
- * @version 1.0,2016年6月2日 <br/>
- * 
  */
 public interface Constant {
 	
@@ -70,9 +59,8 @@ public interface Constant {
 	static final int NOW_YEAY = Calendar.getInstance().get(Calendar.YEAR);
 	
 	
-	/**地址**/
-	static final String DOMAIN_WWW = IConfig.get("domain.www");//前端域名
-	static final String DOMAIN_CDN = IConfig.get("domain.cdn");//静态资源域名
+	/**retrofit 地址**/
+	static final String REQUEST_URL = IConfig.get("retrofit.request.url");
 	static String VERSION = String.valueOf(System.currentTimeMillis());//版本号，重启的时间
 	
 	

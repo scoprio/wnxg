@@ -20,24 +20,11 @@ import com.ulb.core.shiro.session.CustomSessionManager;
 import com.ulb.user.bo.UserOnlineBo;
 import com.ulb.user.service.UUserService;
 /**
- * 
- * 开发公司：itboy.net<br/>
- * 版权：itboy.net<br/>
- * <p>
+ *
  * 
  * 用户会员管理
  * 
- * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2016年5月26日 　<br/>
- * <p>
- * *******
- * <p>
- * @author zhou-baicheng
- * @email  i@itboy.net
- * @version 1.0,2016年5月26日 <br/>
- * 
+ *
  */
 @Controller
 @Scope(value="prototype")

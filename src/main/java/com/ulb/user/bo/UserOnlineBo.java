@@ -6,7 +6,6 @@ import java.util.Date;
 import com.ulb.common.model.UUser;
 /**
  * Session  + User Bo
- * @author ulb.com
  *
  */
 public class UserOnlineBo extends UUser implements Serializable {

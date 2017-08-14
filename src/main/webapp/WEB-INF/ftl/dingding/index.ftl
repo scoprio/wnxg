@@ -11,16 +11,17 @@
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/dropload.css"/>
 
         <script>
-            <#--var _config = {"agentId":'${_config.agentId}',-->
-                <#--"corpId":'${_config.corpId}',-->
-                <#--"timeStamp":'${_config.timeStamp}',-->
-                <#--"nonceStr":'${_config.nonceStr}',-->
-                <#--"signature":'${_config.signature}'-->
-            <#--}-->
+            var _config = {"agentId":'${_config.agentId}',
+                "corpId":'${_config.corpId}',
+                "timeStamp":'${_config.timeStamp}',
+                "nonceStr":'${_config.nonceStr}',
+                "signature":'${_config.signature}'
+            }
             function openLink(url){
                 dd.biz.util.openLink({
 					 url:url,
 					 onSuccess : function(result) {
+
 					 },
 					 onFail : function(err) {
 						 alert(JSON.stringify(err));
@@ -32,8 +33,9 @@
         <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
         <script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/dropload.js" type="text/javascript" charset="utf-8"></script>
-        <script src="${basePath}/js/qifu/index.js" type="text/javascript" charset="utf-8"></script>
-        <script  src="${basePath}/js/dingding.demo.js"></script>
+        <script baseUrl="${basePath}" src="${basePath}/js/qifu/index_data.js" type="text/javascript" charset="utf-8"></script>
+       	<script src="${basePath}/js/qifu/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="${basePath}/js/dingding.demo.js"></script>
 	</head>
 
 	<body>
@@ -41,7 +43,7 @@
 
     <div class="choose_city">
         <a href="my.html" class="person_center"></a>
-        <a href="choose_city.html" class="city">北京</a>
+        <a href="${basePath}/dingding/city.shtml" class="city" id="citychoose" >北京</a>
     </div>
     <div class="banner"><img src="/images/banner.png"/></div>
     <div class="tab">

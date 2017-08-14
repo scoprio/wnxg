@@ -12,7 +12,6 @@ import com.ulb.core.shiro.session.SessionStatus;
 import com.ulb.core.shiro.session.ShiroSessionRepository;
 /**
  * Session 管理
- * @author ulb.com
  *
  */
 @SuppressWarnings("unchecked")

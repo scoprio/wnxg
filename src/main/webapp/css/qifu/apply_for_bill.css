@@ -11,7 +11,7 @@
 	line-height: .9rem;
 	color: #929292;
 	font-size: .28rem;
-	background: url(../img/bill1.png) no-repeat right center;
+	background: url(/images/bill1.png) no-repeat right center;
 	background-size: 8% 30%;
 	padding-right: .25rem;
 	margin-right: .3rem;
@@ -53,11 +53,11 @@
 }
 .has_bill table tr  .pitch{
 	
-	background: url(../img/bill2.png) no-repeat center;
+	background: url(/images/bill2.png) no-repeat center;
 	background-size: 28%;
 }
 .pitch_on{
-	background: url(../img/bill3.png) no-repeat center !important;
+	background: url(/images/bill3.png) no-repeat center !important;
 	background-size: 28% !important;
 }
 .has_bill ul{

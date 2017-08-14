@@ -135,7 +135,7 @@
 }
 
 .change_bg {
-	background: url(../img/change_bg.png) no-repeat right bottom !important;
+	background: url(/images/change_bg.png) no-repeat right bottom !important;
 	background-size: 24% 41% !important;
 	border-color: #ff943e !important;
 	color: #ff943e !important;
@@ -186,7 +186,7 @@
 	color: #666;
 	border-radius: .08rem;
 	text-align: right;
-	background: url(../img/btn_jinru.png) no-repeat right center;
+	background: url(/images/btn_jinru.png) no-repeat right center;
 	background-size: 6%;
 	padding-right: .36rem;
 }
@@ -194,13 +194,13 @@
 .buyer p:nth-child(5) input:nth-child(3) {
 	width: 23%;
 	margin-right: .25rem;
-	background: url(../img/qingxuanze.png) no-repeat 95% center;
+	background: url(/images/qingxuanze.png) no-repeat 95% center;
 	background-size: 9%;
 }
 
 .buyer p:nth-child(5) input:nth-child(2) {
 	width: 26%;
-	background: url(../img/qingxuanze.png) no-repeat 95% center;
+	background: url(/images/qingxuanze.png) no-repeat 95% center;
 	background-size: 8%;
 }
 
@@ -252,7 +252,7 @@ footer p:nth-child(2) input {
 }
 
 footer p:nth-child(2) input:checked {
-	background: url(../img/btn_press_tongyi.png) no-repeat center;
+	background: url(/images/btn_press_tongyi.png) no-repeat center;
 	background-size: 100%;
 }
 

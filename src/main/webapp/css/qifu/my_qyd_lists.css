@@ -68,7 +68,7 @@
 	width: 100%;
 	font-size: .26rem;
 	color: #929292;
-	background: url(../img/pull_down.png) no-repeat 60% center;
+	background: url(/images/pull_down.png) no-repeat 60% center;
 	margin: .1rem 0 .3rem;
 }
 .past_li{

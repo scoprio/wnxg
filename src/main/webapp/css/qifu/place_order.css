@@ -23,7 +23,7 @@
 }
 .order_head .choose_num .order_name{
 	font-size: .28rem;
-	background: url(../img/btn_jinru.png) no-repeat right center;
+	background: url(/images/btn_jinru.png) no-repeat right center;
 	background-size: 3%;
 	line-height: .6rem;
 }
@@ -73,7 +73,7 @@
 }
 .priceshow input{
 	float: right;
-    background: url(../img/btn_shuoming.png) no-repeat right center;
+    background: url(/images/btn_shuoming.png) no-repeat right center;
     background-size: 22%;
     padding-right: .4rem;
     line-height: .5rem;
@@ -91,7 +91,7 @@
 	overflow: hidden;
 }
 .contact_way .enter{
-	background: url(../img/btn_jinru.png) no-repeat right center;
+	background: url(/images/btn_jinru.png) no-repeat right center;
 	background-size: 2.5%;
 }
 .contact_way .contact_wayli span{
@@ -140,7 +140,7 @@
 .agree input[type=checkbox]{
 	width: .32rem;
     height: .32rem;
-    background: url(../img/btn_press_tongyi.png) no-repeat center;
+    background: url(/images/btn_press_tongyi.png) no-repeat center;
     background-size: 100%;
     margin-right: .1rem;
 }

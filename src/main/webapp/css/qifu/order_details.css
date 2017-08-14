@@ -30,7 +30,7 @@
 	position: absolute;
 	top: .3rem;
 	right: .3rem;
-	background: url(../img/xg2.png) no-repeat center;
+	background: url(/images/xg2.png) no-repeat center;
 	background-size: 100%;
 	
 }
@@ -40,7 +40,7 @@
 	font-size: .28rem;
 }
 .order_after ul li{
-	background: url(../img/aa.png) no-repeat 2.2rem bottom;
+	background: url(/images/aa.png) no-repeat 2.2rem bottom;
     background-size: 4% 90%;
 	height: .64rem;
 	overflow: hidden;
@@ -55,7 +55,7 @@
 	font-size: .26rem;
 }
 .order_after ul li:first-child{
-	background: url(../img/bb.png) no-repeat 2.2rem bottom;
+	background: url(/images/bb.png) no-repeat 2.2rem bottom;
 	background-size: 4% 44%;
 }
 /*订单详情*/

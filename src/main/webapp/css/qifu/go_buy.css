@@ -154,7 +154,7 @@ footer p:nth-child(2) input{
 	margin-right: .12rem;
 }
 footer p:nth-child(2) input:checked{
-	background: url(../img/btn_press_tongyi.png) no-repeat center;
+	background: url(/images/btn_press_tongyi.png) no-repeat center;
 	background-size: 100%;
 }
 footer p:nth-child(2) a{

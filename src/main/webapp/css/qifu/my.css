@@ -1,7 +1,7 @@
 /*我的信息*/
 .my_box{
 	height: 2.98rem;
-	background: url(../img/headbg.png) no-repeat left top;
+	background: url(/images/headbg.png) no-repeat left top;
 	background-size: 100%;
 	margin-bottom: .2rem;
 	overflow: hidden;
@@ -44,26 +44,26 @@
 	line-height: .9rem;
 	padding-left: .1rem;
 	font-size: .28rem;
-	background: url(../img/btn_jinru.png) no-repeat 95% center;
+	background: url(/images/btn_jinru.png) no-repeat 95% center;
 	background-size: 2.5%;
 }
 .my_ul1 li:first-child p,.my_ul2 li:first-child p{
 	border-bottom: 1px solid #E0E0E0;
 }
 .my_ul1 li:first-child{
-	background: url(../img/icon_wodedingdan.png) no-repeat .32rem center;
+	background: url(/images/icon_wodedingdan.png) no-repeat .32rem center;
 	background-size: 5%;
 }
 .my_ul1 li:last-child{
-	background: url(../img/icon_wodeqiyedun.png) no-repeat .3rem center;
+	background: url(/images/icon_wodeqiyedun.png) no-repeat .3rem center;
 	background-size: 5%;
 }
 .my_ul2 li:first-child{
-	background: url(../img/icon_fapiao.png) no-repeat .3rem center;
+	background: url(/images/icon_fapiao.png) no-repeat .3rem center;
 	background-size: 6%;
 }
 .my_ul2 li:last-child{
-	background: url(../img/icon_bangzhuzhongxin.png) no-repeat .3rem center;
+	background: url(/images/icon_bangzhuzhongxin.png) no-repeat .3rem center;
 	background-size: 5%;
 }
 

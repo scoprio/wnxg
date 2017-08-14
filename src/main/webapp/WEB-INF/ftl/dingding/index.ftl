@@ -78,7 +78,6 @@
             </tr>
         </table>
     </div>
-    111111111
     <div class="hot_project">
         <p class="hot_title">热门维修项目</p>
         <ul></ul>

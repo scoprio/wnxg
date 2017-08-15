@@ -14,7 +14,7 @@ import retrofit2.http.Path;
  */
 public interface RemoteSKUService {
 
-    @GET("/ulb/api/new_enter_prise_my_order/repairDetails/{skuId}/{cityCode}")
+    @GET("/WNXG/ulb/api/new_enter_prise_my_order/repairDetails/{skuId}/{cityCode}")
     Call<SKURecordDTO> getSKU(@Path("skuId") String skuId, @Path("cityCode") String cityCode);
 
 }

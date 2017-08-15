@@ -76,14 +76,13 @@
 		<div class="flow border_bottom">
 			<div><img src="${basePath}/images/liucheng_1.png" /></div>
 		</div>
-		<form action="" method="post">
+		<form action="${basePath}/" method="post">
 			<div class="order_head border_bottom border_top">
 				<div class="head_img"><img src="${sku.imgUrl}" /></div>
 				<div class="choose_num">
 					<p class="order_name">维修类目：<span>${sku.name}</span></p>
 					<p class="remark">${sku.content}</p>
 					<div>
-						<p class="num_change"><span class="jian">-</span><span class="txt">0</span><span class="add">+</span> </p>
 						<p class="priceshow"><i>&yen;</i><span>${sku.price}</span> <input type="button" name="" id="" value="服务说明" /></p>
 					</div>
 				</div>
@@ -92,27 +91,24 @@
 				<li class="contact_wayli enter enter_in"><span>请选择服务时间</span><input type="hidden" name="" id="" value="" /></li>
 				<li class="contact_wayli enter"><span>位置</span><input type="hidden" name="" id="" value="" /></li>
 				<li class="contact_wayli"><span>详细地址</span><textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="1" cols="40" placeholder="请输入具体门牌号"></textarea></li>
-				<li class="contact_wayli"><span>称呼</span><input type="text" id="" value="" readonly="readonly" /></li>
-				<li class="contact_wayli"><span>联系电话</span><input type="tel" name="" id="" value="" readonly="readonly" /></li>
+				<li class="contact_wayli"><span>称呼</span><input type="text" id="" value="" /></li>
+				<li class="contact_wayli"><span>联系电话</span><input type="tel" name="" id="" value="" /></li>
 				<li class="problem_desc contact_wayli"><span>请输入问题描述</span>
 					<textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="3" cols="" placeholder="请输入问题描述"></textarea>
 				</li>
 				<!--dom结构部分    图片上传-->
-				<div id="uploader" class="wu-example">
-					<!--用来存放item-->
-					<div class="queueList">
-						<div id="filePicker" class="webuploader-container">
-						</div>
-						<div class="statusBar element-invisible">
-							<div id="filePicker2">
+				<#--<div id="uploader" class="wu-example">-->
+					<#--<!--用来存放item&ndash;&gt;-->
+					<#--<div class="queueList">-->
+						<#--<div id="filePicker" class="webuploader-container">-->
+						<#--</div>-->
+						<#--<div class="statusBar element-invisible">-->
+							<#--<div id="filePicker2">-->
 
-							</div>
-						</div>
-					</div>
-
-					<!--<button id="ctlBtn" class="btn btn-default">开始上传</button>
-					<div id="fileList" class="uploader-list"></div>-->
-				</div>
+							<#--</div>-->
+						<#--</div>-->
+					<#--</div>-->
+				<#--</div>-->
 				<p class="agree"><label for=""><input type="checkbox" checked="checked" class="checked_btn" name="" id="" value="" />我同意</label>
 					<a href="javascript:;">《万能小哥维修协议》</a>
 				</p>

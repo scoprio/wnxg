@@ -17,17 +17,21 @@ import com.ulb.user.bo.UserOnlineBo;
 import com.ulb.web.demo.auth.AuthHelper;
 import com.ulb.web.demo.user.UserHelper;
 import com.ulb.web.dto.DingDingConfigDTO;
+import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKURecordDTO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -47,13 +51,7 @@ public class UlbSKUResource {
 
     @RequestMapping(value="sku/{skuId}/{cityCode}",method=RequestMethod.GET)
     public ModelAndView getSKU(@PathVariable String skuId,@PathVariable String cityCode){
-        SKURecordDTO dto  = new SKURecordDTO();
-//        dto.setRid("11");
-//        dto.setName("222");
-//        dto.setContent("2222");
-//        dto.setImgUrl("sss");
-//        dto.setPrice(new BigDecimal(50.0));
-//        dto.setUnit("台");
+        SKURecordDTO dto  = null;
         try {
             dto = skuService.getSKU(skuId,cityCode);
         } catch (IOException e) {
@@ -63,4 +61,17 @@ public class UlbSKUResource {
         return new ModelAndView("dingding/place_order","sku",dto);
     }
 
+
+    @RequestMapping(value = "/sku/order.shtml",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> order(@RequestBody SKUOrderRecordDTO skuOrderRecordDTO){
+        try {
+            skuService.order(skuOrderRecordDTO);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 }

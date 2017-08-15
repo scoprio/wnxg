@@ -8,7 +8,7 @@ public class SKUOrderRecordDTO {
 
     private String cityCode;
 
-    private OrderRecordDTO orderRecordDTO;
+    private OrderRecordDTO order;
 
     public String getCityCode() {
         return cityCode;
@@ -18,11 +18,11 @@ public class SKUOrderRecordDTO {
         this.cityCode = cityCode;
     }
 
-    public OrderRecordDTO getOrderRecordDTO() {
-        return orderRecordDTO;
+    public OrderRecordDTO getOrder() {
+        return order;
     }
 
-    public void setOrderRecordDTO(OrderRecordDTO orderRecordDTO) {
-        this.orderRecordDTO = orderRecordDTO;
+    public void setOrder(OrderRecordDTO order) {
+        this.order = order;
     }
 }

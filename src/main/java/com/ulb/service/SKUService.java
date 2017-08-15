@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import com.ulb.service.generator.APIServiceGenrator;
 import com.ulb.service.remote.RemoteSKUService;
+import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKURecordDTO;
 
 import org.springframework.stereotype.Service;
@@ -26,6 +27,13 @@ public class SKUService {
         Response<SKURecordDTO> response = call.execute();
         SKURecordDTO dto = response.body();
         return dto;
+    }
+
+
+    public void order(SKUOrderRecordDTO skuOrderRecordDTO) throws IOException {
+        RemoteSKUService service = APIServiceGenrator.createRequsetService(RemoteSKUService.class);
+        Call<?> call = service.postOrder(skuOrderRecordDTO);
+        call.execute();
     }
 
 }

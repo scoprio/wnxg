@@ -32,7 +32,7 @@ public class SKUService {
 
     public void order(SKUOrderRecordDTO skuOrderRecordDTO) throws IOException {
         RemoteSKUService service = APIServiceGenrator.createRequsetService(RemoteSKUService.class);
-        Call<?> call = service.postOrder(skuOrderRecordDTO);
+        Call<String> call = service.postOrder(skuOrderRecordDTO);
         call.execute();
     }
 

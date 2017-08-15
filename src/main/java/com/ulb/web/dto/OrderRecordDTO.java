@@ -18,6 +18,7 @@ public class OrderRecordDTO {
     private String tel;
 
     private String aid;
+    private String rid;
     private String name;
     private BigDecimal latitude;
     private BigDecimal longitude;
@@ -78,6 +79,14 @@ public class OrderRecordDTO {
 
     public void setTel(String tel) {
         this.tel = tel;
+    }
+
+    public String getRid() {
+        return rid;
+    }
+
+    public void setRid(String rid) {
+        this.rid = rid;
     }
 
     public String getAid() {

@@ -24,8 +24,7 @@ public interface RemoteSKUService {
     Call<SKURecordDTO> getSKU(@Path("skuId") String skuId, @Path("cityCode") String cityCode);
 
     @Headers({"Content-type:application/json;charset=UTF-8"})
-    @FormUrlEncoded
     @POST("/WNXG/ulb/api/new_enter_prise/order")
-    Call<?> postOrder(@Body SKUOrderRecordDTO skuOrderRecordDTO);
+    Call<String> postOrder(@Body SKUOrderRecordDTO skuOrderRecordDTO);
 
 }

@@ -49,37 +49,68 @@ var choose_city=[
 					"title": "大连"
 				}
 			]
-	}
-];
-
-var all_city = [
+	},
     {
-        id:1001,
-        name:'安徽'
+        "sortword":"E",
+        "citys": [
+                {
+                    "id": 5001,
+                    "title": "鄂尔多斯市"
+                }
+            ]
     },
     {
-        id:1002,
-        name:'安阳'
+        "sortword":"D",
+        "citys": [
+                {
+                    "id": 4001,
+                    "title": "大连市"
+                }
+            ]
     },
     {
-        id:2001,
-        name:'北京'
+        "sortword":"F",
+        "citys": [
+                {
+                    "id": 6001,
+                    "title": "福州市"
+                }
+            ]
     },
     {
-        id:2002,
-        name:'保定'
+        "sortword":"G",
+        "citys": [
+                {
+                    "id": 7001,
+                    "title": "广州"
+                }
+            ]
     },
     {
-        id:3001,
-        name:'长春'
+        "sortword":"H",
+        "citys": [
+                {
+                    "id": 8001,
+                    "title": "合肥"
+                }
+            ]
     },
     {
-        id:3002,
-        name:'沧州'
+        "sortword":"J",
+        "citys": [
+                {
+                    "id": 9001,
+                    "title": "嘉峪关市"
+                }
+            ]
     },
     {
-        id:4001,
-        name:'大连'
+        "sortword":"K",
+        "citys": [
+                {
+                    "id": 10001,
+                    "title": "开封市"
+                }
+            ]
     }
-    
-    ];
+];

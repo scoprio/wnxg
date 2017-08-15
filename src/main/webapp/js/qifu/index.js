@@ -47,12 +47,14 @@ $(function(){
     $('.city-list>p').click(function(event){
         current_city = $(this).text();
         console.log(current_city)
-        $('.choose_city .city_current').text(current_city)
+        $('.choose_city .city_current').text(current_city);
+        $('body,html').scrollTop(0);
         $('.city-wrap').stop(true).animate({left:'100%'},400,function(){
            $('.city-wrap').hide()
         })
     })
     $('.city-wrap .back').click(function(){
+        $('body,html').scrollTop(0);
         $('.city-wrap').stop(true).animate({left:'100%'},400,function(){
            $('.city-wrap').hide()
         })

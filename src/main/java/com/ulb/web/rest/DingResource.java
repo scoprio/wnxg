@@ -69,15 +69,10 @@ public class DingResource {
         String agentid = null;
 
         try {
-//            accessToken = AuthHelper.getAccessToken(corpId);
-//            ticket = AuthHelper.getJsapiTicket(accessToken, corpId);
-//            signature = AuthHelper.sign(ticket, nonceStr, timeStamp, signedUrl);
-//            agentid = AuthHelper.getAgentId(corpId, appId);
-
-            accessToken = "";
-            ticket = "";
-            signature = "";
-            agentid = "";
+            accessToken = AuthHelper.getAccessToken(corpId);
+            ticket = AuthHelper.getJsapiTicket(accessToken, corpId);
+            signature = AuthHelper.sign(ticket, nonceStr, timeStamp, signedUrl);
+            agentid = AuthHelper.getAgentId(corpId, appId);
 
         } catch (Exception e) {
             // TODO Auto-generated catch block
@@ -100,17 +95,17 @@ public class DingResource {
     @RequestMapping(value="authCode.shtml",method=RequestMethod.GET)
     public ResponseEntity<String> getAuthCode(HttpServletRequest request){
 
+
         String code = request.getParameter("code");
         String corpId = request.getParameter("corpid");
         LOGGER.info("code:"+code+" corpid:"+corpId);
 
-        String accessToken;
+        String accessToken = "";
         CorpUserDetail user = null;
 
         try {
             accessToken = AuthHelper.getAccessToken(corpId);
             LOGGER.info("access token:"+accessToken);
-            CorpUserDetail user2 = UserHelper.getUserInfo(accessToken, code);
             user = UserHelper.getUser(accessToken, UserHelper.getUserInfo(accessToken, code).getUserid());
         } catch (Exception e) {
             e.printStackTrace();
@@ -118,6 +113,25 @@ public class DingResource {
         String userJson = JSON.toJSONString(user);
         LOGGER.info("access user:"+userJson);
         return new ResponseEntity<>(userJson, HttpStatus.OK);
+
+//        String code = request.getParameter("code");
+//        String corpId = request.getParameter("corpid");
+//        LOGGER.info("code:"+code+" corpid:"+corpId);
+//
+//        String accessToken;
+//        CorpUserDetail user = null;
+//
+//        try {
+//            accessToken = AuthHelper.getAccessToken(corpId);
+//            LOGGER.info("access token:"+accessToken);
+////            CorpUserDetail user2 = UserHelper.getUserInfo(accessToken, code);
+//            user = UserHelper.getUser(accessToken, UserHelper.getUserInfo(accessToken, code).getUserid());
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        String userJson = JSON.toJSONString(user);
+//        LOGGER.info("access user:"+userJson);
+//        return new ResponseEntity<>(userJson, HttpStatus.OK);
     }
 
     @RequestMapping(value="my",method=RequestMethod.GET)

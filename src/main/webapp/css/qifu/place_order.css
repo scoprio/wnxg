@@ -93,6 +93,7 @@
 .contact_way .enter{
 	background: url(/images/btn_jinru.png) no-repeat right center;
 	background-size: 2.5%;
+    padding-right: 0.26rem;
 }
 .contact_way .contact_wayli span{
 	line-height: .9rem;
@@ -103,12 +104,13 @@
 	float: right;
 	text-align: right;
 	line-height: .9rem;
-	width: 70%;
+	width: 68%;
 	font-size: .26rem;
+    background: transparent;
 }
 .contact_way .contact_wayli textarea{
 	float: right;
-	padding: .2rem 0 .2rem;
+	padding: .28rem 0 .2rem;
     width: 70%;
     text-align: right;
     resize: none;
@@ -221,6 +223,9 @@
 	height: 100%;
 	overflow-y: auto;
 	display: none;
+}
+.fright li:nth-of-type(1){
+    display: block;
 }
 .fright li span{
 	width: 100%;

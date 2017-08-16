@@ -14,61 +14,150 @@
         <script src="${basePath}/js/qifu/webuploader.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/wnxg_qf.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
-            $(function() {
-                $(".enter_in").click(function() {
-                    $('.datebox').fadeIn()
-                    $(".choosedate").animate({
-						 "bottom": "0"
-					 }, 500);
+			$(function() {
+			// 选择时间数据填充
+            function fill_date(){
+                var result_date = '';
+                var result_time = '';
+                var result_time_all = '';
+				var date_data = [
+                    {
+                        "date": "2017-08-16",
+                        "time": [
+                            "8:00",
+                            "8:30",
+                            "9:00"
+                        ]
+                    },
+                    {
+                        "date": "2017-08-17",
+                        "time": [
+                            "8:00",
+                            "8:30",
+                            "9:00"
+                        ]
+                    },
+                    {
+                        "date": "2017-08-18",
+                        "time": [
+                            "8:00",
+                            "8:30",
+                            "9:00"
+                        ]
+                    }
+                ]
+                if(date_data){
+                    date_data.forEach(function(item,i){
+                        result_time = '';
+                        item.time.forEach(function(time,i){
+                            result_time += '<span>'+time+'</span>'
+                        })
+                        if(i==0){
+                            result_date += '<li class="add_bgcolor">今天（<span>'+item.date+'</span>)</li>';
+                        }
+                        else if(i==1){
+                            result_date += '<li>明天（<span>'+item.date+'</span>)</li>';
+                        }
+                        else{
+                            result_date += '<li>后天（<span>'+item.date+'</span>)</li>';
+                        }
+                        result_time_all += '<li>'+result_time+'</li>'
+                    })
+                    $('.choosedate>div .fleft').html('');
+                    $('.choosedate>div .fright').html('');
+                    $('.choosedate>div .fleft').prepend(result_date);
+                    $('.choosedate>div .fright').prepend(result_time_all);
+                }
+            }
+
+            $('.affirmbtn').click(function(){
+                var index = 0;
+                var val_data = '';
+                var flag = 0
+                $('.choosedate>div .fleft>li').each(function(i,item){
+                    if($(item).hasClass('add_bgcolor')){
+                        index = i;
+                        val_data += $(item).text();
+                        return false;
+                    }
                 })
-                $(".cancelbtn").click(function() {
+                $(".choosedate>div .fright>li").eq(index).find('span').each(function(i,item){
+                    if($(item).hasClass('add_bgcolor')){
+                        val_data += ' '+$(item).text();
+                        flag = 1;
+                        return false;
+                    }
+                    else{
+                        console.log('f')
+                    }
+                })
+                if(flag == 1){
+                    $('.enter_in input').val(val_data);
                     $(".choosedate").animate({
-						 "bottom": "-3.36rem"
-					 }, 500, function() {
+                                                 "bottom": "-3.36rem"
+                                             }, 400, function() {
                         $('.datebox').fadeOut();
                     })
-                })
-                $('.fleft li').click(function() {
-                    $(this).addClass('add_bgcolor').find('span').css('color', '#fff').parent().siblings().removeClass('add_bgcolor').find('span').css('color', '#222');
-                    $('.fright li').eq($(this).index()).show().siblings().hide().find('span').removeClass('add_bgcolor');
-                })
-                $('.fright li span').click(function() {
-                    $(this).addClass('add_bgcolor').siblings().removeClass('add_bgcolor');
-                })
-
-                $(".checked_btn").click(function() {
-                    if($(this).prop('checked')) {
-                        $(this).css({
-                                        "background": "url(${basePath}/images/btn_press_tongyi.png) no-repeat center",
-                                        "background-size": "100%"
-                                    })
-                        $(".submit_btn").css("background", "#ff943e");
-
-                    } else {
-                        $(this).css({
-                                        "background": "url(${basePath}/images/btn_defult_tongyi.png) no-repeat center",
-                                        "background-size": "100%"
-                                    })
-                        $(".submit_btn").css("background", "#ccc");
-                        console.log(888)
-                    }
-                })
-
-                $(".add").click(function(){
-                    var carValue = $('.txt').text();
-                    carValue++
-                    $('.txt').text(carValue)
-                })
-                $(".jian").click(function(){
-                    var carValue =$('.txt').text();
-                    carValue--
-                    if(carValue<=1){
-                        carValue = 1
-                    }
-                    $('.txt').text(carValue)
-                })
+                }
 
             })
+
+            $(".enter_in").click(function() {
+                $('.datebox').fadeIn()
+                $(".choosedate").animate({
+                                             "bottom": "0"
+                                         }, 400);
+                fill_date();
+            })
+            $(".cancelbtn").click(function() {
+                $(".choosedate").animate({
+                                             "bottom": "-3.36rem"
+                                         }, 400, function() {
+                    $('.datebox').fadeOut();
+                })
+            })
+            $('.fleft').delegate("li", "click", function(){
+                $(this).addClass('add_bgcolor').find('span').css('color', '#fff').parent().siblings().removeClass('add_bgcolor').find('span').css('color', '#222');
+                $('.fright li').eq($(this).index()).show().siblings().hide().find('span').removeClass('add_bgcolor');
+            })
+            $('.fright').delegate("li span", "click", function(){
+                $(this).addClass('add_bgcolor').siblings().removeClass('add_bgcolor');
+            })
+
+            $(".checked_btn").click(function() {
+                if($(this).prop('checked')) {
+                    $(this).css({
+                                    "background": "url(img/btn_press_tongyi.png) no-repeat center",
+                                    "background-size": "100%"
+                                })
+                    $(".submit_btn").css("background", "#ff943e");
+
+                } else {
+                    $(this).css({
+                                    "background": "url(img/btn_defult_tongyi.png) no-repeat center",
+                                    "background-size": "100%"
+                                })
+                    $(".submit_btn").css("background", "#ccc");
+                    console.log(888)
+                }
+            })
+
+            $(".add").click(function(){
+                var carValue = $('.txt').text();
+                carValue++
+                $('.txt').text(carValue)
+            })
+            $(".jian").click(function(){
+                var carValue =$('.txt').text();
+                carValue--
+                if(carValue<=1){
+                    carValue = 1
+                }
+                $('.txt').text(carValue)
+            })
+
+            })
+
         </script>
 	</head>
 
@@ -88,7 +177,7 @@
 				</div>
 			</div>
 			<ul class="contact_way border_bottom">
-				<li class="contact_wayli enter enter_in"><span>请选择服务时间</span><input type="hidden" name="" id="" value="" /></li>
+				<li class="contact_wayli enter enter_in"><span>请选择服务时间</span><input type="text" name="" id="" value="" readonly/></li>
 				<li class="contact_wayli enter"><span>位置</span><input type="hidden" name="" id="" value="" /></li>
 				<li class="contact_wayli"><span>详细地址</span><textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="1" cols="40" placeholder="请输入具体门牌号"></textarea></li>
 				<li class="contact_wayli"><span>称呼</span><input type="text" id="" value="" /></li>
@@ -120,77 +209,10 @@
 				<p class="border_bottom"><span class="cancelbtn fl">取消</span><i>请选择时间</i><span class="affirmbtn fr">确认</span></p>
 				<div>
 					<ul class="fl fleft">
-						<li class="add_bgcolor">今天（<span>星期二</span>）</li>
-						<li>明天（<span>星期三</span>）</li>
-						<li>后天（<span>星期四</span>）</li>
+
 					</ul>
 					<ul class="fr fright">
-						<li style="display: block;">
-							<span>8:30</span>
-							<span>9:00</span>
-							<span>9:30</span>
-							<span>10:00</span>
-							<span>10:30</span>
-							<span>11:00</span>
-							<span>11:30</span>
-							<span>12:00</span>
-							<span>12:30</span>
-							<span>13:00</span>
-							<span>13:30</span>
-							<span>14:00</span>
-							<span>14:30</span>
-							<span>15:00</span>
-							<span>15:30</span>
-							<span>16:00</span>
-							<span>16:30</span>
-							<span>17:00</span>
-							<span>17:30</span>
-							<span>18:00</span>
-						</li>
-						<li>
-							<span>8:30</span>
-							<span>9:00</span>
-							<span>9:30</span>
-							<span>10:00</span>
-							<span>10:30</span>
-							<span>11:00</span>
-							<span>11:30</span>
-							<span>12:00</span>
-							<span>12:30</span>
-							<span>13:00</span>
-							<span>13:30</span>
-							<span>14:00</span>
-							<span>14:30</span>
-							<span>15:00</span>
-							<span>15:30</span>
-							<span>16:00</span>
-							<span>16:30</span>
-							<span>17:00</span>
-							<span>17:30</span>
-							<span>18:00</span>
-						</li>
-						<li>
-							<span>8:30</span>
-							<span>9:00</span>
-							<span>9:30</span>
-							<span>10:00</span>
-							<span>10:30</span>
-							<span>11:00</span>
-							<span>11:30</span>
-							<span>12:00</span>
-							<span>12:30</span>
-							<span>13:00</span>
-							<span>13:30</span>
-							<span>14:00</span>
-							<span>14:30</span>
-							<span>15:00</span>
-							<span>15:30</span>
-							<span>16:00</span>
-							<span>16:30</span>
-							<span>17:00</span>
-							<span>17:30</span>
-							<span>18:00</span>
-						</li>
+
 					</ul>
 				</div>
 			</div>

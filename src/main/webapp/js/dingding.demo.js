@@ -114,7 +114,9 @@ dd.ready(function() {
 				success : function(data, status, xhr) {
 					var info = JSON.parse(data);
 					// alert(info.name);
+					alert(baseUrl+"/dingding/my?uuid="+info.userid+"&cityCode="+current_city_code);
 			        $('.person_center').attr("href",baseUrl+"/dingding/my?uuid="+info.userid+"&cityCode="+current_city_code);
+					// alert($('.person_center').attr("href"))
 					// document.getElementById("userName").innerHTML = info.name;
 					// document.getElementById("userId").innerHTML = info.userid;
 
@@ -146,7 +148,7 @@ dd.ready(function() {
 		  withReGeocode : false,
 		  onSuccess: function(result) {
 			  var location = JSON.stringify(result);
-
+			  alert(location);
 			  if(location.city && location.city.length()>0){
 				 $.data(cache_city, 'cache_city', location.city);
 			  }else {

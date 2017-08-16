@@ -20,7 +20,7 @@ import retrofit2.Response;
  */
 
 @Service
-public class UserService {
+public class DingUserService {
 
     //获取SKU订单
     public SKURecordDTO getSKU(String skuId,String cityCode) throws IOException {

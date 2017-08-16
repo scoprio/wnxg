@@ -8,7 +8,17 @@ public class SKUOrderRecordDTO {
 
     private String cityCode;
 
+    private String openId;
+
     private OrderRecordDTO order;
+
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
 
     public String getCityCode() {
         return cityCode;

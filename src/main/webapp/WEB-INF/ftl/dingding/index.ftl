@@ -39,14 +39,14 @@
         <script src="${basePath}/js/qifu/city.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/index.js" type="text/javascript" charset="utf-8" baseUrl="${basePath}"></script>
 
-        <script src="${basePath}/js/dingding.demo.js"></script>
+        <script src="${basePath}/js/dingding.demo.js" baseUrl="${basePath}"></script>
 	</head>
 
 	<body>
 
 
     <div class="choose_city">
-        <a href="my.html" class="person_center"></a>
+        <a href="${basePath}/dingding/my?uuid=" class="person_center"></a>
         <a href="javascript:void(0);" class="city_current" id="citychoose" >北京</a>
     </div>
     <div class="banner"><img src="/images/banner.png"/></div>

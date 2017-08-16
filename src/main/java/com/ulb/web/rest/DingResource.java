@@ -11,6 +11,7 @@ import com.dingtalk.open.client.api.model.corp.CorpUserDetail;
 import com.ulb.web.demo.auth.AuthHelper;
 import com.ulb.web.demo.user.UserHelper;
 import com.ulb.web.dto.DingDingConfigDTO;
+import com.ulb.web.dto.MyOrderInfoDTO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -83,9 +84,6 @@ public class DingResource {
             e.printStackTrace();
         }
 
-
-//        "{jsticket:'" + ticket + "',signature:'" + signature + "',nonceStr:'" + nonceStr + "',timeStamp:'"
-//                + timeStamp + "',corpId:'" + corpId + "',agentid:'" + agentid+ "',appid:'" + appId + "'}";
         DingDingConfigDTO dto = new DingDingConfigDTO();
 
         dto.setAgentId(agentid);
@@ -106,12 +104,13 @@ public class DingResource {
         String corpId = request.getParameter("corpid");
         LOGGER.info("code:"+code+" corpid:"+corpId);
 
-        String accessToken = "";
+        String accessToken;
         CorpUserDetail user = null;
 
         try {
             accessToken = AuthHelper.getAccessToken(corpId);
             LOGGER.info("access token:"+accessToken);
+            CorpUserDetail user2 = UserHelper.getUserInfo(accessToken, code);
             user = UserHelper.getUser(accessToken, UserHelper.getUserInfo(accessToken, code).getUserid());
         } catch (Exception e) {
             e.printStackTrace();
@@ -119,6 +118,17 @@ public class DingResource {
         String userJson = JSON.toJSONString(user);
         LOGGER.info("access user:"+userJson);
         return new ResponseEntity<>(userJson, HttpStatus.OK);
+    }
+
+    @RequestMapping(value="my",method=RequestMethod.GET)
+    public ModelAndView getUserInfo(HttpServletRequest request){
+
+        String uuid = request.getParameter("uuid");
+        String corpId = request.getParameter("corpid");
+
+        MyOrderInfoDTO dto = new MyOrderInfoDTO();
+
+        return new ModelAndView("dingding/my","_my",dto);
     }
 
 

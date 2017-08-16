@@ -1,13 +1,13 @@
 package com.ulb.service.remote;
 
 
+import java.util.List;
+
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKURecordDTO;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Headers;
@@ -27,4 +27,6 @@ public interface RemoteSKUService {
     @POST("/WNXG/ulb/api/new_enter_prise/order")
     Call<String> postOrder(@Body SKUOrderRecordDTO skuOrderRecordDTO);
 
+    @GET("/WNXG/ulb/api/new_enter_prise_my_order/repairDetails/{userID}")
+    Call<List<SKURecordDTO>> getSKUOrderRecord(@Path("userId") String userId);
 }

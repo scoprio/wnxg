@@ -5,7 +5,6 @@
 /**
  * _config comes from server-side template. see views/index.jade
  */
-var baseUrl = $("script[baseUrl]").attr('baseUrl');
 
 dd.config({
 			agentId :_config.agentId,
@@ -104,40 +103,39 @@ dd.ready(function() {
 	// });
 
 
-	dd.runtime.permission.requestAuthCode({
-		corpId : _config.corpId,
-		onSuccess : function(info) {
-			$.ajax({
-				url : '/dingding/authCode.shtml?code=' + info.code + '&corpid='
-						+ _config.corpId,
-				type : 'GET',
-				success : function(data, status, xhr) {
-					var info = JSON.parse(data);
-					// alert(info.name);
-			        $('.person_center').attr("href",baseUrl+"/dingding/my?uuid="+info.userid+"&cityCode="+current_city_code);
-					// document.getElementById("userName").innerHTML = info.name;
-					// document.getElementById("userId").innerHTML = info.userid;
-
-					// 图片
-//					if(info.avatar.length != 0){
-//			            var img = document.getElementById("userImg");
-//			            img.src = info.avatar;
-//			                      img.height = '100';
-//			                      img.width = '100';
-//			          }
-
-				},
-				error : function(xhr, errorType, error) {
-					logger.e("未授权的公司:" + _config.corpId);
-					alert(errorType + ', ' + error);
-				}
-			});
-
-		},
-		onFail : function(err) {
-			alert('fail: ' + JSON.stringify(err));
-		}
-	});
+// 	dd.runtime.permission.requestAuthCode({
+// 		corpId : _config.corpId,
+// 		onSuccess : function(info) {
+// 			$.ajax({
+// 				url : '/dingding/authCode.shtml?code=' + info.code + '&corpid='
+// 						+ _config.corpId,
+// 				type : 'GET',
+// 				success : function(data, status, xhr) {
+// 					var info = JSON.parse(data);
+// 					// alert(info.name);
+// 					document.getElementById("userName").innerHTML = info.name;
+// 					document.getElementById("userId").innerHTML = info.userid;
+//
+// 					// 图片
+// //					if(info.avatar.length != 0){
+// //			            var img = document.getElementById("userImg");
+// //			            img.src = info.avatar;
+// //			                      img.height = '100';
+// //			                      img.width = '100';
+// //			          }
+//
+// 				},
+// 				error : function(xhr, errorType, error) {
+// 					logger.e("未授权的公司:" + _config.corpId);
+// 					alert(errorType + ', ' + error);
+// 				}
+// 			});
+//
+// 		},
+// 		onFail : function(err) {
+// 			alert('fail: ' + JSON.stringify(err));
+// 		}
+// 	});
 
 
 	dd.device.geolocation.get({

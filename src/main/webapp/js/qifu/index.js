@@ -1,9 +1,7 @@
 var baseUrl = $("script[baseUrl]").attr('baseUrl');
-
+var current_city = '';
+var current_city_code = 'bj';
 $(function(){
-
-    var current_city = '';
-    var current_city_code = 'bj';
     var page = 0;
 
     function change_url(citycode) {

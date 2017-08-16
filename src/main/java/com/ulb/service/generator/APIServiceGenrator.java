@@ -42,7 +42,7 @@ public class APIServiceGenrator {
 //                .retryOnConnectionFailure(true)
 //                .connectTimeout(10, TimeUnit.SECONDS)
 //                .readTimeout(30, TimeUnit.SECONDS)
-////                .addNetworkInterceptor(tokenInterceptor)
+//                .addNetworkInterceptor(tokenInterceptor)
 //                .addInterceptor(httpLoggingInterceptor)
 //                .build();
 //

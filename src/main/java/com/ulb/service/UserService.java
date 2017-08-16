@@ -1,7 +1,6 @@
 package com.ulb.service;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import com.ulb.service.generator.APIServiceGenrator;
@@ -21,29 +20,22 @@ import retrofit2.Response;
  */
 
 @Service
-public class SKUService {
+public class UserService {
 
+    //获取SKU订单
     public SKURecordDTO getSKU(String skuId,String cityCode) throws IOException {
-        RemoteSKUService service = APIServiceGenrator.createRequsetService(RemoteSKUService.class);
-        Call<SKURecordDTO> call = service.getSKU(skuId,cityCode);
-        Response<SKURecordDTO> response = call.execute();
-        SKURecordDTO dto = response.body();
-        return dto;
+        return null;
     }
 
-
+    //获取盾服务订单
     public void order(SKUOrderRecordDTO skuOrderRecordDTO) throws IOException {
         RemoteSKUService service = APIServiceGenrator.createRequsetService(RemoteSKUService.class);
         Call<String> call = service.postOrder(skuOrderRecordDTO);
         call.execute();
     }
-
+    //获取发票列表
     public List<SKURecordDTO> getSKUOrderRecord(String uid) throws IOException{
-        RemoteSKUService service = APIServiceGenrator.createRequsetService(RemoteSKUService.class);
-        Call<List<SKURecordDTO>> call = service.getSKUOrderRecord(uid);
-        Response<List<SKURecordDTO>> response = call.execute();
-        List<SKURecordDTO> list = response.body();
-        return list;
+       return null;
     }
 
 }

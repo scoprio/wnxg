@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
@@ -73,5 +74,18 @@ public class UlbSKUResource {
         }
 
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value="skuOrderRecord/{userID}",method=RequestMethod.GET)
+    public ModelAndView getSKUOrder(@PathVariable String userID){
+        List<SKURecordDTO> list  = null;
+        try {
+            list = skuService.getSKUOrderRecord(userID);
+        } catch (IOException e) {
+            LOGGER.error("从服务请求SKU详情失败");
+            e.printStackTrace();
+        }
+        return new ModelAndView("dingding/place_order","sku",list);
     }
 }

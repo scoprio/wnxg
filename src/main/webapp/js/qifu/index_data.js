@@ -2,31 +2,31 @@ var baseUrl = $("script[baseUrl]").attr('baseUrl');
 var data = {
     "list1":[
         {
-        	"id":001,
+        	"id":2537,
             "title":"电脑系统重修",
             "pic":baseUrl + "/images/10.png",
             "money":"30"
         },
         {
-        	"id":002,
+        	"id":2537,
             "title":"电脑系统重修",
             "pic": baseUrl + "/images/10.png",
             "money":"30"
         },
         {
-        	"id":003,
+        	"id":2537,
             "title":"电脑系统重修",
             "pic": baseUrl + "/images/10.png",
             "money":"30"
         },
         {
-        	"id":004,
+        	"id":2537,
             "title":"电脑系统重修",
             "pic": baseUrl + "/images/10.png",
             "money":"30"
         },
         {
-        	"id":005,
+        	"id":2537,
             "title":"电脑系统重修",
             "pic":baseUrl + "/images/10.png",
             "money":"30"
@@ -35,31 +35,31 @@ var data = {
     ],
     "list2":[
         {
-        	"id":006,
+        	"id":2537,
             "title":"电脑系统重修",
             "pic":baseUrl + "/images/10.png",
             "money":"30"
         },
         {
-        	"id":007,
+        	"id":2537,
             "title":"电脑系统重修",
             "pic":baseUrl + "/images/10.png",
             "money":"30"
         },
         {
-        	"id":008,
+        	"id":2537,
             "title":"电脑系统重修",
             "pic":baseUrl + "/images/10.png",
             "money":"30"
         },
         {
-        	"id":009,
+        	"id":2537,
             "title":"电脑系统重修",
             "pic":baseUrl + "/images/10.png",
             "money":"30"
         },
         {
-        	"id":010,
+        	"id":2537,
             "title":"电脑系统重修",
             "pic":baseUrl + "/images/10.png",
             "money":"30"
@@ -68,31 +68,31 @@ var data = {
     ],
     "list3":[
         {
-        	"id":011,
+        	"id":2537,
             "title":"电脑系统重修",
             "pic":baseUrl + "/images/10.png",
             "money":"30"
         },
         {
-        	"id":012,
+        	"id":2537,
             "title":"电脑系统重修",
             "pic":baseUrl + "/images/10.png",
             "money":"30"
         },
         {
-        	"id":013,
+        	"id":2537,
             "title":"电脑系统重修",
             "pic":baseUrl + "/images/10.png",
             "money":"30"
         },
         {
-        	"id":014,
+        	"id":2537,
             "title":"电脑系统重修",
             "pic":baseUrl + "/images/10.png",
             "money":"30"
         },
         {
-        	"id":015,
+        	"id":2537,
             "title":"电脑系统重修",
             "pic":baseUrl + "/images/10.png",
             "money":"30"

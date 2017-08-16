@@ -1,6 +1,22 @@
+var baseUrl = $("script[baseUrl]").attr('baseUrl');
+
 $(function(){
-    
+
+    var current_city = '';
+    var current_city_code = 'bj';
     var page = 0;
+
+    function change_url(citycode) {
+        $('.hot_project>ul>li .hot_btn>a').each(function(i,item) {
+            var current_url = $(item).attr('href');
+            var url_array = current_url.split('/');
+            url_array[url_array.length-1] = citycode;
+            current_url = url_array.join('/')
+            $(item).attr('href',current_url);
+            console.log(item);
+        })
+    }
+
     $('.hot_project').dropload({
         scrollArea : window,
         domDown : {
@@ -15,13 +31,13 @@ $(function(){
             var list = data['list'+page];
             if(list){
                 for(var i = 0; i < list.length; i++) {
+                    orderUrl = baseUrl + "/ulb/sku/" +list[i].id+"/"+current_city_code+".shtml"
                     result += '<li id='+list[i].id+'>' + '<div class="hot_pic">' + '<img src="' + list[i].pic +'" alt="">' + '</div>' +
                             '<div class="hot_price">' +
                             '<p>' + list[i].title + ' </p>' +
                             '<p>&yen;<span> '+ list[i].money +'</span></p>'+
-                            '</div>'+'<div class="hot_btn"><a href="place_order.html">立即报修</a></div>'+
+                            '</div>'+'<div class="hot_btn"><a href="'+orderUrl+'">立即报修</a></div>'+
                             '</li>';
-                          
                 }
             }
             else{
@@ -37,16 +53,18 @@ $(function(){
         }
     });
 // 选择城市
-    var current_city = ''
+
     $('.city_current').click(function(){
         $('.city-wrap').show()
         $('.city-wrap').stop(true).animate({left:0},400,function(){
 
         })
     });
-    $('.city-list>p').click(function(event){
+    $('.city').delegate('p', 'click', function(event) {
         current_city = $(this).text();
-        console.log(current_city)
+        current_city_code = $(this).attr('id');
+        change_url(current_city_code+".shtml");
+        console.log(current_city_code +":"+current_city);
         $('.choose_city .city_current').text(current_city);
         $('body,html').scrollTop(0);
         $('.city-wrap').stop(true).animate({left:'100%'},400,function(){

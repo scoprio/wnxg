@@ -36,10 +36,10 @@
         <script src="${basePath}/js/qifu/dropload.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/index_data.js" type="text/javascript" charset="utf-8" baseUrl="${basePath}"></script>
         <script src="${basePath}/js/qifu/choose_citydata.js" type="text/javascript" charset="utf-8"></script>
-        <script src="${basePath}/js/qifu/index.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/city.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/qifu/index.js" type="text/javascript" charset="utf-8" baseUrl="${basePath}"></script>
 
-		<script src="${basePath}/js/dingding.demo.js"></script>
+        <script src="${basePath}/js/dingding.demo.js"></script>
 	</head>
 
 	<body>

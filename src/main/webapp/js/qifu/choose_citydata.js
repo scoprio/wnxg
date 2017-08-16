@@ -4,11 +4,11 @@ var choose_city=[
 		"sortword":"A",
 		"citys": [
 				{
-					"id": 1001,
+					"id": "sjz",
 					"title": "安徽"
 				},
 				{
-					"id": 1002,
+					"id": "sjz",
 					"title": "安阳"
 				}
 			],
@@ -19,11 +19,11 @@ var choose_city=[
 		"sortword":"B",
 		"citys": [
 				{
-					"id": 2001,
+					"id": "sjz",
 					"title": "北京"
 				},
 				{
-					"id": 2002,
+					"id": "sjz",
 					"title": "保定"
 				}
 			]
@@ -32,11 +32,11 @@ var choose_city=[
 		"sortword":"C",
 		"citys": [
 				{
-					"id": 3001,
+					"id": "sjz",
 					"title": "长春"
 				},
 				{
-					"id": 3002,
+					"id": "sjz",
 					"title": "沧州"
 				}
 			]
@@ -45,7 +45,7 @@ var choose_city=[
 		"sortword":"D",
 		"citys": [
 				{
-					"id": 4001,
+					"id": "sjz",
 					"title": "大连"
 				}
 			]
@@ -54,7 +54,7 @@ var choose_city=[
         "sortword":"E",
         "citys": [
                 {
-                    "id": 5001,
+                    "id": "sjz",
                     "title": "鄂尔多斯市"
                 }
             ]

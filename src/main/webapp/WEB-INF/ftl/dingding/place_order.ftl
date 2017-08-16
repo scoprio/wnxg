@@ -97,18 +97,18 @@
 					<textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="3" cols="" placeholder="请输入问题描述"></textarea>
 				</li>
 				<!--dom结构部分    图片上传-->
-				<#--<div id="uploader" class="wu-example">-->
-					<#--<!--用来存放item&ndash;&gt;-->
-					<#--<div class="queueList">-->
-						<#--<div id="filePicker" class="webuploader-container">-->
-						<#--</div>-->
-						<#--<div class="statusBar element-invisible">-->
-							<#--<div id="filePicker2">-->
+				<div id="uploader" class="wu-example" style="display: none">
+					<!--用来存放item-->
+					<div class="queueList">
+						<div id="filePicker" class="webuploader-container">
+						</div>
+						<div class="statusBar element-invisible">
+							<div id="filePicker2">
 
-							<#--</div>-->
-						<#--</div>-->
-					<#--</div>-->
-				<#--</div>-->
+							</div>
+						</div>
+					</div>
+				</div>
 				<p class="agree"><label for=""><input type="checkbox" checked="checked" class="checked_btn" name="" id="" value="" />我同意</label>
 					<a href="javascript:;">《万能小哥维修协议》</a>
 				</p>

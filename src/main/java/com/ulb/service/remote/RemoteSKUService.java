@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKURecordDTO;
+import com.ulb.web.dto.UsefulTimeDTO;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -29,4 +30,7 @@ public interface RemoteSKUService {
 
     @GET("/WNXG/ulb/api/new_enter_prise_my_order/repairDetails/{userID}")
     Call<List<SKURecordDTO>> getSKUOrderRecord(@Path("userId") String userId);
+
+    @GET("/WNXG/ulb/api/new_enter_prise/usefulTime")
+    Call<List<UsefulTimeDTO>> getUsefulTime();
 }

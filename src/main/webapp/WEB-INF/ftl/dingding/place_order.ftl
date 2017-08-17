@@ -15,37 +15,45 @@
         <script src="${basePath}/js/qifu/wnxg_qf.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
 			$(function() {
+
+                var input_time = $("#date");
+                var input_site = $("#site");
+                var input_addr = $("#addr");
+                var input_telephone = $("#telephone");
+                var input_username = $("#username");
+                var input_desc = $("#desc");
+                var input_checkbox = $("input:checkbox");
+                var checked_btn = $('.checked_btn');
+                var submit_btn = $('.submit_btn');
+                var Iscomplete = function(){
+                    var form_time = input_time.val().trim();
+                    var form_site = $("#site").val()
+                    var form_addr = input_addr.val().trim();
+                    var form_telephone = input_telephone.val();
+                    var form_username = input_username.val().trim();
+                    var form_desc = input_desc.val().trim();
+                    var checkbox = input_checkbox.prop('checked');
+
+                    if(form_addr && form_desc && form_telephone && form_username && checkbox && form_time){
+                        submit_btn.attr("disabled",false)
+                        submit_btn.css("background", "#ff943e");
+                    }
+                    else{
+                        submit_btn.attr("disabled",true)
+                        submit_btn.css("background", "#ccc");
+                    }
+                }
+                Iscomplete();
+            console.log('${sku.usefulTime}');
+            console.log(JSON.parse('${sku.usefulTime}'));
+
 			// 选择时间数据填充
             function fill_date(){
                 var result_date = '';
                 var result_time = '';
                 var result_time_all = '';
-				var date_data = [
-                    {
-                        "date": "2017-08-16",
-                        "time": [
-                            "8:00",
-                            "8:30",
-                            "9:00"
-                        ]
-                    },
-                    {
-                        "date": "2017-08-17",
-                        "time": [
-                            "8:00",
-                            "8:30",
-                            "9:00"
-                        ]
-                    },
-                    {
-                        "date": "2017-08-18",
-                        "time": [
-                            "8:00",
-                            "8:30",
-                            "9:00"
-                        ]
-                    }
-                ]
+
+				var date_data = JSON.parse('${sku.usefulTime}');
                 if(date_data){
                     date_data.forEach(function(item,i){
                         result_time = '';
@@ -98,6 +106,7 @@
                                              }, 400, function() {
                         $('.datebox').fadeOut();
                     })
+                    Iscomplete();
                 }
 
             })
@@ -130,16 +139,14 @@
                                     "background": "url(img/btn_press_tongyi.png) no-repeat center",
                                     "background-size": "100%"
                                 })
-                    $(".submit_btn").css("background", "#ff943e");
 
                 } else {
                     $(this).css({
                                     "background": "url(img/btn_defult_tongyi.png) no-repeat center",
                                     "background-size": "100%"
                                 })
-                    $(".submit_btn").css("background", "#ccc");
-                    console.log(888)
                 }
+                Iscomplete();
             })
 
             $(".add").click(function(){
@@ -167,23 +174,24 @@
 		</div>
 		<form action="${basePath}/" method="post">
 			<div class="order_head border_bottom border_top">
-				<div class="head_img"><img src="${sku.imgUrl}" /></div>
+				<div class="head_img"><img src="" /></div>
 				<div class="choose_num">
 					<p class="order_name">维修类目：<span>${sku.name}</span></p>
-					<p class="remark">${sku.content}</p>
+					<p class="remark">${sku.content?default('无')}</p>
 					<div>
-						<p class="priceshow"><i>&yen;</i><span>${sku.price}</span> <input type="button" name="" id="" value="服务说明" /></p>
+						<p class="priceshow"><i>&yen;</i><span>${sku.price?default('0')}</span> <input type="button" name="" id="" value="服务说明" /></p>
 					</div>
 				</div>
 			</div>
 			<ul class="contact_way border_bottom">
-				<li class="contact_wayli enter enter_in"><span>请选择服务时间</span><input type="text" name="" id="" value="" readonly/></li>
-				<li class="contact_wayli enter"><span>位置</span><input type="hidden" name="" id="" value="" /></li>
-				<li class="contact_wayli"><span>详细地址</span><textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="1" cols="40" placeholder="请输入具体门牌号"></textarea></li>
-				<li class="contact_wayli"><span>称呼</span><input type="text" id="" value="" /></li>
-				<li class="contact_wayli"><span>联系电话</span><input type="tel" name="" id="" value="" /></li>
+				<li class="contact_wayli enter enter_in"><span>请选择服务时间</span><input type="text" name="" id="date" value="" disabled="disabled" onchange="Iscomplete()"/></li>
+				<li class="contact_wayli enter"><span>位置</span><input type="hidden" name="" id="site" value="" autocomplete="off" oninput="Iscomplete()"/></li>
+				<li class="contact_wayli"><span>详细地址</span><textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="1" cols="40" placeholder="请输入具体门牌号" id="addr" autocomplete="off" oninput="Iscomplete()"></textarea></li>
+				<li class="contact_wayli"><span>称呼</span><input type="text" id="username" value="" autocomplete="off" oninput="Iscomplete()" /></li>
+				<li class="contact_wayli"><span>联系电话</span><input type="tel" name="" id="telephone" value="" autocomplete="off" oninput="Iscomplete()"/></li>
 				<li class="problem_desc contact_wayli"><span>请输入问题描述</span>
-					<textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="3" cols="" placeholder="请输入问题描述"></textarea>
+					<textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="3" cols="" placeholder="请输入问题描述"
+                              id = "desc" autocomplete="off" oninput="Iscomplete()"></textarea>
 				</li>
 				<!--dom结构部分    图片上传-->
 				<div id="uploader" class="wu-example" style="display: none">
@@ -202,7 +210,7 @@
 					<a href="javascript:;">《万能小哥维修协议》</a>
 				</p>
 			</ul>
-			<div class="foot border_top"><input  class="submit_btn" type="submit" value="立即报修" /></div>
+			<div class="foot border_top"><input  class="submit_btn" type="submit" value="立即报修" disabled="disabled"/></div>
 		</form>
 		<div class="datebox">
 			<div class="choosedate">

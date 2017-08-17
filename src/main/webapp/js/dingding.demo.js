@@ -134,11 +134,12 @@ dd.ready(function() {
 	dd.device.geolocation.get({
 		  targetAccuracy : 1000,
 		  coordinate : 1,
-		  withReGeocode : false,
+		  withReGeocode : true,
 		  onSuccess: function(result) {
 			  var location = JSON.stringify(result);
-			  alert(location);
+			   alert(location);
 			  if(location.city && location.city.length()>0){
+				 $.data(cache_city, 'cache_city', location.city);
 				 $.data(cache_city, 'cache_city', location.city);
 			  }else {
 				  dd.device.notification.alert({

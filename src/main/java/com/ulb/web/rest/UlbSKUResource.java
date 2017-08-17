@@ -14,12 +14,14 @@ import javax.servlet.http.HttpServletRequest;
 import com.alibaba.fastjson.JSON;
 import com.dingtalk.open.client.api.model.corp.CorpUserDetail;
 import com.ulb.service.SKUService;
+import com.ulb.service.TimeService;
 import com.ulb.user.bo.UserOnlineBo;
 import com.ulb.web.demo.auth.AuthHelper;
 import com.ulb.web.demo.user.UserHelper;
 import com.ulb.web.dto.DingDingConfigDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKURecordDTO;
+import com.ulb.web.dto.UsefulTimeDTO;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +38,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
 /**
  * Created by wangpeng on 03/08/2017.
  */
@@ -50,11 +55,15 @@ public class UlbSKUResource {
     @Resource
     private SKUService skuService;
 
+    @Resource
+    private TimeService timeService;
+
     @RequestMapping(value="sku/{skuId}/{cityCode}",method=RequestMethod.GET)
     public ModelAndView getSKU(@PathVariable String skuId,@PathVariable String cityCode){
         SKURecordDTO dto  = null;
         try {
             dto = skuService.getSKU(skuId,cityCode);
+            dto.setUsefulTime(JSONArray.fromObject(timeService.getUsefulTime()).toString());
         } catch (IOException e) {
             LOGGER.error("从服务请求SKU详情失败");
             e.printStackTrace();

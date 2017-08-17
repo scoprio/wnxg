@@ -1,6 +1,7 @@
 package com.ulb.web.dto;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * Created by wangpeng on 25/07/2017.
@@ -18,6 +19,8 @@ public class SKURecordDTO {
     private String content;
 
     private String imgUrl;
+
+    private String usefulTime;
 
     public String getRid() {
         return rid;
@@ -65,5 +68,13 @@ public class SKURecordDTO {
 
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
+    }
+
+    public String getUsefulTime() {
+        return usefulTime;
+    }
+
+    public void setUsefulTime(String usefulTime) {
+        this.usefulTime = usefulTime;
     }
 }

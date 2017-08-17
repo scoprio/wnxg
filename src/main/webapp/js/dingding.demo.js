@@ -21,7 +21,8 @@ dd.config({
 						  'device.notification.prompt',
 						  'biz.ding.post',
 						  'biz.util.openLink',
-						  'device.geolocation.get']
+						  'device.geolocation.get',
+						  'biz.map.locate']
 		});
 
 
@@ -51,19 +52,6 @@ dd.ready(function() {
 	    onFail: function() {
 	    }
 	});
-
-	dd.device.notification.alert({
-		 message: "手动选择城市",
-		 title: "",//可传空
-		 buttonName: "确定",
-		 onSuccess : function() {
-
-
-			 //onSuccess将在点击button之后回调
-			 /*回调*/
-		 },
-		 onFail : function(err) {}
-	 });
 
 
 
@@ -114,6 +102,7 @@ dd.ready(function() {
 				success : function(data, status, xhr) {
 					var info = JSON.parse(data);
 					// alert(info.name);
+					alert("当前用户UUID:"+info.userid);
 					alert(baseUrl+"/dingding/my?uuid="+info.userid+"&cityCode="+current_city_code);
 			        $('.person_center').attr("href",baseUrl+"/dingding/my?uuid="+info.userid+"&cityCode="+current_city_code);
 					// alert($('.person_center').attr("href"))
@@ -153,7 +142,7 @@ dd.ready(function() {
 				 $.data(cache_city, 'cache_city', location.city);
 			  }else {
 				  dd.device.notification.alert({
-					   message: "手动选择城市",
+					   message: "无法获取当前城市，请手动选择城市",
 					   title: "",//可传空
 					   buttonName: "确定",
 					   onSuccess : function() {
@@ -165,6 +154,32 @@ dd.ready(function() {
 					   onFail : function(err) {}
 				   });
 			  }
+
+			  dd.biz.map.locate({
+					latitude: location.latitude, // 纬度
+					longitude: location.longitude, // 经度
+					onSuccess: function (result) {
+						var map = JSON.stringify(result);
+						alert(map);
+						/* result 结构 */
+						// {
+						// 	province: 'xxx', // POI所在省会
+						// 		provinceCode: 'xxx', // POI所在省会编码
+						// 	city: 'xxx', // POI所在城市
+						// 	cityCode: 'xxx', // POI所在城市
+						// 	adName: 'xxx', // POI所在区名称
+						// 	adCode: 'xxx', // POI所在区编码
+						// 	distance: 'xxx', // POI与设备位置的距离
+						// 	postCode: 'xxx', // POI的邮编
+						// 	snippet: 'xxx', // POI的街道地址
+						// 	title: 'xxx', // POI的名称
+						// 	latitude: 39.903578, // POI的纬度
+						// 	longitude: 116.473565, // POI的经度
+						// }
+					},
+					onFail: function (err) {
+					}
+				});
 
 			  // alert("dd 获取地址1："+result)
 			  // alert("dd 获取地址2："+JSON.stringify(result));

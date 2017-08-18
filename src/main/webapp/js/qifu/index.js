@@ -1,5 +1,5 @@
 var baseUrl = $("script[baseUrl]").attr('baseUrl');
-var current_city = '';
+var current_city = '北京';
 var current_city_code = 'bj';
 $(function(){
     var page = 0;

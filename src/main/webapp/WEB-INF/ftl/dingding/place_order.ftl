@@ -13,6 +13,8 @@
         <script src="${basePath}/js/qifu/text_self_adaption.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/webuploader.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/wnxg_qf.js" type="text/javascript" charset="utf-8"></script>
+
+        <script src="${basePath}/js/dingding.order.js" baseUrl="${basePath}"></script>
         <script type="text/javascript">
 			$(function() {
 
@@ -25,7 +27,7 @@
                 var input_checkbox = $("input:checkbox");
                 var checked_btn = $('.checked_btn');
                 var submit_btn = $('.submit_btn');
-                var Iscomplete = function(){
+                Iscomplete = function(){
                     var form_time = input_time.val().trim();
                     var form_site = $("#site").val()
                     var form_addr = input_addr.val().trim();
@@ -44,7 +46,6 @@
                     }
                 }
                 Iscomplete();
-            console.log('${sku.usefulTime}');
             console.log(JSON.parse('${sku.usefulTime}'));
 
 			// 选择时间数据填充
@@ -111,13 +112,56 @@
 
             })
 
+
+
             $(".enter_in").click(function() {
                 $('.datebox').fadeIn()
                 $(".choosedate").animate({
-                                             "bottom": "0"
-                                         }, 400);
+                     "bottom": "0"
+                 }, 400);
                 fill_date();
             })
+
+            $("#site").click(function() {
+                dd.biz.map.locate({
+                      latitude: location.latitude, // 纬度
+                      longitude: location.longitude, // 经度
+                      onSuccess: function (result) {
+                          var map = JSON.stringify(result);
+                          alert(map);
+                          /* result 结构 */
+                          // {
+                          // 	province: 'xxx', // POI所在省会
+                          // 		provinceCode: 'xxx', // POI所在省会编码
+                          // 	city: 'xxx', // POI所在城市
+                          // 	cityCode: 'xxx', // POI所在城市
+                          // 	adName: 'xxx', // POI所在区名称
+                          // 	adCode: 'xxx', // POI所在区编码
+                          // 	distance: 'xxx', // POI与设备位置的距离
+                          // 	postCode: 'xxx', // POI的邮编
+                          // 	snippet: 'xxx', // POI的街道地址
+                          // 	title: 'xxx', // POI的名称
+                          // 	latitude: 39.903578, // POI的纬度
+                          // 	longitude: 116.473565, // POI的经度
+                          // }
+                      },
+                      onFail: function (err) {
+                      }
+                  });
+//                dd.device.geolocation.get({
+//                  targetAccuracy : 1000,
+//                  coordinate : 1,
+//                  withReGeocode : true,
+//                  onSuccess: function(result) {
+//                      var location = JSON.stringify(result);
+//
+//                  },
+//                  onFail: function() {
+//
+//                  }
+//              });
+            })
+
             $(".cancelbtn").click(function() {
                 $(".choosedate").animate({
                                              "bottom": "-3.36rem"

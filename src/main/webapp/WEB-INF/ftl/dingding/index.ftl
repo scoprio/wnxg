@@ -46,7 +46,7 @@
 
 
     <div class="choose_city">
-        <a href="" class="person_center"></a>
+        <a href="${basePath}/" class="person_center"></a>
         <a href="javascript:void(0);" class="city_current" id="citychoose" >北京</a>
     </div>
     <div class="banner"><img src="/images/banner.png"/></div>

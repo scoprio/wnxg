@@ -20,7 +20,7 @@ dd.config({
 						  'device.notification.prompt',
 						  'biz.ding.post',
 						  'biz.util.openLink',
-						  'device.geolocation.get']
+						  'biz.map.locate']
 		});
 
 

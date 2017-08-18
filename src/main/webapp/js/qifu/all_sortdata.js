@@ -1,22 +1,70 @@
 var sort_data = {
         "sort0":[
             {
-            	"id":1001,
                 "title":"电脑系统重修",
                 "pic":"img/10.png",
                 "money":"30"
+            },
+            {
+                "title":"电脑系统重修",
+                "pic":"img/10.png",
+                "money":"30"
+            },
+            {
+                "title":"电脑系统重修",
+                "pic":"img/10.png",
+                "money":"30"
+            },
+            {
+                "title":"电脑系统重修",
+                "pic":"img/10.png",
+                "money":"30"
+            },
+            {
+                "title":"电脑系统重修",
+                "pic":"img/10.png",
+                "money":"230"
+            },
+            {
+                "title":"电脑系统重修",
+                "pic":"img/10.png",
+                "money":"230"
+            },
+            {
+                "title":"电脑系统重修",
+                "pic":"img/10.png",
+                "money":"230"
+            },
+            {
+                "title":"电脑系统重修",
+                "pic":"img/10.png",
+                "money":"230"
+            },
+            {
+                "title":"电脑系统重修",
+                "pic":"img/10.png",
+                "money":"230"
             }
             
         ],
     "sort1":[
-        {
-        	"id":2001,
+        {	
+        	"id"
             "title":"电脑系统重修",
             "pic":"img/10.png",
             "money":"30"
         },
         {
-        	"id":2002,
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
             "title":"电脑系统重修",
             "pic":"img/10.png",
             "money":"30"
@@ -25,20 +73,180 @@ var sort_data = {
     ],
     "sort2":[
         {
-        	"id":3001,
             "title":"电脑系统重修",
             "pic":"img/10.png",
             "money":"3330"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"230"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"320"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"230"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"230"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"230"
         }
-        
         
     ],
     "sort3":[
         {
-        	"id":4001,
             "title":"电脑系统重修",
             "pic":"img/10.png",
             "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"230"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"230"
         }
+        
+    ],
+    "sort4":[
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"230"
+        }
+        
+    ],
+    "sort5":[
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"230"
+        }
+        
+    ],
+    "sort6":[
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"230"
+        }
+        
+    ],
+    "sort7":[
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"30"
+        },
+        {
+            "title":"电脑系统重修",
+            "pic":"img/10.png",
+            "money":"230"
+        }
+        
     ]
 }

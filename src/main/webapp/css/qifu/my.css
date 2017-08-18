@@ -47,22 +47,22 @@
 	background: url(/images/btn_jinru.png) no-repeat 95% center;
 	background-size: 2.5%;
 }
-.my_ul1 li:first-child p,.my_ul2 li:first-child p{
+.my_ul1 a:first-child li p,.my_ul2 a:first-child li p{
 	border-bottom: 1px solid #E0E0E0;
 }
-.my_ul1 li:first-child{
+.my_ul1 a:first-child li{
 	background: url(/images/icon_wodedingdan.png) no-repeat .32rem center;
 	background-size: 5%;
 }
-.my_ul1 li:last-child{
+.my_ul1 a:last-child li{
 	background: url(/images/icon_wodeqiyedun.png) no-repeat .3rem center;
 	background-size: 5%;
 }
-.my_ul2 li:first-child{
+.my_ul2 a:first-child li{
 	background: url(/images/icon_fapiao.png) no-repeat .3rem center;
 	background-size: 6%;
 }
-.my_ul2 li:last-child{
+.my_ul2 a:last-child li{
 	background: url(/images/icon_bangzhuzhongxin.png) no-repeat .3rem center;
 	background-size: 5%;
 }

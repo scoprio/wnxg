@@ -1,3 +1,22 @@
+
+var dom_num = $('#showBank3');
+var dom_time = $('#showBank4');
+var dom_check = $('#checked_btn');
+function Isfill(){
+	var num_val = dom_num.val();
+	var time_val = dom_time.val();
+	var check_val = dom_check.prop('checked');
+	console.log(num_val,time_val,check_val)
+	if(num_val && time_val && check_val){
+		$('.pay_now').css('background','#ff943e');
+		return true;
+	}
+	else{
+		$('.pay_now').css('background','#ccc');
+		return false;
+	}
+
+}
 $(function() {
 	$(".checked_btn").click(function() {
 		if($(this).prop('checked')) {
@@ -5,29 +24,37 @@ $(function() {
 				"background": "url(img/btn_press_tongyi.png) no-repeat center",
 				"background-size": "100%"
 			})
-			$(".pay_now").css("background", "#FB870D");
-
+			
 		} else {
 			$(this).css({
 				"background": "url(img/btn_defult_tongyi.png) no-repeat center",
 				"background-size": "100%"
 			})
-			$(".pay_now").css("background", "#ccc");
-			console.log(888)
+			
+		}
+		Isfill()
+	})
+
+	
+	
+	$('.agreement').click(function(){
+		$(".xieyi").show();
+	})
+	
+	$(".close_agree").click(function() {
+		$(".xieyi").hide();
+	})
+
+	// 支付按钮
+	$('.pay_now').click(function() {
+		if(Isfill()){
+			// 正常提交数据、
+		}
+		else{
+			alert('请完善信息')
 		}
 	})
-})
-$(function() {
-	$('#showBank3').click(function() {
-		if($("#showBank3").val() == '请选择') {
-			$("#showBank3").css('background', 'none')
-		}
-	})
-	$('#showBank4').click(function() {
-		if($("#showBank4").val() == '请选择') {
-			$("#showBank4").css('background', 'none')
-		}
-	})
+
 
 })
 window.onload = function() {
@@ -49,6 +76,7 @@ window.onload = function() {
 				showBankDom3.value = selectOneObj.value;
 				showBankDom3.dataset['id'] = selectOneObj.id;
 				showBankDom3.dataset['value'] = selectOneObj.value;
+				Isfill()
 			}
 		});
 	});
@@ -70,6 +98,7 @@ window.onload = function() {
 				showBankDom4.value = selectOneObj.value;
 				showBankDom4.dataset['id'] = selectOneObj.id;
 				showBankDom4.dataset['value'] = selectOneObj.value;
+				Isfill()
 			}
 		});
 	});

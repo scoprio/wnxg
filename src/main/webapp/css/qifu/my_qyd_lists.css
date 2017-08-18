@@ -1,3 +1,24 @@
+
+html,body{
+	height: 100%;
+}
+.order_nodata{
+	width: 100%;
+	height: 100%;
+	background:#fff;
+	overflow: hidden;
+}
+.order_nodata div{
+	width: 2.01rem;
+	height: 2.01rem;
+	margin: 3rem auto .5rem;
+}
+.order_nodata p{
+	text-align: center;
+	font-size: .28rem;
+	color: #929292;
+}
+
 .lists_ul{
 	width: 100%;
 }
@@ -15,6 +36,14 @@
 }
 .lists_title span{
 	font-size: .28rem;
+}
+.lists_title img{
+	float: right;
+    display: inline-block;
+    width: .4rem;
+    height: .4rem;
+    margin-top: .1rem;
+    margin-left: .1rem;
 }
 .lists_title i{
 	float: right;
@@ -68,7 +97,8 @@
 	width: 100%;
 	font-size: .26rem;
 	color: #929292;
-	background: url(/images/pull_down.png) no-repeat 60% center;
+	background: url(/images/pull_down.png) no-repeat 65% center;
+	background-size: 4%;
 	margin: .1rem 0 .3rem;
 }
 .past_li{

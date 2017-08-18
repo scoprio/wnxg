@@ -70,4 +70,35 @@ $(function() {
 			$(".gptu var").css("color", "#999")
 		}
 	});
+	
+	    function check(){
+	        var grade = document.getElementById("grade").value;
+	        var fwzl = document.getElementById("fwzl").value;
+	        var fwsd = document.getElementById("fwsd").value;
+	        var fwtd = document.getElementById("fwtd").value;
+	        var msg = $('#msg').val().trim(); 
+	        if(grade == ''){
+	            alert('请选择总体评价的星级');
+	            return false;
+	        }else if(fwzl == ''){
+	            alert('请选择服务质量星级');
+	            return false;
+	        }else if(fwsd == ''){
+	            alert('请选择服务速度星级');
+	            return false;     
+	        }else if(fwtd == ''){
+	            alert('请选择服务态度星级');
+	            return false; 
+	        }else if(msg == ''){
+	            alert('请输入评价信息');
+	            return false;        
+	        }
+	        else{
+	        	return true;
+	        }
+	    };
+	$('#last input').click(function(){
+		var s = check()
+		console.log(s)
+	})
 })

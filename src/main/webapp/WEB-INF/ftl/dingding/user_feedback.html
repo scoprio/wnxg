@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>用户反馈</title>
+		<link rel="stylesheet" type="text/css" href="css/reset_h5.css" />
+		<link rel="stylesheet" type="text/css" href="css/user_feedback.css" />
+	</head>
+
+	<body>
+		<div>
+			<form action="" method="post">
+				<p class="headline">信息反馈及宝贵建议</p>
+				<div class="textarea"><textarea name="" rows="" cols="" placeholder="如对我们有任何建议或疑问，都可以畅所欲言。" oninput = "change_bg()"></textarea></div>
+				<p class="headline">邮箱</p>
+				<div class="email"><input type="email" name="" id="" value="" placeholder="请输入您的邮箱，方便我们与您联系" oninput = "change_bg()"/></div>
+				<div class="submit_feedback"><input type="button" id="" value="提交" /></div>
+			</form>
+
+			<p class="guidance_p">我们将在一个工作日内回复您的消息</p>
+			<p class="guidance_p">也可以查看
+				<a href="">新手引导</a>
+			</p>
+		</div>
+
+		<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+
+					// $('.submit_feedback input').click(function(){
+					// 	var tel_yz = $(".email input").val();
+					// 	reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+					// 	if($('.textarea textarea').val() == '' && $('.email input').val() == ''){
+					// 		console.log($('.textarea textarea').val())
+					// 		alert("请填写您要反馈的内容和正确的邮箱");
+					// 	}else if(!reg.test(tel_yz)){
+					// 		alert("请输入正确的邮箱")
+					// 	}else if($('.textarea textarea').val() != '' && reg.test(tel_yz)){
+					// 		$(this).css("background","#ff943e")
+					// 		alert("感谢您的反馈！")
+					// 	}
+
+					// })
+					var dom_commit = $('.textarea textarea')
+					var dom_feedback_email = $(".email input");
+					var feedback_commit = '';
+					var feedback_email = '';
+					function change_bg() {
+						feedback_commit = dom_commit.val();
+						feedback_email = dom_feedback_email.val();
+						if(feedback_commit && feedback_email){
+							$('.submit_feedback input').css('background','#ff943e')
+							return true;
+						}
+						else{
+							$('.submit_feedback input').css('background','#ccc')
+							return false;
+						}
+						// if($('.textarea textarea').val() == ''){
+						// 	alert("请填写您要反馈的内容")
+						// }else if(!reg.test(tel_yz)){
+							
+						// }else if($('.textarea textarea').val() == '' && $('.email input').val() == ''){
+						// 	console.log($('.textarea textarea').val())
+						// 	alert("请填写您要反馈的内容和正确的邮箱");
+						// }else if($('.textarea textarea').val() != '' && reg.test(tel_yz)){
+						// 	$('.submit_feedback input').css("background","#ff943e")
+						// }
+					}
+					$(".email input").blur(function() {
+						var email_yz = $(".email input").val();
+						var reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
+						if(!reg.test(email_yz)) {
+							$(this).val('')
+							alert("请输入正确的邮箱")
+						} else {
+							console.log(1111)
+						}
+						change_bg()
+					})
+					$('.submit_feedback input').click(function(argument) {
+						if(change_bg()){
+							// 正常提交信息
+							console.log(feedback_email,feedback_commit)
+						}
+						else{
+							alert('请完善信息')
+						}
+					})
+
+				</script>
+
+	</body>
+
+</html>

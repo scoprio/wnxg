@@ -194,14 +194,12 @@
 .buyer p:nth-child(5) input:nth-child(3) {
 	width: 23%;
 	margin-right: .25rem;
-	background: url(/images/qingxuanze.png) no-repeat 95% center;
-	background-size: 9%;
+	
 }
 
 .buyer p:nth-child(5) input:nth-child(2) {
 	width: 26%;
-	background: url(/images/qingxuanze.png) no-repeat 95% center;
-	background-size: 8%;
+	
 }
 
 .buyer p:nth-child(6) input {
@@ -269,7 +267,7 @@ footer .pay_now {
 	float: right;
 	width: 2.58rem;
 	height: .78rem;
-	background: #ff943e;
+	background: #ccc;
 	color: #fff;
 	border-radius: .08rem;
 	font-size: .28rem;

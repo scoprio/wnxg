@@ -10,7 +10,7 @@
 	</head>
 
 	<body>
-		<div class="head"><input type="button" id="" value="查看开票历史" /></div>
+		<div class="head"><a href="bill_history.html">查看开票历史</a></div>
 		<div class="has_bill" style="display: block;">
 			<form action="" method="post">
 				
@@ -23,30 +23,30 @@
 					<th>支付方式</th>
 				</tr>
 				<tr>
-					<td class="pitch"></td>
+					<td><input type="checkbox" class="pitch" class="bill_btn" /></td>
 					<td>2017.06.15  15:30</td>
 					<td>280</td>
 					<td>支付宝</td>
 				</tr>
 				<tr>
-					<td class="pitch"></td>
-					<td>2017.06.15  15:30</td>
+					<td><input type="checkbox" class="pitch" class="bill_btn" /></td>
+					<td>2017.06.16  15:30</td>
 					<td>280</td>
 					<td>支付宝</td>
 				</tr>
 				<tr>
-					<td class="pitch"></td>
-					<td>2017.06.15  15:30</td>
+					<td><input type="checkbox" class="pitch" class="bill_btn" /></td>
+					<td>2017.06.17  15:30</td>
 					<td>280</td>
 					<td>支付宝</td>
 				</tr>
 			</table>
 			<ul>
-				<li><span>发票抬头：</span><input type="text" name="" id="" value="" /></li>
-				<li><span>企业税号：</span><input type="text" name="" id="" value="" /></li>
-				<li><span>联系人：</span><input type="text" name="" id="" value="" /></li>
-				<li><span>联系电话：</span><input type="tel" name="" id="" value="" /></li>
-				<li><span>邮寄地址：</span><input type="text" name="" id="" value="" /></li>
+				<li><span>发票抬头：</span><input type="text" name="" id="" value="" class="bill_title" oninput = 'bill()'/></li>
+				<li><span>企业税号：</span><input type="text" name="" id="" value="" class="bill_num" oninput = 'bill()'/></li>
+				<li><span>联系人：</span><input type="text" name="" id="" value="" class="bill_man" oninput = 'bill()'/></li>
+				<li><span>联系电话：</span><input type="tel" name="" id="" value="" class="bill_tel" oninput = 'bill()'/></li>
+				<li><span>邮寄地址：</span><input type="text" name="" id="" value="" class="bill_place" oninput = 'bill()' /></li>
 			</ul>
 			<div class="submit_box">
 				<input type="button" value="提交申请" class="submit"/>
@@ -65,13 +65,7 @@
 			<p>3、发票一经开具，非我司原因将无法重开，请务必仔细核对开票信息。</p>
 		</div>
 		<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
-		<script type="text/javascript">
-			$(function(){
-				$(".pitch").click(function(){
-					$(this).toggleClass('pitch_on')
-				})
-			})
-		</script>
+		<script src="js/apply_for_bill.js"></script>
 	</body>
 
 </html>

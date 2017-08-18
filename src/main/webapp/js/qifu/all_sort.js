@@ -22,7 +22,7 @@ $(function() {
 			}
 			/* divs数组是tab选项卡对应内容的数组 ,将其内容显示出来*/
 			divs[titles[m].id].style.display = "block";
-
+			console.log(divs[titles[m].id])
 			fill_data(titles[m].id);
 		}
 	}
@@ -38,7 +38,8 @@ $(function() {
 	function fill_data(page) {
 		var result = '';
 		var list = sort_data['sort' + page];
-
+		console.log(page)
+		console.log(list);
 		if(list) {
 			for(var i = 0; i < list.length; i++) {
 				result += '<li>' + '<div class="all_pic">' + '<img src="' + list[i].pic + '" alt="">' + '</div>' +
@@ -48,7 +49,7 @@ $(function() {
 					'</li>';
 
 			}
-
+			console.log(888)
 			$('.sort_r_con').eq(page).find('li').remove();
 			$('.sort_r_con').eq(page).find('ul').prepend(result);
 		}

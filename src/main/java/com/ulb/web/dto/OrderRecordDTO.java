@@ -7,7 +7,6 @@ import java.math.BigDecimal;
  */
 public class OrderRecordDTO {
 
-
     private String yuyueTime;
     private String street;
     private String houseNumber;
@@ -23,6 +22,14 @@ public class OrderRecordDTO {
     private BigDecimal latitude;
     private BigDecimal longitude;
     private int ori;
+
+    /**订单列表**/
+    private String oid;
+    private String downTime;
+    private String orderState;
+
+    /**订单详情**/
+
 
 
     public String getYuyueTime() {
@@ -127,5 +134,29 @@ public class OrderRecordDTO {
 
     public void setOri(int ori) {
         this.ori = ori;
+    }
+
+    public String getOid() {
+        return oid;
+    }
+
+    public void setOid(String oid) {
+        this.oid = oid;
+    }
+
+    public String getDownTime() {
+        return downTime;
+    }
+
+    public void setDownTime(String downTime) {
+        this.downTime = downTime;
+    }
+
+    public String getOrderState() {
+        return orderState;
+    }
+
+    public void setOrderState(String orderState) {
+        this.orderState = orderState;
     }
 }

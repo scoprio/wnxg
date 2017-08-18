@@ -459,7 +459,7 @@ dd.ready(function() {
 					dingdingUserInfo = JSON.parse(data);
 					// alert(dingdingUserInfo.name);
 					// alert(data.name);
-					var myUrl = baseUrl+"/dingding/my?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code;
+					var myUrl = baseUrl+"/dingding/my/"+dingdingUserInfo.userid+"/"+current_city_code;
 			        $('.person_center').attr("href",baseUrl+"/dingding/my?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code);
 					// alert($('.person_center').attr("href"))
 					// document.getElementById("userName").innerHTML = info.name;
@@ -572,7 +572,7 @@ dd.ready(function() {
 							   buttonName: "确定",
 							   onSuccess : function() {
 								   $('.choose_city .city_current').text(current_city);
-								   var myUrl = baseUrl+"/dingding/my?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code;
+								   var myUrl = baseUrl+"/dingding/my/"+dingdingUserInfo.userid+"/"+current_city_code;
 								   change_url(current_city_code+".shtml");
 								   $('.person_center').attr("href",myUrl);
 

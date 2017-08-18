@@ -7,7 +7,7 @@ public class UserDTO {
 
     private String userID;
 
-    private String userName;
+    private String cityCode;
 
     public String getUserID() {
         return userID;
@@ -17,11 +17,11 @@ public class UserDTO {
         this.userID = userID;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getCityCode() {
+        return cityCode;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setCityCode(String cityCode) {
+        this.cityCode = cityCode;
     }
 }

@@ -39,55 +39,7 @@ public class DingResource {
 
     @RequestMapping(value="index",method=RequestMethod.GET)
     public ModelAndView userIndex(HttpServletRequest request){
-
-        String urlString = request.getRequestURL().toString();
-        String queryString = request.getQueryString();
-
-        String corpId = request.getParameter("corpid");
-        String appId = request.getParameter("appid");
-//        String corpId = "ding7b7ae2d7653b9f7e35c2f4657eb6378f";
-//        String appId = "117461615";
-
-        System.out.println(df.format(new Date())+
-                " getconfig,url:" + urlString + " query:" + queryString + " corpid:" + corpId + " appid:" + appId);
-
-        String queryStringEncode = null;
-        String url;
-        if (queryString != null) {
-            queryStringEncode = URLDecoder.decode(queryString);
-            url = urlString + "?" + queryStringEncode;
-        } else {
-            url = urlString;
-        }
-        System.out.println(url);
-        String nonceStr = "abcdefg";
-        long timeStamp = System.currentTimeMillis() / 1000;
-        String signedUrl = url;
-        String accessToken = null;
-        String ticket = null;
-        String signature = null;
-        String agentid = null;
-
-        try {
-            accessToken = AuthHelper.getAccessToken(corpId);
-            ticket = AuthHelper.getJsapiTicket(accessToken, corpId);
-            signature = AuthHelper.sign(ticket, nonceStr, timeStamp, signedUrl);
-            agentid = AuthHelper.getAgentId(corpId, appId);
-
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-
-        DingDingConfigDTO dto = new DingDingConfigDTO();
-
-        dto.setAgentId(agentid);
-        dto.setCorpId(corpId);
-        dto.setTimeStamp(String.valueOf(timeStamp));
-        dto.setNonceStr(nonceStr);
-        dto.setSignature(signature);
-        dto.setJsticket(ticket);
-
+        DingDingConfigDTO dto = ConfigGetter.getConfig(request);
         return new ModelAndView("dingding/index","_config",dto);
     }
 

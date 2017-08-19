@@ -401,13 +401,13 @@ dd.ready(function() {
 			logger.e('fail: ' + JSON.stringify(err));
 		}
 	});
-	dd.ui.pullToRefresh.enable({
-	    onSuccess: function() {
-
-	    },
-	    onFail: function() {
-	    }
-	});
+	// dd.ui.pullToRefresh.enable({
+	//     onSuccess: function() {
+    //
+	//     },
+	//     onFail: function() {
+	//     }
+	// });
 
 
 
@@ -573,7 +573,7 @@ dd.ready(function() {
 							   onSuccess : function() {
 								   $('.choose_city .city_current').text(current_city);
 								   var myUrl = baseUrl+"/dingding/my/"+dingdingUserInfo.userid+"/"+current_city_code;
-								   change_url(current_city_code+".shtml");
+								   change_url(current_city_code+".shtml?corpid=$CORPID$&appid=3928&dd_nav_bgcolor=FFFB870D");
 								   $('.person_center').attr("href",myUrl);
 
 							   },

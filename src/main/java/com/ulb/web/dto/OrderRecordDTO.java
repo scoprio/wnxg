@@ -21,6 +21,7 @@ public class OrderRecordDTO {
     private String name;
     private BigDecimal latitude;
     private BigDecimal longitude;
+    // 钉钉B端ID
     private int ori;
 
     /**订单列表**/

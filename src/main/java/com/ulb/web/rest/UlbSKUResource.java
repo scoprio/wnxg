@@ -59,11 +59,13 @@ public class UlbSKUResource {
     private TimeService timeService;
 
     @RequestMapping(value="sku/{skuId}/{cityCode}",method=RequestMethod.GET)
-    public ModelAndView getSKU(@PathVariable String skuId,@PathVariable String cityCode){
+    public ModelAndView getSKU(@PathVariable String skuId,@PathVariable String cityCode,HttpServletRequest request){
         SKURecordDTO dto  = null;
         try {
             dto = skuService.getSKU(skuId,cityCode);
             dto.setUsefulTime(JSONArray.fromObject(timeService.getUsefulTime()).toString());
+            dto.setConfig(ConfigGetter.getConfig(request));
+            dto.setCityCode(cityCode);
         } catch (IOException e) {
             LOGGER.error("从服务请求SKU详情失败");
             e.printStackTrace();
@@ -86,15 +88,15 @@ public class UlbSKUResource {
     }
 
 
-    @RequestMapping(value="skuOrderRecord/{userID}",method=RequestMethod.GET)
-    public ModelAndView getSKUOrder(@PathVariable String userID){
-        List<SKURecordDTO> list  = null;
-        try {
-            list = skuService.getSKUOrderRecord(userID);
-        } catch (IOException e) {
-            LOGGER.error("从服务请求SKU详情失败");
-            e.printStackTrace();
-        }
-        return new ModelAndView("dingding/place_order","sku",list);
-    }
+//    @RequestMapping(value="skuOrderRecord/{userID}",method=RequestMethod.GET)
+//    public ModelAndView getSKUOrder(@PathVariable String userID){
+//        List<SKURecordDTO> list  = null;
+//        try {
+//            list = skuService.getSKUOrderRecord(userID);
+//        } catch (IOException e) {
+//            LOGGER.error("从服务请求SKU详情失败");
+//            e.printStackTrace();
+//        }
+//        return new ModelAndView("dingding/place_order","sku",list);
+//    }
 }

@@ -116,7 +116,7 @@ public class MyResource {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> save(@RequestBody FeedbackDTO feedbackDTO){
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
-        myService.save(feedbackDTO);
+        myService.insert(feedbackDTO);
         resultMap.put("message", "注册成功！");
         resultMap.put("status", 200);
         return new ResponseEntity<>(resultMap,HttpStatus.OK);

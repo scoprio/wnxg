@@ -144,52 +144,11 @@ public class AuthHelper {
 			formatter.format("%02x", b);
 		}
 		String result = formatter.toString();
+		System.out.print(result);
 		formatter.close();
 		return result;
 	}
 
-	public static String getConfig(HttpServletRequest request) {
-		String urlString = request.getRequestURL().toString();
-		String queryString = request.getQueryString();
-
-		// todo
-		String corpId = request.getParameter("corpid");
-		String appId = request.getParameter("appid");
-
-		System.out.println(df.format(new Date())+
-				" getconfig,url:" + urlString + " query:" + queryString + " corpid:" + corpId + " appid:" + appId);
-
-		String queryStringEncode = null;
-		String url;
-		if (queryString != null) {
-			queryStringEncode = URLDecoder.decode(queryString);
-			url = urlString + "?" + queryStringEncode;
-		} else {
-			url = urlString;
-		}
-		System.out.println(url);
-		String nonceStr = "abcdefg";
-		long timeStamp = System.currentTimeMillis() / 1000;
-		String signedUrl = url;
-		String accessToken = null;
-		String ticket = null;
-		String signature = null;
-		String agentid = null;
-
-		try {
-			accessToken = AuthHelper.getAccessToken(corpId);
-			ticket = AuthHelper.getJsapiTicket(accessToken, corpId);
-			signature = AuthHelper.sign(ticket, nonceStr, timeStamp, signedUrl);
-			agentid = AuthHelper.getAgentId(corpId, appId);
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-
-		return "{jsticket:'" + ticket + "',signature:'" + signature + "',nonceStr:'" + nonceStr + "',timeStamp:'"
-				+ timeStamp + "',corpId:'" + corpId + "',agentid:'" + agentid+ "',appid:'" + appId + "'}";
-	}
 
 	public static String getAgentId(String corpId, String appId) throws OApiException {
 		String agentId = null;

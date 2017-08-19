@@ -22,6 +22,10 @@ public class SKURecordDTO {
 
     private String usefulTime;
 
+    private DingDingConfigDTO config;
+
+    private String cityCode;
+
     public String getRid() {
         return rid;
     }
@@ -76,5 +80,21 @@ public class SKURecordDTO {
 
     public void setUsefulTime(String usefulTime) {
         this.usefulTime = usefulTime;
+    }
+
+    public DingDingConfigDTO getConfig() {
+        return config;
+    }
+
+    public void setConfig(DingDingConfigDTO config) {
+        this.config = config;
+    }
+
+    public String getCityCode() {
+        return cityCode;
+    }
+
+    public void setCityCode(String cityCode) {
+        this.cityCode = cityCode;
     }
 }

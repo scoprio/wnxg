@@ -9,13 +9,24 @@
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/place_order.css" />
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/webuploader.css" />
 
+        <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
         <script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/text_self_adaption.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/webuploader.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/wnxg_qf.js" type="text/javascript" charset="utf-8"></script>
 
-        <script src="${basePath}/js/dingding.order.js" baseUrl="${basePath}"></script>
+
         <script type="text/javascript">
+
+            alert('${sku.config.agentId}')
+
+            var _config = {"agentId":'${sku.config.agentId}',
+                "corpId":'${sku.config.corpId}',
+                "timeStamp":'${sku.config.timeStamp}',
+                "nonceStr":'${sku.config.nonceStr}',
+                "signature":'${sku.config.signature}'
+            }
+
 			$(function() {
 
                 var input_time = $("#date");
@@ -124,8 +135,6 @@
 
             $("#site").click(function() {
                 dd.biz.map.locate({
-                      latitude: location.latitude, // 纬度
-                      longitude: location.longitude, // 经度
                       onSuccess: function (result) {
                           var map = JSON.stringify(result);
                           alert(map);
@@ -207,16 +216,70 @@
                 $('.txt').text(carValue)
             })
 
+                $('.submit_feedback input').click(function(argument) {
+                    if(change_bg()){
+                        // 正常提交信息
+                        console.log(feedback_email,feedback_commit);
+                        var order = {
+                            "yuyueTime":input_time.val().trim(),
+                            "address":feedback_email,
+                            "remark":"1111",
+                            "tel":"111",
+                            "rid"：222,
+                            "name":"111",
+                            "latitude":"111",
+                            "longitude":"1111",
+                            "ori":6
+                        };
+
+                        var skuOrder = {
+                            "cityCode":"${sku.cityCode}",
+                            "openId":dingdingUserInfo.userid,
+                            "order":order
+                        }
+
+
+                        $.ajax({
+                                   url:"${basePath}/ulb/sku/order.shtml",
+                                   type:"POST",
+                                   data:JSON.stringify(skuOrder),
+                                   contentType:"application/json; charset=utf-8",
+                                   dataType:"json",
+                                   success: function(result){
+                                       if(result && result.status!= 200){
+
+                                       }else{
+                                           layer.msg('提交成功！' );
+
+                                       }
+                                   }
+                               })
+                    <#--$.post("${basePath}/dingding/my/feedback.shtml",feedback,function(result){-->
+                    <#--alert(result);-->
+                    <#--//                                if(result && result.status!= 200){-->
+                    <#--//                                }else{-->
+                    <#--//                                    layer.msg('提交成功！' );-->
+                    <#--//                                }-->
+                    <#--},"json");-->
+
+                    }
+                    else{
+                        alert('请完善信息')
+                    }
+                })
+
             })
 
         </script>
+
+        <script src="${basePath}/js/dingding.order.js" baseUrl="${basePath}"></script>
 	</head>
 
 	<body>
 		<div class="flow border_bottom">
 			<div><img src="${basePath}/images/liucheng_1.png" /></div>
 		</div>
-		<form action="${basePath}/" method="post">
+		<form>
 			<div class="order_head border_bottom border_top">
 				<div class="head_img"><img src="" /></div>
 				<div class="choose_num">
@@ -254,7 +317,7 @@
 					<a href="javascript:;">《万能小哥维修协议》</a>
 				</p>
 			</ul>
-			<div class="foot border_top"><input  class="submit_btn" type="submit" value="立即报修" disabled="disabled"/></div>
+			<div class="foot border_top"><input  class="submit_btn" type="button" value="立即报修" disabled="disabled"/></div>
 		</form>
 		<div class="datebox">
 			<div class="choosedate">

@@ -19,7 +19,7 @@
 		</ul>
 		<ul class="my_ul2 border_bottom border_top">
 			<a href="apply_for_bill.html"><li><p>发票管理</p></li></a>
-			<a href="help.html"><li><p>帮助中心</p></li></a>
+			<a href="${basePath}/dingding/help.shtml"><li><p>帮助中心</p></li></a>
 		</ul>
 	</body>
 </html>

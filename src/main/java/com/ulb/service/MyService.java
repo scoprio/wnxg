@@ -6,6 +6,7 @@ import java.util.List;
 import com.ulb.service.generator.APIServiceGenrator;
 import com.ulb.service.remote.RemoteMyService;
 import com.ulb.service.remote.RemoteSKUService;
+import com.ulb.web.dto.FeedbackDTO;
 import com.ulb.web.dto.OrderRecordDTO;
 import com.ulb.web.dto.QydOrderRecordDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
@@ -39,6 +40,11 @@ public class MyService {
         Response<List<QydOrderRecordDTO>> response = call.execute();
         List<QydOrderRecordDTO> list = response.body();
         return list;
+    }
+
+
+    public void save(FeedbackDTO feedbackDTO){
+
     }
 
 }

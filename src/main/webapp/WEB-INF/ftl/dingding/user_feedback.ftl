@@ -5,8 +5,8 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>用户反馈</title>
-		<link rel="stylesheet" type="text/css" href="css/reset_h5.css" />
-		<link rel="stylesheet" type="text/css" href="css/user_feedback.css" />
+		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css" />
+		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/user_feedback.css" />
 	</head>
 
 	<body>
@@ -21,11 +21,12 @@
 
 			<p class="guidance_p">我们将在一个工作日内回复您的消息</p>
 			<p class="guidance_p">也可以查看
-				<a href="">新手引导</a>
+				<a href="${basePath}/dingding/help/newbie_guide.shtml">新手引导</a>
 			</p>
 		</div>
 
-		<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+        <script  src="${basePath}/js/common/layer/layer.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 
 					// $('.submit_feedback input').click(function(){
@@ -82,7 +83,35 @@
 					$('.submit_feedback input').click(function(argument) {
 						if(change_bg()){
 							// 正常提交信息
-							console.log(feedback_email,feedback_commit)
+							console.log(feedback_email,feedback_commit);
+							var feedback = {
+								"commit":feedback_commit,
+								"email":feedback_email
+							}
+
+
+                            $.ajax({
+							   url:"${basePath}/dingding/my/feedback.shtml",
+							   type:"POST",
+							   data:JSON.stringify(feedback),
+							   contentType:"application/json; charset=utf-8",
+							   dataType:"json",
+							   success: function(result){
+                                   if(result && result.status!= 200){
+
+								   }else{
+									   layer.msg('提交成功！' );
+								   }
+							   }
+							 })
+                            <#--$.post("${basePath}/dingding/my/feedback.shtml",feedback,function(result){-->
+								<#--alert(result);-->
+<#--//                                if(result && result.status!= 200){-->
+<#--//                                }else{-->
+<#--//                                    layer.msg('提交成功！' );-->
+<#--//                                }-->
+                            <#--},"json");-->
+
 						}
 						else{
 							alert('请完善信息')

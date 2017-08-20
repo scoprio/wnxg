@@ -103,4 +103,10 @@ public class DingResource {
         return new ModelAndView("dingding/choose_city");
     }
 
+    @RequestMapping(value="sort",method=RequestMethod.GET)
+    public ModelAndView sort(){
+        return new ModelAndView("dingding/all_sort");
+    }
+
+
 }

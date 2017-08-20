@@ -18,7 +18,7 @@
 
         <script type="text/javascript">
 
-            alert('${sku.config.agentId}')
+            alert('${sku.config.agentId}');
 
             var _config = {"agentId":'${sku.config.agentId}',
                 "corpId":'${sku.config.corpId}',

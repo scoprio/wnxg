@@ -2,6 +2,17 @@ var baseUrl = $("script[baseUrl]").attr('baseUrl');
 var current_city = '北京';
 var current_city_code = 'bj';
 $(function(){
+
+    $('.tab>table tr>td').eq(0).click(function(){
+        window.location = baseUrl+'/dingding/sort.shtml?type=work&&city='+current_city_code;
+    });
+    $('.tab>table tr>td').eq(1).click(function(){
+        window.location = baseUrl+'/dingding/sort.shtml?type=light&&city='+current_city_code;
+    });
+    $('.tab>table tr>td').eq(2).click(function(){
+        window.location = baseUrl+'/dingding/sort.shtml?type=door&&city='+current_city_code;
+    });
+
     var page = 0;
 
     function change_url(citycode) {
@@ -45,7 +56,7 @@ $(function(){
             // 为了测试，延迟0.1秒加载
             setTimeout(function() {
                 // $('.hot_project ul').html('');
-                $('.hot_project ul').prepend(result);
+                $('.hot_project ul').append(result);
                 me.resetload();
             }, 100);
         }

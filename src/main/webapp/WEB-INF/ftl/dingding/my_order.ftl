@@ -22,7 +22,7 @@
 					<#list orders as order>
 
                         <li>
-                            <p class="order_p1">订单编号：<span>${order.oid?default('未设置')}</span><i>已完成</i></p>
+                            <p class="order_p1">订单编号：<span>${order.oid?default('未设置')}</span><i>${order.pid?default('未完成')}</i></p>
                             <div class="order_box border_bottom border_top">
                                 <div class="imgdiv"><img src=""/></div>
                                 <div class="pdiv">
@@ -50,73 +50,137 @@
                         <#--</tr>-->
 					</#list>
 				<#else>
-                    <#--<div class="order_nodata border_top" style="display: none;">-->
-                        <#--<div><img src="image/bill4.png"/></div>-->
+                    <div class="order_nodata border_top" style="display: none;">
+                        <div><img src="${basePath}/images/bill4.png"/></div>
                         <p>您现在还没有此类订单</p>
-                    <#--</div>-->
+                    </div>
 				</#if>
 				</ul>
 			</div>
 			<div class="sidebox">
 				<ul>
-					<li>
-						<p class="order_p1">订单编号：<span>SJDFHDS152</span><i>未完成</i></p>
-						<div class="order_box border_bottom border_top">
-							<div class="imgdiv"><img src=""/></div>
-							<div class="pdiv">
-								<p><i>下单时间</i><span>2017-05-06 15:20:00</span></p>
-								<p><i>上门时间</i><span>2017-05-06 15:20:00</span></p>
-								<p><i>上单地址</i><span>石家庄新华区中华北大街中储广场A座17楼</span></p>
-								<p><i>维修项目</i><span>电脑操作系统重装</span></p>
-							</div>
-						</div>
-						<p class="order_p2"><input type="button" name="" id="" value="取消订单" /><input type="button" name="" id="" value="联系客服" /></p>
-					</li>
+
 				</ul>
 			</div>
 			<div class="sidebox">
 				<ul>
-					<li>
-						<p class="order_p1">订单编号：<span>SJDFHDS152</span><i>已完成</i></p>
-						<div class="order_box border_bottom border_top">
-							<div class="imgdiv"><img src=""/></div>
-							<div class="pdiv">
-								<p><i>下单时间</i><span>2017-05-06 15:20:00</span></p>
-								<p><i>上门时间</i><span>2017-05-06 15:20:00</span></p>
-								<p><i>上单地址</i><span>石家庄新华区中华北大街中储广场A座17楼</span></p>
-								<p><i>维修项目</i><span>电脑操作系统重装</span></p>
-							</div>
-						</div>
-						<p class="order_p2"><input type="button" name="" id="" value="取消订单" /></p>
-					</li>
+
 				</ul>
 			</div>
 			<div class="sidebox">
 				<ul>
-					<li>
-						<p class="order_p1">订单编号：<span>SJDFHDS152</span><i>待评价</i></p>
-						<div class="order_box border_bottom border_top">
-							<div class="imgdiv"><img src=""/></div>
-							<div class="pdiv">
-								<p><i>下单时间</i><span>2017-05-06 15:20:00</span></p>
-								<p><i>上门时间</i><span>2017-05-06 15:20:00</span></p>
-								<p><i>上单地址</i><span>石家庄新华区中华北大街中储广场A座17楼</span></p>
-								<p><i>维修项目</i><span>电脑操作系统重装</span></p>
-							</div>
-						</div>
-						<p class="order_p2"><input type="button" name="" id="" value="联系客服" /></p>
-					</li>
-					
 				</ul>
 			</div>
 		</div>
 		<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
+
+            var rArray1 = new Array();
+            var rArray2 = new Array();
+            var rArray3 = new Array();
+			<#list orders as order>
+			    var status = '${order.pid}';
+
+				if(status == '1' ||status == '2'||status == '3'||status == '4'||status == '5'
+                   ||status == '11'||status == '12'||status == '13'||status == '14'||status == '15'
+                   ||status == '16'||status == '17'||status == '19'||status == '20'||status == '21'
+                   ||status == '23'||status == '24'||status == '25'||status == '26'||status == '27'||status == '41'){
+					var order = {};
+					order.oid = ${order.oid};
+					order.downTime = '${order.downTime?default('未设置')}';
+					order.yuyueTime = '${order.yuyueTime?default('未设置')}';
+					order.address = '${order.address?default('未设置')}';
+					order.repairName = '${order.repairName?default('未设置')}';
+                	rArray1.push(order)
+					console.log(rArray1);
+				}
+				if(status == '8' ||status == '18' ||status == '22'){
+                    var order = {};
+                    order.oid = ${order.oid};
+                    order.downTime = '${order.downTime?default('未设置')}';
+                    order.yuyueTime = '${order.yuyueTime?default('未设置')}';
+                    order.address = '${order.address?default('未设置')}';
+                    order.repairName = '${order.repairName?default('未设置')}';
+                	rArray2.push(order);
+                	console.log(rArray2);
+				}
+				if(status == '7'){
+                    var order = {};
+                    order.oid = ${order.oid};
+                    order.downTime = '${order.downTime?default('未设置')}';
+                    order.yuyueTime = '${order.yuyueTime?default('未设置')}';
+                    order.address = '${order.address?default('未设置')}';
+                    order.repairName = '${order.repairName?default('未设置')}';
+                	rArray3.push(order)
+                	console.log(rArray3);
+				}
+
+			</#list>
+
+            function order_fill(){
+                // 未完成
+                var result_undo = '';
+                rArray1.forEach(function(item,i){
+                    result_undo += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>未完成</i></p>'+
+                                   '<div class="order_box border_bottom border_top"><div class="imgdiv"><img src="" alt="" /></div>'+
+                                   '<div class="pdiv">'+
+                                   '<p><i>下单时间</i><span>'+item.downTime+'</span></p>'+
+                                   '<p><i>上门时间</i><span>'+item.yuyueTime+'</span></p>'+
+                                   '<p><i>上单时间</i><span>'+item.address+'</span></p>'+
+                                   '<p><i>维修项目</i><span>'+item.repairName+'</span></p>'+
+                                   '</div>'+
+                                   '</div>'+
+                                   '<p class="order_p2"><input type="button" value="取消订单" /><input type="button" value="联系客服" /></p>'+
+                                   '</li>'
+
+                })
+                $('.sidebox').eq(1).find('ul').html('')
+                $('.sidebox').eq(1).find('ul').append(result_undo);
+                // 已完成
+                var result_done = '';
+                rArray2.forEach(function(item,i){
+                    result_done += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>已完成</i></p>'+
+                                   '<div class="order_box border_bottom border_top"><div class="imgdiv"><img src="" alt="" /></div>'+
+                                   '<div class="pdiv">'+
+                                   '<p><i>下单时间</i><span>'+item.downTime+'</span></p>'+
+                                   '<p><i>上门时间</i><span>'+item.yuyueTime+'</span></p>'+
+                                   '<p><i>上单时间</i><span>'+item.address+'</span></p>'+
+                                   '<p><i>维修项目</i><span>'+item.repairName+'</span></p>'+
+                                   '</div>'+
+                                   '</div>'+
+                                   '<p class="order_p2"><input type="button" value="取消订单" /></p>'+
+                                   '</li>'
+
+                })
+                $('.sidebox').eq(2).find('ul').html('')
+                $('.sidebox').eq(2).find('ul').append(result_done);
+                //待评价
+                var result_value = '';
+                rArray3.forEach(function(item,i){
+                    result_value += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>待评价</i></p>'+
+                                    '<div class="order_box border_bottom border_top"><div class="imgdiv"><img src="" alt="" /></div>'+
+                                    '<div class="pdiv">'+
+                                    '<p><i>下单时间</i><span>'+item.downTime+'</span></p>'+
+                                    '<p><i>上门时间</i><span>'+item.yuyueTime+'</span></p>'+
+                                    '<p><i>上单时间</i><span>'+item.address+'</span></p>'+
+                                    '<p><i>维修项目</i><span>'+item.repairName+'</span></p>'+
+                                    '</div>'+
+                                    '</div>'+
+                                    '<p class="order_p2"><input type="button" value="联系客服" /></p>'+
+                                    '</li>'
+
+                })
+                $('.sidebox').eq(3).find('ul').html('')
+                $('.sidebox').eq(3).find('ul').append(result_value);
+            }
+
 			$(function(){
 				$('.order_title li').click(function(){
 					$(this).find('span').addClass('span_bg').parent().siblings().find('span').removeClass('span_bg');
 					$('.order_content .sidebox').eq($(this).index()).show().siblings().hide();
 				})
+
+             	order_fill();
 			})
 		</script>
 	</body>

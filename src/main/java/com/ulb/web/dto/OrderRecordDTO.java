@@ -21,6 +21,9 @@ public class OrderRecordDTO {
     private String name;
     private BigDecimal latitude;
     private BigDecimal longitude;
+    private Integer pid;
+
+    private String statusName;
     // 钉钉B端ID
     private int ori;
 
@@ -29,10 +32,17 @@ public class OrderRecordDTO {
     private String downTime;
     private String orderState;
 
+
     /**订单详情**/
 
 
+    public Integer getPid() {
+        return pid;
+    }
 
+    public void setPid(Integer pid) {
+        this.pid = pid;
+    }
     public String getYuyueTime() {
         return yuyueTime;
     }
@@ -159,5 +169,13 @@ public class OrderRecordDTO {
 
     public void setOrderState(String orderState) {
         this.orderState = orderState;
+    }
+
+    public String getStatusName() {
+        return statusName;
+    }
+
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
     }
 }

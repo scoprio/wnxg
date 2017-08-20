@@ -7,6 +7,8 @@ $(function() {
 	url = url.toString();
 	var array = new Array(); //用来存放分分割后的字符串  
 	array = url.split("=");
+	var city_code = array[2];
+	console.log(city_code)
 	//这里的titles数组是tab选项卡的的标签数组，遍历数组  
 	//找到与之相等的标签，然后改变其背景颜色  
 	var titles = $('.sort_left li');
@@ -22,7 +24,7 @@ $(function() {
 			}
 			/* divs数组是tab选项卡对应内容的数组 ,将其内容显示出来*/
 			divs[titles[m].id].style.display = "block";
-			console.log(divs[titles[m].id])
+
 			fill_data(titles[m].id);
 		}
 	}
@@ -38,8 +40,7 @@ $(function() {
 	function fill_data(page) {
 		var result = '';
 		var list = sort_data['sort' + page];
-		console.log(page)
-		console.log(list);
+
 		if(list) {
 			for(var i = 0; i < list.length; i++) {
 				result += '<li>' + '<div class="all_pic">' + '<img src="' + list[i].pic + '" alt="">' + '</div>' +
@@ -49,7 +50,7 @@ $(function() {
 					'</li>';
 
 			}
-			console.log(888)
+
 			$('.sort_r_con').eq(page).find('li').remove();
 			$('.sort_r_con').eq(page).find('ul').prepend(result);
 		}

@@ -358,6 +358,7 @@ function change_url(citycode) {
 		url_array[url_array.length-1] = citycode;
 		current_url = url_array.join('/')
 		$(item).attr('href',current_url);
+		alert($(item).attr('href'));
 		console.log(item);
 	})
 }
@@ -393,14 +394,14 @@ dd.ready(function() {
     });
 //	 alert('dd.ready rocks!');
 
-	dd.runtime.info({
-		onSuccess : function(info) {
-			logger.e('runtime info: ' + JSON.stringify(info));
-		},
-		onFail : function(err) {
-			logger.e('fail: ' + JSON.stringify(err));
-		}
-	});
+	// dd.runtime.info({
+	// 	onSuccess : function(info) {
+	// 		logger.e('runtime info: ' + JSON.stringify(info));
+	// 	},
+	// 	onFail : function(err) {
+	// 		logger.e('fail: ' + JSON.stringify(err));
+	// 	}
+	// });
 	// dd.ui.pullToRefresh.enable({
 	//     onSuccess: function() {
     //
@@ -457,8 +458,6 @@ dd.ready(function() {
 				type : 'GET',
 				success : function(data, status, xhr) {
 					dingdingUserInfo = JSON.parse(data);
-					// alert(dingdingUserInfo.name);
-					// alert(data.name);
 					var myUrl = baseUrl+"/dingding/my/"+dingdingUserInfo.userid+"/"+current_city_code;
 			        $('.person_center').attr("href",baseUrl+"/dingding/my?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code);
 					// alert($('.person_center').attr("href"))
@@ -486,63 +485,23 @@ dd.ready(function() {
 		}
 	});
 
-
+	// dd.biz.map.locate({
+	// 	  onSuccess: function (poi) {
+	// 		  var poi = JSON.stringify(result);
+	// 		  alert(poi);
+	// 	  },
+	// 	  onFail: function (err) {
+	// 	  }
+	//   });
 	dd.device.geolocation.get({
 		  targetAccuracy : 1000,
 		  coordinate : 1,
 		  withReGeocode : true,
 		  onSuccess: function(location) {
-			  // var location = JSON.stringify(result);
-			  // dd.biz.map.search({
-				// 	latitude: location.latitude, // 纬度
-				// 	longitude: location.longitude, // 经度
-				// 	scope: 500, // 限制搜索POI的范围；设备位置为中心，scope为搜索半径
-				// 	onSuccess: function (poi) {
-				// 		var poi = JSON.stringify(result);
-				// 		alert(poi);
-				// 		if(poi.cityCode){
-				// 			if(poi.cityCode == current_city_code){
-              //
-				// 			}else{
-				// 				var city_txt = ""
-				// 				if(poi.city){
-				// 					city_txt = poi.city;
-				// 				}else{
-				// 					city_txt = poi.province;
-				// 				}
-              //
-				// 				dd.device.notification.alert({
-				// 					 message: "检测到当前城市"+city_txt+"，自动切换选择城市",
-				// 					 title: "",//可传空
-				// 					 buttonName: "确定",
-				// 					 onSuccess : function() {
-				// 						 $('.choose_city .city_current').text(city_txt);
-				// 						 //TODO 切换我的  链接url
-              //
-				// 					 },
-				// 					 onFail : function(err) {}
-				// 				 });
-				// 			}
-				// 		}else{
-				// 			dd.device.notification.alert({
-				// 				 message: "无法获取当前城市，请手动选择城市",
-				// 				 title: "",//可传空
-				// 				 buttonName: "确定",
-				// 				 onSuccess : function() {
-				// 					 //onSuccess将在点击button之后回调
-				// 					 /*回调*/
-				// 				 },
-				// 				 onFail : function(err) {}
-				// 			 });
-				// 		}
-              //
-				// 	},
-				// 	onFail: function (err) {
-				// 	}
-				// });
+			  // var location = JSON.stringify(location);
 			  var locationCity;
 			  var isOpen;
-
+			  // alert(location.city);
 			  if($.trim(location.city).length > 0 || $.trim(location.province).length > 0){
 				  //定位城市
 				  if($.trim(location.city).length > 0){
@@ -572,10 +531,9 @@ dd.ready(function() {
 							   buttonName: "确定",
 							   onSuccess : function() {
 								   $('.choose_city .city_current').text(current_city);
-								   var myUrl = baseUrl+"/dingding/my/"+dingdingUserInfo.userid+"/"+current_city_code;
+								   var myUrl = baseUrl+"/dingding/my/"+dingdingUserInfo.userid+"/"+current_city_code+".shtml";
 								   change_url(current_city_code+".shtml?corpid=$CORPID$&appid=3928&dd_nav_bgcolor=FFFB870D");
 								   $('.person_center').attr("href",myUrl);
-
 							   },
 							   onFail : function(err) {}
 						   });

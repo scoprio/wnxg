@@ -45,6 +45,10 @@ public class ConfigGetter {
             signature = AuthHelper.sign(ticket, nonceStr, timeStamp, signedUrl);
             agentid = AuthHelper.getAgentId(corpId, appId);
 
+//            accessToken = "";
+//            ticket = "";
+//            signature = "";
+//            agentid = "";
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

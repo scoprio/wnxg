@@ -4,13 +4,13 @@ var current_city_code = 'bj';
 $(function(){
 
     $('.tab>table tr>td').eq(0).click(function(){
-        window.location = baseUrl+'/dingding/sort.shtml?type=work&&city='+current_city_code;
+        window.location = baseUrl+'/dingding/sort.shtml?type=0&&city='+current_city_code;
     });
     $('.tab>table tr>td').eq(1).click(function(){
-        window.location = baseUrl+'/dingding/sort.shtml?type=light&&city='+current_city_code;
+        window.location = baseUrl+'/dingding/sort.shtml?type=1&&city='+current_city_code;
     });
     $('.tab>table tr>td').eq(2).click(function(){
-        window.location = baseUrl+'/dingding/sort.shtml?type=door&&city='+current_city_code;
+        window.location = baseUrl+'/dingding/sort.shtml?type=2&&city='+current_city_code;
     });
 
     var page = 0;

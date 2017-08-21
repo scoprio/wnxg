@@ -17,9 +17,7 @@
 
 
         <script type="text/javascript">
-
             alert('${sku.config.agentId}');
-
             var _config = {"agentId":'${sku.config.agentId}',
                 "corpId":'${sku.config.corpId}',
                 "timeStamp":'${sku.config.timeStamp}',
@@ -133,7 +131,8 @@
                 fill_date();
             })
 
-            $("#site").click(function() {
+            $(".enter_position").click(function() {
+                alert(11111);
                 dd.biz.map.locate({
                       onSuccess: function (result) {
                           var map = JSON.stringify(result);
@@ -225,7 +224,7 @@
                             "address":feedback_email,
                             "remark":"1111",
                             "tel":"111",
-                            "rid"：222,
+                            "rid":222,
                             "name":"111",
                             "latitude":"111",
                             "longitude":"1111",
@@ -292,7 +291,7 @@
 			</div>
 			<ul class="contact_way border_bottom">
 				<li class="contact_wayli enter enter_in"><span>请选择服务时间</span><input type="text" name="" id="date" value="" disabled="disabled" onchange="Iscomplete()"/></li>
-				<li class="contact_wayli enter"><span>位置</span><input type="hidden" name="" id="site" value="" autocomplete="off" oninput="Iscomplete()"/></li>
+				<li class="contact_wayli enter enter_position"><span>位置</span><input type="hidden" name="" id="site" value="" autocomplete="off" oninput="Iscomplete()"/></li>
 				<li class="contact_wayli"><span>详细地址</span><textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="1" cols="40" placeholder="请输入具体门牌号" id="addr" autocomplete="off" oninput="Iscomplete()"></textarea></li>
 				<li class="contact_wayli"><span>称呼</span><input type="text" id="username" value="" autocomplete="off" oninput="Iscomplete()" /></li>
 				<li class="contact_wayli"><span>联系电话</span><input type="tel" name="" id="telephone" value="" autocomplete="off" oninput="Iscomplete()"/></li>

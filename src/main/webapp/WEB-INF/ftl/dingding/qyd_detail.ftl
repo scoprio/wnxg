@@ -5,13 +5,13 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="widtd=device-widtd,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>企业盾1号</title>
-		<link rel="stylesheet" type="text/css" href="css/reset_h5.css" />
-		<link rel="stylesheet" type="text/css" href="css/qyd_detail.css" />
+		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css" />
+		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/qyd_detail.css" />
 	</head>
 
 	<body>
 		<div>
-			<div class="qyd_banner img_box"><img src="img/qyd_banner.png" /></div>
+			<div class="qyd_banner img_box"><img src="${basePath}/images/qyd_banner.png" /></div>
 			<ul class="qyd_title border_bottom">
 				<li>
 					<a href="javascript:;" class="change_color">服务详情</a>
@@ -25,7 +25,7 @@
 					<div class="products_presentation">
 						<h2 class="h2">产品介绍</h2>
 						<p>万能企业盾是万能小哥针对企业办公基本设施设备提供的托管包月服务，并提供一站式解决方案。</p>
-						<img src="img/qyd2.png">
+						<img src="${basePath}/images/qyd2.png">
 					</div>
 					<div class="content_of_product">
 						<h2 class="h2">产品内容</h2>
@@ -146,11 +146,11 @@
 							</div>
 						</div>
 					</div>
-					<div class="img_box margin_b"><img src="img/qyd_1.jpg" /></div>
-					<div class="img_box"><img src="img/qyd_2.jpg" /></div>
-					<div class="img_box"><img src="img/qyd_3.jpg" /></div>
-					<div class="img_box margin_b"><img src="img/qyd_4.jpg" /></div>
-					<div class="img_box margin_b"><img src="img/qyd_5.jpg" /></div>
+					<div class="img_box margin_b"><img src="${basePath}/images/qyd_1.jpg" /></div>
+					<div class="img_box"><img src="${basePath}/images/qyd_2.jpg" /></div>
+					<div class="img_box"><img src="${basePath}/images/qyd_3.jpg" /></div>
+					<div class="img_box margin_b"><img src="${basePath}/images/qyd_4.jpg" /></div>
+					<div class="img_box margin_b"><img src="${basePath}/images/qyd_5.jpg" /></div>
 					<div class="service_note">
 						<h2 class="h2">服务说明</h2>
 						<ul>
@@ -178,7 +178,7 @@
 					<!-- 有评论的时候显示的内容-->
 					<ul class="pl_box">
 						<li class="pl_list">
-							<div class="pl_left"><img src="img/logo1.png" /></div>
+							<div class="pl_left"><img src="${basePath}/images/logo1.png" /></div>
 							<div class="pl_right">
 								<p><span>河北万杰超修信息科技有限公司</span><span>2017-05-06</span></p>
 								<ul class="star">
@@ -193,7 +193,7 @@
 							</div>
 						</li>
 						<li class="pl_list">
-							<div class="pl_left"><img src="img/logo2.png" /></div>
+							<div class="pl_left"><img src="${basePath}/images/logo2.png" /></div>
 							<div class="pl_right">
 								<p><span>河北万杰超修信息科技有限公司</span><span>2017-05-06</span></p>
 								<ul class="star">
@@ -211,8 +211,8 @@
 			</ul>
 		</div>
 		<div class="qyd_foot border_top"><input type="button" value="立即购买" /></div>
-		<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/qyd_detail.js" type="text/javascript" charset="utf-8"></script>
+		<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="${basePath}/js/qifu/qyd_detail.js" type="text/javascript" charset="utf-8"></script>
 	</body>
 
 </html>

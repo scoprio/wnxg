@@ -1,35 +1,41 @@
 $(function() {
-	
-
 	//获取地址栏中的地址  
 	var url = window.location.search;
 	//转换成字符串  
 	url = url.toString();
 	var array = new Array(); //用来存放分分割后的字符串  
 	array = url.split("=");
-	var city_code = array[2];
+	function find_index(string){
+		return string.indexOf('&&')
+	}
+	if(array[1]){
+		if(find_index(array[1])>0){
+		   var type = array[1].substring(0,find_index(array[1]));
+		}
+		else{
+			var type = array[1]
+		}
+	}
+	if(array[2]){
+		if(find_index(array[2])>0){
+		   var city_code = array[2].substring(0,find_index(array[2]));	
+		}
+		else{
+			var city_code = array[2]
+		}
+	}
 	console.log(city_code)
+	console.log(type)
 	//这里的titles数组是tab选项卡的的标签数组，遍历数组  
 	//找到与之相等的标签，然后改变其背景颜色  
 	var titles = $('.sort_left li');
 	var divs = $('.sort_right .sort_r_con');
-	for(var m = 0; m < titles.length; m++) {
+	titles.eq(type).addClass('choosed').siblings('li').removeClass('choosed');
+	divs.eq(type).stop(true).show()
+	divs.eq(type).siblings('.sort_r_con').stop(true).hide();
+	fill_data(type)
 
-		titles[m].id = m;
-		if(array[1] == titles[m].className) {
-			titles[m].classList.add('choosed');
-			//清除其他样式  
-			for(var j = 0; j < titles.length; j++) {
-				divs[j].style.display = "none";
-			}
-			/* divs数组是tab选项卡对应内容的数组 ,将其内容显示出来*/
-			divs[titles[m].id].style.display = "block";
-
-			fill_data(titles[m].id);
-		}
-	}
 	
-	fill_data(0);
 	$('.sort_left li').click(function() {
 		var index = $(this).index();
 		$(this).addClass('choosed').siblings('li').removeClass('choosed');
@@ -40,7 +46,7 @@ $(function() {
 	function fill_data(page) {
 		var result = '';
 		var list = sort_data['sort' + page];
-
+		console.log(list);
 		if(list) {
 			for(var i = 0; i < list.length; i++) {
 				result += '<li>' + '<div class="all_pic">' + '<img src="' + list[i].pic + '" alt="">' + '</div>' +

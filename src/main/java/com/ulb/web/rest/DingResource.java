@@ -108,5 +108,14 @@ public class DingResource {
         return new ModelAndView("dingding/all_sort");
     }
 
+    @RequestMapping(value="qyd",method=RequestMethod.GET)
+    public ModelAndView qyd(){
+        return new ModelAndView("dingding/qyd_detail");
+    }
+
+    @RequestMapping(value="goBuy",method=RequestMethod.GET)
+    public ModelAndView gotBuy(){
+        return new ModelAndView("dingding/go_buy");
+    }
 
 }

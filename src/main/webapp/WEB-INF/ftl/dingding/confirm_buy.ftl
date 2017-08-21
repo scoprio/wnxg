@@ -6,9 +6,9 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>确认购买</title>
 
-		<link rel="stylesheet" href="css/iosSelect.css">
-		<link rel="stylesheet" type="text/css" href="css/reset_h5.css" />
-		<link rel="stylesheet" type="text/css" href="css/confirm_buy.css" />
+		<link rel="stylesheet" href="${basePath}/css/qifu/iosSelect.css">
+		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css" />
+		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/confirm_buy.css" />
 
 	</head>
 
@@ -16,7 +16,7 @@
 		<section>
 			<form action="" method="post">
 				<div class="confirm_box border_bottom border_top">
-					<div class="confirm_img"><img src="img/1tu.png" /></div>
+					<div class="confirm_img"><img src="${basePath}/images/1tu.png" /></div>
 					<div class="confirm_right">
 						<p>万能企业盾1号</p>
 						<p>办公电脑、打印机检修、养护定期巡检、极速保修</p>
@@ -26,7 +26,7 @@
 				</div>
 				<div class="product border_bottom border_top">
 					<p>产品参数</p>
-					<p><span>套餐参数</span><span class="change">打印机<input type="hidden" value="打印机" class="change_active" /></span><span class="change">电脑 <input type="hidden" name="" id="" value="电脑" class="change_active" /></span></p>
+					<#--<p><span>套餐参数</span><span class="change">打印机<input type="hidden" value="打印机" class="change_active" /></span><span class="change">电脑 <input type="hidden" name="" id="" value="电脑" class="change_active" /></span></p>-->
 					<p>
 						<span>服务台数</span>
 						<input type="hidden" name="bank_id" id="bankId" value="" class="hide_input">
@@ -149,12 +149,12 @@
 		</div>
 
 	</body>
-	<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/confirm.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/text_self_adaption.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/iscroll.js"></script>
-	<script src="js/iosSelect.js" type="text/javascript" charset="utf-8"></script>
-	<script src="js/confirm_num.js"></script>
-	<script src="js/confirm_date.js"></script>
+	<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+	<script src="${basePath}/js/qifu/confirm.js" type="text/javascript" charset="utf-8"></script>
+	<script src="${basePath}/js/qifu/text_self_adaption.js" type="text/javascript" charset="utf-8"></script>
+	<script src="${basePath}/js/qifu/iscroll.js"></script>
+	<script src="${basePath}/js/qifu/iosSelect.js" type="text/javascript" charset="utf-8"></script>
+	<script src="${basePath}/js/qifu/confirm_num.js"></script>
+	<script src="${basePath}/js/qifu/confirm_date.js"></script>
 
 </html>

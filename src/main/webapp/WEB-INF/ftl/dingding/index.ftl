@@ -56,25 +56,25 @@
             <tr>
                 <td>
                     <a href="all_sort.html?type=work">
-                        <div><img src="/images/5.png" /></div>
+                        <div><img src="${basePath}/images/5.png" /></div>
                         <p>办公设备维护</p>
                     </a>
                 </td>
                 <td>
                     <a href="all_sort.html?type=light">
-                        <div><img src="/images/2.png" /></div>
+                        <div><img src="${basePath}/images/2.png" /></div>
                         <p>办公电器保养</p>
                     </a>
                 </td>
                 <td>
                     <a href="all_sort.html?type=door">
-                        <div><img src="/images/3.png" /></div>
+                        <div><img src="${basePath}/images/3.png" /></div>
                         <p>办公环境维修</p>
                     </a>
                 </td>
                 <td class="monthly">
-                    <a href="all_sort.html?type=electricity">
-                        <div><img src="/images/4.png" /></div>
+                    <a href="${basePath}/dingding/qyd.shtml">
+                        <div><img src="${basePath}/images/4.png" /></div>
                         <p>万能企业盾</p>
                     </a>
                 </td>

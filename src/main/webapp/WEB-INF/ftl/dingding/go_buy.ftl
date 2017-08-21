@@ -6,9 +6,9 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>续购服务</title>
 
-		<link rel="stylesheet" type="text/css" href="css/reset_h5.css" />
-		<link rel="stylesheet" type="text/css" href="css/go_buy.css" />
-		<link rel="stylesheet" href="css/iosSelect.css">
+		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css" />
+		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/go_buy.css" />
+		<link rel="stylesheet" href="${basePath}/css/qifu/iosSelect.css">
 
 	</head>
 
@@ -17,7 +17,7 @@
 			<!--第六页-->
 			<form action="" method="post">
 				<div class="confirm_box border_bottom border_top">
-					<div class="confirm_img"><img src="img/1tu.png" /></div>
+					<div class="confirm_img"><img src="${basePath}/images/1tu.png" /></div>
 					<div class="confirm_right">
 						<p>万能企业盾1号</p>
 						<p>办公电脑、打印机检修、养护定期巡检、极速保修</p>
@@ -142,12 +142,12 @@
 		</div>
 		</div>
 		</section>
-		<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/go_buy.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/iscroll.js"></script>
-		<script src="js/iosSelect.js"></script>
-		<script src="js/Continue_to_buydate.js"></script>
-		<script src="js/Continue_to_buynum.js"></script>
+		<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="${basePath}/js/qifu/go_buy.js" type="text/javascript" charset="utf-8"></script>
+		<script src="${basePath}/js/qifu/iscroll.js"></script>
+		<script src="${basePath}/js/qifu/iosSelect.js"></script>
+		<script src="${basePath}/js/qifu/Continue_to_buydate.js"></script>
+		<script src="${basePath}/js/qifu/Continue_to_buynum.js"></script>
 	</body>
 	
 </html>

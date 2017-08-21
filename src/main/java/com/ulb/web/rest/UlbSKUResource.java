@@ -79,16 +79,17 @@ public class UlbSKUResource {
     @RequestMapping(value = "/sku/order.shtml",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> order(@RequestBody SKUOrderRecordDTO skuOrderRecordDTO){
+    public Map<String,Object> order(@RequestBody SKUOrderRecordDTO skuOrderRecordDTO){
         Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         try {
             skuService.order(skuOrderRecordDTO);
+            resultMap.put("message", "下单成功！");
+            resultMap.put("status", 200);
         } catch (IOException e) {
+            resultMap.put("status", 500);
             e.printStackTrace();
         }
-        resultMap.put("message", "下单成功！");
-        resultMap.put("status", 200);
-        return new ResponseEntity<>(resultMap,HttpStatus.OK);
+        return resultMap;
     }
 
 

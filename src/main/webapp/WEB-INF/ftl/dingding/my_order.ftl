@@ -12,7 +12,7 @@
 			<li><a href="javascript:;">全部</a><span class="span_bg"></span></li>
 			<li><a href="javascript:;">未完成</a><span></span></li>
 			<li><a href="javascript:;">已完成</a><span></span></li>
-			<li><a href="javascript:;">待评价</a><span></span></li>
+			<#--<li><a href="javascript:;">待评价</a><span></span></li>-->
 		</ul>
 		<div class="order_content" >
 			<div class="sidebox" style="display: block;">
@@ -28,7 +28,7 @@
                                 <div class="pdiv">
                                     <p><i>下单时间</i><span>${order.downTime?default('未设置')}</span></p>
                                     <p><i>上门时间</i><span>${order.yuyueTime?default('未设置')}</span></p>
-                                    <p><i>上单地址</i><span>${order.address?default('未设置')}</span></p>
+                                    <p><i>下单地址</i><span>${order.address?default('未设置')}</span></p>
                                     <p><i>维修项目</i><span>${order.name?default('未设置')}</span></p>
                                 </div>
                             </div>
@@ -155,23 +155,23 @@
                 $('.sidebox').eq(2).find('ul').html('')
                 $('.sidebox').eq(2).find('ul').append(result_done);
                 //待评价
-                var result_value = '';
-                rArray3.forEach(function(item,i){
-                    result_value += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>待评价</i></p>'+
-                                    '<div class="order_box border_bottom border_top"><div class="imgdiv"><img src="" alt="" /></div>'+
-                                    '<div class="pdiv">'+
-                                    '<p><i>下单时间</i><span>'+item.downTime+'</span></p>'+
-                                    '<p><i>上门时间</i><span>'+item.yuyueTime+'</span></p>'+
-                                    '<p><i>上单时间</i><span>'+item.address+'</span></p>'+
-                                    '<p><i>维修项目</i><span>'+item.repairName+'</span></p>'+
-                                    '</div>'+
-                                    '</div>'+
-                                    '<p class="order_p2"><input type="button" value="联系客服" /></p>'+
-                                    '</li>'
-
-                })
-                $('.sidebox').eq(3).find('ul').html('')
-                $('.sidebox').eq(3).find('ul').append(result_value);
+//                var result_value = '';
+//                rArray3.forEach(function(item,i){
+//                    result_value += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>待评价</i></p>'+
+//                                    '<div class="order_box border_bottom border_top"><div class="imgdiv"><img src="" alt="" /></div>'+
+//                                    '<div class="pdiv">'+
+//                                    '<p><i>下单时间</i><span>'+item.downTime+'</span></p>'+
+//                                    '<p><i>上门时间</i><span>'+item.yuyueTime+'</span></p>'+
+//                                    '<p><i>上单时间</i><span>'+item.address+'</span></p>'+
+//                                    '<p><i>维修项目</i><span>'+item.repairName+'</span></p>'+
+//                                    '</div>'+
+//                                    '</div>'+
+//                                    '<p class="order_p2"><input type="button" value="联系客服" /></p>'+
+//                                    '</li>'
+//
+//                })
+//                $('.sidebox').eq(3).find('ul').html('')
+//                $('.sidebox').eq(3).find('ul').append(result_value);
             }
 
 			$(function(){

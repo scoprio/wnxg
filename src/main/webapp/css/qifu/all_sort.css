@@ -17,6 +17,9 @@ body,html{
 	border-top: 1px solid #E0E0E0;
 	overflow: hidden;
 }
+.sort_right ul li>a{
+	display: block;
+}
 .sort_left li div{
 	width: .68rem;
 	height: .68rem;

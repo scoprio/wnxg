@@ -49,12 +49,16 @@ public class MyResource {
     @Resource
     private TimeService timeService;
 
-    @RequestMapping(value="my/{dingdingUId}/{cityCode}",method=RequestMethod.GET)
-    public ModelAndView getMy(@PathVariable String dingdingUId,@PathVariable String cityCode){
+    @RequestMapping(value="my",method=RequestMethod.GET)
+    public ModelAndView getMy(HttpServletRequest request){
+        String userId = request.getParameter("uuid");
+        String cityCode = request.getParameter("cityCode");
+        String corpId = request.getParameter("corpid");
 
         UserDTO userDTO = new UserDTO();
-        userDTO.setUserID(dingdingUId);
+        userDTO.setUserId(userId);
         userDTO.setCityCode(cityCode);
+        userDTO.setCorpId(corpId);
         return new ModelAndView("dingding/my","my",userDTO);
 
     }

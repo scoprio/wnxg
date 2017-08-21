@@ -86,16 +86,16 @@ public class DingResource {
 //        return new ResponseEntity<>(userJson, HttpStatus.OK);
     }
 
-    @RequestMapping(value="my",method=RequestMethod.GET)
-    public ModelAndView getUserInfo(HttpServletRequest request){
-
-        String uuid = request.getParameter("uuid");
-        String corpId = request.getParameter("corpid");
-
-        MyOrderInfoDTO dto = new MyOrderInfoDTO();
-
-        return new ModelAndView("dingding/my","_my",dto);
-    }
+//    @RequestMapping(value="my",method=RequestMethod.GET)
+//    public ModelAndView getUserInfo(HttpServletRequest request){
+//
+//        String uuid = request.getParameter("uuid");
+//        String corpId = request.getParameter("corpid");
+//
+//        MyOrderInfoDTO dto = new MyOrderInfoDTO();
+//
+//        return new ModelAndView("dingding/my","_my",dto);
+//    }
 
 
     @RequestMapping(value="city",method=RequestMethod.GET)

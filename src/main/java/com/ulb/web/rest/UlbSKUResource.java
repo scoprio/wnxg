@@ -5,7 +5,9 @@ import java.math.BigDecimal;
 import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.inject.Inject;
@@ -78,13 +80,15 @@ public class UlbSKUResource {
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> order(@RequestBody SKUOrderRecordDTO skuOrderRecordDTO){
+        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
         try {
             skuService.order(skuOrderRecordDTO);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        return new ResponseEntity<>(HttpStatus.OK);
+        resultMap.put("message", "下单成功！");
+        resultMap.put("status", 200);
+        return new ResponseEntity<>(resultMap,HttpStatus.OK);
     }
 
 

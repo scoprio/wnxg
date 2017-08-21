@@ -17,8 +17,8 @@
 
 
         <script type="text/javascript">
-            alert('${sku.config.agentId}');
-            var _config = {"agentId":'${sku.config.agentId}',
+            var _config = {
+                "agentId":'${sku.config.agentId}',
                 "corpId":'${sku.config.corpId}',
                 "timeStamp":'${sku.config.timeStamp}',
                 "nonceStr":'${sku.config.nonceStr}',
@@ -36,6 +36,7 @@
                 var input_checkbox = $("input:checkbox");
                 var checked_btn = $('.checked_btn');
                 var submit_btn = $('.submit_btn');
+                var flag = false;
                 Iscomplete = function(){
                     var form_time = input_time.val().trim();
                     var form_site = $("#site").val()
@@ -46,12 +47,12 @@
                     var checkbox = input_checkbox.prop('checked');
 
                     if(form_addr && form_desc && form_telephone && form_username && checkbox && form_time){
-                        submit_btn.attr("disabled",false)
                         submit_btn.css("background", "#ff943e");
+                        flag = true;
                     }
                     else{
-                        submit_btn.attr("disabled",true)
                         submit_btn.css("background", "#ccc");
+                        flag = false;
                     }
                 }
                 Iscomplete();
@@ -131,27 +132,21 @@
                 fill_date();
             })
 
+            var province = "";
+            var city ="";
+            var snippet ="";
+            var latitude;
+            var longitude;
             $(".enter_position").click(function() {
-                alert(11111);
                 dd.biz.map.locate({
-                      onSuccess: function (result) {
-                          var map = JSON.stringify(result);
-                          alert(map);
-                          /* result 结构 */
-                          // {
-                          // 	province: 'xxx', // POI所在省会
-                          // 		provinceCode: 'xxx', // POI所在省会编码
-                          // 	city: 'xxx', // POI所在城市
-                          // 	cityCode: 'xxx', // POI所在城市
-                          // 	adName: 'xxx', // POI所在区名称
-                          // 	adCode: 'xxx', // POI所在区编码
-                          // 	distance: 'xxx', // POI与设备位置的距离
-                          // 	postCode: 'xxx', // POI的邮编
-                          // 	snippet: 'xxx', // POI的街道地址
-                          // 	title: 'xxx', // POI的名称
-                          // 	latitude: 39.903578, // POI的纬度
-                          // 	longitude: 116.473565, // POI的经度
-                          // }
+                      onSuccess: function (map) {
+                          province = map.province;
+                          city = map.city;
+                          snippet = map.snippet;
+                          latitude = map.latitude;
+                          longitude = map.longitude;
+                          input_site.val(province + city + snippet)
+                        
                       },
                       onFail: function (err) {
                       }
@@ -215,59 +210,56 @@
                 $('.txt').text(carValue)
             })
 
-                $('.submit_feedback input').click(function(argument) {
-                    if(change_bg()){
-                        // 正常提交信息
-                        console.log(feedback_email,feedback_commit);
-                        var order = {
-                            "yuyueTime":input_time.val().trim(),
-                            "address":feedback_email,
-                            "remark":"1111",
-                            "tel":"111",
-                            "rid":222,
-                            "name":"111",
-                            "latitude":"111",
-                            "longitude":"1111",
-                            "ori":6
-                        };
+            $('.submit_btn').click(function() {
+                if(flag){
+                    // 正常提交信息
+                    var order = {
+                        "yuyueTime":input_time.val().trim(),
+                        "address":input_site.val().trim() + input_addr.val().trim(),
+                        "remark":input_desc.val().trim(),
+                        "tel":input_telephone.val(),
+                        "rid":'${sku.rid}',
+                        "name":'${sku.name}',
+                        "latitude":latitude,
+                        "longitude":longitude,
+                        "ori":6
+                    };
 
-                        var skuOrder = {
-                            "cityCode":"${sku.cityCode}",
-                            "openId":dingdingUserInfo.userid,
-                            "order":order
-                        }
+                    var skuOrder = {
+                        "cityCode":'${sku.cityCode}',
+                        "openId": dingdingUserInfo.userid,
+                        "order":order
+                    }
+                    console.log(skuOrder);
 
+                    $.ajax({
+                               url:"${basePath}/ulb/sku/order.shtml",
+                               type:"POST",
+                               data:JSON.stringify(skuOrder),
+                               contentType:"application/json; charset=utf-8",
+                               dataType:"json",
+                               success: function(result){
+                                   if(result && result.status!= 200){
 
-                        $.ajax({
-                                   url:"${basePath}/ulb/sku/order.shtml",
-                                   type:"POST",
-                                   data:JSON.stringify(skuOrder),
-                                   contentType:"application/json; charset=utf-8",
-                                   dataType:"json",
-                                   success: function(result){
-                                       if(result && result.status!= 200){
-
-                                       }else{
-                                           layer.msg('提交成功！' );
-
-                                       }
+                                   }else{
+                                       layer.msg(result.message);
+                                       location.href = "${basePath}/dingding/my_order/"+dingdingUserInfo.userid+"/${sku.cityCode}.shtml";
                                    }
-                               })
-                    <#--$.post("${basePath}/dingding/my/feedback.shtml",feedback,function(result){-->
-                    <#--alert(result);-->
-                    <#--//                                if(result && result.status!= 200){-->
-                    <#--//                                }else{-->
-                    <#--//                                    layer.msg('提交成功！' );-->
-                    <#--//                                }-->
-                    <#--},"json");-->
+                               }
+                           })
+                <#--$.post("${basePath}/dingding/my/feedback.shtml",feedback,function(result){-->
+                <#--alert(result);-->
+                <#--//                                if(result && result.status!= 200){-->
+                <#--//                                }else{-->
+                <#--//                                    layer.msg('提交成功！' );-->
+                <#--//                                }-->
+                <#--},"json");-->
 
-                    }
-                    else{
-                        alert('请完善信息')
-                    }
-                })
-
+                }else{
+                    layer.msg('请完善信息!');
+                }
             })
+        })
 
         </script>
 
@@ -291,7 +283,7 @@
 			</div>
 			<ul class="contact_way border_bottom">
 				<li class="contact_wayli enter enter_in"><span>请选择服务时间</span><input type="text" name="" id="date" value="" disabled="disabled" onchange="Iscomplete()"/></li>
-				<li class="contact_wayli enter enter_position"><span>位置</span><input type="hidden" name="" id="site" value="" autocomplete="off" oninput="Iscomplete()"/></li>
+				<li class="contact_wayli enter enter_position"><span>位置</span><input type="text" name="" id="site" value="" disabled="disabled" autocomplete="off" oninput="Iscomplete()"/></li>
 				<li class="contact_wayli"><span>详细地址</span><textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="1" cols="40" placeholder="请输入具体门牌号" id="addr" autocomplete="off" oninput="Iscomplete()"></textarea></li>
 				<li class="contact_wayli"><span>称呼</span><input type="text" id="username" value="" autocomplete="off" oninput="Iscomplete()" /></li>
 				<li class="contact_wayli"><span>联系电话</span><input type="tel" name="" id="telephone" value="" autocomplete="off" oninput="Iscomplete()"/></li>
@@ -316,7 +308,7 @@
 					<a href="javascript:;">《万能小哥维修协议》</a>
 				</p>
 			</ul>
-			<div class="foot border_top"><input  class="submit_btn" type="button" value="立即报修" disabled="disabled"/></div>
+			<div class="foot border_top"><input  class="submit_btn" type="button" value="立即报修" /></div>
 		</form>
 		<div class="datebox">
 			<div class="choosedate">

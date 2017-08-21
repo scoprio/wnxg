@@ -5,16 +5,18 @@ package com.ulb.web.dto;
  */
 public class UserDTO {
 
-    private String userID;
+    private String userId;
 
     private String cityCode;
 
-    public String getUserID() {
-        return userID;
+    private String corpId;
+
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserID(String userID) {
-        this.userID = userID;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getCityCode() {
@@ -23,5 +25,13 @@ public class UserDTO {
 
     public void setCityCode(String cityCode) {
         this.cityCode = cityCode;
+    }
+
+    public String getCorpId() {
+        return corpId;
+    }
+
+    public void setCorpId(String corpId) {
+        this.corpId = corpId;
     }
 }

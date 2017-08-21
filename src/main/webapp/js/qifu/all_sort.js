@@ -1,3 +1,6 @@
+var baseUrl = $("script[baseUrl]").attr('baseUrl');
+var cropId = $("script[cropId]").attr('cropId');
+var sort_city_code;
 $(function() {
 	//获取地址栏中的地址  
 	var url = window.location.search;
@@ -18,13 +21,12 @@ $(function() {
 	}
 	if(array[2]){
 		if(find_index(array[2])>0){
-		   var city_code = array[2].substring(0,find_index(array[2]));	
+			sort_city_code = array[2].substring(0,find_index(array[2]));
 		}
 		else{
-			var city_code = array[2]
+			sort_city_code = array[2]
 		}
 	}
-	console.log(city_code)
 	console.log(type)
 	//这里的titles数组是tab选项卡的的标签数组，遍历数组  
 	//找到与之相等的标签，然后改变其背景颜色  
@@ -49,7 +51,10 @@ $(function() {
 		console.log(list);
 		if(list) {
 			for(var i = 0; i < list.length; i++) {
-				result += '<li>' + '<div class="all_pic">' + '<img src="' + list[i].pic + '" alt="">' + '</div>' +
+
+				var orderUrl = baseUrl + "/ulb/sku/" +list[i].id+"/"+sort_city_code+".shtml?corpid="+cropId+"&appid=3928&dd_nav_bgcolor=FFFB870D";
+				result += '<li>' + '<a href="'+orderUrl+'">'+
+					'<div class="all_pic">' + '<img src="' + list[i].pic + '" alt="">' + '</div>' +
 					'<div class="all_price">' +
 					'<p>' + list[i].title + ' </p>' +
 					'<p>&yen;<span> ' + list[i].money + '</span></p>' +

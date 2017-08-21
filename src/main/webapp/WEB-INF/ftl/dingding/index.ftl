@@ -12,6 +12,8 @@
         <link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/choose_city.css" />
 
         <script>
+            <#--alert(110)-->
+            <#--alert('${_config.agentId}');-->
             var _config = {"agentId":'${_config.agentId}',
                 "corpId":'${_config.corpId}',
                 "timeStamp":'${_config.timeStamp}',
@@ -55,25 +57,25 @@
 
             <tr>
                 <td>
-                    <a href="all_sort.html?type=work">
+                    <a href="javascript:void(0);">
                         <div><img src="${basePath}/images/5.png" /></div>
                         <p>办公设备维护</p>
                     </a>
                 </td>
                 <td>
-                    <a href="all_sort.html?type=light">
+                    <a href="javascript:void(0);">
                         <div><img src="${basePath}/images/2.png" /></div>
                         <p>办公电器保养</p>
                     </a>
                 </td>
                 <td>
-                    <a href="all_sort.html?type=door">
+                    <a href="javascript:void(0);">
                         <div><img src="${basePath}/images/3.png" /></div>
                         <p>办公环境维修</p>
                     </a>
                 </td>
                 <td class="monthly">
-                    <a href="${basePath}/dingding/qyd.shtml">
+                    <a href="${basePath}/dingding/qyd.shtml?corpid=${_config.corpId}">
                         <div><img src="${basePath}/images/4.png" /></div>
                         <p>万能企业盾</p>
                     </a>

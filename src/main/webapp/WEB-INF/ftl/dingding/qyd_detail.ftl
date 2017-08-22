@@ -7,6 +7,22 @@
 		<title>企业盾1号</title>
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css" />
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/qyd_detail.css" />
+        <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
+        <script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+
+        <script type="text/javascript">
+            $(function() {
+            	$('.submit_btn').click(function() {
+
+					if('${qydInfo.isAdmin}' == 'true'){
+                        location.href = "${basePath}/ubl/qf.shtml?cityCode=${qydInfo.cityCode}";
+					}else{
+                        alert("联系管理员开通");
+					}
+
+				});
+            });
+		</script>
 	</head>
 
 	<body>
@@ -210,7 +226,7 @@
 				</li>
 			</ul>
 		</div>
-		<div class="qyd_foot border_top"><input type="button" value="立即购买" /></div>
+		<div class="qyd_foot border_top"><input type="button" class="submit_btn" value="立即购买" /></div>
 		<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
 		<script src="${basePath}/js/qifu/qyd_detail.js" type="text/javascript" charset="utf-8"></script>
 	</body>

@@ -12,7 +12,9 @@ import com.ulb.web.demo.auth.AuthHelper;
 import com.ulb.web.demo.user.UserHelper;
 import com.ulb.web.dto.DingDingConfigDTO;
 import com.ulb.web.dto.MyOrderInfoDTO;
+import com.ulb.web.dto.QydInfoDTO;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -109,13 +111,23 @@ public class DingResource {
     }
 
     @RequestMapping(value="qyd",method=RequestMethod.GET)
-    public ModelAndView qyd(){
-        return new ModelAndView("dingding/qyd_detail");
+    public ModelAndView qyd(HttpServletRequest request){
+        QydInfoDTO qydInfoDTO = new QydInfoDTO();
+
+
+        String corpId = request.getParameter("corpid");
+        String cityCode = request.getParameter("cityCode");
+        String isAdmin = request.getParameter("isAdmin");
+
+        qydInfoDTO.setCityCode(cityCode);
+        qydInfoDTO.setCorpId(corpId);
+        qydInfoDTO.setIsAdmin(isAdmin);
+        return new ModelAndView("dingding/qyd_detail","qydInfo",qydInfoDTO);
     }
 
-    @RequestMapping(value="goBuy",method=RequestMethod.GET)
-    public ModelAndView gotBuy(){
-        return new ModelAndView("dingding/go_buy");
-    }
+//    @RequestMapping(value="goBuy",method=RequestMethod.GET)
+//    public ModelAndView gotBuy(){
+//        return new ModelAndView("dingding/go_buy");
+//    }
 
 }

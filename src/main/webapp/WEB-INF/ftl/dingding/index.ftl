@@ -44,6 +44,8 @@
         <script src="${basePath}/js/dingding.demo.js" baseUrl="${basePath}"></script>
 	</head>
 
+
+
 	<body>
 
 
@@ -75,7 +77,7 @@
                     </a>
                 </td>
                 <td class="monthly">
-                    <a href="${basePath}/dingding/qyd.shtml?corpid=${_config.corpId}">
+                    <a href="javascript:void(0);" class="wnqyd">
                         <div><img src="${basePath}/images/4.png" /></div>
                         <p>万能企业盾</p>
                     </a>

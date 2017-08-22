@@ -21,13 +21,13 @@ $(function() {
 	$(".checked_btn").click(function() {
 		if($(this).prop('checked')) {
 			$(this).css({
-				"background": "url(img/btn_press_tongyi.png) no-repeat center",
+				"background": "url(/images/btn_press_tongyi.png) no-repeat center",
 				"background-size": "100%"
 			})
 			
 		} else {
 			$(this).css({
-				"background": "url(img/btn_defult_tongyi.png) no-repeat center",
+				"background": "url(/images/btn_defult_tongyi.png) no-repeat center",
 				"background-size": "100%"
 			})
 			

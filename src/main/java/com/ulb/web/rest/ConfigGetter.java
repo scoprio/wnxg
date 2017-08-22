@@ -40,15 +40,15 @@ public class ConfigGetter {
         String agentid = null;
 
         try {
-//            accessToken = AuthHelper.getAccessToken(corpId);
-//            ticket = AuthHelper.getJsapiTicket(accessToken, corpId);
-//            signature = AuthHelper.sign(ticket, nonceStr, timeStamp, signedUrl);
-//            agentid = AuthHelper.getAgentId(corpId, appId);
+            accessToken = AuthHelper.getAccessToken(corpId);
+            ticket = AuthHelper.getJsapiTicket(accessToken, corpId);
+            signature = AuthHelper.sign(ticket, nonceStr, timeStamp, signedUrl);
+            agentid = AuthHelper.getAgentId(corpId, appId);
 
-            accessToken = "1111";
-            ticket = "111";
-            signature = "111";
-            agentid = "1111";
+//            accessToken = "1111";
+//            ticket = "111";
+//            signature = "111";
+//            agentid = "1111";
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();

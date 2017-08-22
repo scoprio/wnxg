@@ -9,6 +9,7 @@ var baseUrl = $("script[baseUrl]").attr('baseUrl');
 
 
 var dingdingUserInfo;
+var isAdmin = false;
 var openCitys = [
 	{
 		"code": "bj",
@@ -358,7 +359,7 @@ function change_url(citycode) {
 		url_array[url_array.length-1] = citycode;
 		current_url = url_array.join('/')
 		$(item).attr('href',current_url);
-		alert($(item).attr('href'));
+		// alert($(item).attr('href'));
 		console.log(item);
 	})
 }
@@ -459,16 +460,20 @@ dd.ready(function() {
 				success : function(data, status, xhr) {
 					dingdingUserInfo = JSON.parse(data);
 					// alert(_config.corpId);
-					alert(dingdingUserInfo);
+					// alert(dingdingUserInfo);
 					var myUrl;
+					var qydUrl;
 					if(dingdingUserInfo.isAdmin || dingdingUserInfo.isBoss){
 						myUrl = baseUrl+"/dingding/my_admin.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+_config.corpId;
+						qydUrl = baseUrl+"/dingding/qyd.shtml?corpid="+_config.corpId+"&isAdmin=true&cityCode="+current_city_code;
 					}else{
 						myUrl = baseUrl+"/dingding/my.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+_config.corpId;
+						qydUrl = baseUrl+"/dingding/qyd.shtml?corpid="+_config.corpId+"&isAdmin=false&cityCode="+current_city_code;
 					}
 					// var myUrl = baseUrl+"/dingding/my/"+dingdingUserInfo.userid+"/"+current_city_code;
 			        $('.person_center').attr("href",myUrl);
-					alert($('.person_center').attr("href"))
+					$('.wnqyd').attr("href",qydUrl);
+					// alert($('.person_center').attr("href"))
 					// document.getElementById("userName").innerHTML = info.name;
 					// document.getElementById("userId").innerHTML = info.userid;
 

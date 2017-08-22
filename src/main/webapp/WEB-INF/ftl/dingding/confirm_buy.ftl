@@ -10,6 +10,8 @@
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css" />
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/confirm_buy.css" />
 
+        <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
+
 	</head>
 
 	<body>
@@ -21,40 +23,35 @@
 						<p>万能企业盾1号</p>
 						<p>办公电脑、打印机检修、养护定期巡检、极速保修</p>
 						<p><span>专业维修</span><span>包月</span></p>
-						<p><span>&yen;</span><span>198起</span><span>20家企业购买</span></p>
+						<p><span>&yen;</span><span class="unit_price">198</span><span>20家企业购买</span></p>
 					</div>
 				</div>
 				<div class="product border_bottom border_top">
 					<p>产品参数</p>
 					<#--<p><span>套餐参数</span><span class="change">打印机<input type="hidden" value="打印机" class="change_active" /></span><span class="change">电脑 <input type="hidden" name="" id="" value="电脑" class="change_active" /></span></p>-->
 					<p>
-						<span>服务台数</span>
-						<input type="hidden" name="bank_id" id="bankId" value="" class="hide_input">
-						<input id="showBank" class="please_select" value="请选择" readonly="readonly" style="color: #929292;" onBlur="this.style.color='#222'" onFocus="this.style.color='#222'">
-					</p>
-					<p>
 						<span>服务时间</span>
 						<input type="hidden" name="bank_id" id="bankId2" value="" class="hide_input2">
-						<input id="showBank2" class="please_select" value="请选择" readonly="readonly" style="color: #929292;" onBlur="this.style.color='#222'" onFocus="this.style.color='#222'">
+						<input id="showBank2" class="please_select" placeholder="请选择" readonly="readonly" style="color: #929292;" onBlur="this.style.color='#222'" onFocus="this.style.color='#222'">
 					</p>
 				</div>
 				<div class="buyer border_bottom border_top">
 					<p>买家信息</p>
-					<p><span style="line-height: normal;">公司名称</span><input type="text" name="" id="company_name" class="company_name" value="" maxlength="20" placeholder="请输入公司名称" onBlur="this.style.color='#222'" onFocus="this.style.color='#222'" /></p>
-					<p><span>维修联系人</span><input type="text" maxlength="8" id="" class="tel_man" value="" placeholder="请输入公司与维修人员联系人" style="color: #929292;" onBlur="this.style.color='#222'" onFocus="this.style.color='#222'" /></p>
-					<p><span>联系电话</span><input type="text" name="" id="" class="tel_num" value="" placeholder="请输入手机号" onBlur="this.style.color='#222'" onFocus="this.style.color='#222'"  /></p>
+					<p><span style="line-height: normal;">公司名称</span><input type="text" name="" id="company_name" class="company_name" value="" maxlength="20" placeholder="请输入公司名称" onBlur="this.style.color='#222'" onFocus="this.style.color='#222'" oninput = "IsPull()"/></p>
+					<p><span>维修联系人</span><input type="text" maxlength="8" id="" class="tel_man" value="" placeholder="请输入公司与维修人员联系人" style="color: #929292;" onBlur="this.style.color='#222'" onFocus="this.style.color='#222'" oninput = "IsPull()"/></p>
+					<p><span>联系电话</span><input type="text" name="" id="" class="tel_num" value="" placeholder="请输入手机号" onBlur="this.style.color='#222'" onFocus="this.style.color='#222'"  oninput = "IsPull()"/></p>
 					<p class="form-item item-line" id="select_contact">
 						<span>维修地址</span>
 						<input type="hidden" name="contact_province_code" data-id="0001" id="contact_province_code" value="" data-province-name="">
 						<input type="hidden" name="contact_city_code" id="contact_city_code" value="" data-city-name="">
 						<input data-city-code="110100" data-province-code="110000" data-district-code="110100" id="show_contact" value="省/市/（区/县）" readonly="readonly" style="color: #929292;" onBlur="this.style.color='#222'" onFocus="this.style.color='#222'">
 					</p>
-					<p><textarea data-adaptheight name="" rows="1" cols="40" class="place_now" placeholder="请输入详细地址" onBlur="this.style.color='#222'" onFocus="this.style.color='#222'" onpropertychange="this.style.posHeight=this.scrollHeight"></textarea></p>
+					<p><textarea data-adaptheight name="" rows="1" cols="40" class="place_now" placeholder="请输入详细地址" onBlur="this.style.color='#222'" onFocus="this.style.color='#222'" onpropertychange="this.style.posHeight=this.scrollHeight" oninput = "IsPull()"></textarea></p>
 				</div>
 
 				<footer class="border_top">
 					<div>
-						<p>共计金额：<span>1980元</span></p>
+						<p>共计金额：<span class="all_price">0元</span></p>
 						<p><input type="checkbox" name="" id="" value="" checked="checked" class="checked_btn" />我同意
 							<a href="javascript:void(0);" class="agreement">《万能企业盾协议》</a>
 						</p>
@@ -147,14 +144,132 @@
 				</div>
 			</div>
 		</div>
+        <script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/qifu/confirm.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/qifu/text_self_adaption.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/qifu/iscroll.js"></script>
+        <script src="${basePath}/js/qifu/iosSelect.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/qifu/confirm_num.js"></script>
+        <script src="${basePath}/js/qifu/confirm_date.js"></script>
+        <script src="${basePath}/js/qifu/common.js"></script>
 
+        <script type="text/javascript">
+            var _config = {
+                "agentId":'${qf.config.agentId}',
+                "corpId":'${qf.config.corpId}',
+                "timeStamp":'${qf.config.timeStamp}',
+                "nonceStr":'${qf.config.nonceStr}',
+                "signature":'${qf.config.signature}'
+            }
+
+
+            dd.config({
+                          agentId :_config.agentId,
+                          corpId : _config.corpId,
+                          timeStamp : _config.timeStamp,
+                          nonceStr : _config.nonceStr,
+                          signature : _config.signature,
+                          type : 0,
+                          jsApiList : [ 'runtime.info',
+                                        'biz.contact.choose',
+                                        'device.notification.confirm',
+                                        'device.notification.alert',
+                                        'device.notification.prompt',
+                                        'biz.ding.post',
+                                        'biz.util.openLink',
+                                        'biz.map.locate']
+                      });
+
+
+            dd.ready(function() {
+                dd.biz.navigation.setTitle({
+                                               title: '万能小哥',
+                                               onSuccess: function(data) {
+                                               },
+                                               onFail: function(err) {
+                                                   log.e(JSON.stringify(err));
+                                               }
+                                           });
+
+            });
+
+            dd.error(function(err) {
+                alert('dd error: ' + JSON.stringify(err));
+            });
+
+            console.log(_config);
+            var province = "";
+            var city ="";
+            var snippet ="";
+            var latitude;
+            var longitude;
+            $('#show_contact').click(function(){
+                dd.biz.map.locate({
+                                      onSuccess: function (map) {
+                                          province = map.province;
+                                          city = map.city;
+                                          snippet = map.snippet;
+                                          latitude = map.latitude;
+                                          longitude = map.longitude;
+                                          $('#show_contact').val(province + city + snippet)
+
+                                      },
+                                      onFail: function (err) {
+                                      }
+                                  });
+            });
+
+            $('.pay_now').click(function(){
+                if(IsPull()){
+                    var serviceBuyRecordDTO = {
+                        "cityCode":'${qf.cityCode}',
+                        "buyTime": valueBer2,
+                        "serviceId":2,
+                        "packageId":1,
+                        "money":all_price,
+                        "address": $('#show_contact').val()+now_place.val(),
+                        "latitude":latitude,
+                        "longitude":longitude
+                    };
+                    var companyInfoDTO = {
+                        "companyCode":'${qf.config.corpId}',
+                        "companyName":com_name.val(),
+                        "linkman":dom_people.val(),
+                        "tel":phone_num.val().trim()
+                    }
+                    var qfOrder = {
+                        "serviceBuyRecordDTO":serviceBuyRecordDTO,
+                        "companyInfoDTO": companyInfoDTO
+                    }
+                    console.log(qfOrder);
+
+
+                    $.ajax({
+                               url:"${basePath}/ulb/qf/order.shtml",
+                               type:"POST",
+                               data:JSON.stringify(qfOrder),
+                               contentType:"application/json; charset=utf-8",
+                               dataType:"json",
+                               success: function(result){
+                                   if(result && result.status== 200){
+                                       alert(result.message);
+                                       location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId;
+                                   }else{
+                                   }
+                               },
+                               error: function(result){
+                                   console.log(result);
+                               }
+                           });
+                }
+                else{
+                    layer_tip('请完善信息后再提交')
+                }
+            })
+
+
+        </script>
 	</body>
-	<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
-	<script src="${basePath}/js/qifu/confirm.js" type="text/javascript" charset="utf-8"></script>
-	<script src="${basePath}/js/qifu/text_self_adaption.js" type="text/javascript" charset="utf-8"></script>
-	<script src="${basePath}/js/qifu/iscroll.js"></script>
-	<script src="${basePath}/js/qifu/iosSelect.js" type="text/javascript" charset="utf-8"></script>
-	<script src="${basePath}/js/qifu/confirm_num.js"></script>
-	<script src="${basePath}/js/qifu/confirm_date.js"></script>
+
 
 </html>

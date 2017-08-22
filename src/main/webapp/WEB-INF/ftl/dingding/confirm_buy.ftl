@@ -220,7 +220,9 @@
             });
 
             $('.pay_now').click(function(){
+				alert(1);
                 if(IsPull()){
+					alert(2);
                     var serviceBuyRecord = {
                         "cityCode":'${qf.cityCode}',
                         "buyTime": valueBer2,
@@ -256,6 +258,7 @@
 									   alert("${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId+"&cityCode=${qf.cityCode}")
                                        location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId+"&cityCode=${qf.cityCode}";
                                    }else{
+                                       alert(result.message);
                                    }
                                },
                                error: function(result){

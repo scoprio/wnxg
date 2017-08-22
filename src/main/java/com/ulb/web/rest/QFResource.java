@@ -12,6 +12,7 @@ import com.ulb.service.SKUService;
 import com.ulb.service.TimeService;
 import com.ulb.web.dto.QFOrderRecordDTO;
 import com.ulb.web.dto.QFRecordDTO;
+import com.ulb.web.dto.ResultDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKURecordDTO;
 
@@ -63,11 +64,18 @@ public class QFResource {
     public ResponseEntity<Map<String, Object>> order(@RequestBody QFOrderRecordDTO qfOrderRecordDTO){
         Map<String, Object> resultMap = new LinkedHashMap<>();
         try {
-            qfService.order(qfOrderRecordDTO);
-            resultMap.put("status", 200);
-            resultMap.put("message", "下单成功！");
+            ResultDTO resultDTO = qfService.order(qfOrderRecordDTO);
+            if(resultDTO.getCode().equals("200")){
+                resultMap.put("status", 200);
+                resultMap.put("message", "下单成功！");
+            }else{
+                resultMap.put("status", 500);
+                resultMap.put("message", "服务端下单失败！");
+            }
+
         } catch (IOException e) {
             resultMap.put("status", 500);
+            resultMap.put("message", "应用端下单失败！");
             e.printStackTrace();
         }
         return new ResponseEntity(resultMap,HttpStatus.OK);

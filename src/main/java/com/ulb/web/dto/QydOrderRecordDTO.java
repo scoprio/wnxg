@@ -19,6 +19,7 @@ public class QydOrderRecordDTO {
     private Integer buyNums;
 
     private BigDecimal orderMoney;
+    private String cityCode;
 
     public String getAddress() {
         return address;
@@ -98,5 +99,13 @@ public class QydOrderRecordDTO {
 
     public void setRecordId(Integer recordId) {
         this.recordId = recordId;
+    }
+
+    public String getCityCode() {
+        return cityCode;
+    }
+
+    public void setCityCode(String cityCode) {
+        this.cityCode = cityCode;
     }
 }

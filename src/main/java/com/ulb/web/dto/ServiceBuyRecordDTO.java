@@ -13,6 +13,8 @@ public class ServiceBuyRecordDTO {
     private Integer serviceId;
     private BigDecimal money;
 
+    private String packageId;
+
     private BigDecimal latitude;
     private BigDecimal longitude;
     private String address;
@@ -71,5 +73,13 @@ public class ServiceBuyRecordDTO {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getPackageId() {
+        return packageId;
+    }
+
+    public void setPackageId(String packageId) {
+        this.packageId = packageId;
     }
 }

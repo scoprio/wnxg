@@ -22,7 +22,7 @@
 					<#list orders as order>
 
                         <li>
-                            <p class="order_p1">订单编号：<span>${order.oid?default('未设置')}</span><i>${order.pid?default('未完成')}</i></p>
+                            <p class="order_p1">订单编号：<span>${order.oid?default('未设置')}</span><i>${order.statusName?default('未完成')}</i></p>
                             <div class="order_box border_bottom border_top">
                                 <div class="imgdiv"><img src=""/></div>
                                 <div class="pdiv">

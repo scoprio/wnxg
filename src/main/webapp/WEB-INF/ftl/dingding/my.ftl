@@ -21,7 +21,7 @@
 			<a href="${basePath}/dingding/my_order/${my.userId}/${my.cityCode}.shtml"><li><p>我的订单</p></li></a>
 		</ul>
 		<ul class="my_ul2 border_bottom border_top">
-			<a href="apply_for_bill.html"><li><p>发票管理</p></li></a>
+			<#--<a href="apply_for_bill.html"><li><p>发票管理</p></li></a>-->
 			<a href="${basePath}/dingding/help.shtml"><li><p>帮助中心</p></li></a>
 		</ul>
 	</body>

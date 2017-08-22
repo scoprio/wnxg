@@ -546,9 +546,11 @@ dd.ready(function() {
 								   $('.choose_city .city_current').text(current_city);
 								   var myUrl
 								   if(dingdingUserInfo.isAdmin || dingdingUserInfo.isBoss){
+									   alert("admin");
 									   myUrl = baseUrl+"/dingding/my_admin.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+_config.corpId;
 								   }else{
-									   myUrl = baseUrl+"/dingding/my.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+_config.corpId;
+									   alert("employee")
+									   myUrl = baseUrl+"/dingding/my.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code;
 								   }
 								   change_url(current_city_code+".shtml?corpid="+_config.corpId+"&appid=3928&dd_nav_bgcolor=FFFB870D");
 								   $('.person_center').attr("href",myUrl);

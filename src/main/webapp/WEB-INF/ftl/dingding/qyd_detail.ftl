@@ -15,7 +15,10 @@
             	$('.submit_btn').click(function() {
 
 					if('${qydInfo.isAdmin}' == 'true'){
-                        location.href = "${basePath}/ubl/qf.shtml?cityCode=${qydInfo.cityCode}";
+						<#--alert("管理员")-->
+						<#--var url = "${basePath}/ulb/qf.shtml?corpid=${qydInfo.corpId}&appid=3928&cityCode=${qydInfo.cityCode}&dd_nav_bgcolor=FFFB870D";-->
+                        <#--alert(url);-->
+						location.href = "${basePath}/ulb/qf.shtml?corpid=${qydInfo.corpId}&appid=3928&cityCode=${qydInfo.cityCode}&dd_nav_bgcolor=FFFB870D";
 					}else{
                         alert("联系管理员开通");
 					}

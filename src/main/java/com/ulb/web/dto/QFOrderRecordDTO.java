@@ -7,23 +7,22 @@ package com.ulb.web.dto;
 public class QFOrderRecordDTO {
 
 
-    private ServiceBuyRecordDTO serviceBuyRecordDTO;
-    private CompanyInfoDTO companyInfoDTO;
+    private ServiceBuyRecordDTO serviceBuyRecord;
+    private CompanyInfoDTO companyInfo;
 
-
-    public ServiceBuyRecordDTO getServiceBuyRecordDTO() {
-        return serviceBuyRecordDTO;
+    public ServiceBuyRecordDTO getServiceBuyRecord() {
+        return serviceBuyRecord;
     }
 
-    public void setServiceBuyRecordDTO(ServiceBuyRecordDTO serviceBuyRecordDTO) {
-        this.serviceBuyRecordDTO = serviceBuyRecordDTO;
+    public void setServiceBuyRecord(ServiceBuyRecordDTO serviceBuyRecord) {
+        this.serviceBuyRecord = serviceBuyRecord;
     }
 
-    public CompanyInfoDTO getCompanyInfoDTO() {
-        return companyInfoDTO;
+    public CompanyInfoDTO getCompanyInfo() {
+        return companyInfo;
     }
 
-    public void setCompanyInfoDTO(CompanyInfoDTO companyInfoDTO) {
-        this.companyInfoDTO = companyInfoDTO;
+    public void setCompanyInfo(CompanyInfoDTO companyInfo) {
+        this.companyInfo = companyInfo;
     }
 }

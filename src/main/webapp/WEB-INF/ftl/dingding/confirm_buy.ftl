@@ -221,25 +221,25 @@
 
             $('.pay_now').click(function(){
                 if(IsPull()){
-                    var serviceBuyRecordDTO = {
+                    var serviceBuyRecord = {
                         "cityCode":'${qf.cityCode}',
                         "buyTime": valueBer2,
                         "serviceId":2,
                         "packageId":1,
                         "money":all_price,
                         "address": $('#show_contact').val()+now_place.val(),
-                        "latitude":latitude,
-                        "longitude":longitude
+                        "latitude": latitude,
+                        "longitude": longitude
                     };
-                    var companyInfoDTO = {
+                    var companyInfo = {
                         "companyCode":'${qf.config.corpId}',
                         "companyName":com_name.val(),
                         "linkman":dom_people.val(),
                         "tel":phone_num.val().trim()
                     }
                     var qfOrder = {
-                        "serviceBuyRecordDTO":serviceBuyRecordDTO,
-                        "companyInfoDTO": companyInfoDTO
+                        "serviceBuyRecord":serviceBuyRecord,
+                        "companyInfo": companyInfo
                     }
                     console.log(qfOrder);
 
@@ -253,7 +253,8 @@
                                success: function(result){
                                    if(result && result.status== 200){
                                        alert(result.message);
-                                       location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId;
+									   alert("${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId+"&cityCode=${qf.cityCode}")
+                                       location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId+"&cityCode=${qf.cityCode}";
                                    }else{
                                    }
                                },

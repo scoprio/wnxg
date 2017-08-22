@@ -133,9 +133,13 @@ public class MyResource {
     @RequestMapping(value="my_qyd_lists",method=RequestMethod.GET)
     public ModelAndView getQydLists(HttpServletRequest request){
         String corpId = request.getParameter("corpId");
+        String cityCode = request.getParameter("cityCode");
         List<QydOrderRecordDTO> list = null;
         try {
             list = myService.getQydOrderRecord(corpId);
+            for(QydOrderRecordDTO dto:list){
+                dto.setCityCode(cityCode);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }

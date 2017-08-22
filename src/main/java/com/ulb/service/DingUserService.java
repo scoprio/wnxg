@@ -22,20 +22,6 @@ import retrofit2.Response;
 @Service
 public class DingUserService {
 
-    //获取SKU订单
-    public SKURecordDTO getSKU(String skuId,String cityCode) throws IOException {
-        return null;
-    }
 
-    //获取盾服务订单
-    public void order(SKUOrderRecordDTO skuOrderRecordDTO) throws IOException {
-        RemoteSKUService service = APIServiceGenrator.createRequsetService(RemoteSKUService.class);
-        Call<String> call = service.postOrder(skuOrderRecordDTO);
-        call.execute();
-    }
-    //获取发票列表
-    public List<SKURecordDTO> getSKUOrderRecord(String uid) throws IOException{
-       return null;
-    }
 
 }

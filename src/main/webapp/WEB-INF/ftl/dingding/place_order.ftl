@@ -146,7 +146,7 @@
                           latitude = map.latitude;
                           longitude = map.longitude;
                           input_site.val(province + city + snippet)
-                        
+
                       },
                       onFail: function (err) {
                       }
@@ -228,6 +228,7 @@
                     var skuOrder = {
                         "cityCode":'${sku.cityCode}',
                         "openId": dingdingUserInfo.userid,
+                        "companyCode" : '${sku.config.corpId}',
                         "order":order
                     }
                     console.log(skuOrder);
@@ -239,12 +240,21 @@
                                contentType:"application/json; charset=utf-8",
                                dataType:"json",
                                success: function(result){
-                                   if(result && result.status!= 200){
-
-                                   }else{
-                                       layer.msg(result.message);
+                                   if(result && result.status== 200){
+                                       alert(result.message);
                                        location.href = "${basePath}/dingding/my_order/"+dingdingUserInfo.userid+"/${sku.cityCode}.shtml";
+                                   }else{
+
                                    }
+                               },
+                               error: function(result){
+                                   console.log(result);
+                                   <#--if(result && result.status!= 200){-->
+
+                                   <#--}else{-->
+                                       <#--layer.msg(result.message);-->
+                                       <#--location.href = "${basePath}/dingding/my_order/"+dingdingUserInfo.userid+"/${sku.cityCode}.shtml";-->
+                                   <#--}-->
                                }
                            })
                 <#--$.post("${basePath}/dingding/my/feedback.shtml",feedback,function(result){-->

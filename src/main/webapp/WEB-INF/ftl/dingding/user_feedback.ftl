@@ -96,14 +96,16 @@
 							   data:JSON.stringify(feedback),
 							   contentType:"application/json; charset=utf-8",
 							   dataType:"json",
-							   success: function(result){
-                                   if(result && result.status!= 200){
+							   success: function (data, status, xhr) {
 
-								   }else{
-									   layer.msg('提交成功！' );
-
+                                   if(data.status && data.status =='200'){
+                                       location.href = "${basePath}/dingding/help.shtml";
 								   }
+							   },
+							   error: function () {
+								   alert("An error has occured!!!");
 							   }
+
 							 })
                             <#--$.post("${basePath}/dingding/my/feedback.shtml",feedback,function(result){-->
 								<#--alert(result);-->

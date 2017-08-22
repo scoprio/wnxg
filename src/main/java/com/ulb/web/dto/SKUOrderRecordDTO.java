@@ -10,6 +10,8 @@ public class SKUOrderRecordDTO {
 
     private String openId;
 
+    private String companyCode;
+
     private OrderRecordDTO order;
 
     public String getOpenId() {
@@ -26,6 +28,14 @@ public class SKUOrderRecordDTO {
 
     public void setCityCode(String cityCode) {
         this.cityCode = cityCode;
+    }
+
+    public String getCompanyCode() {
+        return companyCode;
+    }
+
+    public void setCompanyCode(String companyCode) {
+        this.companyCode = companyCode;
     }
 
     public OrderRecordDTO getOrder() {

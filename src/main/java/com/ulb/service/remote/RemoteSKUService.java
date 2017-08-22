@@ -3,6 +3,7 @@ package com.ulb.service.remote;
 
 import java.util.List;
 
+import com.ulb.web.dto.ResultDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKURecordDTO;
 import com.ulb.web.dto.UsefulTimeDTO;
@@ -26,7 +27,7 @@ public interface RemoteSKUService {
 
     @Headers({"Content-type:application/json;charset=UTF-8"})
     @POST("/WNXG/ulb/api/new_enter_prise/order")
-    Call<String> postOrder(@Body SKUOrderRecordDTO skuOrderRecordDTO);
+    Call<ResultDTO> postOrder(@Body SKUOrderRecordDTO skuOrderRecordDTO);
 
     @GET("/WNXG/ulb/api/new_enter_prise_my_order/repairDetails/{userID}")
     Call<List<SKURecordDTO>> getSKUOrderRecord(@Path("userId") String userId);

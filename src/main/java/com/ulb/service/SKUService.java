@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.ulb.service.generator.APIServiceGenrator;
 import com.ulb.service.remote.RemoteSKUService;
+import com.ulb.web.dto.ResultDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKURecordDTO;
 
@@ -32,10 +33,11 @@ public class SKUService {
     }
 
 
-    public void order(SKUOrderRecordDTO skuOrderRecordDTO) throws IOException {
+    public ResultDTO order(SKUOrderRecordDTO skuOrderRecordDTO) throws IOException {
         RemoteSKUService service = APIServiceGenrator.createRequsetService(RemoteSKUService.class);
-        Call<String> call = service.postOrder(skuOrderRecordDTO);
-        call.execute();
+        Call<ResultDTO> call = service.postOrder(skuOrderRecordDTO);
+        Response<ResultDTO> response = call.execute();
+        return response.body();
     }
 
     public List<SKURecordDTO> getSKUOrderRecord(String uid) throws IOException{

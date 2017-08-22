@@ -21,6 +21,7 @@ import com.ulb.user.bo.UserOnlineBo;
 import com.ulb.web.demo.auth.AuthHelper;
 import com.ulb.web.demo.user.UserHelper;
 import com.ulb.web.dto.DingDingConfigDTO;
+import com.ulb.web.dto.FeedbackDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKURecordDTO;
 import com.ulb.web.dto.UsefulTimeDTO;
@@ -79,8 +80,8 @@ public class UlbSKUResource {
     @RequestMapping(value = "/sku/order.shtml",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public Map<String,Object> order(@RequestBody SKUOrderRecordDTO skuOrderRecordDTO){
-        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+    public ResponseEntity<Map<String, Object>> order(@RequestBody SKUOrderRecordDTO skuOrderRecordDTO){
+        Map<String, Object> resultMap = new LinkedHashMap<>();
         try {
             skuService.order(skuOrderRecordDTO);
             resultMap.put("message", "下单成功！");
@@ -89,8 +90,18 @@ public class UlbSKUResource {
             resultMap.put("status", 500);
             e.printStackTrace();
         }
-        return resultMap;
+        return new ResponseEntity(resultMap,HttpStatus.OK);
     }
+
+//    @RequestMapping(value = "my/feedback.shtml",
+//            method = RequestMethod.POST,
+//            produces = MediaType.APPLICATION_JSON_VALUE)
+//    public Map<String,Object> save(@RequestBody FeedbackDTO feedbackDTO){
+//        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+//        resultMap.put("message", "提交成功！");
+//        resultMap.put("status", 200);
+//        return resultMap;
+//    }
 
 
 //    @RequestMapping(value="skuOrderRecord/{userID}",method=RequestMethod.GET)

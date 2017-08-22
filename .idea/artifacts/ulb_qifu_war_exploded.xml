@@ -86,6 +86,12 @@
           <element id="library" level="project" name="Maven: io.netty:netty:3.10.4.Final" />
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpclient:4.5.3" />
           <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.4.6" />
+          <element id="library" level="project" name="Maven: com.squareup.retrofit2:converter-gson:2.1.0" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.7" />
+          <element id="library" level="project" name="Maven: com.squareup.retrofit2:retrofit:2.1.0" />
+          <element id="library" level="project" name="Maven: com.squareup.okhttp3:okhttp:3.3.0" />
+          <element id="library" level="project" name="Maven: com.squareup.okio:okio:1.8.0" />
+          <element id="library" level="project" name="Maven: com.squareup.okhttp3:logging-interceptor:3.3.0" />
           <element id="library" level="module" name="Maven: com.alibaba:jconsole:1.8.0" module-name="ulb_qifu" />
           <element id="library" level="module" name="Maven: com.alibaba:tools:1.8.0" module-name="ulb_qifu" />
           <element id="library" level="module" name="Maven: com.dingtalk.open:client-sdk.api:=" module-name="ulb_qifu" />

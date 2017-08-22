@@ -458,6 +458,7 @@ dd.ready(function() {
 				type : 'GET',
 				success : function(data, status, xhr) {
 					dingdingUserInfo = JSON.parse(data);
+					alert(_config.corpId);
 					alert(dingdingUserInfo);
 					alert(data);
 					var myUrl = baseUrl+"/dingding/my.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+_config.corpId;

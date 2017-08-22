@@ -131,12 +131,12 @@ public class MyResource {
     @RequestMapping(value = "my/feedback.shtml",
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public Map<String,Object> save(@RequestBody FeedbackDTO feedbackDTO){
-        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
+    public ResponseEntity<Map<String, Object>>  save(@RequestBody FeedbackDTO feedbackDTO){
+        Map<String, Object> resultMap = new LinkedHashMap<>();
         myService.insert(feedbackDTO);
         resultMap.put("message", "提交成功！");
         resultMap.put("status", 200);
-        return resultMap;
+        return new ResponseEntity(resultMap,HttpStatus.OK);
     }
 
 }

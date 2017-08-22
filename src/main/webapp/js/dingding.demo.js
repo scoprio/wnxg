@@ -458,10 +458,14 @@ dd.ready(function() {
 				type : 'GET',
 				success : function(data, status, xhr) {
 					dingdingUserInfo = JSON.parse(data);
-					alert(_config.corpId);
+					// alert(_config.corpId);
 					alert(dingdingUserInfo);
-					alert(data);
-					var myUrl = baseUrl+"/dingding/my.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+_config.corpId;
+					var myUrl;
+					if(dingdingUserInfo.isAdmin || dingdingUserInfo.isBoss){
+						myUrl = baseUrl+"/dingding/my_admin.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+_config.corpId;
+					}else{
+						myUrl = baseUrl+"/dingding/my.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+_config.corpId;
+					}
 					// var myUrl = baseUrl+"/dingding/my/"+dingdingUserInfo.userid+"/"+current_city_code;
 			        $('.person_center').attr("href",myUrl);
 					alert($('.person_center').attr("href"))
@@ -535,7 +539,12 @@ dd.ready(function() {
 							   buttonName: "确定",
 							   onSuccess : function() {
 								   $('.choose_city .city_current').text(current_city);
-								   var myUrl = baseUrl+"/dingding/my.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+_config.corpId;
+								   var myUrl
+								   if(dingdingUserInfo.isAdmin || dingdingUserInfo.isBoss){
+									   myUrl = baseUrl+"/dingding/my_admin.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+_config.corpId;
+								   }else{
+									   myUrl = baseUrl+"/dingding/my.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+_config.corpId;
+								   }
 								   change_url(current_city_code+".shtml?corpid="+_config.corpId+"&appid=3928&dd_nav_bgcolor=FFFB870D");
 								   $('.person_center').attr("href",myUrl);
 							   },

@@ -42,6 +42,15 @@ public class MyService {
         return list;
     }
 
+
+    public List<OrderRecordDTO> getCropSKUOrderRecord(String cropId,String cityCode) throws IOException{
+        RemoteMyService service = APIServiceGenrator.createRequsetService(RemoteMyService.class);
+        Call<List<OrderRecordDTO>> call = service.getCropSKUOrderRecord(cropId,cityCode);
+        Response<List<OrderRecordDTO>> response = call.execute();
+        List<OrderRecordDTO> list = response.body();
+        return list;
+    }
+
     public List<QydOrderRecordDTO> getQydOrderRecord(String cropId) throws IOException{
         RemoteMyService service = APIServiceGenrator.createRequsetService(RemoteMyService.class);
         Call<List<QydOrderRecordDTO>> call = service.getQydOrderRecord(cropId);

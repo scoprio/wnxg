@@ -63,6 +63,21 @@ public class MyResource {
 
     }
 
+
+    @RequestMapping(value="my_admin",method=RequestMethod.GET)
+    public ModelAndView getMyAdmin(HttpServletRequest request){
+        String userId = request.getParameter("uuid");
+        String cityCode = request.getParameter("cityCode");
+        String corpId = request.getParameter("corpid");
+
+        UserDTO userDTO = new UserDTO();
+        userDTO.setUserId(userId);
+        userDTO.setCityCode(cityCode);
+        userDTO.setCorpId(corpId);
+        return new ModelAndView("dingding/my_admin","my",userDTO);
+
+    }
+
     @RequestMapping(value="my_order/{dingdingUId}/{cityCode}",method=RequestMethod.GET)
     public ModelAndView getOrders(@PathVariable String dingdingUId,@PathVariable String cityCode){
 
@@ -74,6 +89,32 @@ public class MyResource {
                         ||dto.getPid() == 5||dto.getPid() == 11||dto.getPid() == 12||dto.getPid() == 13
                         ||dto.getPid() == 14||dto.getPid() == 15||dto.getPid() == 16||dto.getPid() == 17
                         ||dto.getPid() == 19||dto.getPid() == 20||dto.getPid() == 21||dto.getPid() == 23
+                        ||dto.getPid() == 24||dto.getPid() == 25||dto.getPid() == 26||dto.getPid() == 27){
+                    dto.setStatusName("未完成");
+                }else if(dto.getPid() == 8 ||dto.getPid() == 18 ||dto.getPid() == 22 ){
+                    dto.setStatusName("已完成");
+                }else if(dto.getPid() == 7){
+                    dto.setStatusName("待评价");
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new ModelAndView("dingding/my_order","orders",list);
+
+    }
+
+    @RequestMapping(value="my_company_order/{corpId}/{cityCode}",method=RequestMethod.GET)
+    public ModelAndView getCropOrders(@PathVariable String corpId,@PathVariable String cityCode){
+
+        List<OrderRecordDTO> list = null;
+        try {
+            list = myService.getCropSKUOrderRecord(corpId,cityCode);
+            for(OrderRecordDTO dto:list){
+                if(dto.getPid() == 1 ||dto.getPid() == 2||dto.getPid() == 3||dto.getPid() == 4
+                        ||dto.getPid() == 5||dto.getPid() == 11||dto.getPid() == 12||dto.getPid() == 13
+                        ||dto.getPid() == 14||dto.getPid() == 15||dto.getPid() == 16||dto.getPid() == 17
+                        ||dto.getPid() == 19||dto.getPid() == 21||dto.getPid() == 20||dto.getPid() == 23
                         ||dto.getPid() == 24||dto.getPid() == 25||dto.getPid() == 26||dto.getPid() == 27){
                     dto.setStatusName("未完成");
                 }else if(dto.getPid() == 8 ||dto.getPid() == 18 ||dto.getPid() == 22 ){

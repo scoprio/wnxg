@@ -26,6 +26,9 @@ public interface RemoteMyService {
     @GET("WNXG/ulb/api/new_enter_prise_my_order/myOrder/{userID}/{cityCode}")
     Call<List<OrderRecordDTO>> getSKUOrderRecord(@Path("userID") String userId,@Path("cityCode") String cityCode);
 
+    @GET("WNXG/ulb/api/new_enter_prise_my_order/myOrder/{cropId}/{cityCode}")
+    Call<List<OrderRecordDTO>> getCropSKUOrderRecord(@Path("cropId") String cropId,@Path("cityCode") String cityCode);
+
     @GET("WNXG/ulb/api/new_enter_prise_my_company/myBuyList/{cropID}")
     Call<List<QydOrderRecordDTO>> getQydOrderRecord(@Path("cropID") String cropID);
 

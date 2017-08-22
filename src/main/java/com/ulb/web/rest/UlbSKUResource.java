@@ -93,26 +93,4 @@ public class UlbSKUResource {
         return new ResponseEntity(resultMap,HttpStatus.OK);
     }
 
-//    @RequestMapping(value = "my/feedback.shtml",
-//            method = RequestMethod.POST,
-//            produces = MediaType.APPLICATION_JSON_VALUE)
-//    public Map<String,Object> save(@RequestBody FeedbackDTO feedbackDTO){
-//        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
-//        resultMap.put("message", "提交成功！");
-//        resultMap.put("status", 200);
-//        return resultMap;
-//    }
-
-
-//    @RequestMapping(value="skuOrderRecord/{userID}",method=RequestMethod.GET)
-//    public ModelAndView getSKUOrder(@PathVariable String userID){
-//        List<SKURecordDTO> list  = null;
-//        try {
-//            list = skuService.getSKUOrderRecord(userID);
-//        } catch (IOException e) {
-//            LOGGER.error("从服务请求SKU详情失败");
-//            e.printStackTrace();
-//        }
-//        return new ModelAndView("dingding/place_order","sku",list);
-//    }
 }

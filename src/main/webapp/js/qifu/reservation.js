@@ -4,15 +4,15 @@ $(function() {
 
 // 判断信息是否填写完整
     var dom_content = $('#showBank4');
-    var dom_num2 = $('#showBank5');
-    var dom_time2 = $('#showBank5');
+//  var dom_num2 = $('#showBank5');
+    var dom_time2 = $('#showBank6');
     var dom_textarea = $('.ms_msg textarea');
     function Isfill2(){
-    	var num_val = dom_num2.val();
+//  	var num_val = dom_num2.val();
     	var time_val = dom_time2.val();
     	var content_val = dom_content.val();
     	var textarea_val = dom_textarea.val();
-    	if(num_val && time_val && content_val && textarea_val){
+    	if( time_val && content_val && textarea_val){
     		$('.btn_at_once').css('background','#ff943e');
     		return true;
     	}
@@ -64,17 +64,17 @@ $(function() {
 	var bankIdDom4 = document.querySelector('#bankId4');
 
 	showBankDom4.addEventListener('click', function() {
-		var bankId6 = showBankDom6.dataset['id'];
-		var bankName6 = showBankDom6.dataset['value'];
+		var bankId4 = showBankDom6.dataset['id'];
+		var bankName4 = showBankDom6.dataset['value'];
 
 		var bankSelect6 = new IosSelect(1, [data4], {
-			title: '预约时间选择',
+			title: '预约维修内容',
 			oneLevelId: bankId4,
 			itemHeight: 0.7,
 			headerHeight: 0.88,
 			cssUnit: 'rem',
 			callback: function(selectOneObj) {
-				bankIdDom4.value = selectOneObj.id;
+				bankIdDom4.value = selectOneObj.value;
 				showBankDom4.value = selectOneObj.value;
 				showBankDom4.dataset['id'] = selectOneObj.id;
 				showBankDom4.dataset['value'] = selectOneObj.value;
@@ -82,28 +82,7 @@ $(function() {
 			}
 		});
 	});
-	var showBankDom5 = document.querySelector('#showBank5');
-	var bankIdDom5 = document.querySelector('#bankId5');
 
-	showBankDom5.addEventListener('click', function() {
-		var bankId5 = showBankDom5.dataset['id'];
-		var bankName5 = showBankDom5.dataset['value'];
-
-		var bankSelect5 = new IosSelect(1, [data5], {
-			title: '维修数量选择',
-			oneLevelId: bankId5,
-			itemHeight: 0.7,
-			headerHeight: 0.88,
-			cssUnit: 'rem',
-			callback: function(selectOneObj) {
-				bankIdDom5.value = selectOneObj.id;
-				showBankDom5.value = selectOneObj.value;
-				showBankDom5.dataset['id'] = selectOneObj.id;
-				showBankDom5.dataset['value'] = selectOneObj.value;
-				Isfill2()
-			}
-		});
-	});
 
 	var showBankDom6 = document.querySelector('#showBank6');
 	var bankIdDom6 = document.querySelector('#bankId6');
@@ -112,17 +91,19 @@ $(function() {
 		var bankId6 = showBankDom6.dataset['id'];
 		var bankName6 = showBankDom6.dataset['value'];
 
-		var bankSelect6 = new IosSelect(1, [data6], {
+		var bankSelect6 = new IosSelect(1, [data5], {
 			title: '预约时间选择',
 			oneLevelId: bankId6,
 			itemHeight: 0.7,
 			headerHeight: 0.88,
 			cssUnit: 'rem',
 			callback: function(selectOneObj) {
-				bankIdDom6.value = selectOneObj.id;
+				bankIdDom6.value = selectOneObj.value;
 				showBankDom6.value = selectOneObj.value;
 				showBankDom6.dataset['id'] = selectOneObj.id;
 				showBankDom6.dataset['value'] = selectOneObj.value;
+				var valueBer6 = bankIdDom6.value.replace(/[^0-9]/ig, "")
+				document.getElementsByClassName('hide_input_centent')[0].value = valueBer6;
 				Isfill2()
 			}
 		});

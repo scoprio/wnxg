@@ -4,16 +4,16 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>我的企业盾详情</title>
-		<link rel="stylesheet" type="text/css" href="css/reset_h5.css"/>
-		<link rel="stylesheet" type="text/css" href="css/my_QF.css"/>
+		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css"/>
+		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/my_QF.css"/>
 		
-		<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/my_QF.js" type="text/javascript" charset="utf-8"></script>
+		<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+		<script src="${basePath}/js/qifu/my_QF.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<section style="display: -webkit-flex;-webkit-flex-direction: column;">
 			<div class="my_box">
-				<div class="my_left"><img src="img/1tu.png"/></div>
+				<div class="my_left"><img src="${basePath}/images/1tu.png"/></div>
 				<div class="my_right">
 					<p>万能企业盾1号</p>
 					<p><span>服务周期：</span><span>2017.02-23至2017-09-23</span></p>
@@ -22,7 +22,7 @@
 				</div>
 			</div>
 			<div class="message">
-				<p class="msg_img"><img src="img/yishengxiao.png"/></p>
+				<p class="msg_img"><img src="${basePath}/images/yishengxiao.png"/></p>
 				<p class="msg_edit">修改</p>
 				<p>企业信息</p>
 				<p><span>公司名称：</span><span>河北万杰超修信息科技有限公司</span></p>
@@ -33,14 +33,14 @@
 			<div class="record" style="-webkit-flex-grow: 1;">
 				<p class="record_title">维修记录</p>
 				<div class="no_datebox " style="display: none;">
-					<div ><img src="img/no_data2.png"/></div>
+					<div ><img src="${basePath}/images/no_data2.png"/></div>
 					<p style="">暂无维修记录</p>
 				</div>
 				<ul class="record_ul">
 					<li>
 						<p class="record_order"><span>订单编号：</span><span>1104526215425</span><span>维修中</span></p>
 						<div class="recordbox">
-							<div class="record_left"><img src="img/1tu.png"/></div>
+							<div class="record_left"><img src="${basePath}/images/1tu.png"/></div>
 							<div class="record_right">
 								<p><span>维修类目：</span><span>电脑重装系统</span></p>
 								<p><span>维修商品：</span><span>电脑</span></p>
@@ -53,7 +53,7 @@
 					<li>
 						<p class="record_order"><span>订单编号：</span><span>1104526215425</span><span>已完成</span></p>
 						<div class="recordbox">
-							<div class="record_left"><img src="img/3tu.png"/></div>
+							<div class="record_left"><img src="${basePath}/images/3tu.png"/></div>
 							<div class="record_right">
 								<p><span>维修类目：</span><span>电脑重装系统</span></p>
 								<p><span>维修商品：</span><span>电脑</span></p>
@@ -66,7 +66,7 @@
 					<li>
 						<p class="record_order"><span>订单编号：</span><span>1104526215425</span><span>已完成</span></p>
 						<div class="recordbox">
-							<div class="record_left"><img src="img/3tu.png"/></div>
+							<div class="record_left"><img src="${basePath}/images/3tu.png"/></div>
 							<div class="record_right">
 								<p><span>维修类目：</span><span>电脑重装系统</span></p>
 								<p><span>维修商品：</span><span>电脑</span></p>
@@ -80,7 +80,7 @@
 			</div>
 		</section>
 		<footer class="border_top">
-			<input type="button" name="" id="" value="续购服务" class="btn_go_on"/>
+			<#--<input type="button" name="" id="" value="续购服务" class="btn_go_on"/>-->
 			<input type="button" name="" id="" value="预约维修" class="btn_subscribe"/>
 		</footer>
 		
@@ -89,8 +89,16 @@
 		$(".record").ready(function(){
 			var windowHeight = $(window).height();
   			if($(this).height() < windowHeight){
-      		$(this).height(windowHeight);
-  }
+      			$(this).height(windowHeight);
+  			}
 		})
+
+        $(function() {
+
+            $(".btn_subscribe").click(function() {
+                location.href = "${basePath}/ulb/reservation.shtml";
+            })
+
+        })
 	</script>
 </html>

@@ -2,6 +2,7 @@ package com.ulb.web.rest;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -10,8 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import com.ulb.service.QFService;
 import com.ulb.service.SKUService;
 import com.ulb.service.TimeService;
+import com.ulb.web.dto.OrderRecordDTO;
 import com.ulb.web.dto.QFOrderRecordDTO;
 import com.ulb.web.dto.QFRecordDTO;
+import com.ulb.web.dto.QFRecordDetailDTO;
 import com.ulb.web.dto.ResultDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKURecordDTO;
@@ -81,26 +84,22 @@ public class QFResource {
         return new ResponseEntity(resultMap,HttpStatus.OK);
     }
 
-//    @RequestMapping(value = "my/feedback.shtml",
-//            method = RequestMethod.POST,
-//            produces = MediaType.APPLICATION_JSON_VALUE)
-//    public Map<String,Object> save(@RequestBody FeedbackDTO feedbackDTO){
-//        Map<String, Object> resultMap = new LinkedHashMap<String, Object>();
-//        resultMap.put("message", "提交成功！");
-//        resultMap.put("status", 200);
-//        return resultMap;
-//    }
+    @RequestMapping(value="my_qifu/{qifuId}",method=RequestMethod.GET)
+    public ModelAndView getOrders(@PathVariable String qifuId,HttpServletRequest request){
 
+        String cityCode = request.getParameter("cityCode");
+        QFRecordDetailDTO qfRecordDetailDTO = new QFRecordDetailDTO();
+        try {
+            qfRecordDetailDTO = qfService.getQFRecordDetail(qifuId);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new ModelAndView("dingding/my_QF","qifuInfo",qfRecordDetailDTO);
+    }
 
-//    @RequestMapping(value="skuOrderRecord/{userID}",method=RequestMethod.GET)
-//    public ModelAndView getSKUOrder(@PathVariable String userID){
-//        List<SKURecordDTO> list  = null;
-//        try {
-//            list = skuService.getSKUOrderRecord(userID);
-//        } catch (IOException e) {
-//            LOGGER.error("从服务请求SKU详情失败");
-//            e.printStackTrace();
-//        }
-//        return new ModelAndView("dingding/place_order","sku",list);
-//    }
+    @RequestMapping(value="reservation",method=RequestMethod.GET)
+    public ModelAndView getReservation(HttpServletRequest request){
+        return new ModelAndView("dingding/reservation");
+    }
+
 }

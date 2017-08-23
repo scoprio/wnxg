@@ -1,8 +1,6 @@
 package com.ulb.web.rest;
 
-import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,10 +9,9 @@ import com.dingtalk.open.client.api.model.corp.CorpUserDetail;
 import com.ulb.web.demo.auth.AuthHelper;
 import com.ulb.web.demo.user.UserHelper;
 import com.ulb.web.dto.DingDingConfigDTO;
-import com.ulb.web.dto.MyOrderInfoDTO;
 import com.ulb.web.dto.QydInfoDTO;
+import com.ulb.web.util.ConfigGetter;
 
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;

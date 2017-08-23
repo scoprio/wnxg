@@ -122,7 +122,9 @@
                 var result_undo = '';
                 rArray1.forEach(function(item,i){
                     result_undo += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>未完成</i></p>'+
-                                   '<div class="order_box border_bottom border_top"><div class="imgdiv"><img src="" alt="" /></div>'+
+                                   '<div class="order_box border_bottom border_top">' +
+                                   '<a href="'+item.oid+'">'+
+                                   '<div class="imgdiv"><img src="" alt="" /></div>'+
                                    '<div class="pdiv">'+
                                    '<p><i>下单时间</i><span>'+item.downTime+'</span></p>'+
                                    '<p><i>上门时间</i><span>'+item.yuyueTime+'</span></p>'+
@@ -130,6 +132,7 @@
                                    '<p><i>维修项目</i><span>'+item.repairName+'</span></p>'+
                                    '</div>'+
                                    '</div>'+
+                                   '</a>'+
                                    '<p class="order_p2"><input type="button" value="取消订单" /><input type="button" value="联系客服" /></p>'+
                                    '</li>'
 
@@ -140,7 +143,9 @@
                 var result_done = '';
                 rArray2.forEach(function(item,i){
                     result_done += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>已完成</i></p>'+
-                                   '<div class="order_box border_bottom border_top"><div class="imgdiv"><img src="" alt="" /></div>'+
+                                   '<div class="order_box border_bottom border_top">' +
+                                   '<a href="'+item.oid+'">'+
+                                   '<div class="imgdiv"><img src="" alt="" /></div>'+
                                    '<div class="pdiv">'+
                                    '<p><i>下单时间</i><span>'+item.downTime+'</span></p>'+
                                    '<p><i>上门时间</i><span>'+item.yuyueTime+'</span></p>'+
@@ -148,6 +153,7 @@
                                    '<p><i>维修项目</i><span>'+item.repairName+'</span></p>'+
                                    '</div>'+
                                    '</div>'+
+                                   '</a>'+
                                    '<p class="order_p2"><input type="button" value="取消订单" /></p>'+
                                    '</li>'
 

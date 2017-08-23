@@ -1,4 +1,4 @@
-package com.ulb.web.rest;
+package com.ulb.web.util;
 
 public final class Base64 {  
 	  

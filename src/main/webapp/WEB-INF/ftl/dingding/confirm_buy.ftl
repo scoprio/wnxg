@@ -184,13 +184,13 @@
 
             dd.ready(function() {
                 dd.biz.navigation.setTitle({
-                                               title: '万能小哥',
-                                               onSuccess: function(data) {
-                                               },
-                                               onFail: function(err) {
-                                                   log.e(JSON.stringify(err));
-                                               }
-                                           });
+					   title: '万能小哥',
+					   onSuccess: function(data) {
+					   },
+					   onFail: function(err) {
+						   log.e(JSON.stringify(err));
+					   }
+				   });
 
             });
 
@@ -206,32 +206,32 @@
             var longitude;
             $('#show_contact').click(function(){
                 dd.biz.map.locate({
-                                      onSuccess: function (map) {
-                                          province = map.province;
-                                          city = map.city;
-                                          snippet = map.snippet;
-                                          latitude = map.latitude;
-                                          longitude = map.longitude;
-                                          $('#show_contact').val(province + city + snippet)
+					  onSuccess: function (map) {
+						  province = map.province;
+						  city = map.city;
+						  snippet = map.snippet;
+						  latitude = map.latitude;
+						  longitude = map.longitude;
+						  $('#show_contact').val(province + city + snippet)
 
-                                      },
-                                      onFail: function (err) {
-                                      }
-                                  });
+					  },
+					  onFail: function (err) {
+					  }
+				  });
             });
 
             $('.pay_now').click(function(){
 				alert(1);
-                var a =  '${qf.alipayInfo}'
-				alert(a);
+                var alipayInfo =  '${qf.alipayInfo}'
+				alert(alipayInfo);
                 dd.biz.alipay.pay({
-						  info: a, // 订单信息，
-						  onSuccess: function (result) {
-							  alert(result)
-						  },
-						  onFail: function (err) {
+					  info: alipayInfo, // 订单信息，
+					  onSuccess: function (result) {
+						  alert(result)
+					  },
+					  onFail: function (err) {
 
-						  }
+					  }
                  });
                 <#--if(IsPull()){-->
 					<#--alert(2);-->

@@ -16,6 +16,7 @@ public class QFRepairDTO {
     private String id;//订单维修记录id
     private String pidName;//订单状态中文信息
 
+
     public String getRepair_name() {
         return repair_name;
     }

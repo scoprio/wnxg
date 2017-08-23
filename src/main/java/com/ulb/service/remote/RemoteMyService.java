@@ -5,15 +5,9 @@ import java.util.List;
 
 import com.ulb.web.dto.OrderRecordDTO;
 import com.ulb.web.dto.QydOrderRecordDTO;
-import com.ulb.web.dto.SKUOrderRecordDTO;
-import com.ulb.web.dto.SKURecordDTO;
-import com.ulb.web.dto.UsefulTimeDTO;
 
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.GET;
-import retrofit2.http.Headers;
-import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 /**

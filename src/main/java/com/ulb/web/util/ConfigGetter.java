@@ -1,4 +1,4 @@
-package com.ulb.web.rest;
+package com.ulb.web.util;
 
 import java.net.URLDecoder;
 

@@ -4,6 +4,7 @@ package com.ulb.service.remote;
 
 import com.ulb.web.dto.QFOrderRecordDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
+import com.ulb.web.dto.QFRepairPostDTO;
 import com.ulb.web.dto.ResultDTO;
 
 import retrofit2.Call;
@@ -26,6 +27,11 @@ public interface RemoteQFService {
     @Headers({"Content-type:application/json;charset=UTF-8"})
     @POST("/WNXG/ulb/api/new_enter_prise_my_company/enterprise")
     Call<ResultDTO> postOrder(@Body QFOrderRecordDTO qfOrderRecordDTO);
+
+
+    @Headers({"Content-type:application/json;charset=UTF-8"})
+    @POST("/WNXG/ulb/api/new_enter_prise_my_company/addedOrder")
+    Call<ResultDTO> postRepair(@Body QFRepairPostDTO qfRepairPostDTO);
 
 //    @GET("/WNXG/ulb/api/new_enter_prise_my_order/repairDetails/{userID}")
 //    Call<List<SKURecordDTO>> getSKUOrderRecord(@Path("userId") String userId);

@@ -1,9 +1,7 @@
-package com.ulb.web.rest;
+package com.ulb.web.util;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
 
 
 /**

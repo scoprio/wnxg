@@ -15,67 +15,47 @@
 			<div class="my_box">
 				<div class="my_left"><img src="${basePath}/images/1tu.png"/></div>
 				<div class="my_right">
-					<p>万能企业盾1号</p>
-					<p><span>服务周期：</span><span>2017.02-23至2017-09-23</span></p>
-					<p><span>服务详情：</span><span>电脑+打印机  共10台</span></p>
-					<p><span>订单金额：</span><span>1980元</span></p>
+					<p>${qifuInfo.info.service_name?default('未设置')}</p>
+					<p><span>服务周期：</span><span>${qifuInfo.info.begin_time?default('未设置')}至${qifuInfo.info.end_time?default('未设置')}</span></p>
+					<p><span>服务详情：</span><span>${qifuInfo.info.package_name?default('未设置')}</span></p>
+					<p><span>订单金额：</span><span>${qifuInfo.info.money?default('未设置')}元</span></p>
 				</div>
 			</div>
 			<div class="message">
 				<p class="msg_img"><img src="${basePath}/images/yishengxiao.png"/></p>
 				<p class="msg_edit">修改</p>
 				<p>企业信息</p>
-				<p><span>公司名称：</span><span>河北万杰超修信息科技有限公司</span></p>
-				<p><span>联&nbsp;系&nbsp;人   ：</span><span>刘英</span></p>
-				<p><span>联系电话：</span><span>15835562356</span></p>
-				<p><span>维修地址：</span><span class="msg_addr">石家庄市新华区中储广场红星美凯龙A座17层石家庄市新华区中储广场红星美凯龙A座17层</span></p>
+				<p><span>公司名称：</span><span>${qifuInfo.info.company_name?default('未设置')}</span></p>
+				<p><span>联&nbsp;系&nbsp;人   ：</span><span>${qifuInfo.info.linkman?default('未设置')}</span></p>
+				<p><span>联系电话：</span><span>${qifuInfo.info.tel?default('未设置')}</span></p>
+				<p><span>维修地址：</span><span class="msg_addr">${qifuInfo.info.address?default('未设置')}</span></p>
 			</div>
 			<div class="record" style="-webkit-flex-grow: 1;">
 				<p class="record_title">维修记录</p>
-				<div class="no_datebox " style="display: none;">
-					<div ><img src="${basePath}/images/no_data2.png"/></div>
-					<p style="">暂无维修记录</p>
-				</div>
+
 				<ul class="record_ul">
-					<li>
-						<p class="record_order"><span>订单编号：</span><span>1104526215425</span><span>维修中</span></p>
-						<div class="recordbox">
-							<div class="record_left"><img src="${basePath}/images/1tu.png"/></div>
-							<div class="record_right">
-								<p><span>维修类目：</span><span>电脑重装系统</span></p>
-								<p><span>维修商品：</span><span>电脑</span></p>
-								<p><span>维修台数：</span><span>3台</span></p>
-								<p><span>预约时间：</span><span>2017-05-03</span><span>5:30</span></p>
+
+				<#if repairList?exists && repairList?size gt 0 >
+					<#list repairList as repair>
+						<li>
+							<p class="record_order"><span>订单编号：</span><span>${repair.id?default('未设置')}</span><span>${repair.order_state?default('未设置')}</span></p>
+							<div class="recordbox">
+								<div class="record_left"><img src="${basePath}/images/1tu.png"/></div>
+								<div class="record_right">
+									<p><span>维修类目：</span><span>${repair.repair_name?default('未设置')}</span></p>
+									<p><span>维修商品：</span><span>${repair.commodity_name?default('未设置')}</span></p>
+									<p><span>预约时间：</span><span>${repair.order_time?default('未设置')}</span></p>
+								</div>
 							</div>
-						</div>
-						<div class="record_btn"><input  class="notescontact_kf" type="button" name="" id="" value="联系客服" /></div>
-					</li>
-					<li>
-						<p class="record_order"><span>订单编号：</span><span>1104526215425</span><span>已完成</span></p>
-						<div class="recordbox">
-							<div class="record_left"><img src="${basePath}/images/3tu.png"/></div>
-							<div class="record_right">
-								<p><span>维修类目：</span><span>电脑重装系统</span></p>
-								<p><span>维修商品：</span><span>电脑</span></p>
-								<p><span>维修台数：</span><span>3台</span></p>
-								<p><span>预约时间：</span><span>2017-05-03</span><span>5:30</span></p>
-							</div>
-						</div>
-						<div class="record_btn"><input class="notescontact_kf" type="button" name="" id="" value="联系客服" /><input class="evaluate_xg" type="button" name="" id="" value="评价小哥" /></div>
-					</li>
-					<li>
-						<p class="record_order"><span>订单编号：</span><span>1104526215425</span><span>已完成</span></p>
-						<div class="recordbox">
-							<div class="record_left"><img src="${basePath}/images/3tu.png"/></div>
-							<div class="record_right">
-								<p><span>维修类目：</span><span>电脑重装系统</span></p>
-								<p><span>维修商品：</span><span>电脑</span></p>
-								<p><span>维修台数：</span><span>3台</span></p>
-								<p><span>预约时间：</span><span>2017-05-03</span><span>5:30</span></p>
-							</div>
-						</div>
-						<div class="record_btn"><input class="notescontact_kf" type="button" name="" id="" value="联系客服" /></div>
-					</li>
+							<div class="record_btn"><input  class="notescontact_kf" type="button" name="" id="" value="联系客服" /></div>
+						</li>
+					</#list>
+				<#else>
+                    <div class="no_datebox " style="display: none;">
+                        <div ><img src="${basePath}/images/no_data2.png"/></div>
+                        <p style="">暂无维修记录</p>
+                    </div>
+				</#if>
 				</ul>
 			</div>
 		</section>
@@ -96,7 +76,7 @@
         $(function() {
 
             $(".btn_subscribe").click(function() {
-                location.href = "${basePath}/ulb/reservation.shtml";
+                location.href = "${basePath}/ulb/reservation.shtml?recordId=${qifuInfo.info.serivce_id}";
             })
 
         })

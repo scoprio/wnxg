@@ -24,7 +24,18 @@
     margin-left: 9%;
     text-align: center;
 }
-
+.load_time input.make_time{
+    background: url(/images/btn_jinru.png) no-repeat right center;
+    background-size: 2.5%;
+    padding-right: 0.26rem;
+    float: right;
+    text-align: right;
+    line-height: .9rem;
+    width: 68%;
+    font-size: .26rem;
+    /*background: transparent;*/
+    border:none;
+}
 .num_msg p:nth-child(2) span:nth-child(2){
 	width: 23%;
 }
@@ -42,7 +53,7 @@
 }
 .num_msg p input{
 	float: right;
-	width: 46%;
+	width: 53%;
 	height: .56rem;
 	text-align: right;
 	border: 1px solid #E0E0E0;

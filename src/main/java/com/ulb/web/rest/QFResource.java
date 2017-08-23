@@ -2,22 +2,20 @@ package com.ulb.web.rest;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import com.ulb.service.QFService;
-import com.ulb.service.SKUService;
 import com.ulb.service.TimeService;
-import com.ulb.web.dto.OrderRecordDTO;
 import com.ulb.web.dto.QFOrderRecordDTO;
 import com.ulb.web.dto.QFRecordDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
+import com.ulb.web.dto.QFRepairPostDTO;
+import com.ulb.web.dto.ReservationTimeDTO;
 import com.ulb.web.dto.ResultDTO;
-import com.ulb.web.dto.SKUOrderRecordDTO;
-import com.ulb.web.dto.SKURecordDTO;
+import com.ulb.web.util.ConfigGetter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,7 +55,7 @@ public class QFResource {
         QFRecordDTO dto  = new QFRecordDTO();
         dto.setConfig(ConfigGetter.getConfig(request));
         dto.setCityCode(request.getParameter("cityCode"));
-        dto.setAlipayInfo(AlipayInfoGetter.getAlipayInfo());
+//        dto.setAlipayInfo(AlipayInfoGetter.getAlipayInfo());
         return new ModelAndView("dingding/confirm_buy","qf",dto);
     }
 
@@ -86,12 +84,13 @@ public class QFResource {
     }
 
     @RequestMapping(value="my_qifu/{qifuId}",method=RequestMethod.GET)
-    public ModelAndView getOrders(@PathVariable String qifuId,HttpServletRequest request){
+    public ModelAndView getOrders(@PathVariable String qifuId){
 
-        String cityCode = request.getParameter("cityCode");
+//        String cityCode = request.getParameter("cityCode");
         QFRecordDetailDTO qfRecordDetailDTO = new QFRecordDetailDTO();
         try {
             qfRecordDetailDTO = qfService.getQFRecordDetail(qifuId);
+//            qfRecordDetailDTO.setCityCode(cityCode);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -100,7 +99,38 @@ public class QFResource {
 
     @RequestMapping(value="reservation",method=RequestMethod.GET)
     public ModelAndView getReservation(HttpServletRequest request){
-        return new ModelAndView("dingding/reservation");
+        ReservationTimeDTO reservationTimeDTO = new ReservationTimeDTO();
+        String recordId = request.getParameter("recordId");
+        try {
+            reservationTimeDTO.setUsefulTime(JSONArray.fromObject(timeService.getUsefulTime()).toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        reservationTimeDTO.setRecordId(recordId);
+        return new ModelAndView("dingding/reservation","reservation",reservationTimeDTO);
     }
 
+
+    @RequestMapping(value = "/qf/repair.shtml",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, Object>> repair(@RequestBody QFRepairPostDTO qfRepairPostDTO){
+        Map<String, Object> resultMap = new LinkedHashMap<>();
+        try {
+            ResultDTO resultDTO = qfService.repair(qfRepairPostDTO);
+            if(resultDTO.getCode().equals("200")){
+                resultMap.put("status", 200);
+                resultMap.put("message", "预约成功！");
+            }else{
+                resultMap.put("status", 500);
+                resultMap.put("message", "服务端预约失败！");
+            }
+
+        } catch (IOException e) {
+            resultMap.put("status", 500);
+            resultMap.put("message", "应用端预约失败！");
+            e.printStackTrace();
+        }
+        return new ResponseEntity(resultMap,HttpStatus.OK);
+    }
 }

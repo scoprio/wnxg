@@ -8,9 +8,11 @@ import java.util.List;
  */
 public class QFRecordDetailDTO {
 
+
     private QFCompanyInfoDTO info;
 
     private List<QFRepairDTO> repairList;
+
 
     public QFCompanyInfoDTO getInfo() {
         return info;

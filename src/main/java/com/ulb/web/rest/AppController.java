@@ -1,6 +1,7 @@
 package com.ulb.web.rest;
 
 import com.ulb.web.dto.ServerDTO;
+import com.ulb.web.util.AlipayInfoGetter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,6 +36,7 @@ public class AppController {
 
         serverInfoDTO.setServerName("ulb");
         serverInfoDTO.setPort("8080");
+
         return new ResponseEntity<>(serverInfoDTO, HttpStatus.OK);
     }
 

@@ -1,4 +1,4 @@
-package com.ulb.web.rest;
+package com.ulb.web.util;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -35,7 +35,7 @@ public class AlipaySubmit {
         String mysign = "";
         // System.out.println("签名："+prestr);
         if(signtype.equals("RSA")){
-        	mysign = RSA.sign(prestr, AlipayConfig.PRIVATE_KEY, AlipayConfig.input_charset);
+        	mysign = AlipayConfig.RSA.sign(prestr, AlipayConfig.PRIVATE_KEY, AlipayConfig.input_charset);
         }
         return mysign;
     }

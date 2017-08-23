@@ -16,7 +16,7 @@
 		<#if qydOrders?exists && qydOrders?size gt 0 >
 			<#list qydOrders as order>
 
-                <li class="lists_li">
+                <li class="lists_li" title="${order.id?default('未设置')}">
                     <p class="lists_img"><img src="${basePath}/images/weishengxiao.png" /></p>
                     <p class="lists_title"><span>${order.serviceName?default('未设置')}</span><i><img src="${basePath}/images/btn_shuoming.png"/></i><i>${order.state?default('未设置')}</i></p>
                     <ul class="lists_detl border_bottom border_top">
@@ -45,8 +45,17 @@
 				$('.more').click(function() {
 					$('.past_li').stop().slideToggle();
 					$(this).val($(this).val() == "点击查看更多" ? "收起" : "点击查看更多");
-				})
+				});
+
+                $('.lists_ul').find('ul').click(function(){
+					var qfId = $(this).parent('li').attr('title');
+                    alert("${basePath}/ulb/my_qifu/"+qfId+".shtml?cityCode=bj");
+					location.href = "${basePath}/ulb/my_qifu/"+qfId+".shtml?cityCode=${order.cityCode}";
+                })
 			})
+
+
+
 		</script>
 	</body>
 

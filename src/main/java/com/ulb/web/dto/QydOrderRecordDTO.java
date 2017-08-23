@@ -7,7 +7,7 @@ import java.math.BigDecimal;
  */
 public class QydOrderRecordDTO {
 
-    private Integer recordId;
+    private Integer id;
     private String address;
     private Integer state;
     private String beginTime;
@@ -93,12 +93,12 @@ public class QydOrderRecordDTO {
         this.orderMoney = orderMoney;
     }
 
-    public Integer getRecordId() {
-        return recordId;
+    public Integer getId() {
+        return id;
     }
 
-    public void setRecordId(Integer recordId) {
-        this.recordId = recordId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getCityCode() {

@@ -21,6 +21,8 @@ public class QydOrderRecordDTO {
     private BigDecimal orderMoney;
     private String cityCode;
 
+    private String stateName;
+
     public String getAddress() {
         return address;
     }
@@ -107,5 +109,13 @@ public class QydOrderRecordDTO {
 
     public void setCityCode(String cityCode) {
         this.cityCode = cityCode;
+    }
+
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
     }
 }

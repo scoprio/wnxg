@@ -23,7 +23,7 @@
 			</div>
 			<div class="message">
 				<p class="msg_img"><img src="${basePath}/images/yishengxiao.png"/></p>
-				<p class="msg_edit">修改</p>
+				<#--<p class="msg_edit">修改</p>-->
 				<p>企业信息</p>
 				<p><span>公司名称：</span><span>${qifuInfo.info.company_name?default('未设置')}</span></p>
 				<p><span>联&nbsp;系&nbsp;人   ：</span><span>${qifuInfo.info.linkman?default('未设置')}</span></p>

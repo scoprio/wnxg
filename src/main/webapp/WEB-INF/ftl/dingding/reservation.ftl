@@ -252,7 +252,8 @@
                                success: function(result){
                                    if(result && result.status== 200){
                                        alert(result.message);
-                                       location.href = "${basePath}/ulb/reservation.shtml?recordId=${reservation.recordId}";
+
+                                       location.href = "${basePath}/ulb/my_qifu/${reservation.recordId}.shtml";
                                    }else{
 
                                    }

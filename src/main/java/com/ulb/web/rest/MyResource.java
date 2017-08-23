@@ -139,6 +139,22 @@ public class MyResource {
             list = myService.getQydOrderRecord(corpId);
             for(QydOrderRecordDTO dto:list){
                 dto.setCityCode(cityCode);
+                switch (dto.getState()){
+                    case 0:
+                        dto.setStateName("待支付");
+                        break;
+                    case 1:
+                        dto.setStateName("支付成功,未生效");
+                        break;
+                    case 2:
+                        dto.setStateName("取消订单");
+                        break;
+                    case 4:
+                        dto.setStateName("支付成功，已生效");
+                        break;
+                    default:
+                        dto.setStateName("已失效");
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();

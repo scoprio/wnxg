@@ -18,7 +18,7 @@
 
                 <li class="lists_li" title="${order.id?default('未设置')}">
                     <p class="lists_img"><img src="${basePath}/images/weishengxiao.png" /></p>
-                    <p class="lists_title"><span>${order.serviceName?default('未设置')}</span><i><img src="${basePath}/images/btn_shuoming.png"/></i><i>${order.state?default('未设置')}</i></p>
+                    <p class="lists_title"><span>${order.serviceName?default('未设置')}</span><i><img src="${basePath}/images/btn_shuoming.png"/></i><i>${order.stateName?default('未设置')}</i></p>
                     <ul class="lists_detl border_bottom border_top">
                         <li><i>服务地址</i><span>${order.address?default('未设置')}</span></li>
                         <li><i>联系人</i><span>${order.linkman?default('未设置')}</span></li>
@@ -49,8 +49,7 @@
 
                 $('.lists_ul').find('ul').click(function(){
 					var qfId = $(this).parent('li').attr('title');
-                    alert("${basePath}/ulb/my_qifu/"+qfId+".shtml?cityCode=bj");
-					location.href = "${basePath}/ulb/my_qifu/"+qfId+".shtml?cityCode=${order.cityCode}";
+					location.href = "${basePath}/ulb/my_qifu/"+qfId+".shtml";
                 })
 			})
 

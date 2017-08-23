@@ -139,6 +139,12 @@ public class MyResource {
             list = myService.getQydOrderRecord(corpId);
             for(QydOrderRecordDTO dto:list){
                 dto.setCityCode(cityCode);
+
+                if(dto.getBeginTime() == null || dto.getEndTime() == null){
+                    dto.setPeriod("未开通");
+                }else{
+                    dto.setPeriod(dto.getBeginTime() +" 到 "+ dto.getEndTime());
+                }
                 switch (dto.getState()){
                     case 0:
                         dto.setStateName("待支付");

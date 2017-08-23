@@ -18,10 +18,14 @@ public class QydOrderRecordDTO {
     private Integer isOverdue;
     private Integer buyNums;
 
-    private BigDecimal orderMoney;
+    private Integer buyTime;
+
+    private BigDecimal money;
     private String cityCode;
 
     private String stateName;
+
+    private String period;
 
     public String getAddress() {
         return address;
@@ -87,12 +91,12 @@ public class QydOrderRecordDTO {
         this.buyNums = buyNums;
     }
 
-    public BigDecimal getOrderMoney() {
-        return orderMoney;
+    public Integer getBuyTime() {
+        return buyTime;
     }
 
-    public void setOrderMoney(BigDecimal orderMoney) {
-        this.orderMoney = orderMoney;
+    public void setBuyTime(Integer buyTime) {
+        this.buyTime = buyTime;
     }
 
     public Integer getId() {
@@ -117,5 +121,21 @@ public class QydOrderRecordDTO {
 
     public void setStateName(String stateName) {
         this.stateName = stateName;
+    }
+
+    public BigDecimal getMoney() {
+        return money;
+    }
+
+    public void setMoney(BigDecimal money) {
+        this.money = money;
+    }
+
+    public String getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(String period) {
+        this.period = period;
     }
 }

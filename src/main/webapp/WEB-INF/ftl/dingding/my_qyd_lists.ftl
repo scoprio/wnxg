@@ -22,9 +22,9 @@
                     <ul class="lists_detl border_bottom border_top">
                         <li><i>服务地址</i><span>${order.address?default('未设置')}</span></li>
                         <li><i>联系人</i><span>${order.linkman?default('未设置')}</span></li>
-                        <li><i>服务周期</i><span>${order.beginTime?default('未设置')}到${order.endTime?default('未设置')}</span></li>
-                        <li><i>服务详情</i><span>${order.buyNums?default('未设置')} 设备</span></li>
-                        <li><i>订单金额</i><span>${order.orderMoney?default('未设置')}</span></li>
+                        <li><i>服务周期</i><span>${order.period?default('未设置')}</span></li>
+                        <li><i>服务详情</i><span>${order.serviceName?default('未设置')} ${order.buyTime?default('未设置')} 个月</span></li>
+                        <li><i>订单金额</i><span>${order.money?default('未设置')}</span></li>
                     </ul>
                     <p class="lists_btn"><input type="button" id="" value="联系客服" /></p>
                 </li>

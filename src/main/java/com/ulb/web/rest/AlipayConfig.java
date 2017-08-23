@@ -20,7 +20,7 @@ public class AlipayConfig {
 	// 收款支付宝账号，一般情况下收款账号就是签约账号
 	public static String seller_email = "caiwu@wannengxiaoge.com";
 	// 收款支付宝账号，以2088开头由16位纯数字组成的字符串，一般情况下收款账号就是签约账号
-	public static String seller_id = partner;
+	public static String seller_id = seller_email;
 	// 商户的私钥
 	public static String KEY = "epucylexxn22qymeasnxswh7i9pnjq1t";
 	// 调试用，创建TXT日志文件夹路径，见AlipayCore.java类中的logResult(String sWord)打印方法。

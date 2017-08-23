@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class AlipayInfoGetter {
 
-    public static String getAlipayInfo(HttpServletRequest request){
+    public static String getAlipayInfo(){
 
         String subject = "scoprio测试";
         String out_trade_no = "1111111";
         String money = "0.01";
-        String notifyUrl = request.getContextPath()+"/help/FAQ.shtml";
-        Map<String, String> sParaTemp = new HashMap<String, String>();
+        String notifyUrl = "http://wnxg.hz.taeapp.com/dingding/help/FAQ.shtml";
+        Map<String, String> sParaTemp = new HashMap<>();
         sParaTemp.put("service", AlipayConfig.service);
         sParaTemp.put("partner", AlipayConfig.partner);
         sParaTemp.put("seller_id", AlipayConfig.seller_id);
@@ -31,15 +31,17 @@ public class AlipayInfoGetter {
         // 待请求参数数组
         String mysign = AlipaySubmit.buildRequestMysign(sParaTemp, "RSA");
 
-        String info = "partner=" + AlipayConfig.partner + "&seller_id="
-                + AlipayConfig.seller_id + "&out_trade_no="
-                + out_trade_no + "&subject=" + subject + "&body="
-                + subject + "&total_fee="
-                + money + "&notify_url="
-                + notifyUrl
-                + "&service=mobile.securitypay.pay" + "&payment_type=1"
-                + "&_input_charset=" + AlipayConfig.input_charset + "&sign="
-                + mysign + "&sign_type=RSA";
+        String info = "partner=" + AlipayConfig.partner +
+                      "&seller_id=" + AlipayConfig.seller_id +
+                      "&out_trade_no=" + out_trade_no +
+                      "&subject=" + subject +
+                      "&body=" + subject +
+                      "&total_fee="+ money +
+                      "&notify_url=" + notifyUrl +
+                      "&service="+ AlipayConfig.service+
+                      "&payment_type=1"+
+                      "&_input_charset=" + AlipayConfig.input_charset +
+                      "&sign="+ mysign + "&sign_type=RSA";
 
         return info;
 

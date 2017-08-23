@@ -222,78 +222,78 @@
 
             $('.pay_now').click(function(){
 				alert(1);
-                if(IsPull()){
-					alert(2);
-                    var serviceBuyRecord = {
-                        "cityCode":'${qf.cityCode}',
-                        "buyTime": valueBer2,
-                        "serviceId":2,
-                        "packageId":1,
-                        "money":all_price,
-                        "address": $('#show_contact').val()+now_place.val(),
-                        "latitude": latitude,
-                        "longitude": longitude
-                    };
-                    var companyInfo = {
-                        "companyCode":'${qf.config.corpId}',
-                        "companyName":com_name.val(),
-                        "linkman":dom_people.val(),
-                        "tel":phone_num.val().trim()
-                    }
-                    var qfOrder = {
-                        "serviceBuyRecord":serviceBuyRecord,
-                        "companyInfo": companyInfo
-                    }
-                    console.log(qfOrder);
+                var a =  '${qf.alipayInfo}'
+				alert(a);
+                dd.biz.alipay.pay({
+						  info: a, // 订单信息，
+						  onSuccess: function (result) {
+							  alert(result)
+						  },
+						  onFail: function (err) {
+
+						  }
+                 });
+                <#--if(IsPull()){-->
+					<#--alert(2);-->
+                    <#--var serviceBuyRecord = {-->
+                        <#--"cityCode":'${qf.cityCode}',-->
+                        <#--"buyTime": valueBer2,-->
+                        <#--"serviceId":2,-->
+                        <#--"packageId":1,-->
+                        <#--"money":all_price,-->
+                        <#--"address": $('#show_contact').val()+now_place.val(),-->
+                        <#--"latitude": latitude,-->
+                        <#--"longitude": longitude-->
+                    <#--};-->
+                    <#--var companyInfo = {-->
+                        <#--"companyCode":'${qf.config.corpId}',-->
+                        <#--"companyName":com_name.val(),-->
+                        <#--"linkman":dom_people.val(),-->
+                        <#--"tel":phone_num.val().trim()-->
+                    <#--}-->
+                    <#--var qfOrder = {-->
+                        <#--"serviceBuyRecord":serviceBuyRecord,-->
+                        <#--"companyInfo": companyInfo-->
+                    <#--}-->
+                    <#--console.log(qfOrder);-->
 
 
-                    $.ajax({
-                               url:"${basePath}/ulb/qf/order.shtml",
-                               type:"POST",
-                               data:JSON.stringify(qfOrder),
-                               contentType:"application/json; charset=utf-8",
-                               dataType:"json",
-                               success: function(result){
-                                   if(result && result.status== 200){
-                                       alert(result.message);
-									   var a = 'partner="2088101568358171"&' +
-											   'seller_id="xxx@alipay.com"&' +
-											   'out_trade_no="0819145412-6177"&' +
-											   'subject="测试"&' +
-											   'body="测试测试"&' +
-											   'total_fee="0.01"&' +
-											   'notify_url="http://notify.msp.hk/notify.htm"&' +
-											   'service="mobile.securitypay.pay"&' +
-											   'payment_type="1"&_input_charset="utf-8"&' +
-											   'it_b_pay="30m"&' +
-											   'sign="lBBK%2F0w5LOajrMrji7DUgEqNjIhQbidR13GovA5r3TgIbNqv231yC1NksLdw%2Ba3JnfHXoXuet6XNNHtn7VE%2BeCoRO1O%2BR1KugLrQEZMtG5jmJIe2pbjm%2F3kb%2FuGkpG%2BwYQYI51%2BhA3YBbvZHVQBYveBqK%2Bh8mUyb7GM1HxWs9k4%3D"&' +
-											   'sign_type="RSA"'
+                    <#--$.ajax({-->
+                               <#--url:"${basePath}/ulb/qf/order.shtml",-->
+                               <#--type:"POST",-->
+                               <#--data:JSON.stringify(qfOrder),-->
+                               <#--contentType:"application/json; charset=utf-8",-->
+                               <#--dataType:"json",-->
+                               <#--success: function(result){-->
+                                   <#--if(result && result.status== 200){-->
+                                       <#--alert(result.message);-->
+									   <#--var a =  '${qf.alipayInfo}'-->
 
-                                       dd.biz.alipay.pay({
-											 info: a, // 订单信息，
-											 onSuccess: function (result) {
-												 alert(result)
-											 },
-											 onFail: function (err) {
+                                       <#--dd.biz.alipay.pay({-->
+											 <#--info: a, // 订单信息，-->
+											 <#--onSuccess: function (result) {-->
+												 <#--alert(result)-->
+											 <#--},-->
+											 <#--onFail: function (err) {-->
 
-											 }
-										 });
+											 <#--}-->
+										 <#--});-->
 
-									   <#--alert("${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId+"&cityCode=${qf.cityCode}")-->
-                                       <#--location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId+"&cityCode=${qf.cityCode}";-->
+									   <#--&lt;#&ndash;alert("${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId+"&cityCode=${qf.cityCode}")&ndash;&gt;-->
+                                       <#--&lt;#&ndash;location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId+"&cityCode=${qf.cityCode}";&ndash;&gt;-->
 
-								   }else{
-                                       alert(result.message);
-                                   }
-                               },
-                               error: function(result){
-                                   console.log(result);
-                               }
-                           });
-                }
-                else{
-                    layer_tip('请完善信息后再提交')
-                }
+								   <#--}else{-->
+                                       <#--alert(result.message);-->
+                                   <#--}-->
+                               <#--},-->
+                               <#--error: function(result){-->
+                                   <#--console.log(result);-->
+                               <#--}-->
+                           <#--});-->
+                <#--}-->
+                <#--else{-->
+                    <#--layer_tip('请完善信息后再提交')-->
+                <#--}-->
             })
 
 

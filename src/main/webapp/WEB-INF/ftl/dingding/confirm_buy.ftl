@@ -177,7 +177,8 @@
                                         'device.notification.prompt',
                                         'biz.ding.post',
                                         'biz.util.openLink',
-                                        'biz.map.locate']
+                                        'biz.map.locate',
+						  				'biz.alipay.pay']
                       });
 
 
@@ -255,9 +256,33 @@
                                success: function(result){
                                    if(result && result.status== 200){
                                        alert(result.message);
-									   alert("${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId+"&cityCode=${qf.cityCode}")
-                                       location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId+"&cityCode=${qf.cityCode}";
-                                   }else{
+									   var a = 'partner="2088101568358171"&' +
+											   'seller_id="xxx@alipay.com"&' +
+											   'out_trade_no="0819145412-6177"&' +
+											   'subject="测试"&' +
+											   'body="测试测试"&' +
+											   'total_fee="0.01"&' +
+											   'notify_url="http://notify.msp.hk/notify.htm"&' +
+											   'service="mobile.securitypay.pay"&' +
+											   'payment_type="1"&_input_charset="utf-8"&' +
+											   'it_b_pay="30m"&' +
+											   'sign="lBBK%2F0w5LOajrMrji7DUgEqNjIhQbidR13GovA5r3TgIbNqv231yC1NksLdw%2Ba3JnfHXoXuet6XNNHtn7VE%2BeCoRO1O%2BR1KugLrQEZMtG5jmJIe2pbjm%2F3kb%2FuGkpG%2BwYQYI51%2BhA3YBbvZHVQBYveBqK%2Bh8mUyb7GM1HxWs9k4%3D"&' +
+											   'sign_type="RSA"'
+
+                                       dd.biz.alipay.pay({
+											 info: a, // 订单信息，
+											 onSuccess: function (result) {
+												 alert(result)
+											 },
+											 onFail: function (err) {
+
+											 }
+										 });
+
+									   <#--alert("${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId+"&cityCode=${qf.cityCode}")-->
+                                       <#--location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId+"&cityCode=${qf.cityCode}";-->
+
+								   }else{
                                        alert(result.message);
                                    }
                                },

@@ -10,6 +10,8 @@ public class QFRecordDTO {
 
     private String cityCode;
 
+    private String alipayInfo;
+
     public String getCityCode() {
         return cityCode;
     }
@@ -24,5 +26,13 @@ public class QFRecordDTO {
 
     public void setConfig(DingDingConfigDTO config) {
         this.config = config;
+    }
+
+    public String getAlipayInfo() {
+        return alipayInfo;
+    }
+
+    public void setAlipayInfo(String alipayInfo) {
+        this.alipayInfo = alipayInfo;
     }
 }

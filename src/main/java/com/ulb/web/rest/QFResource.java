@@ -57,6 +57,7 @@ public class QFResource {
         QFRecordDTO dto  = new QFRecordDTO();
         dto.setConfig(ConfigGetter.getConfig(request));
         dto.setCityCode(request.getParameter("cityCode"));
+        dto.setAlipayInfo(AlipayInfoGetter.getAlipayInfo(request));
         return new ModelAndView("dingding/confirm_buy","qf",dto);
     }
 

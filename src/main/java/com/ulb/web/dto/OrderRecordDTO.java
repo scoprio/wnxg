@@ -18,6 +18,7 @@ public class OrderRecordDTO {
 
     private String aid;
     private String rid;
+    private String name;
     private String repairName;
     private BigDecimal latitude;
     private BigDecimal longitude;
@@ -33,9 +34,17 @@ public class OrderRecordDTO {
     private String orderState;
 
 
+
+
     /**订单详情**/
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
     public Integer getPid() {
         return pid;
     }

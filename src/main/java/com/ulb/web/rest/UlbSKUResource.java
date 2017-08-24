@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.ulb.service.SKUService;
 import com.ulb.service.TimeService;
+import com.ulb.web.dto.ResultDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKURecordDTO;
 import com.ulb.web.util.ConfigGetter;
@@ -67,11 +68,17 @@ public class UlbSKUResource {
     public ResponseEntity<Map<String, Object>> order(@RequestBody SKUOrderRecordDTO skuOrderRecordDTO){
         Map<String, Object> resultMap = new LinkedHashMap<>();
         try {
-            skuService.order(skuOrderRecordDTO);
-            resultMap.put("message", "下单成功！");
-            resultMap.put("status", 200);
+            ResultDTO resultDTO = skuService.order(skuOrderRecordDTO);
+            if(resultDTO.getCode().equals("200")){
+                resultMap.put("status", 200);
+                resultMap.put("message", "下单成功！");
+            }else{
+                resultMap.put("message", "服务端下单失败！");
+                resultMap.put("status", 500);
+            }
         } catch (IOException e) {
             resultMap.put("status", 500);
+            resultMap.put("message", "应用端下单失败！");
             e.printStackTrace();
         }
         return new ResponseEntity(resultMap,HttpStatus.OK);

@@ -24,6 +24,7 @@
                 "nonceStr":'${sku.config.nonceStr}',
                 "signature":'${sku.config.signature}'
             }
+            alert(JSON.stringify(_config));
 
 			$(function() {
 
@@ -227,7 +228,7 @@
 
                     var skuOrder = {
                         "cityCode":'${sku.cityCode}',
-                        "openId": dingdingUserInfo.userid,
+                        "openId": "11111",//dingdingUserInfo.userid,
                         "companyCode" : '${sku.config.corpId}',
                         "order":order
                     }
@@ -248,22 +249,9 @@
                                    }
                                },
                                error: function(result){
-                                   console.log(result);
-                                   <#--if(result && result.status!= 200){-->
-
-                                   <#--}else{-->
-                                       <#--layer.msg(result.message);-->
-                                       <#--location.href = "${basePath}/dingding/my_order/"+dingdingUserInfo.userid+"/${sku.cityCode}.shtml";-->
-                                   <#--}-->
+                                   console.log(result.message);
                                }
                            })
-                <#--$.post("${basePath}/dingding/my/feedback.shtml",feedback,function(result){-->
-                <#--alert(result);-->
-                <#--//                                if(result && result.status!= 200){-->
-                <#--//                                }else{-->
-                <#--//                                    layer.msg('提交成功！' );-->
-                <#--//                                }-->
-                <#--},"json");-->
 
                 }else{
                     layer.msg('请完善信息!');

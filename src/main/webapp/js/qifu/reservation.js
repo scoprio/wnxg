@@ -8,6 +8,7 @@ $(function() {
     var content_val = '';//服务内容
     var content_id = '';//服务内容的 id
     var textarea_val = '';//具体描述
+    
     function Isfill2(){
     	time_val = dom_time2.val();
     	content_val = dom_content.val();

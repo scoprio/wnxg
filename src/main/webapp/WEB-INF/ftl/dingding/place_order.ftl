@@ -37,6 +37,7 @@
                 var input_checkbox = $("input:checkbox");
                 var checked_btn = $('.checked_btn');
                 var submit_btn = $('.submit_btn');
+                var date_order = '';//预约日期+时间
                 var flag = false;
                 Iscomplete = function(){
                     var form_time = input_time.val().trim();
@@ -98,12 +99,14 @@
                     if($(item).hasClass('add_bgcolor')){
                         index = i;
                         val_data += $(item).text();
+                        date_order +=$(item).find('span').text();
                         return false;
                     }
                 })
                 $(".choosedate>div .fright>li").eq(index).find('span').each(function(i,item){
                     if($(item).hasClass('add_bgcolor')){
                         val_data += ' '+$(item).text();
+                        date_order +=$(item).find('span').text();
                         flag = 1;
                         return false;
                     }
@@ -215,7 +218,7 @@
                 if(flag){
                     // 正常提交信息
                     var order = {
-                        "yuyueTime":input_time.val().trim(),
+                        "yuyueTime":date_order,
                         "address":input_site.val().trim() + input_addr.val().trim(),
                         "remark":input_desc.val().trim(),
                         "tel":input_telephone.val(),

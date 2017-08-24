@@ -99,6 +99,7 @@
             var content_val = '';//服务内容
             var content_id = '';//服务内容的 id
             var textarea_val = '';//具体描述
+            var date_order = '';//预约日期+时间
             function Isfill2(){
                 time_val = dom_time2.val();
                 content_val = dom_content.val();
@@ -176,12 +177,14 @@
                     if($(item).hasClass('add_bgcolor')){
                         index = i;
                         val_data += $(item).text();
+                        date_order +=$(item).find('span').text();
                         return false;
                     }
                 })
                 $(".choosedate>div .fright>li").eq(index).find('span').each(function(i,item){
                     if($(item).hasClass('add_bgcolor')){
                         val_data += ' '+$(item).text();
+                        date_order +=$(item).find('span').text();
                         flag = 1;
                         return false;
                     }
@@ -231,14 +234,14 @@
             // 提交按钮
             $('.btn_at_once').click(function(event) {
                 if(Isfill2()){
-                    console.log(time_val,content_val,textarea_val,content_id)
+                    console.log(date_order,content_val,textarea_val,content_id)
 
                     var order = {
                         "record_id": '${reservation.recordId}',
                         "repair_id": content_id,
                         "repair_name": content_val,
                         "service_id": 2,
-                        "yuyue": time_val,
+                        "yuyue": date_order,
                         "package_id": 1,
                         "remark": textarea_val
                     }

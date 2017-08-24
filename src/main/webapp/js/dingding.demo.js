@@ -380,7 +380,8 @@ dd.config({
 						  'biz.util.openLink',
 						  'device.geolocation.get',
 						  'biz.map.locate',
-						  'biz.map.search']
+						  'biz.map.search',
+						  'biz.alipay.pay']
 		});
 
 

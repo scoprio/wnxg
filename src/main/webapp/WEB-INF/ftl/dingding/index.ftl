@@ -19,6 +19,20 @@
                 "signature":'${_config.signature}'
             }
 
+            function  alipay(){
+                var alipayInfo = '${_config.alipayInfo}'
+                alert("支付相关信息：" + alipayInfo)
+                dd.biz.alipay.pay({
+                      info: alipayInfo, // 订单信息，
+                      onSuccess: function (result) {
+                          alert(JSON.parse(result));
+                      },
+                      onFail: function (err) {
+
+                      }
+                  });
+            }
+
         </script>
 
         <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
@@ -42,7 +56,7 @@
 
         <a href="javascript:void(0);" class="city_current" id="citychoose" >北京</a>
     </div>
-    <div class="banner"><a href="" class="zhifudiaoyong"><img src="/images/banner.png"/></a></div>
+    <div class="banner"><a onclick="alipay()" class="zhifudiaoyong"><img src="/images/banner.png"/></a></div>
     <div class="tab">
         <table border="0" cellspacing="0" cellpadding="0">
 
@@ -169,5 +183,9 @@
 
 		
 	</body>
+    <script>
 
+
+
+    </script>
 </html>

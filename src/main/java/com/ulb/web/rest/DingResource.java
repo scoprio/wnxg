@@ -10,6 +10,7 @@ import com.ulb.web.demo.auth.AuthHelper;
 import com.ulb.web.demo.user.UserHelper;
 import com.ulb.web.dto.DingDingConfigDTO;
 import com.ulb.web.dto.QydInfoDTO;
+import com.ulb.web.util.AlipayInfoGetter;
 import com.ulb.web.util.ConfigGetter;
 
 import org.slf4j.Logger;
@@ -39,6 +40,7 @@ public class DingResource {
     @RequestMapping(value="index",method=RequestMethod.GET)
     public ModelAndView userIndex(HttpServletRequest request){
         DingDingConfigDTO dto = ConfigGetter.getConfig(request);
+        dto.setAlipayInfo(AlipayInfoGetter.getAlipayInfo());
         return new ModelAndView("dingding/index","_config",dto);
     }
 

@@ -156,8 +156,8 @@
             var province = "";
             var city ="";
             var snippet ="";
-            var latitude;
-            var longitude;
+            var latitude = 10;
+            var longitude = 10;
 
 
             $(".enter_position").click(function() {
@@ -175,18 +175,6 @@
                           Iscomplete();
                       }
                   });
-//                dd.device.geolocation.get({
-//                  targetAccuracy : 1000,
-//                  coordinate : 1,
-//                  withReGeocode : true,
-//                  onSuccess: function(result) {
-//                      var location = JSON.stringify(result);
-//
-//                  },
-//                  onFail: function() {
-//
-//                  }
-//              });
             })
 
             $(".cancelbtn").click(function() {

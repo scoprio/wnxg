@@ -5,7 +5,6 @@
 /**
  * _config comes from server-side template. see views/index.jade
  */
-var dingdingUserInfo;
 dd.config({
 			agentId :localStorage.agentId,
 			corpId : localStorage.corpId,
@@ -18,8 +17,6 @@ dd.config({
 						  'device.notification.confirm',
 						  'device.notification.alert',
 						  'device.notification.prompt',
-						  'biz.ding.post',
-						  'biz.util.openLink',
 						  'biz.map.locate']
 		});
 

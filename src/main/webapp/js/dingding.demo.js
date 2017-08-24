@@ -443,6 +443,8 @@ dd.ready(function() {
 	// 	  onFail: function (err) {
 	// 	  }
 	//   });
+
+
 	dd.device.geolocation.get({
 		  targetAccuracy : 1000,
 		  coordinate : 1,

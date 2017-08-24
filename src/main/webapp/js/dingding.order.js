@@ -7,11 +7,11 @@
  */
 var dingdingUserInfo;
 dd.config({
-			agentId :_config.agentId,
-			corpId : _config.corpId,
-			timeStamp : _config.timeStamp,
-			nonceStr : _config.nonceStr,
-			signature : _config.signature,
+			agentId :localStorage.agentId,
+			corpId : localStorage.corpId,
+			timeStamp : localStorage.timeStamp,
+			nonceStr : localStorage.nonceStr,
+			signature : localStorage.signature,
 			type : 0,
 			jsApiList : [ 'runtime.info',
 						  'biz.contact.choose',
@@ -33,28 +33,6 @@ dd.ready(function() {
             log.e(JSON.stringify(err));
         }
     });
-
-	dd.runtime.permission.requestAuthCode({
-			  corpId : _config.corpId,
-			  onSuccess : function(info) {
-				  $.ajax({
-							 url : '/dingding/authCode.shtml?code=' + info.code + '&corpid='
-								   + _config.corpId,
-							 type : 'GET',
-							 success : function(data, status, xhr) {
-								 dingdingUserInfo = JSON.parse(data);
-							 },
-							 error : function(xhr, errorType, error) {
-								 logger.e("未授权的公司:" + _config.corpId);
-								 alert(errorType + ', ' + error);
-							 }
-						 });
-
-			  },
-			  onFail : function(err) {
-				  alert('fail: ' + JSON.stringify(err));
-			  }
-		  });
 
 });
 

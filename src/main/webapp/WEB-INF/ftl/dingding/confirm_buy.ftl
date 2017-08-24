@@ -154,20 +154,26 @@
         <script src="${basePath}/js/qifu/common.js"></script>
 
         <script type="text/javascript">
-            var _config = {
-                "agentId":'${qf.config.agentId}',
-                "corpId":'${qf.config.corpId}',
-                "timeStamp":'${qf.config.timeStamp}',
-                "nonceStr":'${qf.config.nonceStr}',
-                "signature":'${qf.config.signature}'
-            }
-            alert(JSON.stringify(_config));
+
+            alert(localStorage.agentId);
+            alert(localStorage.corpId);
+            alert(localStorage.timeStamp);
+            alert(localStorage.nonceStr);
+            alert(localStorage.signature);
+            <#--var _config = {-->
+                <#--"agentId":'${qf.config.agentId}',-->
+                <#--"corpId":'${qf.config.corpId}',-->
+                <#--"timeStamp":'${qf.config.timeStamp}',-->
+                <#--"nonceStr":'${qf.config.nonceStr}',-->
+                <#--"signature":'${qf.config.signature}'-->
+            <#--}-->
+//            alert(JSON.stringify(_config));
             dd.config({
-                          agentId :_config.agentId,
-                          corpId : _config.corpId,
-                          timeStamp : _config.timeStamp,
-                          nonceStr : _config.nonceStr,
-                          signature : _config.signature,
+                          agentId :localStorage.agentId,
+                          corpId : localStorage.corpId,
+                          timeStamp : localStorage.timeStamp,
+                          nonceStr : localStorage.nonceStr,
+                          signature : localStorage.signature,
                           type : 0,
                           jsApiList : [ 'runtime.info',
                                         'biz.contact.choose',
@@ -197,7 +203,6 @@
                 alert('dd error: ' + JSON.stringify(err));
             });
 
-            console.log(_config);
             var province = "";
             var city ="";
             var snippet ="";
@@ -258,8 +263,8 @@
                                    if(result && result.status== 200){
                                        alert(result.message);
 
-									   alert("${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId+"&cityCode=${qf.cityCode}")
-                                       location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+_config.corpId+"&cityCode=${qf.cityCode}";
+									   alert("${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}")
+                                       location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";
 
 								   }else{
                                        alert(result.message);

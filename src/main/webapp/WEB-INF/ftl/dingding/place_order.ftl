@@ -14,7 +14,6 @@
         <script src="${basePath}/js/qifu/text_self_adaption.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/webuploader.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/wnxg_qf.js" type="text/javascript" charset="utf-8"></script>
-        <script src="${basePath}/js/config.js"></script>
 
         <script type="text/javascript">
 
@@ -23,13 +22,14 @@
             alert(localStorage.timeStamp);
             alert(localStorage.nonceStr);
             alert(localStorage.signature);
-            var _config = {
-                "agentId":'${sku.config.agentId}',
-                "corpId":'${sku.config.corpId}',
-                "timeStamp":'${sku.config.timeStamp}',
-                "nonceStr":'${sku.config.nonceStr}',
-                "signature":'${sku.config.signature}'
-            }
+            alert(localStorage.dingdingUserId);
+            <#--var _config = {-->
+                <#--"agentId":'${sku.config.agentId}',-->
+                <#--"corpId":'${sku.config.corpId}',-->
+                <#--"timeStamp":'${sku.config.timeStamp}',-->
+                <#--"nonceStr":'${sku.config.nonceStr}',-->
+                <#--"signature":'${sku.config.signature}'-->
+            <#--}-->
 			$(function() {
 
                 var input_time = $("#date");
@@ -258,7 +258,7 @@
 
                     var skuOrder = {
                         "cityCode":'${sku.cityCode}',
-                        "openId": dingdingUserInfo.userid,
+                        "openId": localStorage.dingdingUserId,
                         "companyCode" : '${sku.config.corpId}',
                         "order":order
                     }
@@ -273,7 +273,7 @@
                                success: function(result){
                                    if(result && result.status== 200){
                                        alert(result.message);
-                                       location.href = "${basePath}/dingding/my_order/"+dingdingUserInfo.userid+"/${sku.cityCode}.shtml";
+                                       location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/${sku.cityCode}.shtml";
                                    }else{
                                        alert(result.message);
                                    }

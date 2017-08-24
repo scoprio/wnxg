@@ -16,6 +16,8 @@ public class QFRepairDTO {
     private String id;//订单维修记录id
     private String pidName;//订单状态中文信息
 
+    private String stateName;
+
 
     public String getRepair_name() {
         return repair_name;
@@ -87,5 +89,13 @@ public class QFRepairDTO {
 
     public void setPidName(String pidName) {
         this.pidName = pidName;
+    }
+
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
     }
 }

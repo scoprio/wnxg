@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import com.alibaba.druid.support.spring.stat.annotation.Stat;
 import com.ulb.service.MyService;
 import com.ulb.service.SKUService;
 import com.ulb.service.TimeService;
@@ -111,17 +112,19 @@ public class MyResource {
         try {
             list = myService.getCropSKUOrderRecord(corpId,cityCode);
             for(OrderRecordDTO dto:list){
-                if(dto.getPid() == 1 ||dto.getPid() == 2||dto.getPid() == 3||dto.getPid() == 4
-                        ||dto.getPid() == 5||dto.getPid() == 11||dto.getPid() == 12||dto.getPid() == 13
-                        ||dto.getPid() == 14||dto.getPid() == 15||dto.getPid() == 16||dto.getPid() == 17
-                        ||dto.getPid() == 19||dto.getPid() == 21||dto.getPid() == 20||dto.getPid() == 23
-                        ||dto.getPid() == 24||dto.getPid() == 25||dto.getPid() == 26||dto.getPid() == 27){
-                    dto.setStatusName("未完成");
-                }else if(dto.getPid() == 8 ||dto.getPid() == 18 ||dto.getPid() == 22 ){
-                    dto.setStatusName("已完成");
-                }else if(dto.getPid() == 7){
-                    dto.setStatusName("待评价");
-                }
+
+                dto.setStatusName(StatueUtil.getStatueName(dto.getOrderState()));
+//                if(dto.getPid() == 1 ||dto.getPid() == 2||dto.getPid() == 3||dto.getPid() == 4
+//                        ||dto.getPid() == 5||dto.getPid() == 11||dto.getPid() == 12||dto.getPid() == 13
+//                        ||dto.getPid() == 14||dto.getPid() == 15||dto.getPid() == 16||dto.getPid() == 17
+//                        ||dto.getPid() == 19||dto.getPid() == 21||dto.getPid() == 20||dto.getPid() == 23
+//                        ||dto.getPid() == 24||dto.getPid() == 25||dto.getPid() == 26||dto.getPid() == 27){
+//                    dto.setStatusName("未完成");
+//                }else if(dto.getPid() == 8 ||dto.getPid() == 18 ||dto.getPid() == 22 ){
+//                    dto.setStatusName("已完成");
+//                }else if(dto.getPid() == 7){
+//                    dto.setStatusName("待评价");
+//                }
             }
         } catch (IOException e) {
             e.printStackTrace();

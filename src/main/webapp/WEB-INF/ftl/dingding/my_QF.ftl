@@ -16,13 +16,26 @@
 				<div class="my_left"><img src="${basePath}/images/1tu.png"/></div>
 				<div class="my_right">
 					<p>${qifuInfo.info.service_name?default('未设置')}</p>
-					<p><span>服务周期：</span><span>${qifuInfo.info.begin_time?default('未设置')}至${qifuInfo.info.end_time?default('未设置')}</span></p>
-					<p><span>服务详情：</span><span>${qifuInfo.info.package_name?default('未设置')}</span></p>
+					<p><span>服务周期：</span><span>${qifuInfo.info.period?default('未设置')}</span></p>
+					<p><span>服务详情：</span><span>${qifuInfo.info.service_name?default('未设置')} ${qifuInfo.info.buy_time?default('未设置')} 个月</span></p>
 					<p><span>订单金额：</span><span>${qifuInfo.info.money?default('未设置')}元</span></p>
 				</div>
 			</div>
 			<div class="message">
-				<p class="msg_img"><img src="${basePath}/images/yishengxiao.png"/></p>
+				<p class="msg_img">
+					<#--<span>${qifuInfo.info.state?default('未设置')}</span>-->
+				<#--<#if qifuInfo.info.state == "0" >-->
+					<#--<img src="${basePath}/images/weishengxiao.png"/>-->
+				<#--<#elseif qifuInfo.info.state == "1">-->
+                    <#--<img src="${basePath}/images/weishengxiao.png"/>-->
+				<#--<#elseif qifuInfo.info.state == "2">-->
+                    <#--<img src="${basePath}/images/yiguoqi.png"/>-->
+				<#--<#elseif qifuInfo.info.state == "4">-->
+                    <#--<img src="${basePath}/images/yishengxiao.png"/>-->
+				<#--<#else>-->
+                    <#--<img src="${basePath}/images/yiguoqi.png"/>-->
+				<#--</#if>-->
+				</p>
 				<#--<p class="msg_edit">修改</p>-->
 				<p>企业信息</p>
 				<p><span>公司名称：</span><span>${qifuInfo.info.company_name?default('未设置')}</span></p>
@@ -35,15 +48,15 @@
 
 				<ul class="record_ul">
 
-				<#if repairList?exists && repairList?size gt 0 >
-					<#list repairList as repair>
+				<#if qifuInfo.repairList?exists && qifuInfo.repairList?size gt 0 >
+					<#list qifuInfo.repairList as repair>
 						<li>
-							<p class="record_order"><span>订单编号：</span><span>${repair.id?default('未设置')}</span><span>${repair.order_state?default('未设置')}</span></p>
+							<p class="record_order"><span>订单编号：</span><span>${repair.id?default('未设置')}</span><span>${repair.stateName?default('未设置')}</span></p>
 							<div class="recordbox">
 								<div class="record_left"><img src="${basePath}/images/1tu.png"/></div>
 								<div class="record_right">
 									<p><span>维修类目：</span><span>${repair.repair_name?default('未设置')}</span></p>
-									<p><span>维修商品：</span><span>${repair.commodity_name?default('未设置')}</span></p>
+									<p><span>维修商品：</span><span>${repair.repair_name?default('未设置')}</span></p>
 									<p><span>预约时间：</span><span>${repair.order_time?default('未设置')}</span></p>
 								</div>
 							</div>
@@ -74,11 +87,17 @@
 		})
 
         $(function() {
-
-            $(".btn_subscribe").click(function() {
-                location.href = "${basePath}/ulb/reservation.shtml?recordId=${qifuInfo.info.serivce_id}";
+			$(".btn_subscribe").click(function() {
+                if('${qifuInfo.info.state}' == '0') {
+                    alert("您的企业盾待支付!");
+                }else if('${qifuInfo.info.state}' == '1'){
+					alert("您的企业盾支付成功,未生效，待巡检后生效")
+                }else if('${qifuInfo.info.state}' == '4'){
+                    location.href = "${basePath}/ulb/reservation.shtml?recordId=${qifuInfo.info.serivce_id}";
+                }else{
+                    alert("您的企业盾已失效")
+				}
             })
-
         })
 	</script>
 </html>

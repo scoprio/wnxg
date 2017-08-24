@@ -21,6 +21,8 @@ public class QFCompanyInfoDTO {
     private String state;
     private String buy_time;
 
+    private String period;
+
     public String getService_name() {
         return service_name;
     }
@@ -131,5 +133,13 @@ public class QFCompanyInfoDTO {
 
     public void setBuy_time(String buy_time) {
         this.buy_time = buy_time;
+    }
+
+    public String getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(String period) {
+        this.period = period;
     }
 }

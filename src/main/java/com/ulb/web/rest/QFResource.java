@@ -2,6 +2,7 @@ package com.ulb.web.rest;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -12,6 +13,7 @@ import com.ulb.service.TimeService;
 import com.ulb.web.dto.QFOrderRecordDTO;
 import com.ulb.web.dto.QFRecordDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
+import com.ulb.web.dto.QFRepairDTO;
 import com.ulb.web.dto.QFRepairPostDTO;
 import com.ulb.web.dto.ReservationTimeDTO;
 import com.ulb.web.dto.ResultDTO;
@@ -86,11 +88,19 @@ public class QFResource {
     @RequestMapping(value="my_qifu/{qifuId}",method=RequestMethod.GET)
     public ModelAndView getOrders(@PathVariable String qifuId){
 
-//        String cityCode = request.getParameter("cityCode");
         QFRecordDetailDTO qfRecordDetailDTO = new QFRecordDetailDTO();
         try {
             qfRecordDetailDTO = qfService.getQFRecordDetail(qifuId);
-//            qfRecordDetailDTO.setCityCode(cityCode);
+            if(qfRecordDetailDTO.getInfo().getBegin_time().trim().length() == 0|| qfRecordDetailDTO.getInfo().getEnd_time().trim().length()== 0){
+                qfRecordDetailDTO.getInfo().setPeriod("未开通");
+            }else{
+                qfRecordDetailDTO.getInfo().setPeriod(qfRecordDetailDTO.getInfo().getBegin_time() +" 到 "+ qfRecordDetailDTO.getInfo().getEnd_time());
+            }
+            List<QFRepairDTO> list =  qfRecordDetailDTO.getRepairList();
+            for(QFRepairDTO qfRepairDTO :list){
+                qfRepairDTO.setStateName(StatueUtil.getStatueName(qfRepairDTO.getOrder_state()));
+            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

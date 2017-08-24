@@ -106,7 +106,7 @@
                 $(".choosedate>div .fright>li").eq(index).find('span').each(function(i,item){
                     if($(item).hasClass('add_bgcolor')){
                         val_data += ' '+$(item).text();
-                        date_order +=$(item).find('span').text();
+                        date_order += ' '+$(item).text();
                         flag = 1;
                         return false;
                     }

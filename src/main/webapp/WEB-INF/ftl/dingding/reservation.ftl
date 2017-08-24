@@ -184,7 +184,7 @@
                 $(".choosedate>div .fright>li").eq(index).find('span').each(function(i,item){
                     if($(item).hasClass('add_bgcolor')){
                         val_data += ' '+$(item).text();
-                        date_order +=$(item).find('span').text();
+                        date_order += ' '+$(item).text();
                         flag = 1;
                         return false;
                     }
@@ -233,6 +233,7 @@
 
             // 提交按钮
             $('.btn_at_once').click(function(event) {
+                alert(date_order);
                 if(Isfill2()){
                     console.log(date_order,content_val,textarea_val,content_id)
 

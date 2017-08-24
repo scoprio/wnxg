@@ -231,7 +231,7 @@
 
                     var skuOrder = {
                         "cityCode":'${sku.cityCode}',
-                        "openId": "11111",//dingdingUserInfo.userid,
+                        "openId": dingdingUserInfo.userid,
                         "companyCode" : '${sku.config.corpId}',
                         "order":order
                     }
@@ -248,7 +248,7 @@
                                        alert(result.message);
                                        location.href = "${basePath}/dingding/my_order/"+dingdingUserInfo.userid+"/${sku.cityCode}.shtml";
                                    }else{
-
+                                       alert(result.message);
                                    }
                                },
                                error: function(result){

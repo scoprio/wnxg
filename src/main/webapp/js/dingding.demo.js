@@ -365,22 +365,19 @@ function change_url(citycode) {
 }
 
 dd.config({
-			agentId :_config.agentId,
-			corpId : _config.corpId,
-			timeStamp : _config.timeStamp,
-			nonceStr : _config.nonceStr,
-			signature : _config.signature,
+			agentId :localStorage.agentId,
+			corpId : localStorage.corpId,
+			timeStamp : localStorage.timeStamp,
+			nonceStr : localStorage.nonceStr,
+			signature : localStorage.signature,
 			type : 0,
 			jsApiList : [ 'runtime.info',
 						  'biz.contact.choose',
 						  'device.notification.confirm',
 						  'device.notification.alert',
 						  'device.notification.prompt',
-						  'biz.ding.post',
-						  'biz.util.openLink',
 						  'device.geolocation.get',
 						  'biz.map.locate',
-						  'biz.map.search',
 						  'biz.alipay.pay']
 		});
 
@@ -394,82 +391,25 @@ dd.ready(function() {
             log.e(JSON.stringify(err));
         }
     });
-//	 alert('dd.ready rocks!');
-
-	// dd.runtime.info({
-	// 	onSuccess : function(info) {
-	// 		logger.e('runtime info: ' + JSON.stringify(info));
-	// 	},
-	// 	onFail : function(err) {
-	// 		logger.e('fail: ' + JSON.stringify(err));
-	// 	}
-	// });
-	// dd.ui.pullToRefresh.enable({
-	//     onSuccess: function() {
-    //
-	//     },
-	//     onFail: function() {
-	//     }
-	// });
-
-
-
-	// dd.biz.navigation.setMenu({
-	// 	backgroundColor : "#ADD8E6",
-	// 	items : [
-	// 		{
-	// 			id:"此处可以设置帮助",//字符串
-	// 		// "iconId":"file",//字符串，图标命名
-	// 		  text:"帮助"
-	// 		}
-	// 		,
-	// 		{
-	// 			"id":"2",
-	// 		"iconId":"photo",
-	// 		  "text":"我们"
-	// 		}
-	// 		,
-	// 		{
-	// 			"id":"3",
-	// 		"iconId":"file",
-	// 		  "text":"你们"
-	// 		}
-	// 		,
-	// 		{
-	// 			"id":"4",
-	// 		"iconId":"time",
-	// 		  "text":"他们"
-	// 		}
-	// 	],
-	// 	onSuccess: function(data) {
-	// 		// alert(JSON.stringify(data));
-    //
-	// 	},
-	// 	onFail: function(err) {
-	// 		// alert(JSON.stringify(err));
-	// 	}
-	// });
-
 
 	dd.runtime.permission.requestAuthCode({
-		corpId : _config.corpId,
+		corpId : localStorage.corpId,
 		onSuccess : function(info) {
 			$.ajax({
 				url : '/dingding/authCode.shtml?code=' + info.code + '&corpid='
-						+ _config.corpId,
+						+ localStorage.corpId,
 				type : 'GET',
 				success : function(data, status, xhr) {
 					dingdingUserInfo = JSON.parse(data);
-					// alert(_config.corpId);
-					// alert(dingdingUserInfo);
+					
 					var myUrl;
 					var qydUrl;
 					if(dingdingUserInfo.isAdmin || dingdingUserInfo.isBoss){
-						myUrl = baseUrl+"/dingding/my_admin.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+_config.corpId;
-						qydUrl = baseUrl+"/dingding/qyd.shtml?corpid="+_config.corpId+"&isAdmin=true&cityCode="+current_city_code;
+						myUrl = baseUrl+"/dingding/my_admin.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+localStorage.corpId;
+						qydUrl = baseUrl+"/dingding/qyd.shtml?corpid="+localStorage.corpId+"&isAdmin=true&cityCode="+current_city_code;
 					}else{
-						myUrl = baseUrl+"/dingding/my.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+_config.corpId;
-						qydUrl = baseUrl+"/dingding/qyd.shtml?corpid="+_config.corpId+"&isAdmin=false&cityCode="+current_city_code;
+						myUrl = baseUrl+"/dingding/my.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+localStorage.corpId;
+						qydUrl = baseUrl+"/dingding/qyd.shtml?corpid="+localStorage.corpId+"&isAdmin=false&cityCode="+current_city_code;
 					}
 					// var myUrl = baseUrl+"/dingding/my/"+dingdingUserInfo.userid+"/"+current_city_code;
 			        $('.person_center').attr("href",myUrl);
@@ -488,7 +428,7 @@ dd.ready(function() {
 
 				},
 				error : function(xhr, errorType, error) {
-					logger.e("未授权的公司:" + _config.corpId);
+					logger.e("未授权的公司:" + localStorage.corpId);
 					alert(errorType + ', ' + error);
 				}
 			});
@@ -525,7 +465,9 @@ dd.ready(function() {
 				  }
 
 				  //判断定位城市是否与当前城市一致
-				  if(location.city.indexOf(current_city) > 0){
+				  alert(locationCity);
+				  alert(current_city);
+				  if(locationCity.indexOf(current_city) > 0){
 
 				  }else{
 					  //判断城市是否开城
@@ -548,12 +490,12 @@ dd.ready(function() {
 								   var myUrl
 								   if(dingdingUserInfo.isAdmin || dingdingUserInfo.isBoss){
 									   alert("admin");
-									   myUrl = baseUrl+"/dingding/my_admin.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+_config.corpId;
+									   myUrl = baseUrl+"/dingding/my_admin.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+localStorage.corpId;
 								   }else{
 									   alert("employee")
 									   myUrl = baseUrl+"/dingding/my.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code;
 								   }
-								   change_url(current_city_code+".shtml?corpid="+_config.corpId+"&appid=3919&dd_nav_bgcolor=FFFB870D");
+								   change_url(current_city_code+".shtml?corpid="+localStorage.corpId+"&appid=3919&dd_nav_bgcolor=FFFB870D");
 								   $('.person_center').attr("href",myUrl);
 							   },
 							   onFail : function(err) {}

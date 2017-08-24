@@ -12,17 +12,21 @@
         <link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/choose_city.css" />
 
         <script>
-            var _config = {"agentId":'${_config.agentId}',
-                "corpId":'${_config.corpId}',
-                "timeStamp":'${_config.timeStamp}',
-                "nonceStr":'${_config.nonceStr}',
-                "signature":'${_config.signature}'
-            }
-            if(localStorage){
-                alert("支持");
-            }
+            <#--var _config = {"agentId":'${_config.agentId}',-->
+                <#--"corpId":'${_config.corpId}',-->
+                <#--"timeStamp":'${_config.timeStamp}',-->
+                <#--"nonceStr":'${_config.nonceStr}',-->
+                <#--"signature":'${_config.signature}'-->
+            <#--}-->
 
-            alert(JSON.stringify(_config));
+
+            localStorage.agentId ='${_config.agentId}';
+            localStorage.corpId ='${_config.corpId}';
+            localStorage.timeStamp ='${_config.timeStamp}';
+            localStorage.nonceStr = '${_config.nonceStr}';
+            localStorage.signature = '${_config.signature}';
+
+
             function  alipay(){
                 var alipayInfo = '${_config.alipayInfo}'
                 alert("支付相关信息：" + alipayInfo)
@@ -48,6 +52,7 @@
         <script src="${basePath}/js/qifu/index.js" type="text/javascript" charset="utf-8" baseUrl="${basePath}"></script>
 
         <script src="${basePath}/js/dingding.demo.js" baseUrl="${basePath}"></script>
+        <script src="${basePath}/js/config.js"></script>
 	</head>
 
 

@@ -14,9 +14,15 @@
         <script src="${basePath}/js/qifu/text_self_adaption.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/webuploader.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/wnxg_qf.js" type="text/javascript" charset="utf-8"></script>
-
+        <script src="${basePath}/js/config.js"></script>
 
         <script type="text/javascript">
+
+            alert(localStorage.agentId);
+            alert(localStorage.corpId);
+            alert(localStorage.timeStamp);
+            alert(localStorage.nonceStr);
+            alert(localStorage.signature);
             var _config = {
                 "agentId":'${sku.config.agentId}',
                 "corpId":'${sku.config.corpId}',
@@ -24,7 +30,6 @@
                 "nonceStr":'${sku.config.nonceStr}',
                 "signature":'${sku.config.signature}'
             }
-            alert(JSON.stringify(_config));
 			$(function() {
 
                 var input_time = $("#date");

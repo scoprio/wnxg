@@ -11,6 +11,7 @@ public class AlipayInfoGetter {
 
     public static String getAlipayInfo(){
 
+
         String subject = "scoprio测试";
         String out_trade_no = "1111111";
         String money = "0.01";

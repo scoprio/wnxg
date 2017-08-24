@@ -24,30 +24,17 @@
                         <li>
                             <p class="order_p1">订单编号：<span>${order.oid?default('未设置')}</span><i>${order.statusName?default('未完成')}</i></p>
                             <div class="order_box border_bottom border_top">
-                                <div class="imgdiv"><img src=""/></div>
+                                <#--<div class="imgdiv"><img src=""/></div>-->
                                 <div class="pdiv">
+                                    <p><i>维修项目</i><span>${order.repairName?default('未设置')}</span></p>
                                     <p><i>下单时间</i><span>${order.downTime?default('未设置')}</span></p>
                                     <p><i>上门时间</i><span>${order.yuyueTime?default('未设置')}</span></p>
                                     <p><i>下单地址</i><span>${order.address?default('未设置')}</span></p>
-                                    <p><i>维修项目</i><span>${order.name?default('未设置')}</span></p>
+
                                 </div>
                             </div>
                             <p class="order_p2"><input type="button" name="" id="" value="联系客服" /></p>
                         </li>
-                        <#--<tr>-->
-                            <#--<td>${it.sessionId?default('未设置')}</td>-->
-                            <#--<td>${it.nickname?default('未设置')}</td>-->
-                            <#--<td>${it.email?default('未设置')}</td>-->
-                            <#--<td>${it.startTime?string('HH:mm:ss yy-MM-dd')}</td>-->
-                            <#--<td>${it.lastAccess?string('HH:mm:ss yy-MM-dd')}</td>-->
-                            <#--<td>${(it.sessionStatus)?string('有效','已踢出')}</td>-->
-                            <#--<td>-->
-                                <#--<a href="${basePath}/member/onlineDetails/${it.sessionId}.shtml">详情</a>-->
-								<#--<@shiro.hasPermission name="/member/changeSessionStatus.shtml">-->
-                                    <#--<a v="onlineDetails"href="javascript:void(0);" sessionId="${it.sessionId}" status="${(it.sessionStatus)?string(1,0)}">${(it.sessionStatus)?string('踢出','激活')}</a>-->
-								<#--</@shiro.hasPermission>-->
-                            <#--</td>-->
-                        <#--</tr>-->
 					</#list>
 				<#else>
                     <div class="order_nodata border_top" style="display: none;">
@@ -91,6 +78,7 @@
 					order.yuyueTime = '${order.yuyueTime?default('未设置')}';
 					order.address = '${order.address?default('未设置')}';
 					order.repairName = '${order.repairName?default('未设置')}';
+                    order.statusName = '${order.statusName?default('未设置')}';
                 	rArray1.push(order)
 					console.log(rArray1);
 				}
@@ -101,6 +89,7 @@
                     order.yuyueTime = '${order.yuyueTime?default('未设置')}';
                     order.address = '${order.address?default('未设置')}';
                     order.repairName = '${order.repairName?default('未设置')}';
+                    order.statusName = '${order.statusName?default('未设置')}';
                 	rArray2.push(order);
                 	console.log(rArray2);
 				}
@@ -111,6 +100,7 @@
                     order.yuyueTime = '${order.yuyueTime?default('未设置')}';
                     order.address = '${order.address?default('未设置')}';
                     order.repairName = '${order.repairName?default('未设置')}';
+                    order.statusName = '${order.statusName?default('未设置')}';
                 	rArray3.push(order)
                 	console.log(rArray3);
 				}
@@ -121,19 +111,19 @@
                 // 未完成
                 var result_undo = '';
                 rArray1.forEach(function(item,i){
-                    result_undo += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>未完成</i></p>'+
+                    result_undo += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>'+item.statusName+'</i></p>'+
                                    '<div class="order_box border_bottom border_top">' +
                                    '<a href="'+item.oid+'">'+
-                                   '<div class="imgdiv"><img src="" alt="" /></div>'+
                                    '<div class="pdiv">'+
+                                   '<p><i>维修项目</i><span>'+item.repairName+'</span></p>'+
                                    '<p><i>下单时间</i><span>'+item.downTime+'</span></p>'+
                                    '<p><i>上门时间</i><span>'+item.yuyueTime+'</span></p>'+
-                                   '<p><i>上单时间</i><span>'+item.address+'</span></p>'+
-                                   '<p><i>维修项目</i><span>'+item.repairName+'</span></p>'+
+                                   '<p><i>下单地址</i><span>'+item.address+'</span></p>'+
+
                                    '</div>'+
                                    '</div>'+
                                    '</a>'+
-                                   '<p class="order_p2"><input type="button" value="取消订单" /><input type="button" value="联系客服" /></p>'+
+                                   '<p class="order_p2"><input type="button" value="联系客服" /></p>'+
                                    '</li>'
 
                 })
@@ -142,15 +132,14 @@
                 // 已完成
                 var result_done = '';
                 rArray2.forEach(function(item,i){
-                    result_done += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>已完成</i></p>'+
+                    result_done += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>'+item.statusName+'</i></p>'+
                                    '<div class="order_box border_bottom border_top">' +
                                    '<a href="'+item.oid+'">'+
-                                   '<div class="imgdiv"><img src="" alt="" /></div>'+
                                    '<div class="pdiv">'+
+                                   '<p><i>维修项目</i><span>'+item.repairName+'</span></p>'+
                                    '<p><i>下单时间</i><span>'+item.downTime+'</span></p>'+
                                    '<p><i>上门时间</i><span>'+item.yuyueTime+'</span></p>'+
-                                   '<p><i>上单时间</i><span>'+item.address+'</span></p>'+
-                                   '<p><i>维修项目</i><span>'+item.repairName+'</span></p>'+
+                                   '<p><i>下单地址</i><span>'+item.address+'</span></p>'+
                                    '</div>'+
                                    '</div>'+
                                    '</a>'+

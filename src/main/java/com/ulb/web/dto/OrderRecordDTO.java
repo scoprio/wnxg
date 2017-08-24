@@ -18,7 +18,7 @@ public class OrderRecordDTO {
 
     private String aid;
     private String rid;
-    private String name;
+    private String repairName;
     private BigDecimal latitude;
     private BigDecimal longitude;
     private Integer pid;
@@ -115,12 +115,12 @@ public class OrderRecordDTO {
         this.aid = aid;
     }
 
-    public String getName() {
-        return name;
+    public String getRepairName() {
+        return repairName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRepairName(String repairName) {
+        this.repairName = repairName;
     }
 
     public BigDecimal getLatitude() {

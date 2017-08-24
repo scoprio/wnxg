@@ -64,7 +64,7 @@
 						</li>
 					</#list>
 				<#else>
-                    <div class="no_datebox " style="display: none;">
+                    <div class="no_datebox">
                         <div ><img src="${basePath}/images/no_data2.png"/></div>
                         <p style="">暂无维修记录</p>
                     </div>

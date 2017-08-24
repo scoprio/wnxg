@@ -34,7 +34,7 @@
 		<#else>
 		<div class="order_nodata border_top" style="display: none;">
 		<div><img src="${basePath}/images/bill4.png"/></div>
-            <p>您现在还没有此类订单</p>
+            <p>您现在还没有购买企业盾</p>
 		</div>
 		</#if>
 		</ul>

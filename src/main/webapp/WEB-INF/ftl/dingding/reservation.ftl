@@ -172,6 +172,7 @@
             $('.affirmbtn').click(function(){
                 var index = 0;
                 var val_data = '';
+                date_order ='';
                 var flag = 0
                 $('.choosedate>div .fleft>li').each(function(i,item){
                     if($(item).hasClass('add_bgcolor')){

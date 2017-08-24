@@ -24,7 +24,7 @@
                 "nonceStr":'${sku.config.nonceStr}',
                 "signature":'${sku.config.signature}'
             }
-
+            alert(JSON.stringify(_config));
 			$(function() {
 
                 var input_time = $("#date");

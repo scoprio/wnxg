@@ -18,7 +18,7 @@
                 "nonceStr":'${_config.nonceStr}',
                 "signature":'${_config.signature}'
             }
-
+            alert(JSON.stringify(_config));
             function  alipay(){
                 var alipayInfo = '${_config.alipayInfo}'
                 alert("支付相关信息：" + alipayInfo)

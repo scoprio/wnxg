@@ -56,7 +56,9 @@ body,html{
 }
 .sort_right .all_price{
 	float: left;
-	margin: .3rem .3rem .3rem 0;
+	margin: .3rem 0;
+	width: 3rem;
+
 }
 .all_price p:first-child{
 	color: #222;

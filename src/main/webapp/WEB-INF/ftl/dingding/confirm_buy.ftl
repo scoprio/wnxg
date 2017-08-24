@@ -212,10 +212,12 @@
 						  snippet = map.snippet;
 						  latitude = map.latitude;
 						  longitude = map.longitude;
-						  $('#show_contact').val(province + city + snippet)
+						  $('#show_contact').val(province + city + snippet);
+                          IsPull();
 
 					  },
 					  onFail: function (err) {
+                          IsPull()
 					  }
 				  });
             });

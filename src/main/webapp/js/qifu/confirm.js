@@ -3,7 +3,7 @@
 	var com_name = $('#company_name');
 	var dom_people = $('.tel_man');
 	var phone_num = $('.tel_num');
-//	var dom_place = $('#show_contact');
+    var dom_place = $('#show_contact');
 	var now_place = $('.place_now');
 	// var changeBack = null
 	var checked_now = $('.checked_btn');
@@ -16,12 +16,12 @@
 		console.log(coname);
 		var dompeo = dom_people.val();
 		var telnum = phone_num.val();
-//		var domace = dom_place.val();
+		var domace = dom_place.val();
 		var placexx = now_place.val();
 		// var back_active = changeBack?changeBack.val():'';
 		var selckecked = checked_now.prop('checked');
 		console.log(sertime,coname,dompeo,telnum,placexx,selckecked)
-		if(coname && dompeo && telnum && placexx && selckecked  && sertime){
+		if(coname && dompeo && telnum && placexx && selckecked  && sertime  && domace){
 			$('.pay_now').css('background','#ff943e');
 			return true;
 		}

@@ -93,6 +93,7 @@ table tr td:last-child{
 .hot_project ul li .hot_price{
 	float: left;
 	margin: .3rem 0;
+	width: 3rem;
 }
 .hot_price p:first-child{
 	

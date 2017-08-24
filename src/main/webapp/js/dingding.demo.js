@@ -465,9 +465,10 @@ dd.ready(function() {
 				  }
 
 				  //判断定位城市是否与当前城市一致
-				  alert(locationCity);
-				  alert(current_city);
-				  if(locationCity.indexOf(current_city) > 0){
+				  // alert(locationCity);
+				  // alert(current_city);
+				  // alert(locationCity.indexOf(current_city))
+				  if(locationCity.includes(current_city)){
 
 				  }else{
 					  //判断城市是否开城

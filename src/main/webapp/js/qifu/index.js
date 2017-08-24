@@ -2,7 +2,7 @@ var baseUrl = $("script[baseUrl]").attr('baseUrl');
 var current_city = localStorage.current_city ? localStorage.current_city :'北京';
 var current_city_code = localStorage.current_city_code ? localStorage.current_city_code :'bj';
 $(function(){
-
+    $('.choose_city .city_current').text(current_city);
     $('.tab>table tr>td').eq(0).click(function(){
         window.location = baseUrl+'/dingding/sort.shtml?type=0&&city='+current_city_code+'&&corpid='+localStorage.corpId;
     });

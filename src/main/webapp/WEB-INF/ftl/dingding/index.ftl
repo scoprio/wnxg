@@ -18,6 +18,10 @@
                 "nonceStr":'${_config.nonceStr}',
                 "signature":'${_config.signature}'
             }
+            if(localStorage){
+                alert("支持");
+            }
+
             alert(JSON.stringify(_config));
             function  alipay(){
                 var alipayInfo = '${_config.alipayInfo}'

@@ -12,25 +12,13 @@
         <link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/choose_city.css" />
 
         <script>
-            <#--alert(110)-->
-            <#--alert('${_config.agentId}');-->
             var _config = {"agentId":'${_config.agentId}',
                 "corpId":'${_config.corpId}',
                 "timeStamp":'${_config.timeStamp}',
                 "nonceStr":'${_config.nonceStr}',
                 "signature":'${_config.signature}'
             }
-            function openLink(url){
-                dd.biz.util.openLink({
-					 url:url,
-					 onSuccess : function(result) {
 
-					 },
-					 onFail : function(err) {
-						 alert(JSON.stringify(err));
-					 }
-				 });
-            }
         </script>
 
         <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
@@ -51,9 +39,10 @@
 
     <div class="choose_city">
         <a href="" class="person_center"></a>
+
         <a href="javascript:void(0);" class="city_current" id="citychoose" >北京</a>
     </div>
-    <div class="banner"><img src="/images/banner.png"/></div>
+    <div class="banner"><a href="" class="zhifudiaoyong"><img src="/images/banner.png"/></a></div>
     <div class="tab">
         <table border="0" cellspacing="0" cellpadding="0">
 

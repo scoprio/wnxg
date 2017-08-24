@@ -24,7 +24,6 @@
                 "nonceStr":'${sku.config.nonceStr}',
                 "signature":'${sku.config.signature}'
             }
-            alert(JSON.stringify(_config));
 
 			$(function() {
 

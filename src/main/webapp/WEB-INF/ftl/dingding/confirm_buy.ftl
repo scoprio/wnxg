@@ -161,7 +161,6 @@
                 "nonceStr":'${qf.config.nonceStr}',
                 "signature":'${qf.config.signature}'
             }
-            alert(JSON.stringify(_config));
 
             dd.config({
                           agentId :_config.agentId,

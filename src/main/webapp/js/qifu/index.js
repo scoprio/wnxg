@@ -1,16 +1,16 @@
 var baseUrl = $("script[baseUrl]").attr('baseUrl');
-var current_city = '北京';
-var current_city_code = 'bj';
+var current_city = localStorage.current_city ? localStorage.current_city :'北京';
+var current_city_code = localStorage.current_city_code ? localStorage.current_city_code :'bj';
 $(function(){
 
     $('.tab>table tr>td').eq(0).click(function(){
-        window.location = baseUrl+'/dingding/sort.shtml?type=0&&city='+current_city_code+'&&corpid='+_config.corpId;
+        window.location = baseUrl+'/dingding/sort.shtml?type=0&&city='+current_city_code+'&&corpid='+localStorage.corpId;
     });
     $('.tab>table tr>td').eq(1).click(function(){
-        window.location = baseUrl+'/dingding/sort.shtml?type=1&&city='+current_city_code+'&&corpid='+_config.corpId;
+        window.location = baseUrl+'/dingding/sort.shtml?type=1&&city='+current_city_code+'&&corpid='+localStorage.corpId;
     });
     $('.tab>table tr>td').eq(2).click(function(){
-        window.location = baseUrl+'/dingding/sort.shtml?type=2&&city='+current_city_code+'&&corpid='+_config.corpId;
+        window.location = baseUrl+'/dingding/sort.shtml?type=2&&city='+current_city_code+'&&corpid='+localStorage.corpId;
     });
 
     var page = 0;
@@ -40,7 +40,7 @@ $(function(){
             var list = data['list'+page];
             if(list){
                 for(var i = 0; i < list.length; i++) {
-                    orderUrl = baseUrl + "/ulb/sku/" +list[i].id+"/"+current_city_code+".shtml?corpid="+_config.corpId+"&appid=3919&dd_nav_bgcolor=FFFB870D";
+                    orderUrl = baseUrl + "/ulb/sku/" +list[i].id+"/"+current_city_code+".shtml?corpid="+localStorage.corpId+"&appid=3919&dd_nav_bgcolor=FFFB870D";
                     result += '<li id='+list[i].id+'>' + '<div class="hot_pic">' + '<img src="' + list[i].pic +'" alt="">' + '</div>' +
                             '<div class="hot_price">' +
                             '<p>' + list[i].title + ' </p>' +
@@ -72,7 +72,10 @@ $(function(){
     $('.city').delegate('p', 'click', function(event) {
         current_city = $(this).text();
         current_city_code = $(this).attr('id');
-        change_url(current_city_code+".shtml?corpid="+_config.corpId+"&appid=3919&dd_nav_bgcolor=FFFB870D");
+        change_url(current_city_code+".shtml?corpid="+localStorage.corpId+"&appid=3919&dd_nav_bgcolor=FFFB870D");
+        localStorage.current_city = current_city;
+        localStorage.current_city_code = current_city_code;
+
         console.log(current_city_code +":"+current_city);
         $('.choose_city .city_current').text(current_city);
         $('body,html').scrollTop(0);

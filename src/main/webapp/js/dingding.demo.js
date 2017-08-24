@@ -473,8 +473,12 @@ dd.ready(function() {
 					  //判断城市是否开城
 					  openCitys.forEach(function(city){
 						  if(locationCity == city.name2){
-							  current_city = city.name;
-							  current_city_code = city.code;
+							  localStorage.current_city = city.name;
+							  localStorage.current_city_code = city.code;
+							  current_city = localStorage.current_city;
+							  current_city_code = localStorage.current_city_code;
+							  // alert(localStorage.current_city);
+							  // alert(localStorage.current_city_code);
 							  isOpen = true;
 						  }
 					  })
@@ -482,7 +486,7 @@ dd.ready(function() {
 
 					  if(isOpen){
 						  dd.device.notification.alert({
-							   message: "检测到当前城市"+location.city+"，自动切换选择城市",
+							   message: "检测到当前城市"+locationCity+"，自动切换选择城市",
 							   title: "",//可传空
 							   buttonName: "确定",
 							   onSuccess : function() {

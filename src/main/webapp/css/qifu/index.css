@@ -2,8 +2,8 @@
 	height: .9rem;
 	background: #fff;
 	line-height: .9rem;
-	border-top: 1px solid #c7c7c7;
-	/*border-bottom: 1px solid #e0e0e0;*/
+	/*border-top: 1px solid #c7c7c7;*/
+	border-bottom: 1px solid #e0e0e0;
 }
 .choose_city .person_center{
 	width: .44rem;

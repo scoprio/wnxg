@@ -32,7 +32,7 @@
 
 			</#list>
 		<#else>
-		<div class="order_nodata border_top" style="display: none;">
+		<div class="order_nodata border_top">
 		<div><img src="${basePath}/images/bill4.png"/></div>
             <p>您现在还没有购买企业盾</p>
 		</div>

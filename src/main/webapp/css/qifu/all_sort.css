@@ -57,15 +57,20 @@ body,html{
 .sort_right .all_price{
 	float: left;
 	margin: .3rem 0;
-	width: 3rem;
+	width: 3.2rem;
+	height: 1.48rem;
+	position: relative;
 
 }
 .all_price p:first-child{
 	color: #222;
 	font-size: .28rem;
+	line-height: 0.4rem;
 }
 .all_price p:last-child{
 	color: #ff943e;
 	font-size: .28rem;
-	margin-top: .6rem;
+	/*margin-top: .6rem;*/
+	position: absolute;
+	bottom: 0.02rem;
 }

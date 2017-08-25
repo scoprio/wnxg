@@ -3,7 +3,12 @@ html,body{
 }
 .order_nodata{
 	width: 100%;
-	height: 100%;
+	background: #fff;
+    overflow: hidden;
+    position: absolute;
+    z-index: 22;
+    bottom: 0;
+    top: 0.9rem;
 	background:#fff;
 	overflow: hidden;
 }
@@ -23,7 +28,7 @@ html,body{
 	overflow: hidden;
 }
 .order_title li{
-	width: 25%;
+	width: 33.3%;
 	text-align: center;
 	height: .9rem;
 	line-height: .9rem;

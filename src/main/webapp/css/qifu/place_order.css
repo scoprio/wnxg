@@ -79,6 +79,7 @@
     line-height: .5rem;
     font-size: .22rem;
     color: #929292;
+    display: none;
 }
 .contact_way{
 	background: #fff;
@@ -127,7 +128,7 @@
 	text-align: left;
 	border: 1px solid #E0E0E0;
 	box-sizing: border-box;
-	padding: .05rem;
+	padding: .1rem;
 }
 #uploader{
 	margin-bottom: 0 !important;
@@ -137,7 +138,8 @@
 }
 .agree{
 	padding: 0 .3rem;
-	margin-bottom: .2rem;
+	margin-bottom: .4rem;
+    margin-top: 0.15rem;
 }
 .agree input[type=checkbox]{
 	width: .32rem;

@@ -166,8 +166,7 @@
 
 .buyer p:nth-child(3) input {
 	float: right;
-	min-width: 50%;
-	max-width: 74%;
+	width: 68%;
 	height: .56rem;
 
 	text-align: right;

@@ -53,13 +53,14 @@
 }
 .num_msg p input{
 	float: right;
-	width: 53%;
+	width: 71%;
 	height: .56rem;
 	text-align: right;
 	border: 1px solid #E0E0E0;
 	border-radius: .08rem;
-	padding-right: .4rem;
+	padding-right: .2rem;
 	color: #929292;
+    
 }
 .num_msg p span:nth-child(2){
 	float: right;

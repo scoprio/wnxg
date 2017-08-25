@@ -93,16 +93,19 @@ table tr td:last-child{
 .hot_project ul li .hot_price{
 	float: left;
 	margin: .3rem 0;
-	width: 3rem;
+	width: 3.2rem;
+	height: 1.48rem;
+	position: relative;
 }
 .hot_price p:first-child{
-	
+	line-height: 0.4rem;
 	font-size: .28rem;
 }
 .hot_price p:last-child{
 	color: #ff943e;
 	font-size: .28rem;
-	margin-top: .6rem;
+	position: absolute;
+    bottom: 0.02rem;
 }
 .hot_project ul li .hot_btn{
 	float: right;
@@ -135,4 +138,7 @@ table tr td:last-child{
 	bottom: 0;
 	display: none;
 
+}
+.dropload-down{
+	line-height: 50px;
 }

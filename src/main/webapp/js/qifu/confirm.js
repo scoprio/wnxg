@@ -73,7 +73,7 @@ $(function() {
 				showBankDom2.dataset['value'] = selectOneObj.value;
 				valueBer2 = bankIdDom2.value.replace(/[^0-9]/ig, "")
 				document.getElementsByClassName('hide_input2')[0].value = valueBer2;
-				all_price = 198 * valueBer2;
+				all_price = 498 * valueBer2;
 				$('.all_price').text(all_price+'元')
 				IsPull()
 			}

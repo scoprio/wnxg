@@ -33,7 +33,7 @@
     line-height: .56rem;
     width: 68%;
 	color: #222;
-    font-size: .26rem;
+    font-size: .24rem;
     /*background: transparent;*/
     border:none;
 }
@@ -61,6 +61,7 @@
 	border-radius: .08rem;
 	padding-right: .2rem;
 	color: #222;
+	font-size: 0.24rem;
     
 }
 .num_msg p span:nth-child(2){

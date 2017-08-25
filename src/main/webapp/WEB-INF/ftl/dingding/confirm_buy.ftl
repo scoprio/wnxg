@@ -150,7 +150,7 @@
                         <a href="javascript:void(0);" class="agreement">《万能企业盾协议》</a>
                     </p>
                 </div>
-                <input type="button" id="" value="立即支付" class="pay_now" />
+                <input type="button" id="" value="立即下单" class="pay_now" />
             </footer>
         </form>
 

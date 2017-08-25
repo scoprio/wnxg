@@ -116,7 +116,7 @@ table tr td:last-child{
 	margin-right: .3rem;
 }
 .hot_btn a{
-	display: inline-block;
+	display: block;
 	width: 1.52rem;
 	height: .56rem;
 	line-height: .56rem;

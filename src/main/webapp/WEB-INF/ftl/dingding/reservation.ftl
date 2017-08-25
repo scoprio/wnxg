@@ -33,7 +33,7 @@
 					</p> -->
 					<p class="load_time">
 						<span>预约时间</span>
-						<input type="text" name="" id="" value="" disabled="disabled" class="make_time"/>
+						<input type="text" name="" id="" value="" readonly="readonly" class="make_time"/>
 					</p>
 				</div>
 				<div class="ms_msg">

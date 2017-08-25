@@ -305,8 +305,8 @@
 				</div>
 			</div>
 			<ul class="contact_way border_bottom">
-				<li class="contact_wayli enter enter_in"><span>请选择服务时间</span><input type="text" name="" id="date" value="" disabled="disabled" onchange="Iscomplete()"/></li>
-				<li class="contact_wayli enter enter_position"><span>位置</span><input type="text" name="" id="site" value="" disabled="disabled" autocomplete="off" oninput="Iscomplete()"/></li>
+				<li class="contact_wayli enter enter_in"><span>请选择服务时间</span><input type="text" name="" id="date" value="" readonly="readonly" onchange="Iscomplete()"/></li>
+				<li class="contact_wayli enter enter_position"><span>位置</span><input type="text" name="" id="site" value="" readonly="readonly" autocomplete="off" oninput="Iscomplete()"/></li>
 				<li class="contact_wayli"><span>详细地址</span><textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="1" cols="40" placeholder="请输入具体门牌号" id="addr" autocomplete="off" oninput="Iscomplete()"></textarea></li>
 				<li class="contact_wayli"><span>称呼</span><input type="text" id="username" value="" autocomplete="off" oninput="Iscomplete()" /></li>
 				<li class="contact_wayli"><span>联系电话</span><input type="tel" name="" id="telephone" value="" autocomplete="off" oninput="Iscomplete()"/></li>

@@ -20,7 +20,7 @@
 .order_head .choose_num{
 	float: left;
 	margin-left: .3rem;
-    width: 6.35rem;
+    width: 6.4rem;
 }
 .order_head .choose_num .order_name{
 	font-size: .28rem;
@@ -29,7 +29,7 @@
 .remark{
 	color: #666;
 	font-size: .24rem;
-	width: 5rem;
+	width: 100%;
 }
 .choose_num div{
 	overflow: hidden;
@@ -58,7 +58,7 @@
 	padding: 0 .1rem;
 }
 .priceshow {
-	float: left;
+	float: right;
     margin-left: .5rem;
     width: 2.5rem;
     line-height: .5rem;

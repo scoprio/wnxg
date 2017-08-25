@@ -191,6 +191,14 @@
                     $('.datebox').fadeOut();
                 })
             })
+
+            $(".datebox").click(function() {
+                $(".choosedate").animate({
+                         "bottom": "-3.36rem"
+                     }, 400, function() {
+                    $('.datebox').fadeOut();
+                })
+            })
             $('.fleft').delegate("li", "click", function(){
                 $(this).addClass('add_bgcolor').find('span').css('color', '#fff').parent().siblings().removeClass('add_bgcolor').find('span').css('color', '#222');
                 $('.fright li').eq($(this).index()).show().siblings().hide().find('span').removeClass('add_bgcolor');
@@ -267,8 +275,15 @@
                                dataType:"json",
                                success: function(result){
                                    if(result && result.status== 200){
-                                       alert(result.message);
-                                       location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/${sku.cityCode}.shtml";
+                                       dd.device.notification.alert({
+                                            message: "下单成功",
+                                            title: "",//可传空
+                                            buttonName: "确定",
+                                            onSuccess : function() {
+                                                location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/${sku.cityCode}.shtml";
+                                            },
+                                            onFail : function(err) {}
+                                        });
                                    }else{
                                        alert(result.message);
                                    }

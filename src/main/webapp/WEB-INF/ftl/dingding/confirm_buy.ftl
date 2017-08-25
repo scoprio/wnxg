@@ -85,10 +85,15 @@
                                dataType:"json",
                                success: function(result){
                                    if(result && result.status== 200){
-                                       alert(result.message);
-
-                                       location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";
-
+                                       dd.device.notification.alert({
+                                            message: "下单成功",
+                                            title: "",//可传空
+                                            buttonName: "确定",
+                                            onSuccess : function() {
+                                                location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";
+                                            },
+                                            onFail : function(err) {}
+                                        });
 								   }else{
                                        alert(result.message);
                                    }

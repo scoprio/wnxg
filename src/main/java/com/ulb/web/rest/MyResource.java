@@ -3,6 +3,7 @@ package com.ulb.web.rest;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -137,7 +138,9 @@ public class MyResource {
                 }else{
 
                     SimpleDateFormat sdf=new SimpleDateFormat("yyyy.MM.dd");
-                    dto.setPeriod(sdf.format(dto.getBeginTime()) +" 到 "+ sdf.format(dto.getEndTime()));
+                    Date beginDate = new Date(Long.valueOf(dto.getBeginTime()));
+                    Date endDate = new Date(Long.valueOf(dto.getEndTime()));
+                    dto.setPeriod(sdf.format(beginDate) +" 到 "+ sdf.format(endDate));
                 }
                 switch (dto.getState()){
                     case 0:

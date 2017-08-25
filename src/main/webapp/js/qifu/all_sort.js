@@ -52,7 +52,7 @@ $(function() {
 		if(list) {
 			for(var i = 0; i < list.length; i++) {
 
-				var orderUrl = baseUrl + "/ulb/sku/" +list[i].id+"/"+sort_city_code+".shtml?corpid="+cropId+"&appid=3919&dd_nav_bgcolor=FFFB870D";
+				var orderUrl = baseUrl + "/ulb/sku/" +list[i].id+"/"+sort_city_code+".shtml?corpid="+cropId+"&appid=3919";
 				result += '<li>' + '<a href="'+orderUrl+'">'+
 					'<div class="all_pic">' + '<img src="' + list[i].pic + '" alt="">' + '</div>' +
 					'<div class="all_price">' +

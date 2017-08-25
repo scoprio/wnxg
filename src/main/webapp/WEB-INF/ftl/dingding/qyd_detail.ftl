@@ -15,7 +15,7 @@
             	$('.submit_btn').click(function() {
 
 					if('${qydInfo.isAdmin}' == 'true'){
-						location.href = "${basePath}/ulb/qf.shtml?corpid=${qydInfo.corpId}&appid=3919&cityCode=${qydInfo.cityCode}&dd_nav_bgcolor=FFFB870D";
+						location.href = "${basePath}/ulb/qf.shtml?corpid=${qydInfo.corpId}&appid=3919&cityCode=${qydInfo.cityCode}";
 					}else{
                         alert("联系管理员开通");
 					}

@@ -234,7 +234,6 @@
 
             // 提交按钮
             $('.btn_at_once').click(function(event) {
-                alert(date_order);
                 if(Isfill2()){
                     console.log(date_order,content_val,textarea_val,content_id)
 

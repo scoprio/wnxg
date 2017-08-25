@@ -35,7 +35,9 @@ dd.ready(function() {
 
 
 dd.error(function(err) {
-	alert('dd error: ' + JSON.stringify(err));
+
+	location.reload();
+	// alert('dd error: ' + JSON.stringify(err));
 });
 
 

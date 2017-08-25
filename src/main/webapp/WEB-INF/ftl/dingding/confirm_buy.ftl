@@ -11,25 +11,19 @@
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/confirm_buy.css" />
 
         <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
-
-	</head>
-
-
         <script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
-        <script src="${basePath}/js/qifu/confirm.js" type="text/javascript" charset="utf-8"></script>
-        <script src="${basePath}/js/qifu/text_self_adaption.js" type="text/javascript" charset="utf-8"></script>
-        <script src="${basePath}/js/qifu/iscroll.js"></script>
-        <script src="${basePath}/js/qifu/iosSelect.js" type="text/javascript" charset="utf-8"></script>
-        <script src="${basePath}/js/qifu/confirm_num.js"></script>
-        <script src="${basePath}/js/qifu/common.js"></script>
+
+    </head>
 
         <script type="text/javascript">
 
-            alert(localStorage.agentId);
-            alert(localStorage.corpId);
-            alert(localStorage.timeStamp);
-            alert(localStorage.nonceStr);
-            alert(localStorage.signature);
+
+
+            localStorage.agentId ='${qf.config.agentId?default("")}';
+            localStorage.corpId ='${qf.config.corpId?default("")}';
+            localStorage.timeStamp ='${qf.config.timeStamp?default("")}';
+            localStorage.nonceStr = '${qf.config.nonceStr?default("")}';
+            localStorage.signature = '${qf.config.signature?default("")}';
 
             $(function() {
 
@@ -62,7 +56,7 @@
 
                     var serviceBuyRecord = {
                         "cityCode":'${qf.cityCode}',
-                        "buyTime": valueBer2,
+                        "buyTime": valueBer2 * 30,
                         "serviceId":2,
                         "packageId":1,
                         "money":all_price,
@@ -93,7 +87,6 @@
                                    if(result && result.status== 200){
                                        alert(result.message);
 
-									   alert("${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}")
                                        location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";
 
 								   }else{
@@ -101,6 +94,7 @@
                                    }
                                },
                                error: function(result){
+                                   alert(result.message);
                                    console.log(result);
                                }
                            });
@@ -113,7 +107,7 @@
             });
         </script>
 
-        <#--<script src="${basePath}/js/dingding.order.js" baseUrl="${basePath}"></script>-->
+        <script src="${basePath}/js/dingding.order.js" baseUrl="${basePath}"></script>
     <body>
     <section>
         <form action="" method="post">
@@ -244,6 +238,14 @@
             </div>
         </div>
     </div>
+
+    <script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+    <script src="${basePath}/js/qifu/confirm.js" type="text/javascript" charset="utf-8"></script>
+    <script src="${basePath}/js/qifu/text_self_adaption.js" type="text/javascript" charset="utf-8"></script>
+    <script src="${basePath}/js/qifu/iscroll.js"></script>
+    <script src="${basePath}/js/qifu/iosSelect.js" type="text/javascript" charset="utf-8"></script>
+    <script src="${basePath}/js/qifu/confirm_num.js"></script>
+    <script src="${basePath}/js/qifu/common.js"></script>
     </body>
 
 

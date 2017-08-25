@@ -14,15 +14,15 @@
         <script src="${basePath}/js/qifu/text_self_adaption.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/webuploader.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/wnxg_qf.js" type="text/javascript" charset="utf-8"></script>
-
+        <script src="${basePath}/js/qifu/common.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript">
 
-            alert(localStorage.agentId);
-            alert(localStorage.corpId);
-            alert(localStorage.timeStamp);
-            alert(localStorage.nonceStr);
-            alert(localStorage.signature);
-            alert(localStorage.dingdingUserId);
+            <#--alert(localStorage.agentId);-->
+            <#--alert(localStorage.corpId);-->
+            <#--alert(localStorage.timeStamp);-->
+            <#--alert(localStorage.nonceStr);-->
+            <#--alert(localStorage.signature);-->
+            <#--alert(localStorage.dingdingUserId);-->
             <#--var _config = {-->
                 <#--"agentId":'${sku.config.agentId}',-->
                 <#--"corpId":'${sku.config.corpId}',-->
@@ -30,6 +30,13 @@
                 <#--"nonceStr":'${sku.config.nonceStr}',-->
                 <#--"signature":'${sku.config.signature}'-->
             <#--}-->
+//            alert(localStorage.agentId);
+            localStorage.agentId ='${sku.config.agentId?default("")}';
+            localStorage.corpId ='${sku.config.corpId?default("")}';
+            localStorage.timeStamp ='${sku.config.timeStamp?default("")}';
+            localStorage.nonceStr = '${sku.config.nonceStr?default("")}';
+            localStorage.signature = '${sku.config.signature?default("")}';
+
 			$(function() {
 
                 var input_time = $("#date");
@@ -272,7 +279,7 @@
                            })
 
                 }else{
-                    layer.msg('请完善信息!');
+                    layer_tip('请完善信息!');
                 }
             })
         })

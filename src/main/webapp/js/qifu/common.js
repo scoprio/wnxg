@@ -19,7 +19,8 @@ function layer_tip(form_tip){
               'background':'rgba(0,0,0,0.5)',
               'line-height':'45px',
               'letter-spacing':'1px',
-              'border-radius':'4px'
+              'border-radius':'4px',
+              'z-index':'10000'
 
           });
           $('.layer_box').text(form_tip);

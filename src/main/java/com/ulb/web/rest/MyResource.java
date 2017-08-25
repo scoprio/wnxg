@@ -2,6 +2,7 @@ package com.ulb.web.rest;
 
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -134,7 +135,9 @@ public class MyResource {
                 if(dto.getBeginTime() == null || dto.getEndTime() == null){
                     dto.setPeriod("未开通");
                 }else{
-                    dto.setPeriod(dto.getBeginTime() +" 到 "+ dto.getEndTime());
+
+                    SimpleDateFormat sdf=new SimpleDateFormat("yyyy.MM.dd");
+                    dto.setPeriod(sdf.format(dto.getBeginTime()) +" 到 "+ sdf.format(dto.getEndTime()));
                 }
                 switch (dto.getState()){
                     case 0:

@@ -358,7 +358,6 @@ function change_url(citycode) {
 		url_array[url_array.length-1] = citycode;
 		current_url = url_array.join('/')
 		$(item).attr('href',current_url);
-		// alert($(item).attr('href'));
 		console.log(item);
 	})
 }
@@ -401,7 +400,6 @@ dd.ready(function() {
 				success : function(data, status, xhr) {
 					dingdingUserInfo = JSON.parse(data);
 					localStorage.dingdingUserId = dingdingUserInfo.userid;
-					alert(localStorage.dingdingUserId);
 					var myUrl;
 					var qydUrl;
 					if(dingdingUserInfo.isAdmin || dingdingUserInfo.isBoss){
@@ -453,7 +451,6 @@ dd.ready(function() {
 			  // var location = JSON.stringify(location);
 			  var locationCity;
 			  var isOpen;
-			  // alert(location.city);
 			  if($.trim(location.city).length > 0 || $.trim(location.province).length > 0){
 				  //定位城市
 				  if($.trim(location.city).length > 0){
@@ -463,9 +460,6 @@ dd.ready(function() {
 				  }
 
 				  //判断定位城市是否与当前城市一致
-				  // alert(locationCity);
-				  // alert(current_city);
-				  // alert(locationCity.indexOf(current_city))
 				  if(locationCity.includes(current_city)){
 
 				  }else{
@@ -492,10 +486,8 @@ dd.ready(function() {
 								   $('.choose_city .city_current').text(current_city);
 								   var myUrl
 								   if(dingdingUserInfo.isAdmin || dingdingUserInfo.isBoss){
-									   alert("admin");
 									   myUrl = baseUrl+"/dingding/my_admin.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code+"&corpid="+localStorage.corpId;
 								   }else{
-									   alert("employee")
 									   myUrl = baseUrl+"/dingding/my.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code;
 								   }
 								   change_url(current_city_code+".shtml?corpid="+localStorage.corpId+"&appid=3919&dd_nav_bgcolor=FFFB870D");
@@ -538,7 +530,8 @@ dd.ready(function() {
 });
 
 dd.error(function(err) {
-	alert('dd error: ' + JSON.stringify(err));
+	location.reload();
+	// alert('dd error: ' + JSON.stringify(err));
 });
 
 

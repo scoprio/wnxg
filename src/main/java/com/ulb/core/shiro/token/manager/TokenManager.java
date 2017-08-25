@@ -16,18 +16,7 @@ import com.ulb.core.shiro.token.ShiroToken;
 
 /**
  * 
- * <p>
- * 
- * <p>
- * 
- * 区分　责任人　日期　　　　说明<br/>
- * 创建　周柏成　2014年3月3日 　<br/>
- * <p>
- * 
- * @author zhou-baicheng
- * 
- * @version 1.0,2014年3月3日 
- * 
+ *
  * Shiro管理下的Token工具类
  */
 public class TokenManager {

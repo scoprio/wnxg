@@ -121,10 +121,10 @@
                 </div>
             </div>
             <div class="product border_bottom border_top">
-                <p>产品参数</p>
+                <#--<p>产品参数</p>-->
 			<#--<p><span>套餐参数</span><span class="change">打印机<input type="hidden" value="打印机" class="change_active" /></span><span class="change">电脑 <input type="hidden" name="" id="" value="电脑" class="change_active" /></span></p>-->
                 <p>
-                    <span>服务时间</span>
+                    <span>选择服务时间</span>
                     <input type="hidden" name="bank_id" id="bankId2" value="" class="hide_input2">
                     <input id="showBank2" class="please_select" placeholder="请选择" readonly="readonly" style="color: #929292;" onBlur="this.style.color='#222'" onFocus="this.style.color='#222'">
                 </p>

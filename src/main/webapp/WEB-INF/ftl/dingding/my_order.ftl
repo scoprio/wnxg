@@ -76,8 +76,8 @@
 		<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 
-            var rArray1 = new Array();
-            var rArray2 = new Array();
+            var array1 = new Array();
+            var array2 = new Array();
             var rArray3 = new Array();
 			<#list orders as order>
 			    var status = '${order.pid}';
@@ -93,8 +93,8 @@
 					order.address = '${order.address?default('未设置')}';
 					order.repairName = '${order.repairName?default('未设置')}';
                     order.statusName = '${order.statusName?default('未设置')}';
-                	rArray1.push(order)
-					console.log(rArray1);
+                	array1.push(order)
+					console.log(array1);
 				}
 				if(status == '8' ||status == '18' ||status == '22'){
                     var order = {};
@@ -104,8 +104,8 @@
                     order.address = '${order.address?default('未设置')}';
                     order.repairName = '${order.repairName?default('未设置')}';
                     order.statusName = '${order.statusName?default('未设置')}';
-                	rArray2.push(order);
-                	console.log(rArray2);
+                	array2.push(order);
+                	console.log(array2);
 				}
 				if(status == '7'){
                     var order = {};
@@ -129,7 +129,6 @@
                     array1.forEach(function(item,i){
                         result_undo += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>未完成</i></p >'+
                                        '<div class="order_box border_bottom border_top">'+
-                                       '<a href="'+item.oid+'">'+
                                        '<div class="imgdiv">< img src="" alt="" /></div>'+
                                        '<div class="pdiv">'+
                                        '<p><i>下单时间</i><span>'+item.downTime+'</span></p >'+
@@ -138,7 +137,6 @@
                                        '<p><i>维修项目</i><span>'+item.repairName+'</span></p >'+
                                        '</div>'+
                                        '</div>'+
-                                       '</a >'+
                                        '<p class="order_p2"><input type="button" value="取消订单" /><input type="button" value="联系客服" /></p >'+
                                        '</li>'
 
@@ -156,7 +154,6 @@
                     array2.forEach(function(item,i){
                         result_done += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>已完成</i></p >'+
                                        '<div class="order_box border_bottom border_top">'+
-                                       '<a href="'+item.oid+'">'+
                                        '<div class="imgdiv">< img src="" alt="" /></div>'+
                                        '<div class="pdiv">'+
                                        '<p><i>下单时间</i><span>'+item.downTime+'</span></p >'+
@@ -165,7 +162,6 @@
                                        '<p><i>维修项目</i><span>'+item.repairName+'</span></p >'+
                                        '</div>'+
                                        '</div>'+
-                                       '</a >'+
                                        '<p class="order_p2"><input type="button" value="取消订单" /></p >'+
                                        '</li>'
 

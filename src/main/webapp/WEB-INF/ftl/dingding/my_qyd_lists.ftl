@@ -11,9 +11,10 @@
 
 	<body>
 
-		<ul class="lists_ul" >
+
 
 		<#if qydOrders?exists && qydOrders?size gt 0 >
+        <ul class="lists_ul" >
 			<#list qydOrders as order>
 
                 <li class="lists_li" title="${order.id?default('未设置')}">
@@ -31,13 +32,14 @@
 
 
 			</#list>
+        </ul>
 		<#else>
 		<div class="order_nodata border_top">
 		<div><img src="${basePath}/images/bill4.png"/></div>
             <p>您现在还没有购买企业盾</p>
 		</div>
 		</#if>
-		</ul>
+
 		
 		<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">

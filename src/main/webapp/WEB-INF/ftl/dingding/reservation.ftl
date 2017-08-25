@@ -221,6 +221,14 @@
                     $('.datebox').fadeOut();
                 })
             })
+
+            $(".datebox").click(function() {
+                $(".choosedate").animate({
+                                             "bottom": "-3.36rem"
+                                         }, 400, function() {
+                    $('.datebox').fadeOut();
+                })
+            })
             $('.fleft').delegate("li", "click", function(){
                 $(this).addClass('add_bgcolor').find('span').css('color', '#fff').parent().siblings().removeClass('add_bgcolor').find('span').css('color', '#222');
                 $('.fright li').eq($(this).index()).show().siblings().hide().find('span').removeClass('add_bgcolor');

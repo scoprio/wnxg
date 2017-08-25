@@ -13,7 +13,7 @@
 	<body>
 		<ul class="my_ul1 border_bottom border_top">
 			<a href="${basePath}/dingding/help/FAQ.shtml"><li><p>常见问题</p></li></a>
-			<a href="${basePath}/dingding/help/newbie_guide.shtml"><li><p>新手引导</p></li></a>
+			<a href="${basePath}/dingding/help/newbie_guide.shtml"><li><p>服务须知</p></li></a>
 		</ul>
 		<ul class="my_ul2 border_bottom border_top">
 			<a href="${basePath}/dingding/help/user_feedback.shtml"><li><p>用户反馈</p></li></a>

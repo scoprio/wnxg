@@ -107,6 +107,10 @@ table tr td:last-child{
 	position: absolute;
     bottom: 0.02rem;
 }
+.hot_price p:last-child>span{
+	font-size: 0.3rem;
+	padding-left: 0.03rem;
+}
 .hot_project ul li .hot_btn{
 	float: right;
 	margin-right: .3rem;

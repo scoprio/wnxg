@@ -114,10 +114,10 @@
             <div class="confirm_box border_bottom border_top">
                 <div class="confirm_img"><img src="${basePath}/images/1tu.png" /></div>
                 <div class="confirm_right">
-                    <p>万能企业盾1号</p>
+                    <p>万能企业盾</p>
                     <p>办公电脑、打印机检修、养护定期巡检、极速保修</p>
                     <p><span>专业维修</span><span>包月</span></p>
-                    <p><span>&yen;</span><span class="unit_price">198</span><span>20家企业购买</span></p>
+                    <p><span>&yen;</span><span class="unit_price">498</span><span>20家企业购买</span></p>
                 </div>
             </div>
             <div class="product border_bottom border_top">

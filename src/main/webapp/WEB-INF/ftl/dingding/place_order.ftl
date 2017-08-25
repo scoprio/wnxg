@@ -106,7 +106,7 @@
                 var tel_yz = input_telephone.val();
                 reg = /^1[3|4|5|7|8]\d{9}$/;
                 if(!reg.test(tel_yz)){
-                    alert("请输入正确的手机号")
+                    layer_tip("请输入正确的手机号")
                     input_telephone.val('')
                 }else{
                     console.log(1111)

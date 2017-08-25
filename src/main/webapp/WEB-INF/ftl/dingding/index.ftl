@@ -72,13 +72,13 @@
             <tr>
                 <td>
                     <a href="javascript:void(0);">
-                        <div><img src="${basePath}/images/5.png" /></div>
+                        <div><img src="${basePath}/images/2.png" /></div>
                         <p>办公设备维护</p>
                     </a>
                 </td>
                 <td>
                     <a href="javascript:void(0);">
-                        <div><img src="${basePath}/images/2.png" /></div>
+                        <div><img src="${basePath}/images/6.png" /></div>
                         <p>办公电器保养</p>
                     </a>
                 </td>

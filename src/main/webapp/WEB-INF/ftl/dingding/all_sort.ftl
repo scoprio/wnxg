@@ -12,11 +12,11 @@
 	<body>
 		<ul class="sort_left">
 			<li id="work" class="work">
-				<div><img src="${basePath}/images/5.png"/></div>
+				<div><img src="${basePath}/images/2.png"/></div>
 				<p>办公设备维护</p>
 			</li>
 			<li id="light" class="light">
-				<div><img src="${basePath}/images/2.png"/></div>
+				<div><img src="${basePath}/images/6.png"/></div>
 				<p>办公电器保养</p>
 			</li>
 			<li id="door" class="door">

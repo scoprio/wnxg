@@ -76,15 +76,18 @@ html,body{
 	text-align: right;
 	padding: 0 .3rem;
 }
-.lists_btn input{
+.lists_btn a{
 	margin: .15rem 0 .15rem .2rem;
-    border: 1px solid #666;
+    border: 1px solid #ff943e;
+	color: #ff943e;
     border-radius: .08rem;
     padding: 0 .1rem;
     background: none;
     line-height: .56rem;
     width: 1.5rem;
     font-size: .26rem;
+	display: inline-block;
+	text-align: center;
 }
 .lists_li .lists_img{
 	width: 1.34rem;

@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="widtd=device-widtd,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>企业盾1号</title>
+		<title>万能企业盾</title>
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css" />
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/qyd_detail.css" />
         <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>

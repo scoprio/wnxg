@@ -30,8 +30,9 @@
     padding-right: 0.26rem;
     float: right;
     text-align: right;
-    line-height: .9rem;
+    line-height: .56rem;
     width: 68%;
+	color: #222;
     font-size: .26rem;
     /*background: transparent;*/
     border:none;
@@ -59,7 +60,7 @@
 	border: 1px solid #E0E0E0;
 	border-radius: .08rem;
 	padding-right: .2rem;
-	color: #929292;
+	color: #222;
     
 }
 .num_msg p span:nth-child(2){

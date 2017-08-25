@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>新手引导</title>
+		<title>服务须知</title>
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css" />
 		<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
 		<script src="${basePath}/js/qifu/jquery.lazyload.js" type="text/javascript" charset="utf-8"></script>

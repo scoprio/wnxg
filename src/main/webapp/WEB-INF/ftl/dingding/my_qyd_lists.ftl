@@ -18,7 +18,7 @@
 			<#list qydOrders as order>
 
                 <li class="lists_li" title="${order.id?default('未设置')}">
-                    <p class="lists_img"><img src="${basePath}/images/weishengxiao.png" /></p>
+                    <#--<p class="lists_img"><img src="${basePath}/images/weishengxiao.png" /></p>-->
                     <p class="lists_title"><span>${order.serviceName?default('未设置')}</span><i><img src="${basePath}/images/btn_shuoming.png"/></i><i>${order.stateName?default('未设置')}</i></p>
                     <ul class="lists_detl border_bottom border_top">
                         <li><i>服务地址</i><span>${order.address?default('未设置')}</span></li>
@@ -27,7 +27,7 @@
                         <li><i>服务详情</i><span>${order.serviceName?default('未设置')} ${order.buyTime?default('未设置')} 个月</span></li>
                         <li><i>订单金额</i><span>${order.money?default('未设置')}</span></li>
                     </ul>
-                    <p class="lists_btn"><input type="button" id="" value="联系客服" /></p>
+                    <p class="lists_btn"><a href="tel:400-6633-750">联系客服</a></p>
                 </li>
 
 

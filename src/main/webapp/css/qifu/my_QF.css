@@ -54,7 +54,9 @@
 	margin-top: .24rem;
 	line-height: .3rem;
 }
-
+.message p:nth-of-type(2){
+	font-size: 0.2rem;
+}
 .message p:first-child {
 	font-size: .28rem;
 	margin-top: .24rem;
@@ -96,7 +98,7 @@
 }
 
 .record .record_title {
-	font-size: .28rem;
+	font-size: .3rem;
 	padding: .24rem .3rem .19rem;
 	border-bottom: 1px solid #e2e2e2;
 	background: #fff;
@@ -194,25 +196,18 @@ footer {
 }
 
 footer input {
-	width: 2.58rem;
+	width: 5.92rem;
 	color: #fff;
 	font-size: .26rem;
-	line-height: .78rem;
+	line-height: .88rem;
 	border-radius: .08rem;
-	margin-top: .2rem;
-}
-
-footer input:first-child {
-	float: left;
-	margin-left: .6rem;
-	background: #64B968;
-}
-
-footer input:last-child {
-	float: right;
-	margin-right: .6rem;
+	margin:0 auto;
+	display: block;
+	margin-top: .145rem;
 	background: #ff943e;
+
 }
+
 
 .no_datebox {
 	background: #fff;

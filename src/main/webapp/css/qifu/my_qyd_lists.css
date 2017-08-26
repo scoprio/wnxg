@@ -27,12 +27,39 @@ html,body{
 	margin-bottom: .2rem;
 	position: relative;
 	overflow: hidden;
-	border-bottom: 1px solid #E0E0E0;
-	border-top: 1px solid #E0E0E0;
 }
+
+.lists_ul .lists_li:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+}
+.lists_ul .lists_li:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5) {
+    .lists_ul .lists_li:before,.lists_ul .lists_li:after{
+        transform: scaleY(0.7)
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .lists_ul .lists_li:before,.lists_ul .lists_li:after{
+        transform: scaleY(0.5)
+    }
+}
+
 .lists_li .lists_title{
 	padding: 0 .3rem;
-	line-height: .58rem;
+	line-height: .75rem;
 }
 .lists_title span{
 	font-size: .28rem;
@@ -40,10 +67,10 @@ html,body{
 .lists_title img{
 	float: right;
     display: inline-block;
-    width: .4rem;
-    height: .4rem;
-    margin-top: .1rem;
-    margin-left: .1rem;
+    width: .3rem;
+    height: .31rem;
+    margin-top: .225rem;
+    margin-left: .15rem;
 }
 .lists_title i{
 	float: right;
@@ -54,6 +81,35 @@ html,body{
 .lists_li .lists_detl{
 	padding: .2rem .3rem;
 	overflow: hidden;
+    position: relative;
+    border:none;
+}
+.lists_li .lists_detl:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+}
+.lists_li .lists_detl:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5) {
+    .lists_li .lists_detl:before,.lists_li .lists_detl:after{
+        transform: scaleY(0.7)
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .lists_li .lists_detl:before,.lists_li .lists_detl:after{
+        transform: scaleY(0.5)
+    }
 }
 .lists_detl li{
 	
@@ -78,8 +134,8 @@ html,body{
 }
 .lists_btn a{
 	margin: .15rem 0 .15rem .2rem;
-    border: 1px solid #ff943e;
-	color: #ff943e;
+    border: 1px solid #bababa;
+	color: #999;
     border-radius: .08rem;
     padding: 0 .1rem;
     background: none;

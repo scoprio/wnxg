@@ -3,6 +3,27 @@
 	padding: .3rem;
 	overflow: hidden;
 	margin-bottom: .2rem;
+    border:none;
+    position:relative;
+}
+.flow:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5) {
+    .flow:after{
+        transform: scaleY(0.7)
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .flow:after{
+        transform: scaleY(0.5)
+    }
 }
 .order_head{
 	width: 100%;
@@ -10,17 +31,45 @@
     background: #fff;
     box-sizing: border-box;
     overflow: hidden;
+    position: relative;
+    border:none;
+}
+.order_head:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+}
+.order_head:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5) {
+    .order_head:before,.order_head:after{
+        transform: scaleY(0.7)
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .order_head:before,.order_head:after{
+        transform: scaleY(0.5)
+    }
 }
 .order_head .head_img{
 	width: 1.38rem;
 	height:1.38rem;
 	float: left;
-	display: none;
 }
 .order_head .choose_num{
 	float: left;
 	margin-left: .3rem;
-    width: 6.4rem;
+    width: 5rem;
 }
 .order_head .choose_num .order_name{
 	font-size: .28rem;
@@ -84,12 +133,53 @@
 .contact_way{
 	background: #fff;
 	margin-bottom: 1.2rem;
+    border:none;
+    padding-bottom: 0.08rem;
+}
+.contact_way:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5) {
+    .contact_way:after{
+        transform: scaleY(0.7)
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .contact_way:after{
+        transform: scaleY(0.5)
+    }
 }
 .contact_way .contact_wayli{
 	margin: 0 .3rem;
-	border-bottom: 1px solid #E0E0E0;
+	/*border-bottom: 1px solid #E0E0E0;*/
 	min-height: .9rem;
 	overflow: hidden;
+    position: relative;
+}
+.contact_way .contact_wayli:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5) {
+    .contact_way .contact_wayli:after{
+        transform: scaleY(0.7)
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .contact_way .contact_wayli:after{
+        transform: scaleY(0.5)
+    }
 }
 .contact_way .enter{
 	background: url(/images/btn_jinru.png) no-repeat right center;
@@ -161,6 +251,26 @@
 	padding: 0 .3rem;
 	background: #fff;
 	box-sizing: border-box;
+    border:none;
+}
+.foot:after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+}
+@media (-webkit-min-device-pixel-ratio: 1.5) {
+    .foot:after{
+        transform: scaleY(0.7)
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+    .foot:after{
+        transform: scaleY(0.5)
+    }
 }
 .foot input{
 	width: 5.92rem;
@@ -269,23 +379,23 @@
     width: 100%;
     overflow: hidden;
     position: fixed;
-    height: .7rem;
-    line-height: .7rem;
+    height: .88rem;
+    line-height: .88rem;
     background: #f5f5f5;
 }
 
 .agreement_head p {
-    text-align: left;
+    text-align: center;
     font-size: .28rem;
     font-weight: bold;
-    line-height: .7rem;
-    padding: 0 .3rem;
+    line-height: .88rem;
 }
 
 .agreement_head span {
     float: right;
     color: #ff943e;
     font-size: .24rem;
+    display: none;
 }
 
 .agreement_content {

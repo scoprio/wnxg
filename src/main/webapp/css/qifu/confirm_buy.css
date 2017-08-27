@@ -100,7 +100,7 @@
 	position: relative;
 	border:none;
 }
-.product:after,.buyer :after{
+.product:after,.buyer:after{
 	content: "";
 	position: absolute;
 	bottom: 0;
@@ -108,7 +108,7 @@
 	width: 100%;
 	border-top: 1px solid #e0e0e0;
 }
-.product:before,.buyer :before{
+.product:before,.buyer:before{
 	content: "";
 	position: absolute;
 	top: 0;
@@ -117,13 +117,13 @@
 	border-top: 1px solid #e0e0e0;
 }
 @media (-webkit-min-device-pixel-ratio: 1.5) {
-    .product:before,.buyer :before,.product:after,.buyer :after{
+    .product:before,.buyer:before,.product:after,.buyer:after{
         transform: scaleY(0.7)
     }
 }
 
 @media (-webkit-min-device-pixel-ratio: 2) {
-    .product:before,.buyer :before,.product:after,.buyer :after{
+    .product:before,.buyer:before,.product:after,.buyer:after{
         transform: scaleY(0.5)
     }
 }
@@ -144,14 +144,16 @@
 .product p:nth-child(3),
 .buyer p:nth-child(2),
 .buyer p:nth-child(3),
-.buyer p:nth-child(4) {
+.buyer p:nth-child(4),
+.buyer p:nth-child(5) {
 	/*border-bottom: 1px solid #e0e0e0;*/
 	position: relative;
 }
 .product p:nth-child(3):after,
 .buyer p:nth-child(2):after,
 .buyer p:nth-child(3):after,
-.buyer p:nth-child(4):after{
+.buyer p:nth-child(4):after,
+.buyer p:nth-child(5):after{
 	content: "";
 	position: absolute;
 	bottom: 0;
@@ -164,7 +166,8 @@
     .product p:nth-child(3):after,
 .buyer p:nth-child(2):after,
 .buyer p:nth-child(3):after,
-.buyer p:nth-child(4):after{
+.buyer p:nth-child(4):after,
+.buyer p:nth-child(5):after{
 		transform: scaleY(0.7)
     }
 }
@@ -173,20 +176,25 @@
     .product p:nth-child(3):after,
 .buyer p:nth-child(2):after,
 .buyer p:nth-child(3):after,
-.buyer p:nth-child(4):after{
+.buyer p:nth-child(4):after,
+.buyer p:nth-child(5):after{
 		transform: scaleY(0.5)
     }
+}
+.buyer p:nth-child(6){
+	line-height: 0.56rem;
 }
 .product p span:nth-child(1),
 .buyer p span:nth-child(1) {
 	font-size: .26rem;
-	line-height: .56rem;
+	line-height: .56rem !important;
 }
 
 .buyer p:nth-child(2) input {
 	float: right;
 	width: 74%;
 	text-align: right;
+	height: 0.56rem;
 }
 
 .product p span:nth-child(2),

@@ -314,7 +314,7 @@
 		</div>
 		<form>
 			<div class="order_head border_bottom border_top">
-				<div class="head_img"><img src="" /></div>
+				<div class="head_img"><img src="${basePath}/images/${sku.rid}.png" /></div>
 				<div class="choose_num">
 					<p class="order_name">维修类目：<span>${sku.name}</span></p>
 					<p class="remark">${sku.content?default('无')}</p>

@@ -146,6 +146,7 @@
                 var result_time = '';
                 var result_time_all = '';
                 var date_data = JSON.parse('${reservation.usefulTime}');
+
                 if(date_data){
                     date_data.forEach(function(item,i){
                         result_time = '';
@@ -153,13 +154,16 @@
                             result_time += '<span>'+time+'</span>'
                         })
                         if(i==0){
-                            result_date += '<li class="add_bgcolor">今天（<span>'+item.date+'</span>)</li>';
+                            result_date += '<li class="add_bgcolor"><span>'+item.date+'</span></li>';
                         }
                         else if(i==1){
-                            result_date += '<li>明天（<span>'+item.date+'</span>)</li>';
+                            result_date += '<li><span>'+item.date+'</span></li>';
+                        }
+                        else if(i==2){
+                            result_date += '<li><span>'+item.date+'</span></li>';
                         }
                         else{
-                            result_date += '<li>后天（<span>'+item.date+'</span>)</li>';
+                            result_date += '<li><span>'+item.date+'</span></li>';
                         }
                         result_time_all += '<li>'+result_time+'</li>'
                     })
@@ -197,7 +201,7 @@
                 if(flag == 1){
                     $('.load_time input').val(val_data);
                     $(".choosedate").animate({
-                                                 "bottom": "-3.36rem"
+                                                 "bottom": "-7rem"
                                              }, 400, function() {
                         $('.datebox').fadeOut();
                     })
@@ -218,7 +222,7 @@
             $(".cancelbtn").click(function(event) {
                 event.stopPropagation();
                 $(".choosedate").animate({
-                                             "bottom": "-3.36rem"
+                                             "bottom": "-7rem"
                                          }, 400, function() {
                     $('.datebox').fadeOut();
                 })
@@ -226,7 +230,7 @@
 
             $(".datebox").click(function() {
                 $(".choosedate").animate({
-                                             "bottom": "-3.36rem"
+                                             "bottom": "-7rem"
                                          }, 400, function() {
                     $('.datebox').fadeOut();
                 })

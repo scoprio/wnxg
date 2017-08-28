@@ -86,7 +86,14 @@ public class MyResource {
         try {
             list = myService.getSKUOrderRecord(dingdingUId,cityCode);
             for(OrderRecordDTO dto:list){
+                dto.setCityCode(cityCode);
                 dto.setStatusName(StatueUtil.getStatueName(dto.getPid().toString()));
+                if(dto.getPid() == 1){
+                    dto.setDisplay("block");
+                }else{
+                    dto.setDisplay("none");
+                }
+
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -102,7 +109,7 @@ public class MyResource {
         try {
             list = myService.getCropSKUOrderRecord(corpId,cityCode);
             for(OrderRecordDTO dto:list){
-
+                dto.setCityCode(cityCode);
                 dto.setStatusName(StatueUtil.getStatueName(dto.getPid().toString()));
 //                if(dto.getPid() == 1 ||dto.getPid() == 2||dto.getPid() == 3||dto.getPid() == 4
 //                        ||dto.getPid() == 5||dto.getPid() == 11||dto.getPid() == 12||dto.getPid() == 13

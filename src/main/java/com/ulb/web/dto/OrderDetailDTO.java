@@ -1,6 +1,7 @@
 package com.ulb.web.dto;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * Created by wangpeng on 27/08/2017.
@@ -30,7 +31,13 @@ public class OrderDetailDTO {
     private BigDecimal repairPrice;
     private String repaUnit;
     private String platformPrice;
+    private String xgPhone;
+
     private String userPhone;
+
+    private String display;
+
+    private List<OrderDataDetailDTO> orderDatas;
 
     public String getAddress() {
         return address;
@@ -222,5 +229,29 @@ public class OrderDetailDTO {
 
     public void setUserPhone(String userPhone) {
         this.userPhone = userPhone;
+    }
+
+    public List<OrderDataDetailDTO> getOrderDatas() {
+        return orderDatas;
+    }
+
+    public void setOrderDatas(List<OrderDataDetailDTO> orderDatas) {
+        this.orderDatas = orderDatas;
+    }
+
+    public String getXgPhone() {
+        return xgPhone;
+    }
+
+    public void setXgPhone(String xgPhone) {
+        this.xgPhone = xgPhone;
+    }
+
+    public String getDisplay() {
+        return display;
+    }
+
+    public void setDisplay(String display) {
+        this.display = display;
     }
 }

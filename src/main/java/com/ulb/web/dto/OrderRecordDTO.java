@@ -25,6 +25,7 @@ public class OrderRecordDTO {
     private Integer pid;
 
     private String statusName;
+    private String cityCode;
     // 钉钉B端ID
     private int ori;
 
@@ -32,6 +33,8 @@ public class OrderRecordDTO {
     private String oid;
     private String downTime;
     private String orderState;
+
+    private String display;
 
 
 
@@ -186,5 +189,21 @@ public class OrderRecordDTO {
 
     public void setStatusName(String statusName) {
         this.statusName = statusName;
+    }
+
+    public String getCityCode() {
+        return cityCode;
+    }
+
+    public void setCityCode(String cityCode) {
+        this.cityCode = cityCode;
+    }
+
+    public String getDisplay() {
+        return display;
+    }
+
+    public void setDisplay(String display) {
+        this.display = display;
     }
 }

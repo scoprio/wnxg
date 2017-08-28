@@ -25,16 +25,16 @@
                         <li>
                             <p class="order_p1">订单编号：<span>${order.oid?default('未设置')}</span><i>${order.statusName?default('未完成')}</i></p>
                             <div class="order_box border_bottom border_top">
-                                <#--<div class="imgdiv"><img src=""/></div>-->
+                                <a href="${basePath}/ulb/sku/order/${order.oid}/${order.cityCode}.shtml">
                                 <div class="pdiv">
                                     <p><i>维修项目</i><span>${order.repairName?default('未设置')}</span></p>
                                     <p><i>下单时间</i><span>${order.downTime?default('未设置')}</span></p>
                                     <p><i>上门时间</i><span>${order.yuyueTime?default('未设置')}</span></p>
                                     <p><i>下单地址</i><span>${order.address?default('未设置')}</span></p>
-
                                 </div>
+                                </a>
                             </div>
-                            <p class="order_p2"><a href="tel:400-6633-750">联系客服</a></p>
+                            <p class="order_p2"><input type="button" name="" id="" value="取消订单" style="display: ${order.display?default('none')}"/><a href="tel:400-6633-750">联系客服</a></p>
                         </li>
 					</#list>
                 </ul>
@@ -93,6 +93,7 @@
 					order.address = '${order.address?default('未设置')}';
 					order.repairName = '${order.repairName?default('未设置')}';
                     order.statusName = '${order.statusName?default('未设置')}';
+                    order.cityCode = '${order.cityCode?default('未设置')}';
                 	array1.push(order)
 					console.log(array1);
 				}
@@ -104,6 +105,7 @@
                     order.address = '${order.address?default('未设置')}';
                     order.repairName = '${order.repairName?default('未设置')}';
                     order.statusName = '${order.statusName?default('未设置')}';
+                    order.cityCode = '${order.cityCode?default('未设置')}';
                 	array2.push(order);
                 	console.log(array2);
 				}
@@ -115,6 +117,7 @@
                     order.address = '${order.address?default('未设置')}';
                     order.repairName = '${order.repairName?default('未设置')}';
                     order.statusName = '${order.statusName?default('未设置')}';
+                    order.cityCode = '${order.cityCode?default('未设置')}';
                 	rArray3.push(order)
                 	console.log(rArray3);
 				}
@@ -124,17 +127,19 @@
             function order_fill(){
                 // 未完成
                 var result_undo = '';
-
+                var order_url = "${basePath}/ulb/sku/order/";
                 if(array1.length>0){
                     array1.forEach(function(item,i){
                         result_undo += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>'+item.statusName+'</i></p >'+
                                        '<div class="order_box border_bottom border_top">'+
+                                       '<a href="'+ order_url + item.oid + '/' +item.cityCode +'.shtml">'+
                                        '<div class="pdiv">'+
                                        '<p><i>维修项目</i><span>'+item.repairName+'</span></p >'+
                                        '<p><i>下单时间</i><span>'+item.downTime+'</span></p >'+
                                        '<p><i>上门时间</i><span>'+item.yuyueTime+'</span></p >'+
                                        '<p><i>上单时间</i><span>'+item.address+'</span></p >'+
                                        '</div>'+
+                                       '</a>'+
                                        '</div>'+
                                        '<p class="order_p2"><a href="tel:400-6633-750">联系客服</a></p >'+
                                        '</li>'
@@ -153,12 +158,14 @@
                     array2.forEach(function(item,i){
                         result_done += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>'+item.statusName+'</i></p >'+
                                        '<div class="order_box border_bottom border_top">'+
+                                       '<a href="'+ order_url + item.oid + '/' +item.cityCode +'.shtml">'+
                                        '<div class="pdiv">'+
                                        '<p><i>维修项目</i><span>'+item.repairName+'</span></p >'+
                                        '<p><i>下单时间</i><span>'+item.downTime+'</span></p >'+
                                        '<p><i>上门时间</i><span>'+item.yuyueTime+'</span></p >'+
                                        '<p><i>上单时间</i><span>'+item.address+'</span></p >'+
                                        '</div>'+
+                                       '</a>'+
                                        '</div>'+
                                        '<p class="order_p2"><a href="tel:400-6633-750">联系客服</a></p >'+
                                        '</li>'

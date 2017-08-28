@@ -120,7 +120,7 @@
                 <div class="confirm_img"><img src="${basePath}/images/1tu.png" /></div>
                 <div class="confirm_right">
                     <p>万能企业盾</p>
-                    <p>办公电脑、打印机检修、养护定期巡检、极速保修</p>
+                    <p>此价格为单月价格，购买后3日内会对企业提供一次上门巡检服务，确认符合标准之后服务正式开始。</p>
                     <p><span>专业维修</span><span>包月</span></p>
                     <p><span>&yen;</span><span class="unit_price">498</span><span style="display: none">20家企业购买</span></p>
                 </div>

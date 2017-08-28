@@ -314,7 +314,7 @@
 	font-size: .28rem;
 }
 .fleft {
-	width: 40%;
+	width: 55%;
 	box-sizing: border-box;
 	border-right:1px solid #E0E0E0 ;
 }
@@ -328,9 +328,9 @@
 	font-size: .26rem;
 }
 .fright {
-	width: 60%;
+	width: 45%;
 	box-sizing: border-box;
-	height: 2.78rem;
+	height: 6.4rem;
 }
 .fright li{
 	width: 100%;
@@ -391,11 +391,19 @@
     line-height: .88rem;
 }
 
-.agreement_head span {
-    float: right;
-    color: #ff943e;
-    font-size: .24rem;
-    display: none;
+.agreement_head .close_agree {
+    display: block;
+    position: fixed;
+    bottom: 0.2rem;
+    width: 5.92rem;
+    height: 0.88rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 0.28rem;
+    border-radius: 0.08rem;
+    background: #ff943e;
 }
 
 .agreement_content {
@@ -412,7 +420,9 @@
     line-height: .4rem;
     text-indent: .4rem;
 }
-
+.agreement_content p:nth-last-of-type(1){
+    padding-bottom: 1.1rem;
+}
 .agreement_content .last_p {
     margin-bottom: .32rem;
 }

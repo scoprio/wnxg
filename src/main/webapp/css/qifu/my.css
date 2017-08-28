@@ -76,25 +76,25 @@
 	background: url(/images/btn_jinru.png) no-repeat 95% center;
 	background-size: 2.5%;
 }
-.my_ul1 a:first-child li p,.my_ul2 a:first-child li p{
+.my_ul1 a:nth-of-type(2) li p,.my_ul2 a:nth-of-type(2) li p{
 	position: relative;
 }
-.my_ul1 a:first-child li p:after,.my_ul2 a:first-child li p:after{
+.my_ul1 a:nth-of-type(2) li p:after,.my_ul2 a:nth-of-type(2) li p:after{
 		content: "";
 	    position: absolute;
-	    bottom: 0;
+	    top: 0;
 	    left: 0;
 	    width: 100%;
 	    border-top: 1px solid #e0e0e0;
 }
 @media (-webkit-min-device-pixel-ratio: 1.5) {
-    .my_ul1 a:first-child li p:after,.my_ul2 a:first-child li p:after{
+    .my_ul1 a:nth-of-type(2) li p:after,.my_ul2 a:nth-of-type(2) li p:after{
 		transform: scaleY(0.7)
     }
 }
 
 @media (-webkit-min-device-pixel-ratio: 2) {
-    .my_ul1:before, .my_ul2:before,.my_ul1:after, .my_ul2:after{
+    .my_ul1 a:nth-of-type(2) li p:after,.my_ul2 a:nth-of-type(2) li p:after{
 		transform: scaleY(0.5)
     }
 }

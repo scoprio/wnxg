@@ -34,7 +34,9 @@
                                 </div>
                                 </a>
                             </div>
-                            <p class="order_p2"><input type="button" name="" id="" value="取消订单" style="display: ${order.display?default('none')}"/><a href="tel:400-6633-750">联系客服</a></p>
+                            <p class="order_p2">
+                                <a name="" id="" value="取消订单" style="display: ${order.display?default('none')}">取消订单</a>
+                                <a href="tel:400-6633-750">联系客服</a></p>
                         </li>
 					</#list>
                 </ul>
@@ -137,7 +139,7 @@
                                        '<p><i>维修项目</i><span>'+item.repairName+'</span></p >'+
                                        '<p><i>下单时间</i><span>'+item.downTime+'</span></p >'+
                                        '<p><i>上门时间</i><span>'+item.yuyueTime+'</span></p >'+
-                                       '<p><i>上单时间</i><span>'+item.address+'</span></p >'+
+                                       '<p><i>下单地址</i><span>'+item.address+'</span></p >'+
                                        '</div>'+
                                        '</a>'+
                                        '</div>'+
@@ -163,7 +165,7 @@
                                        '<p><i>维修项目</i><span>'+item.repairName+'</span></p >'+
                                        '<p><i>下单时间</i><span>'+item.downTime+'</span></p >'+
                                        '<p><i>上门时间</i><span>'+item.yuyueTime+'</span></p >'+
-                                       '<p><i>上单时间</i><span>'+item.address+'</span></p >'+
+                                       '<p><i>下单地址</i><span>'+item.address+'</span></p >'+
                                        '</div>'+
                                        '</a>'+
                                        '</div>'+

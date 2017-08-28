@@ -159,15 +159,18 @@ html,body{
 	text-align: right;
 	padding: 0 .3rem;
 }
-.order_p2 a{
-	margin: .15rem 0 .15rem .2rem;
+
+.order_p2 a, .order_p2 input {
+    margin: .15rem 0 .15rem .2rem;
     border: 1px solid #bababa;
     border-radius: .08rem;
     padding: 0 .1rem;
     background: none;
     line-height: .56rem;
     width: 1.5rem;
-	color:#999;
-	text-align: center;
-	display: inline-block;
+    color: #999;
+    text-align: center;
+    display: inline-block;
+    vertical-align: top;
+    font-size: 0.24rem;
 }

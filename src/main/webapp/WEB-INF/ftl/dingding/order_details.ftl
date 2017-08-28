@@ -18,7 +18,7 @@
 				<p class="xg_name">${order.xgName?default("无")}</p>
 				<p class="xg_num"><span>工号：</span><i>${order.employeeid?default("无")}</i></p>
 			</div>
-			<a href="tel:${order.xgPhone?default("400-6633-750")}" name="" id="" value="" class="xg_tel"/>
+			<a href="tel:${order.xgPhone?default("400-6633-750")}" name="" id="" value="" class="xg_tel"></a>
 		</div>
 		<!--订单跟踪-->
 		<div class="order_after border_top border_bottom">
@@ -61,24 +61,24 @@
 				<div class="confirm_order">
 					<div class="first_row">
 						<span>小&nbsp;&nbsp;哥：</span>
-						<span class="name msg">${order.xgName}</span>
+						<span class="name msg">${order.xgName?default('无')}</span>
 						<span>订单号：</span>
 						<span class="order_num msg">${order.xgPhone?default('无')}</span>
 					</div>
 					<div class="second_row">
 						<span>日&nbsp;&nbsp;期：</span>
-						<span class="data msg">${order.downTime}</span>
+						<span class="data msg">${order.downTime?default('无')}</span>
 					</div>
 					<div class="third_row">
 						<span>客官地址：</span>
-						<span>${order.address}</span></div>
+						<span>${order.address?default('无')}</span></div>
 					<div class="fifth_row">
 						<span>客官电话：</span>
-						<span class="tel msg">${order.userPhone}</span>
+						<span class="tel msg">${order.userPhone?default('无')}</span>
 					</div>
 					<div class="sixth_row">
 						<span>维修项目：</span>
-						<span class="project msg">${order.repairName}</span>
+						<span class="project msg">${order.repairName?default('无')}</span>
 					</div>
 					<div class="seventh_row">
 						<span>人工费金额：</span>
@@ -92,7 +92,7 @@
 				<div class="detail">
 					<div class="detail_title">维修明细</div>
 					<div class="detail_text msg"></div>
-					<div class="confirm"><span>客官确认：</span><span>${order.userName}</span></div>
+					<div class="confirm"><span>客官确认：</span><span>${order.userName?default('无')}</span></div>
 				</div>
 				<div class="deal">
 					<h3>万能小哥服务协议</h3>
@@ -105,7 +105,7 @@
 					<p> 7. 委托方没有通过万能小哥正规预约渠道进行预约，私下预约万能小哥的维修人员提供的服务，签订的协议无效。</p>
 					<p> 8. 委托方在维修完成72小时之内，如因维修服务后所产生的质量问题，可向万能小哥及维修人员提出售后维修申请，万能小哥及维修人员有义务为委托方提供免费的售后服务（最终解释权归万能小哥所有）。</p>
 					<div class="client">
-						<p class="trustee">委托方：${order.userName}</p>
+						<p class="trustee">委托方：${order.userName?default('无')}</p>
 						<div class="client_text msg" /><img src="${basePath}/images/seal.png" alt="" /></div>
 					<p class="trustee the_client">被委托方：北京万能小哥信息技术有限公司</p>
 				</div>

@@ -4,13 +4,13 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>订单详情</title>
-		<link rel="stylesheet" type="text/css" href="css/reset_h5.css"/>
-		<link rel="stylesheet" type="text/css" href="css/order_details.css"/>
+		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css"/>
+		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/order_details.css"/>
 	</head>
 	<body>
 		<!--小哥信息-->
 		<div class="xg_details border_top border_bottom">
-			<div class="xg_head"><img src="img/xg1.png"/></div>
+			<div class="xg_head"><img src="/images/xg1.png"/></div>
 			<div class="xg_doc">
 				<p class="xg_name">张三</p>
 				<p class="xg_num"><span>工号：</span><i>5468852</i></p>

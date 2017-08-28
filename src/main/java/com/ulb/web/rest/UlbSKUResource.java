@@ -2,6 +2,7 @@ package com.ulb.web.rest;
 
 import java.io.IOException;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
@@ -9,10 +10,14 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.ulb.service.SKUService;
 import com.ulb.service.TimeService;
+import com.ulb.web.dto.OrderDetailDTO;
+import com.ulb.web.dto.QFRecordDetailDTO;
+import com.ulb.web.dto.QFRepairDTO;
 import com.ulb.web.dto.ResultDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKURecordDTO;
 import com.ulb.web.util.ConfigGetter;
+import com.ulb.web.util.StatueUtil;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -82,6 +87,35 @@ public class UlbSKUResource {
             e.printStackTrace();
         }
         return new ResponseEntity(resultMap,HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value="sku/order/{orderId}/{cityCode}",method=RequestMethod.GET)
+    public ModelAndView getOrders(@PathVariable String orderId,@PathVariable String cityCode){
+
+        OrderDetailDTO  orderDetailDTO = null;
+        try {
+            orderDetailDTO = skuService.getSKUOrderService(orderId,cityCode);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+//        QFRecordDetailDTO qfRecordDetailDTO = new QFRecordDetailDTO();
+//        try {
+//            qfRecordDetailDTO = qfService.getQFRecordDetail(qifuId);
+//            if(qfRecordDetailDTO.getInfo().getBegin_time().trim().length() == 0|| qfRecordDetailDTO.getInfo().getEnd_time().trim().length()== 0){
+//                qfRecordDetailDTO.getInfo().setPeriod("未开通");
+//            }else{
+//                qfRecordDetailDTO.getInfo().setPeriod(qfRecordDetailDTO.getInfo().getBegin_time() +" 到 "+ qfRecordDetailDTO.getInfo().getEnd_time());
+//            }
+//            List<QFRepairDTO> list =  qfRecordDetailDTO.getRepairList();
+//            for(QFRepairDTO qfRepairDTO :list){
+//                qfRepairDTO.setStateName(StatueUtil.getStatueName(qfRepairDTO.getOrder_state()));
+//            }
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        return new ModelAndView("dingding/order_details","order",orderDetailDTO);
     }
 
 }

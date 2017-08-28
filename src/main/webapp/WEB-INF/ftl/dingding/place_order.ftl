@@ -114,7 +114,8 @@
                 Iscomplete()
 
             })
-            $('.affirmbtn').click(function(){
+            $('.affirmbtn').click(function(event){
+                event.stopPropagation();
                 var index = 0;
                 var val_data = '';
                 date_order ='';
@@ -184,7 +185,8 @@
                   });
             })
 
-            $(".cancelbtn").click(function() {
+            $(".cancelbtn").click(function(event) {
+                event.stopPropagation();
                 $(".choosedate").animate({
                                              "bottom": "-3.36rem"
                                          }, 400, function() {
@@ -199,11 +201,13 @@
                     $('.datebox').fadeOut();
                 })
             })
-            $('.fleft').delegate("li", "click", function(){
+            $('.fleft').delegate("li", "click", function(event){
+                event.stopPropagation();
                 $(this).addClass('add_bgcolor').find('span').css('color', '#fff').parent().siblings().removeClass('add_bgcolor').find('span').css('color', '#222');
                 $('.fright li').eq($(this).index()).show().siblings().hide().find('span').removeClass('add_bgcolor');
             })
-            $('.fright').delegate("li span", "click", function(){
+            $('.fright').delegate("li span", "click", function(event){
+                event.stopPropagation();
                 $(this).addClass('add_bgcolor').siblings().removeClass('add_bgcolor');
             })
 

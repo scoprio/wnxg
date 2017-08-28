@@ -11,6 +11,10 @@
 
 	<body>
 		<!--小哥信息-->
+        <div class="order_code">
+            <p>订单编号：${order.oid?default("无")}</p >
+            <input type="button" value="取消订单" onclick="cancelOrder(${order.oid?default('0')})"/>
+        </div>
 
 		<div class="xg_details border_bottom" style="display: ${order.display?default('block')}">
 			<div class="xg_head"><img src="${basePath}/images/xg1.png" /></div>
@@ -118,10 +122,43 @@
 		<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 			$(function(){
+
 				$('.third_client').click(function(){
 					$('.sanlian').stop().slideToggle();
 					$(this).val($(this).val() == "点击查看三联协议" ? "收起" : "点击查看三联协议");
 				})
+				function cancelOrder(orderId){
+                    var skuOrder = {
+                        "id":orderId,
+						"operater": 1
+                    }
+                    $.ajax({
+					   url:"${basePath}/ulb/sku/order.shtml",
+					   type:"PUT",
+					   data:JSON.stringify(skuOrder),
+					   contentType:"application/json; charset=utf-8",
+					   dataType:"json",
+					   success: function(result){
+						   if(result && result.status== 200){
+							   dd.device.notification.alert({
+										message: "取消成功",
+										title: "",//可传空
+										buttonName: "确定",
+										onSuccess : function() {
+											location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml";
+										},
+										onFail : function(err) {}
+									});
+						   }else{
+							   alert(result.message);
+						   }
+					   },
+					   error: function(result){
+						   console.log(result.message);
+					   }
+				   })
+				}
+
 			})
 		</script>
 	</body>

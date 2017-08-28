@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.alibaba.druid.support.spring.stat.annotation.Stat;
 import com.ulb.service.SKUService;
 import com.ulb.service.TimeService;
+import com.ulb.web.dto.OperaterOrderDTO;
 import com.ulb.web.dto.OrderDataDetailDTO;
 import com.ulb.web.dto.OrderDetailDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
@@ -81,6 +82,28 @@ public class UlbSKUResource {
             if(resultDTO.getCode().equals("200")){
                 resultMap.put("status", 200);
                 resultMap.put("message", "下单成功！");
+            }else{
+                resultMap.put("message", "服务端下单失败！");
+                resultMap.put("status", 500);
+            }
+        } catch (IOException e) {
+            resultMap.put("status", 500);
+            resultMap.put("message", "应用端下单失败！");
+            e.printStackTrace();
+        }
+        return new ResponseEntity(resultMap,HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/sku/order.shtml",
+            method = RequestMethod.PUT,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, Object>> updateOrder(@RequestBody OperaterOrderDTO operaterOrderDTO){
+        Map<String, Object> resultMap = new LinkedHashMap<>();
+        try {
+            ResultDTO resultDTO = skuService.updateOrder(operaterOrderDTO);
+            if(resultDTO.getCode().equals("200")){
+                resultMap.put("message", "下单成功！");
+                resultMap.put("status", 200);
             }else{
                 resultMap.put("message", "服务端下单失败！");
                 resultMap.put("status", 500);

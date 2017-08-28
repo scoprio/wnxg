@@ -411,7 +411,7 @@ dd.ready(function() {
 					}
 			        $('.person_center').attr("href",myUrl);
 					$('.wnqyd').attr("href",qydUrl);
-
+					$('.zhifudiaoyong').attr("href",qydUrl);
 					// 图片
 //					if(info.avatar.length != 0){
 //			            var img = document.getElementById("userImg");

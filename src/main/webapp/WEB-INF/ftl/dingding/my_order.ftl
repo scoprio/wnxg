@@ -35,7 +35,7 @@
                                 </a>
                             </div>
                             <p class="order_p2">
-                                <a name="" id="" value="取消订单" style="display: ${order.display?default('none')}">取消订单</a>
+                                <a class="cancelOrder" onclick="cancelOrder(${order.oid?default('未设置')})" href="javascript:void(0);" style="display: ${order.display?default('none')}">取消订单</a>
                                 <a href="tel:400-6633-750">联系客服</a></p>
                         </li>
 					</#list>
@@ -201,6 +201,40 @@
             }
 
 			$(function(){
+
+
+                function cancelOrder(orderId){
+                    var skuOrder = {
+                        "id":orderId,
+                        "operater": 1
+                    }
+                    $.ajax({
+                               url:"${basePath}/ulb/sku/order.shtml",
+                               type:"PUT",
+                               data:JSON.stringify(skuOrder),
+                               contentType:"application/json; charset=utf-8",
+                               dataType:"json",
+                               success: function(result){
+                                   if(result && result.status== 200){
+                                       dd.device.notification.alert({
+                                                                        message: "取消成功",
+                                                                        title: "",//可传空
+                                                                        buttonName: "确定",
+                                                                        onSuccess : function() {
+                                                                            location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml";
+                                                                        },
+                                                                        onFail : function(err) {}
+                                                                    });
+                                   }else{
+                                       alert(result.message);
+                                   }
+                               },
+                               error: function(result){
+                                   console.log(result.message);
+                               }
+                           })
+                }
+
 				$('.order_title li').click(function(){
 					$(this).find('span').addClass('span_bg').parent().siblings().find('span').removeClass('span_bg');
 					$('.order_content .sidebox').eq($(this).index()).show().siblings().hide();

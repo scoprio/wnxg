@@ -3,6 +3,7 @@ package com.ulb.service.remote;
 
 import java.util.List;
 
+import com.ulb.web.dto.OperaterOrderDTO;
 import com.ulb.web.dto.OrderDetailDTO;
 import com.ulb.web.dto.ResultDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
@@ -14,6 +15,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Headers;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 /**
@@ -38,4 +40,8 @@ public interface RemoteSKUService {
 
     @GET("/WNXG/ulb/api/new_enter_prise_my_order/myOrderDetails/{orderId}/{cityCode}")
     Call<OrderDetailDTO> getOrderDetail(@Path("orderId")String orderId,@Path("cityCode")String cityCode);
+
+    @Headers({"Content-type:application/json;charset=UTF-8"})
+    @PUT("/WNXG/ulb/api/new_enter_prise/order")
+    Call<ResultDTO> updateOrder(@Body OperaterOrderDTO operaterOrderDTO);
 }

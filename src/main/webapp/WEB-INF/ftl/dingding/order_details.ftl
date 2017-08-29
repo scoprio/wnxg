@@ -12,11 +12,11 @@
 	<body>
 		<!--小哥信息-->
         <div class="order_code">
-            <p>订单编号：${order.oid?default("无")}</p >
-            <input type="button" value="取消订单" onclick="cancelOrder(${order.oid?default('0')})"/>
+            <p>订单编号：${order.onum?default("无")}</p >
+            <input type="button" value="取消订单" onclick="cancelOrder(${order.oid?default('0')})" style="display: ${order.display?default('none')}"/>
         </div>
 
-		<div class="xg_details border_bottom" style="display: ${order.display?default('block')}">
+		<div class="xg_details border_bottom" style="display: ${order.xgDisplay?default('block')}">
 			<div class="xg_head"><img src="${basePath}/images/xg1.png" /></div>
 			<div class="xg_doc">
 				<p class="xg_name">${order.xgName?default("无")}</p>
@@ -124,6 +124,7 @@
             function cancelOrder(orderId){
                 var skuOrder = {
                     "id":orderId,
+					"cityCode":localStorage.current_city_code,
                     "operater": 1
                 }
                 $.ajax({

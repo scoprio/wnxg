@@ -37,6 +37,8 @@ public class OrderDetailDTO {
 
     private String display;
 
+    private String xgDisplay;
+
     private List<OrderDataDetailDTO> orderDatas;
 
     public String getAddress() {
@@ -253,5 +255,13 @@ public class OrderDetailDTO {
 
     public void setDisplay(String display) {
         this.display = display;
+    }
+
+    public String getXgDisplay() {
+        return xgDisplay;
+    }
+
+    public void setXgDisplay(String xgDisplay) {
+        this.xgDisplay = xgDisplay;
     }
 }

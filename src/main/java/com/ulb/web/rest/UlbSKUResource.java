@@ -14,6 +14,7 @@ import com.alibaba.druid.support.spring.stat.annotation.Stat;
 import com.ulb.service.SKUService;
 import com.ulb.service.TimeService;
 import com.ulb.web.dto.OperaterOrderDTO;
+import com.ulb.web.dto.OperaterOrderWithIdDTO;
 import com.ulb.web.dto.OrderDataDetailDTO;
 import com.ulb.web.dto.OrderDetailDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
@@ -97,10 +98,13 @@ public class UlbSKUResource {
     @RequestMapping(value = "/sku/order.shtml",
             method = RequestMethod.PUT,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Map<String, Object>> updateOrder(@RequestBody OperaterOrderDTO operaterOrderDTO){
+    public ResponseEntity<Map<String, Object>> updateOrder(@RequestBody OperaterOrderWithIdDTO operaterOrderWithIdDTO){
         Map<String, Object> resultMap = new LinkedHashMap<>();
+        OperaterOrderDTO operaterOrderDTO = new OperaterOrderDTO();
+        operaterOrderDTO.setCityCode(operaterOrderWithIdDTO.getCityCode());
+        operaterOrderDTO.setOperater(operaterOrderWithIdDTO.getOperater());
         try {
-            ResultDTO resultDTO = skuService.updateOrder(operaterOrderDTO);
+            ResultDTO resultDTO = skuService.updateOrder(operaterOrderWithIdDTO.getId(),operaterOrderDTO);
             if(resultDTO.getCode().equals("200")){
                 resultMap.put("message", "下单成功！");
                 resultMap.put("status", 200);
@@ -124,12 +128,19 @@ public class UlbSKUResource {
         SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         try {
             orderDetailDTO = skuService.getSKUOrderService(orderId,cityCode);
+            if(orderDetailDTO.getPid() == 1 ||orderDetailDTO.getPid() ==2 ||orderDetailDTO.getPid() ==3){
+                orderDetailDTO.setDisplay("inline-block");
+            }else{
+                orderDetailDTO.setDisplay("none");
+            }
+
             if(orderDetailDTO.getPid() == 1){
                 orderDetailDTO.setDisplay("none");
             }else{
-                orderDetailDTO.setDisplay("block");
+                orderDetailDTO.setDisplay("inline-block");
             }
 
+            orderDetailDTO.setOnum("wnxg"+orderDetailDTO.getOnum());
             for(OrderDataDetailDTO dto:orderDetailDTO.getOrderDatas()){
                 dto.setpName(StatueUtil.getStatueName(dto.getPid().toString()));
                 Date updateDateTime = new Date(dto.getUpdatetime());

@@ -23,7 +23,7 @@
 					<#list orders as order>
 
                         <li>
-                            <p class="order_p1">订单编号：<span>${order.oid?default('未设置')}</span><i>${order.statusName?default('未完成')}</i></p>
+                            <p class="order_p1">订单编号：<span>${order.onum?default('未设置')}</span><i>${order.statusName?default('未完成')}</i></p>
                             <div class="order_box border_bottom border_top">
                                 <a href="${basePath}/ulb/sku/order/${order.oid}/${order.cityCode}.shtml">
                                 <div class="pdiv">
@@ -206,6 +206,7 @@
                 function cancelOrder(orderId){
                     var skuOrder = {
                         "id":orderId,
+                        "cityCode":localStorage.current_city_code,
                         "operater": 1
                     }
                     $.ajax({

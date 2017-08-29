@@ -42,6 +42,6 @@ public interface RemoteSKUService {
     Call<OrderDetailDTO> getOrderDetail(@Path("orderId")String orderId,@Path("cityCode")String cityCode);
 
     @Headers({"Content-type:application/json;charset=UTF-8"})
-    @PUT("/WNXG/ulb/api/new_enter_prise/order")
-    Call<ResultDTO> updateOrder(@Body OperaterOrderDTO operaterOrderDTO);
+    @PUT("/WNXG/ulb/api/new_enter_prise_my_company/order/{orderId}")
+    Call<ResultDTO> updateOrder(@Path("orderId")String orderId,@Body OperaterOrderDTO operaterOrderDTO);
 }

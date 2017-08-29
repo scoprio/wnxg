@@ -49,9 +49,9 @@ public class SKUService {
         return response.body();
     }
 
-    public ResultDTO updateOrder(OperaterOrderDTO operaterOrderDTO) throws IOException {
+    public ResultDTO updateOrder(String orderId,OperaterOrderDTO operaterOrderDTO) throws IOException {
         RemoteSKUService service = APIServiceGenrator.createRequsetService(RemoteSKUService.class);
-        Call<ResultDTO> call = service.updateOrder(operaterOrderDTO);
+        Call<ResultDTO> call = service.updateOrder(orderId,operaterOrderDTO);
         Response<ResultDTO> response = call.execute();
         return response.body();
     }

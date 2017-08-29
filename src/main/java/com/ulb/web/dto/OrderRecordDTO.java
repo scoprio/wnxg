@@ -35,6 +35,7 @@ public class OrderRecordDTO {
     private String orderState;
 
     private String display;
+    private String onum;
 
 
 
@@ -205,5 +206,13 @@ public class OrderRecordDTO {
 
     public void setDisplay(String display) {
         this.display = display;
+    }
+
+    public String getOnum() {
+        return onum;
+    }
+
+    public void setOnum(String onum) {
+        this.onum = onum;
     }
 }

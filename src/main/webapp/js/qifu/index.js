@@ -30,7 +30,7 @@ $(function(){
         scrollArea : window,
         domDown : {
             domClass   : 'dropload-down',
-            domRefresh : '<div class="dropload-refresh">↑上拉加载更多</div>',
+            domRefresh : '<div class="dropload-refresh">↑更多维修，请按分类查看哦</div>',
             domLoad    : '<div class="weui-loadmore"><i class="weui-loading"></i><span class="weui-loadmore__tips">正在加载...</span></div>',
             domNoData  : '<div class="weui-loadmore weui-loadmore_line weui-loadmore_dot"><span class="weui-loadmore__tips"><span class="no-more">没有更多了</span></span></div>'
         },

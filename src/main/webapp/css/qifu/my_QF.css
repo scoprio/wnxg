@@ -100,7 +100,7 @@
 .record .record_title {
 	font-size: .3rem;
 	padding: .24rem .3rem .19rem;
-	border-bottom: 1px solid #e2e2e2;
+	/*border-bottom: 1px solid #e2e2e2;*/
 	background: #fff;
 	position: relative;
 }
@@ -261,7 +261,7 @@ footer {
 	left: 0;
 	height: 1.18rem;
 	background: #fff;
-	border:none;
+	border:none !important;
 }
 footer:after{
 	content: "";

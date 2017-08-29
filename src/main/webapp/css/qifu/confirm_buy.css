@@ -449,17 +449,25 @@ section {
 }
 
 .agreement_head p {
-	text-align: left;
-	font-size: .28rem;
-	font-weight: bold;
-	line-height: .7rem;
-	padding: 0 .3rem;
+	 text-align: center;
+    font-size: .28rem;
+    font-weight: bold;
+    line-height: .88rem;
 }
 
-.agreement_head span {
-	float: right;
-	color: #ff943e;
-	font-size: .24rem;
+.agreement_head .close_agree {
+    display: block;
+    position: fixed;
+    bottom: 0.2rem;
+    width: 5.92rem;
+    height: 0.88rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    color: #fff;
+    font-size: 0.28rem;
+    border-radius: 0.08rem;
+    background: #ff943e;
 }
 
 .agreement_content {
@@ -480,7 +488,9 @@ section {
 .agreement_content .last_p {
 	margin-bottom: .32rem;
 }
-
+.agreement_content p:nth-last-of-type(1){
+    padding-bottom: 1.1rem;
+}
 .agreement_content .title {
 	margin-bottom: .2rem;
 	font-size: .26rem;

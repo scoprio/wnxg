@@ -37,8 +37,8 @@ ul, li {
 	text-align: center;
 }
 .ios-select-widget-box header.iosselect-header a {
-	font-size: 0.3rem;
-	color: #ff943e;
+	font-size: 16px;
+	color: #e94643;
 	text-decoration: none;
 }
 .ios-select-widget-box header.iosselect-header a.close {
@@ -104,7 +104,7 @@ ul, li {
 .ios-select-widget-box.one-level-box .two-level-contain,
 .ios-select-widget-box.one-level-box .three-level-contain,
 .ios-select-widget-box.one-level-box .four-level-contain,
-.ios-select-widget-box.one-level-box .five-level-contain
+.ios-select-widget-box.one-level-box .five-level-contain,
 {
 	width: 0;
 }
@@ -114,7 +114,7 @@ ul, li {
 }
 .ios-select-widget-box.two-level-box .three-level-contain,
 .ios-select-widget-box.two-level-box .four-level-contain,
-.ios-select-widget-box.two-level-box .five-level-contain
+.ios-select-widget-box.two-level-box .five-level-contain,
 {
 	width: 0;
 }

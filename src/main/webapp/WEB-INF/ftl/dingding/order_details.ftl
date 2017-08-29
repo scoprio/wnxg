@@ -55,7 +55,7 @@
                 </div>
 				
 				<!--三联协议-->
-                <div class="sanlian" style="display: ${order.slDisplay?default('none')}>
+                <div class="sanlian">
                     <div class="logo">
                         <div class="top">
                             <img src="${basePath}/images/help_2.png" alt="" />
@@ -69,7 +69,7 @@
                             <span>小&nbsp;&nbsp;哥：</span>
                             <span class="name msg">${order.xgName?default('无')}</span>
                             <span>订单号：</span>
-                            <span class="order_num msg">${order.xgPhone?default('无')}</span>
+                            <span class="order_num msg">${order.onum?default('无')}</span>
                         </div>
                         <div class="second_row">
                             <span>日&nbsp;&nbsp;期：</span>
@@ -117,7 +117,7 @@
                     </div>
                 </div>
         </div>
-				<li class="border_top" style="clear: both"><input type="button" name="" id="" value="点击查看三联协议"  class="third_client"/></li>
+				<li class="border_top" style="clear: both"><input type="button" name="" id="" value="点击查看三联协议"  class="third_client" style="display: ${order.slDisplay?default('none')}"/></li>
 			</ul>
 			
 		</div>

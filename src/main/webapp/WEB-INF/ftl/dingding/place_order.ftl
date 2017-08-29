@@ -277,7 +277,7 @@
                         "remark":input_desc.val().trim(),
                         "tel":input_telephone.val(),
                         "rid":'${sku.rid}',
-                        "name":'${sku.name}',
+                        "name":$("#username").val().trim(),
                         "latitude":latitude,
                         "longitude":longitude,
                         "ori":6

@@ -1,4 +1,4 @@
-function layer_tip(form_tip){
+function layer_tip(form_tip,fun){
     var isLayer = $('.layer_box').length;
     if(!isLayer){
       var layer_box = $('<div class = "layer_box"></div>');
@@ -25,7 +25,8 @@ function layer_tip(form_tip){
           });
           $('.layer_box').text(form_tip);
           setTimeout(function(){
-              $('.layer_box').remove()
+              $('.layer_box').remove();
+              fun();
           },2000)
     }
     

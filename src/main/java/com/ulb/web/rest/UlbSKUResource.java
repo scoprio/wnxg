@@ -106,7 +106,7 @@ public class UlbSKUResource {
         try {
             ResultDTO resultDTO = skuService.updateOrder(operaterOrderWithIdDTO.getId(),operaterOrderDTO);
             if(resultDTO.getCode().equals("200")){
-                resultMap.put("message", "下单成功！");
+                resultMap.put("message", "取消成功！");
                 resultMap.put("status", 200);
             }else{
                 resultMap.put("message", "服务端下单失败！");
@@ -137,7 +137,7 @@ public class UlbSKUResource {
             if(orderDetailDTO.getPid() == 1){
                 orderDetailDTO.setXgDisplay("none");
             }else{
-                orderDetailDTO.setXgDisplay("inline-block");
+                orderDetailDTO.setXgDisplay("block");
             }
 
             orderDetailDTO.setOnum("wnxg"+orderDetailDTO.getOnum());

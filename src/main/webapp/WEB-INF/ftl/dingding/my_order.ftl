@@ -93,15 +93,10 @@
                            dataType:"json",
                            success: function(result){
                                if(result && result.status== 200){
-                                   dd.device.notification.alert({
-                                                                    message: "取消成功",
-                                                                    title: "",//可传空
-                                                                    buttonName: "确定",
-                                                                    onSuccess : function() {
-                                                                        location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml";
-                                                                    },
-                                                                    onFail : function(err) {}
-                                                                });
+                                   layer_tip(result.message,function () {
+                                       location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml";
+                                   })
+
                                }else{
                                    alert(result.message);
                                }

@@ -286,9 +286,9 @@
                                success: function(result){
                                    if(result && result.status== 200){
                                        dd.device.notification.alert({
-                                            message: "下单成功",
+                                            message: "亲，您的维修单已提交，小哥接单后会主动与您联系，请保持手机畅通",
                                             title: "",//可传空
-                                            buttonName: "确定",
+                                            buttonName: "好的",
                                             onSuccess : function() {
                                                 location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/${sku.cityCode}.shtml";
                                             },

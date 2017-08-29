@@ -26,7 +26,7 @@
 		</div>
 
 		<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
-        <script  src="${basePath}/js/common/layer/layer.js" type="text/javascript" charset="utf-8"></script>
+        <script  src="${basePath}/js/qifu/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 
 					// $('.submit_feedback input').click(function(){
@@ -98,8 +98,10 @@
 							   dataType:"json",
 							   success: function (data, status, xhr) {
 
-                                   if(data.status && data.status =='200'){
-                                       location.href = "${basePath}/dingding/help.shtml";
+                                   if(data.status && data.status ==200){
+                                       layer_tip("感谢您的反馈，对于您的意见和建议，我们将认真对待，并视情况予以回复！",function () {
+                                           location.href = "${basePath}/dingding/help.shtml";
+                                       })
 								   }
 							   },
 							   error: function () {
@@ -107,13 +109,6 @@
 							   }
 
 							 })
-                            <#--$.post("${basePath}/dingding/my/feedback.shtml",feedback,function(result){-->
-								<#--alert(result);-->
-<#--//                                if(result && result.status!= 200){-->
-<#--//                                }else{-->
-<#--//                                    layer.msg('提交成功！' );-->
-<#--//                                }-->
-                            <#--},"json");-->
 
 						}
 						else{

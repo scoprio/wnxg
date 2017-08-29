@@ -78,6 +78,40 @@
 		<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 
+
+            function cancelOrder(orderId){
+                var skuOrder = {
+                    "id":orderId,
+                    "cityCode":localStorage.current_city_code,
+                    "operater": 1
+                }
+                $.ajax({
+                           url:"${basePath}/ulb/sku/order.shtml",
+                           type:"PUT",
+                           data:JSON.stringify(skuOrder),
+                           contentType:"application/json; charset=utf-8",
+                           dataType:"json",
+                           success: function(result){
+                               if(result && result.status== 200){
+                                   dd.device.notification.alert({
+                                                                    message: "取消成功",
+                                                                    title: "",//可传空
+                                                                    buttonName: "确定",
+                                                                    onSuccess : function() {
+                                                                        location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml";
+                                                                    },
+                                                                    onFail : function(err) {}
+                                                                });
+                               }else{
+                                   alert(result.message);
+                               }
+                           },
+                           error: function(result){
+                               console.log(result.message);
+                           }
+                       })
+            }
+
             var array1 = new Array();
             var array2 = new Array();
             var rArray3 = new Array();
@@ -203,38 +237,7 @@
 			$(function(){
 
 
-                function cancelOrder(orderId){
-                    var skuOrder = {
-                        "id":orderId,
-                        "cityCode":localStorage.current_city_code,
-                        "operater": 1
-                    }
-                    $.ajax({
-                               url:"${basePath}/ulb/sku/order.shtml",
-                               type:"PUT",
-                               data:JSON.stringify(skuOrder),
-                               contentType:"application/json; charset=utf-8",
-                               dataType:"json",
-                               success: function(result){
-                                   if(result && result.status== 200){
-                                       dd.device.notification.alert({
-                                                                        message: "取消成功",
-                                                                        title: "",//可传空
-                                                                        buttonName: "确定",
-                                                                        onSuccess : function() {
-                                                                            location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml";
-                                                                        },
-                                                                        onFail : function(err) {}
-                                                                    });
-                                   }else{
-                                       alert(result.message);
-                                   }
-                               },
-                               error: function(result){
-                                   console.log(result.message);
-                               }
-                           })
-                }
+
 
 				$('.order_title li').click(function(){
 					$(this).find('span').addClass('span_bg').parent().siblings().find('span').removeClass('span_bg');

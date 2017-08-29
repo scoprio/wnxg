@@ -60,7 +60,7 @@
 									<p><span>预约时间：</span><span>${repair.order_time?default('未设置')}</span></p>
 								</div>
 							</div>
-							<div class="record_btn"><input  class="notescontact_kf" type="button" name="" id="" value="联系客服" /></div>
+							<div class="record_btn"><a  href="tel:400-6633-750" class="notescontact_kf" type="button" name="" id="" value="联系客服" ></a></div>
 						</li>
 					</#list>
 				<#else>

@@ -135,9 +135,9 @@ public class UlbSKUResource {
             }
 
             if(orderDetailDTO.getPid() == 1){
-                orderDetailDTO.setDisplay("none");
+                orderDetailDTO.setXgDisplay("none");
             }else{
-                orderDetailDTO.setDisplay("inline-block");
+                orderDetailDTO.setXgDisplay("inline-block");
             }
 
             orderDetailDTO.setOnum("wnxg"+orderDetailDTO.getOnum());

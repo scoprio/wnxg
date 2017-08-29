@@ -21,6 +21,7 @@
                     <#--<p class="lists_img"><img src="${basePath}/images/weishengxiao.png" /></p>-->
                     <p class="lists_title"><span>${order.serviceName?default('未设置')}</span><i><img src="${basePath}/images/btn_shuoming.png"/></i><i>${order.stateName?default('未设置')}</i></p>
                     <ul class="lists_detl border_bottom border_top">
+                        <li><i>企业盾编号</i><span>${order.orderNum?default('未设置')}</span></li>
                         <li><i>服务地址</i><span>${order.address?default('未设置')}</span></li>
                         <li><i>联系人</i><span>${order.linkman?default('未设置')}</span></li>
                         <li><i>服务周期</i><span>${order.period?default('未设置')}</span></li>

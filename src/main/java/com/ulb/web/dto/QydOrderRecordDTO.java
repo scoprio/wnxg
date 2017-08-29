@@ -27,6 +27,9 @@ public class QydOrderRecordDTO {
 
     private String period;
 
+    private String orderNum;
+
+
     public String getAddress() {
         return address;
     }
@@ -137,5 +140,13 @@ public class QydOrderRecordDTO {
 
     public void setPeriod(String period) {
         this.period = period;
+    }
+
+    public String getOrderNum() {
+        return orderNum;
+    }
+
+    public void setOrderNum(String orderNum) {
+        this.orderNum = orderNum;
     }
 }

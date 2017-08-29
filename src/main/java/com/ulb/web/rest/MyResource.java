@@ -19,6 +19,7 @@ import com.ulb.web.dto.QydOrderRecordDTO;
 import com.ulb.web.dto.UserDTO;
 import com.ulb.web.util.StatueUtil;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -135,7 +136,8 @@ public class MyResource {
             list = myService.getQydOrderRecord(corpId);
             for(QydOrderRecordDTO dto:list){
                 dto.setCityCode(cityCode);
-
+                String orderNum = StringUtils.leftPad(dto.getId().toString(),10,'0');
+                dto.setOrderNum("WNXG"+orderNum);
                 if(dto.getBeginTime() == null || dto.getEndTime() == null){
                     dto.setPeriod("未开通");
                 }else{
@@ -204,6 +206,12 @@ public class MyResource {
         resultMap.put("message", "提交成功！");
         resultMap.put("status", 200);
         return new ResponseEntity(resultMap,HttpStatus.OK);
+    }
+
+    public static void main(String[] args){
+        String a = "11";
+        String b = StringUtils.leftPad(a,5,'0');
+        System.out.print(b);
     }
 
 }

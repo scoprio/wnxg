@@ -52,7 +52,7 @@
 				<#if qifuInfo.repairList?exists && qifuInfo.repairList?size gt 0 >
 					<#list qifuInfo.repairList as repair>
 						<li>
-							<p class="record_order"><span>订单编号：</span><span>${repair.id?default('未设置')}</span><span>${repair.stateName?default('未设置')}</span></p>
+							<p class="record_order"><span>订单编号：</span><span>${repair.order_num?default('未设置')}</span><span>${repair.stateName?default('未设置')}</span></p>
 							<div class="recordbox">
 								<div class="record_left"><img src="${basePath}/images/1tu.png"/></div>
 								<div class="record_right">

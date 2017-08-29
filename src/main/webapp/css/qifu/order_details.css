@@ -310,11 +310,17 @@
     font-size: 0.26rem;
 }
 .order_code>input{
-    color: #929292;
-    float: right;
-    padding-right: 0.3rem;
-    background: transparent;
-    border:none;
-    line-height: 0.8rem;
-    font-size: 0.26rem;
+    border: 1px solid #bababa;
+    border-radius: .08rem;
+    padding: 0 .1rem;
+    background: none;
+    line-height: .56rem;
+    width: 1.5rem;
+    color: #999;
+    text-align: center;
+    display: inline-block;
+    vertical-align:top;
+    font-size:0.24rem;
+    float:right;
+    margin:0.3rem;
 }

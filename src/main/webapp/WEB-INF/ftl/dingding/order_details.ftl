@@ -55,68 +55,68 @@
                 </div>
 				
 				<!--三联协议-->
-				<div class="sanlian">
-				<div class="logo">
-					<div class="top">
-						<img src="${basePath}/images/help_2.png" alt="" />
-						<!--<span class="title">万能小哥</span>-->
-					</div>
-					<!--<span class="text">万能小哥 您身边的维修专家</span>-->
-				</div>
-				<p>万能小哥服务确认单</p>
-				<div class="confirm_order">
-					<div class="first_row">
-						<span>小&nbsp;&nbsp;哥：</span>
-						<span class="name msg">${order.xgName?default('无')}</span>
-						<span>订单号：</span>
-						<span class="order_num msg">${order.xgPhone?default('无')}</span>
-					</div>
-					<div class="second_row">
-						<span>日&nbsp;&nbsp;期：</span>
-						<span class="data msg">${order.downTime?default('无')}</span>
-					</div>
-					<div class="third_row">
-						<span>客官地址：</span>
-						<span>${order.address?default('无')}</span></div>
-					<div class="fifth_row">
-						<span>客官电话：</span>
-						<span class="tel msg">${order.userPhone?default('无')}</span>
-					</div>
-					<div class="sixth_row">
-						<span>维修项目：</span>
-						<span class="project msg">${order.repairName?default('无')}</span>
-					</div>
-					<div class="seventh_row">
-						<span>人工费金额：</span>
-						<span class="fix_cost msg">${order.cost?default('面议')}</span>
-					</div>
-					<div class="last_row">
-						<span>材料费金额：</span>
-						<span class="take_cost msg">${order.costMaterial?default('面议')}</span>
-					</div>
-				</div>
-				<div class="detail">
-					<div class="detail_title">维修明细</div>
-					<div class="detail_text msg"></div>
-					<div class="confirm"><span>客官确认：</span><span>${order.userName?default('无')}</span></div>
-				</div>
-				<div class="deal">
-					<h3>万能小哥服务协议</h3>
-					<p> 1. 本协议适用于北京万能小哥信息技术有限公司（以下简称万能小哥）利用自身研发的维修管理系统完成为客户推荐维修人员的服务项目。</p>
-					<p> 2. 客官通过微信平台或者400-6633-750电话向万能小哥预约维修服务。</p>
-					<p> 3. 客官签字即确认了解本次服务收费标准及万能小哥的最新政策，并依据收费标准和政策向万能小哥支付费用。</p>
-					<p> 4. 客官须根据万能小哥提供的小哥信息核实小哥工牌身份，如果未经身份核实使用小哥，所带来的纠纷或损害，万能小哥不承担责任及赔偿义务。</p>
-					<p> 5. 维修人员有权向委托方如实告知此次维修的问题和维修过程中的突发情况，如：零配件老化，零配件损坏等一系列问题，委托方可根据情况选择性进行维修。如因在维修过程中出现上述情况带来的纠纷或破坏，维修小哥不承担任何责任及赔偿，由委托方自行承担。</p>
-					<p> 6. 委托方在维修前检查室内的贵重财物并妥善保管，万能小哥严格要求维修人员不得接触维修以外的任何财物，如发生财物丢失情况请及时提出，维修人员会及时汇报万能小哥公司并报警，维修人员需配合警察进行调查。服务结束后委托方同意维修人员离开即确认本次服务过程中没有发生财物丢失情况。警方依法处理前，委托方不得以怀疑为理由进行语言攻击，人格侮辱及暴力手段的人身伤害行为。否则由此造成万能小哥及维修人员的损失，委托方需承担一切责任。</p>
-					<p> 7. 委托方没有通过万能小哥正规预约渠道进行预约，私下预约万能小哥的维修人员提供的服务，签订的协议无效。</p>
-					<p> 8. 委托方在维修完成72小时之内，如因维修服务后所产生的质量问题，可向万能小哥及维修人员提出售后维修申请，万能小哥及维修人员有义务为委托方提供免费的售后服务（最终解释权归万能小哥所有）。</p>
-					<div class="client">
-						<p class="trustee">委托方：${order.userName?default('无')}</p>
-						<div class="client_text msg" /><img src="${basePath}/images/seal.png" alt="" /></div>
-					<p class="trustee the_client">被委托方：北京万能小哥信息技术有限公司</p>
-				</div>
-			</div>
-				<li class="border_top"><input type="button" name="" id="" value="点击查看三联协议"  class="third_client"/></li>
+				<div class="sanlian" style="clear: both">
+    				<div class="logo">
+    					<div class="top">
+    						<img src="${basePath}/images/help_2.png" alt="" />
+    						<!--<span class="title">万能小哥</span>-->
+    					</div>
+    					<!--<span class="text">万能小哥 您身边的维修专家</span>-->
+    				</div>
+    				<p>万能小哥服务确认单</p>
+    				<div class="confirm_order">
+    					<div class="first_row">
+    						<span>小&nbsp;&nbsp;哥：</span>
+    						<span class="name msg">${order.xgName?default('无')}</span>
+    						<span>订单号：</span>
+    						<span class="order_num msg">${order.xgPhone?default('无')}</span>
+    					</div>
+    					<div class="second_row">
+    						<span>日&nbsp;&nbsp;期：</span>
+    						<span class="data msg">${order.downTime?default('无')}</span>
+    					</div>
+    					<div class="third_row">
+    						<span>客官地址：</span>
+    						<span>${order.address?default('无')}</span></div>
+    					<div class="fifth_row">
+    						<span>客官电话：</span>
+    						<span class="tel msg">${order.userPhone?default('无')}</span>
+    					</div>
+    					<div class="sixth_row">
+    						<span>维修项目：</span>
+    						<span class="project msg">${order.repairName?default('无')}</span>
+    					</div>
+    					<div class="seventh_row">
+    						<span>人工费金额：</span>
+    						<span class="fix_cost msg">${order.cost?default('面议')}</span>
+    					</div>
+    					<div class="last_row">
+    						<span>材料费金额：</span>
+    						<span class="take_cost msg">${order.costMaterial?default('面议')}</span>
+    					</div>
+    				</div>
+    				<div class="detail">
+    					<div class="detail_title">维修明细</div>
+    					<div class="detail_text msg"></div>
+    					<div class="confirm"><span>客官确认：</span><span>${order.userName?default('无')}</span></div>
+    				</div>
+    				<div class="deal">
+    					<h3>万能小哥服务协议</h3>
+    					<p> 1. 本协议适用于北京万能小哥信息技术有限公司（以下简称万能小哥）利用自身研发的维修管理系统完成为客户推荐维修人员的服务项目。</p>
+    					<p> 2. 客官通过微信平台或者400-6633-750电话向万能小哥预约维修服务。</p>
+    					<p> 3. 客官签字即确认了解本次服务收费标准及万能小哥的最新政策，并依据收费标准和政策向万能小哥支付费用。</p>
+    					<p> 4. 客官须根据万能小哥提供的小哥信息核实小哥工牌身份，如果未经身份核实使用小哥，所带来的纠纷或损害，万能小哥不承担责任及赔偿义务。</p>
+    					<p> 5. 维修人员有权向委托方如实告知此次维修的问题和维修过程中的突发情况，如：零配件老化，零配件损坏等一系列问题，委托方可根据情况选择性进行维修。如因在维修过程中出现上述情况带来的纠纷或破坏，维修小哥不承担任何责任及赔偿，由委托方自行承担。</p>
+    					<p> 6. 委托方在维修前检查室内的贵重财物并妥善保管，万能小哥严格要求维修人员不得接触维修以外的任何财物，如发生财物丢失情况请及时提出，维修人员会及时汇报万能小哥公司并报警，维修人员需配合警察进行调查。服务结束后委托方同意维修人员离开即确认本次服务过程中没有发生财物丢失情况。警方依法处理前，委托方不得以怀疑为理由进行语言攻击，人格侮辱及暴力手段的人身伤害行为。否则由此造成万能小哥及维修人员的损失，委托方需承担一切责任。</p>
+    					<p> 7. 委托方没有通过万能小哥正规预约渠道进行预约，私下预约万能小哥的维修人员提供的服务，签订的协议无效。</p>
+    					<p> 8. 委托方在维修完成72小时之内，如因维修服务后所产生的质量问题，可向万能小哥及维修人员提出售后维修申请，万能小哥及维修人员有义务为委托方提供免费的售后服务（最终解释权归万能小哥所有）。</p>
+    					<div class="client">
+    						<p class="trustee">委托方：${order.userName?default('无')}</p>
+    						<div class="client_text msg" /><img src="${basePath}/images/seal.png" alt="" /></div>
+    					<p class="trustee the_client">被委托方：北京万能小哥信息技术有限公司</p>
+    				</div>
+    			</div>
+				<li class="border_top" style="clear: both"><input type="button" name="" id="" value="点击查看三联协议"  class="third_client"/></li>
 			</ul>
 			
 		</div>

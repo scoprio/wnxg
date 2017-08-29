@@ -286,8 +286,7 @@
 			</div>
 		</div>
 		<div class="qyd_foot border_top"><input type="button" value="立即购买" class="submit_btn"/></div>
-		<script src="js/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
-		<script src="js/qyd_detail.js" type="text/javascript" charset="utf-8"></script>
+		<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 
 			$(function() {
@@ -301,6 +300,12 @@
                     }
 
                 });
+
+                $('.qyd_title li').click(function(){
+                    $(this).find('a').addClass('change_color').parents().siblings().find('a').removeClass('change_color');
+                    $('.qyd_content .content_right').eq($(this).index()).show().siblings().hide();
+                })
+
 				$('.refundment').click(function() {
 						$('.refundment_bg').show()
 				})

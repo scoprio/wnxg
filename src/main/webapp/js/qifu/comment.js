@@ -1,9 +1,9 @@
 $(function() {
 	$(".stars img").click(function() {
-		$(".stars img").attr("src", "img/content_icon_default_xing.png");
+		$(".stars img").attr("src", "/images/content_icon_default_xing.png");
 		var n = $(this).index();
 		for(var i = 0; i <= n; i++) {
-			$(".stars img").eq(i).attr("src", "img/content_icon_xing.png");
+			$(".stars img").eq(i).attr("src", "/images/content_icon_xing.png");
 		}
 		var m = n + 1;
 		$("#eva").html(m + "星");
@@ -14,18 +14,18 @@ $(function() {
 		} else if(m == 5) {
 			document.getElementById("grade").value = 3;
 		}
-		$("#service_eva").addClass("show");
-		$("#sharp").css("display", "block");
+		// $("#service_eva").addClass("show");
+		// $("#sharp").css("display", "block");
 		
 //		$("textarea").removeAttr("readonly");
 	})
 	var eva = ["差", "一般", "好", "很好", "非常好"];
 	//服务质量
 	$(".service img").click(function() {
-		$(".service img").attr("src", "img/content_icon_default_xiaolian.png");
+		$(".service img").attr("src", "/images/content_icon_default_xiaolian.png");
 		var n = $(this).index();
 		for(var i = 0; i <= n; i++) {
-			$(".service img").eq(i).attr("src", "img/content_icon_pressed_xiaolian.png");
+			$(".service img").eq(i).attr("src", "/images/content_icon_pressed_xiaolian.png");
 		}
 		$(this).parent().next().html(eva[n]);
 		document.getElementById("fwzl").value = eva[n];
@@ -33,10 +33,10 @@ $(function() {
 	})
 	//服务速度
 	$(".speed img").click(function() {
-		$(".speed img").attr("src", "img/content_icon_default_xiaolian.png");
+		$(".speed img").attr("src", "/images/content_icon_default_xiaolian.png");
 		var n = $(this).index();
 		for(var i = 0; i <= n; i++) {
-			$(".speed img").eq(i).attr("src", "img/content_icon_pressed_xiaolian.png");
+			$(".speed img").eq(i).attr("src", "/images/content_icon_pressed_xiaolian.png");
 		}
 		$(this).parent().next().html(eva[n]);
 		document.getElementById("fwsd").value = eva[n];
@@ -44,10 +44,10 @@ $(function() {
 	})
 	//服务态度
 	$(".manner img").click(function() {
-		$(".manner img").attr("src", "img/content_icon_default_xiaolian.png");
+		$(".manner img").attr("src", "/images/content_icon_default_xiaolian.png");
 		var n = $(this).index();
 		for(var i = 0; i <= n; i++) {
-			$(".manner img").eq(i).attr("src", "img/content_icon_pressed_xiaolian.png");
+			$(".manner img").eq(i).attr("src", "/images/content_icon_pressed_xiaolian.png");
 		}
 		$(this).parent().next().html(eva[n]);
 		document.getElementById("fwtd").value = eva[n];
@@ -73,22 +73,13 @@ $(function() {
 	
 	    function check(){
 	        var grade = document.getElementById("grade").value;
-	        var fwzl = document.getElementById("fwzl").value;
-	        var fwsd = document.getElementById("fwsd").value;
-	        var fwtd = document.getElementById("fwtd").value;
+	        // var fwzl = document.getElementById("fwzl").value;
+	        // var fwsd = document.getElementById("fwsd").value;
+	        // var fwtd = document.getElementById("fwtd").value;
 	        var msg = $('#msg').val().trim(); 
 	        if(grade == ''){
 	            alert('请选择总体评价的星级');
 	            return false;
-	        }else if(fwzl == ''){
-	            alert('请选择服务质量星级');
-	            return false;
-	        }else if(fwsd == ''){
-	            alert('请选择服务速度星级');
-	            return false;     
-	        }else if(fwtd == ''){
-	            alert('请选择服务态度星级');
-	            return false; 
 	        }else if(msg == ''){
 	            alert('请输入评价信息');
 	            return false;        
@@ -96,6 +87,9 @@ $(function() {
 	        else{
 	        	return true;
 	        }
+
+
+			
 	    };
 	$('#last input').click(function(){
 		var s = check()

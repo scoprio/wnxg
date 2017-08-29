@@ -62,6 +62,16 @@ public class QFResource {
         return new ModelAndView("dingding/confirm_buy","qf",dto);
     }
 
+    @RequestMapping(value="comment",method=RequestMethod.GET)
+    public ModelAndView getComment(){
+
+//        QFRecordDTO dto  = new QFRecordDTO();
+//        dto.setConfig(ConfigGetter.getConfig(request));
+//        dto.setCityCode(request.getParameter("cityCode"));
+//        dto.setAlipayInfo(AlipayInfoGetter.getAlipayInfo());
+        return new ModelAndView("dingding/comment");
+    }
+
 
     @RequestMapping(value = "/qf/order.shtml",
             method = RequestMethod.POST,
@@ -108,18 +118,6 @@ public class QFResource {
         return new ModelAndView("dingding/my_QF","qifuInfo",qfRecordDetailDTO);
     }
 
-    @RequestMapping(value="reservation",method=RequestMethod.GET)
-    public ModelAndView getReservation(HttpServletRequest request){
-        ReservationTimeDTO reservationTimeDTO = new ReservationTimeDTO();
-        String recordId = request.getParameter("recordId");
-        try {
-            reservationTimeDTO.setUsefulTime(JSONArray.fromObject(timeService.getUsefulTime()).toString());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        reservationTimeDTO.setRecordId(recordId);
-        return new ModelAndView("dingding/reservation","reservation",reservationTimeDTO);
-    }
 
 
     @RequestMapping(value = "/qf/repair.shtml",

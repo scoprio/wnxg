@@ -208,10 +208,5 @@ public class MyResource {
         return new ResponseEntity(resultMap,HttpStatus.OK);
     }
 
-    public static void main(String[] args){
-        String a = "11";
-        String b = StringUtils.leftPad(a,5,'0');
-        System.out.print(b);
-    }
 
 }

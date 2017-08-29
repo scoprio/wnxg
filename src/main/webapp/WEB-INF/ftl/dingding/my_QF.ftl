@@ -102,8 +102,8 @@
 
 			if(qifuInfo.repairList?size == 10){
                 layer_tip("亲，你本月的万能企业盾维修次数已用完。如有维修需求，请单独下单!",function () {
-                    alert(111);
-                    $("footer input").css("background","#ccc")
+                    $("footer input").css("background","#ccc");
+                    $("footer input").attr("disabled",true)
                 })
 			}
         })

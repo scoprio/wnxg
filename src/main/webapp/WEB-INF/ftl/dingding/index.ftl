@@ -61,9 +61,8 @@
 
 
     <div class="choose_city">
-        <a href="" class="person_center"></a>
-
         <a href="javascript:void(0);" class="city_current" id="citychoose" >北京</a>
+        <a href="" class="person_center"></a>
     </div>
     <div class="banner"><a class="zhifudiaoyong"><img src="/images/banner.png"/></a></div>
     <div class="tab">

@@ -271,9 +271,9 @@
                                dataType:"json",
                                success: function(result){
                                    if(result && result.status== 200){
-                                       alert(result.message);
-
-                                       location.href = "${basePath}/ulb/my_qifu/${reservation.recordId}.shtml";
+                                       layer_tip(result.message,function () {
+                                           location.href = "${basePath}/ulb/my_qifu/${reservation.recordId}.shtml";
+                                       });
                                    }else{
 
                                    }

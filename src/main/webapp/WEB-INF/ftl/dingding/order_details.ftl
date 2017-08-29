@@ -11,10 +11,7 @@
 
 	<body>
 		<!--小哥信息-->
-        <div class="order_code">
-            <p>订单编号：${order.onum?default("无")}</p >
-            <input type="button" value="取消订单" onclick="cancelOrder(${order.oid?default('0')})" style="display: ${order.display?default('none')}"/>
-        </div>
+
 
 		<div class="xg_details border_bottom" style="display: ${order.xgDisplay?default('block')}">
 			<div class="xg_head"><img src="${basePath}/images/xg1.png" /></div>
@@ -41,6 +38,7 @@
 		<div class="order_detail">
 			<p class="border_top border_bottom">订单详情</p>
 			<ul>
+                <li><i>订单编号</i><span>${order.onum?default("无")}</span></li>
 				<li><i>预约时间</i><span>${order.yuyueTime}</span></li>
 				<li><i>服务类别</i><span>${order.repairName}</span></li>
 				<li><i>问题描述</i><span>${order.remark}</span></li>
@@ -51,6 +49,10 @@
 				<li><i>材料费</i><span>${order.costMaterial?default('面议')}</span></li>
 				<li><i>附加费</i><span>${order.surcharge?default('面议')}</span></li>
 				<li><i>下单时间</i><span>${order.downTime}</span></li>
+
+                <div class="order_code">
+                    <input type="button" value="取消订单" onclick="cancelOrder(${order.oid?default('0')})" style="display: ${order.display?default('none')}"/>
+                </div>
 				
 				<!--三联协议-->
 				<div class="sanlian">
@@ -114,7 +116,6 @@
 					<p class="trustee the_client">被委托方：北京万能小哥信息技术有限公司</p>
 				</div>
 			</div>
-		</div>
 				<li class="border_top"><input type="button" name="" id="" value="点击查看三联协议"  class="third_client"/></li>
 			</ul>
 			

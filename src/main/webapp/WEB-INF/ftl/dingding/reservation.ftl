@@ -37,7 +37,7 @@
 					</p>
 				</div>
 				<div class="ms_msg">
-					<textarea name="" rows="" cols="" placeholder="请将您需要维修的具体情况描述在此" maxlength="200"></textarea>
+					<textarea name="" rows="" cols="" placeholder="您可以将您需要维修的具体情况描述在此处。可以让小哥更好的为您提供服务。" maxlength="200"></textarea>
 					<p class="gptu" style="position: absolute; bottom: 0;right: .28rem; color: #929292;">
 						<var style="color: #929292;font-style: normal;">--</var>/200
 					</p>

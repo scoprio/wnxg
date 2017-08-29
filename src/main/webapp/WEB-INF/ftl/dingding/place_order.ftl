@@ -336,7 +336,7 @@
 				<li class="contact_wayli"><span>称呼</span><input type="text" id="username" value="" autocomplete="off" oninput="Iscomplete()" /></li>
 				<li class="contact_wayli"><span>联系电话</span><input type="tel" name="" id="telephone" value="" autocomplete="off" oninput="Iscomplete()"/></li>
 				<li class="problem_desc contact_wayli"><span>请输入问题描述</span>
-					<textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="3" cols="" placeholder="请输入问题描述"
+					<textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="3" cols="" placeholder="您可以将您需要维修的具体情况描述在此处。可以让小哥更好的为您提供服务。"
                               id = "desc" autocomplete="off" oninput="Iscomplete()"></textarea>
 				</li>
 				<!--dom结构部分    图片上传-->

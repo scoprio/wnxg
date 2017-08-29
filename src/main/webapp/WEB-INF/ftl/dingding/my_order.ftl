@@ -98,7 +98,7 @@
                                    })
 
                                }else{
-                                   layer_tip(result.message);
+                                   alert(result.message);
                                }
                            },
                            error: function(result){
@@ -125,7 +125,7 @@
 					order.repairName = '${order.repairName?default('未设置')}';
                     order.statusName = '${order.statusName?default('未设置')}';
                     order.cityCode = '${order.cityCode?default('未设置')}';
-                    order.onum = '${order.onum?default('未设置')}';
+
                 	array1.push(order)
 					console.log(array1);
 				}
@@ -163,7 +163,7 @@
                 var order_url = "${basePath}/ulb/sku/order/";
                 if(array1.length>0){
                     array1.forEach(function(item,i){
-                        result_undo += '<li><p class="order_p1">订单编号：<span>'+item.onum+'</span><i>'+item.statusName+'</i></p >'+
+                        result_undo += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>'+item.statusName+'</i></p >'+
                                        '<div class="order_box border_bottom border_top">'+
                                        '<a href="'+ order_url + item.oid + '/' +item.cityCode +'.shtml">'+
                                        '<div class="pdiv">'+
@@ -189,7 +189,7 @@
                 var result_done = '';
                 if(array2.length>0){
                     array2.forEach(function(item,i){
-                        result_done += '<li><p class="order_p1">订单编号：<span>'+item.onum+'</span><i>'+item.statusName+'</i></p >'+
+                        result_done += '<li><p class="order_p1">订单编号：<span>'+item.oid+'</span><i>'+item.statusName+'</i></p >'+
                                        '<div class="order_box border_bottom border_top">'+
                                        '<a href="'+ order_url + item.oid + '/' +item.cityCode +'.shtml">'+
                                        '<div class="pdiv">'+

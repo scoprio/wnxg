@@ -123,6 +123,7 @@
             $('.affirmbtn').click(function(event){
                 event.stopPropagation();
                 var index = 0;
+                var index_time = 0;
                 var val_data = '';
                 date_order ='';
                 var flag = 0
@@ -152,6 +153,9 @@
                                              }, 400, function() {
                         $('.datebox').fadeOut();
                     })
+
+                    $(".enter_in").attr('data-day-code',index);
+                    $(".enter_in").attr('data-time-code',index_time);
                     Iscomplete();
                 }
 
@@ -160,11 +164,20 @@
 
 
             $(".enter_in").click(function() {
+                fill_date();
+                var dataset = event.currentTarget.dataset;
+                var data_day_code = dataset.dayCode;
+                var data_time_code = dataset.timeCode;
+                $('.fright>li').eq(data_day_code).show();
+                $('.fright>li').eq(data_day_code).siblings('li').hide();
+                $('.fleft>li').eq(data_day_code).addClass('add_bgcolor');
+                $('.fleft>li').eq(data_day_code).siblings('li').removeClass('add_bgcolor');
+                $('.fright>li').eq(data_day_code).find('span').removeClass('add_bgcolor');
+                $('.fright>li').eq(data_day_code).find('span').eq(data_time_code).addClass('add_bgcolor');
                 $('.datebox').fadeIn()
                 $(".choosedate").animate({
                      "bottom": "0"
                  }, 400);
-                fill_date();
             })
 
             var province = "";
@@ -330,7 +343,7 @@
 				</div>
 			</div>
 			<ul class="contact_way border_bottom">
-				<li class="contact_wayli enter enter_in"><span>请选择服务时间</span><input type="text" name="" id="date" value="" readonly="readonly" onchange="Iscomplete()"/></li>
+				<li class="contact_wayli enter enter_in" data-day-code="0" data-time-code="0"><span>请选择服务时间</span><input type="text" name="" id="date" value="" readonly="readonly" onchange="Iscomplete()"/></li>
 				<li class="contact_wayli enter enter_position"><span>位置</span><input type="text" name="" id="site" value="" readonly="readonly" autocomplete="off" oninput="Iscomplete()"/></li>
 				<li class="contact_wayli"><span>详细地址</span><textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="1" cols="40" placeholder="请输入具体门牌号" id="addr" autocomplete="off" oninput="Iscomplete()"></textarea></li>
 				<li class="contact_wayli"><span>称呼</span><input type="text" id="username" value="" autocomplete="off" oninput="Iscomplete()" /></li>
@@ -451,7 +464,7 @@
 
                     <p class="title">十四、其他</p>
                     <p class="last_p">用户签署或点击"同意并继续"按钮即视为用户完全接受本协议，在点击之前请用户再次确认已知悉并完全理解本协议的全部内容。</p>
-                    <input type="button" value="同意并继续" class="close_agree">
+                    <div class="close_agree_wrap"><input type="button" value="同意并继续" class="close_agree"></div>
                 </div>
             </div>
         </div>

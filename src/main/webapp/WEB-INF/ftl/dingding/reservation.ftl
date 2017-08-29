@@ -31,7 +31,7 @@
 						<input type="hidden" name="bank_id" id="bankId5" value="">
 						<input id="showBank5" class="please_select" placeholder="请选择" readonly="readonly">
 					</p> -->
-					<p class="load_time">
+					<p class="load_time" data-day-code="0" data-time-code="0">
 						<span>预约时间</span>
 						<input type="text" name="" id="" value="" readonly="readonly" class="make_time"/>
 					</p>
@@ -176,6 +176,7 @@
             $('.affirmbtn').click(function(event){
                 event.stopPropagation();
                 var index = 0;
+                var index_time = 0;
                 var val_data = '';
                 date_order ='';
                 var flag = 0
@@ -205,6 +206,8 @@
                                              }, 400, function() {
                         $('.datebox').fadeOut();
                     })
+                    $('.load_time').attr('data-day-code',index);
+                    $('.load_time').attr('data-time-code',index_time);
                     Isfill2()
                 }
                 else{
@@ -212,12 +215,21 @@
                 }
 
             })
-            $(".load_time").click(function() {
+            $(".load_time").click(function(event) {
+                fill_date();
+                var dataset = event.currentTarget.dataset;
+                var data_day_code = dataset.dayCode;
+                var data_time_code = dataset.timeCode;
+                $('.fright>li').eq(data_day_code).show();
+                $('.fright>li').eq(data_day_code).siblings('li').hide();
+                $('.fleft>li').eq(data_day_code).addClass('add_bgcolor');
+                $('.fleft>li').eq(data_day_code).siblings('li').removeClass('add_bgcolor');
+                $('.fright>li').eq(data_day_code).find('span').removeClass('add_bgcolor');
+                $('.fright>li').eq(data_day_code).find('span').eq(data_time_code).addClass('add_bgcolor');
                 $('.datebox').fadeIn()
                 $(".choosedate").animate({
                                              "bottom": "0"
                                          }, 400);
-                fill_date();
             })
             $(".cancelbtn").click(function(event) {
                 event.stopPropagation();

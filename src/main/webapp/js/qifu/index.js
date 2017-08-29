@@ -79,13 +79,13 @@ $(function(){
         console.log(current_city_code +":"+current_city);
         $('.choose_city .city_current').text(current_city);
         $('body,html').scrollTop(0);
-        $('.city-wrap').stop(true).animate({left:'100%'},400,function(){
+        $('.city-wrap').stop(true).animate({left:'-100%'},400,function(){
            $('.city-wrap').hide()
         })
     })
     $('.city-wrap .back').click(function(){
         $('body,html').scrollTop(0);
-        $('.city-wrap').stop(true).animate({left:'100%'},400,function(){
+        $('.city-wrap').stop(true).animate({left:'-100%'},400,function(){
            $('.city-wrap').hide()
         })
     })

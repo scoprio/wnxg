@@ -90,13 +90,13 @@
         $(function() {
 			$(".btn_subscribe").click(function() {
                 if('${qifuInfo.info.state}' == '0') {
-                    alert("您的企业盾待支付!");
+                    layer_tip("您的企业盾待支付!");
                 }else if('${qifuInfo.info.state}' == '1'){
-					alert("您的企业盾支付成功,未生效，待巡检后生效")
+                    layer_tip("您的企业盾支付成功,未生效，待巡检后生效")
                 }else if('${qifuInfo.info.state}' == '4'){
                     location.href = "${basePath}/ulb/reservation.shtml?recordId=${qifuInfo.info.serivce_id}";
                 }else{
-                    alert("您的企业盾已失效")
+                    layer_tip("您的企业盾已失效")
 				}
             })
 			if(${qifuInfo.repairList?size} == '10'){

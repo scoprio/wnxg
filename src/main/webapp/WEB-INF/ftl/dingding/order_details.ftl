@@ -139,17 +139,8 @@
                                    layer_tip(result.message,function () {
                                        location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml";
                                    })
-                                   <#--dd.device.notification.alert({-->
-										<#--message: "取消成功",-->
-										<#--title: "",//可传空-->
-										<#--buttonName: "确定",-->
-										<#--onSuccess : function() {-->
-											<#--location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml";-->
-										<#--},-->
-										<#--onFail : function(err) {}-->
-									<#--});-->
                                }else{
-                                   alert(result.message);
+                                   layer_tip(result.message);
                                }
                            },
                            error: function(result){

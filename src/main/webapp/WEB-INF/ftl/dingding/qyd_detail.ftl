@@ -9,6 +9,7 @@
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/qyd_detail.css" />
         <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
         <script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/qifu/common.js" type="text/javascript" charset="utf-8"></script>
 
         <script type="text/javascript">
             $(function() {
@@ -17,7 +18,7 @@
 					if('${qydInfo.isAdmin}' == 'true'){
 						location.href = "${basePath}/ulb/qf.shtml?corpid=${qydInfo.corpId}&appid=3919&cityCode=${qydInfo.cityCode}";
 					}else{
-                        alert("联系管理员开通");
+                        layer_tip("联系管理员开通");
 					}
 
 				});

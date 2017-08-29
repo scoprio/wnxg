@@ -74,7 +74,7 @@
 						var reg = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
 						if(!reg.test(email_yz)) {
 							$(this).val('')
-							alert("请输入正确的邮箱")
+                            layer_tip("请输入正确的邮箱")
 						} else {
 							console.log(1111)
 						}
@@ -105,14 +105,14 @@
 								   }
 							   },
 							   error: function () {
-								   alert("An error has occured!!!");
+                                   layer_tip("An error has occured!!!");
 							   }
 
 							 })
 
 						}
 						else{
-							alert('请完善信息')
+                            layer_tip('请完善信息')
 						}
 					})
 

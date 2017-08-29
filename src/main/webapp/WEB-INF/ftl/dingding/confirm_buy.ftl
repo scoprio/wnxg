@@ -95,11 +95,11 @@
                                             onFail : function(err) {}
                                         });
 								   }else{
-                                       alert(result.message);
+                                       layer_tip(result.message);
                                    }
                                },
                                error: function(result){
-                                   alert(result.message);
+                                   layer_tip(result.message);
                                    console.log(result);
                                }
                            });

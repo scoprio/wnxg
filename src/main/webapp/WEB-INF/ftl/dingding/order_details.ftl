@@ -50,8 +50,8 @@
 				<li><i>附加费</i><span>${order.surcharge?default('面议')}</span></li>
 				<li><i>下单时间</i><span>${order.downTime}</span></li>
 
-                <div class="order_code">
-                    <input type="button" value="取消订单" onclick="cancelOrder(${order.oid?default('0')})" style="display: ${order.display?default('none')}"/>
+                <div class="order_code" style="display: ${order.display?default('none')}">
+                    <input type="button" value="取消订单" onclick="cancelOrder(${order.oid?default('0')})" />
                 </div>
 				
 				<!--三联协议-->
@@ -125,6 +125,7 @@
         <script src="${basePath}/js/qifu/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
             function cancelOrder(orderId){
+
                 var skuOrder = {
                     "id":orderId,
 					"cityCode":localStorage.current_city_code,

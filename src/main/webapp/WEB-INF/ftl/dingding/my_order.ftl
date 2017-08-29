@@ -6,7 +6,9 @@
 		<title>我的订单</title>
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css"/>
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/my_order.css"/>
-	</head>
+        <script src="${basePath}/js/qifu/common.js" type="text/javascript" charset="utf-8"></script>
+
+    </head>
 	<body>
 		<ul class="order_title">
 			<li><a href="javascript:;">全部</a><span class="span_bg"></span></li>
@@ -98,7 +100,7 @@
                                    })
 
                                }else{
-                                   alert(result.message);
+                                   layer_tip(result.message);
                                }
                            },
                            error: function(result){

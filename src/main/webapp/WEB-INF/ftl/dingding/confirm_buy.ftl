@@ -163,7 +163,7 @@
     <div class="xieyi">
         <div class="agreement_sec">
             <header class="agreement_head">
-                <p>万能小哥企业服务协议书 <span class="close_agree">关闭</span></p>
+                <p>万能小哥企业服务协议书</p>
             </header>
             <div class="agreement_content">
                 <p class="last_p">本协议是用户与万能小哥B2B维修平台（简称"本站"，官网地址：www.wannengxiaoge.com）所有者北京万能小哥信息技术有限公司之间就本站服务等相关事宜所订立的契约，请用户仔细阅读本协议，用户签署或点击"同意并继续"按钮后，本协议即构成对双方有约束力的法律文件。</p>

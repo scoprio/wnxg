@@ -25,6 +25,7 @@ import com.ulb.web.dto.SKURecordDTO;
 import com.ulb.web.util.ConfigGetter;
 import com.ulb.web.util.StatueUtil;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
@@ -134,7 +135,7 @@ public class UlbSKUResource {
                 orderDetailDTO.setDisplay("none");
             }
 
-            if(orderDetailDTO.getPid() == 1){
+            if(StringUtils.isEmpty(orderDetailDTO.getXgName()) || StringUtils.isEmpty(orderDetailDTO.getXgPhone())){
                 orderDetailDTO.setXgDisplay("none");
             }else{
                 orderDetailDTO.setXgDisplay("block");

@@ -192,6 +192,7 @@
                     if($(item).hasClass('add_bgcolor')){
                         val_data += ' '+$(item).text();
                         date_order += ' '+$(item).text();
+                        index_time = i;
                         flag = 1;
                         return false;
                     }

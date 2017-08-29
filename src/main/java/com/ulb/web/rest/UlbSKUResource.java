@@ -135,8 +135,15 @@ public class UlbSKUResource {
                 orderDetailDTO.setDisplay("none");
             }
 
+            if(orderDetailDTO.getPid() == 7|| orderDetailDTO.getPid() ==8){
+                orderDetailDTO.setSlDisplay("block");
+            }else{
+                orderDetailDTO.setSlDisplay("none");
+            }
+
             if(StringUtils.isEmpty(orderDetailDTO.getXgName()) || StringUtils.isEmpty(orderDetailDTO.getXgPhone())){
                 orderDetailDTO.setXgDisplay("none");
+
             }else{
                 orderDetailDTO.setXgDisplay("block");
             }

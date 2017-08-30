@@ -12,7 +12,7 @@ public class StatueUtil {
 
     private StatueUtil(){
         statueMap.put("1","已下单，系统派单中");
-        statueMap.put("2","小哥接单、等待小哥电话沟通");
+        statueMap.put("2","已接单，请注意接听电话");
         statueMap.put("3","沟通顺利，等待小哥上门");
         statueMap.put("4","小哥已出发，上门中");
         statueMap.put("5","维修进行中");

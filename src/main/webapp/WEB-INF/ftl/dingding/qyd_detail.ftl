@@ -17,7 +17,7 @@
 					<a href="javascript:;" class="change_color">服务详情</a>
 				</li>
 				<li>
-					<a href="javascript:;">评论（<span>2</span>）</a>
+					<a href="javascript:;">评论（<span>${qydInfo.list?size}</span>）</a>
 				</li>
 			</ul>
 			<ul class="qyd_content">
@@ -242,10 +242,12 @@
 					</div>-->
 					<!-- 有评论的时候显示的内容-->
 					<ul class="pl_box">
+					<#if qydInfo.list?exists && qydInfo.list?size gt 0 >
+						<#list qydInfo.list as qydComment>
 						<li class="pl_list">
-							<div class="pl_left"><img src="${basePath}/images/logo1.png" /></div>
+							<#--<div class="pl_left"><img src="${basePath}/images/logo1.png" /></div>-->
 							<div class="pl_right">
-								<p><span>河北万杰超修信息科技有限公司</span><span>2017-05-06</span></p>
+								<p><span>${qydComment.companyName?default("无")}</span><span>${qydComment.createDate?default("无")}</span></p>
 								<ul class="star">
 									<li></li>
 									<li></li>
@@ -254,29 +256,19 @@
 									<li></li>
 									<span>非常好</span>
 								</ul>
-								<p>维修师傅速度很快，很负责，很完美！维修师傅速度很快，很负责，很完美！维修师傅速度很快，很负责，很完美！</p>
+								<p>${qydComment.content?default("无")}</p>
 							</div>
 						</li>
-						<li class="pl_list">
-							<div class="pl_left"><img src="${basePath}/images/logo2.png" /></div>
-							<div class="pl_right">
-								<p><span>河北万杰超修信息科技有限公司</span><span>2017-05-06</span></p>
-								<ul class="star">
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<span>非常好</span>
-								</ul>
-								<p>维修师傅速度很快，很负责，很完美！</p>
-							</div>
-						</li>
+						</#list>
+					<#else>
+					</#if>
 					</ul>
 				</li>
 			</ul>
 		</div>
 		<div class="refundment_bg">
 			<div class="refundment_box">
+				<i></i>
 				<h2>退款说明</h2>
 				<p>1. 巡检开始前，会有小哥提前联系上门时间，上门前如需退款，可以全额退款；</p>
 				<p>2. 小哥上门后，巡检开始前，如需退款，需要扣除50元上门费后退款；</p>
@@ -312,6 +304,9 @@
 				$('.refundment_bg').click(function(){
 					$(this).hide()
 				})
+                $('.refundment_box>i').click(function(){
+                    $('.refundment_bg').hide()
+                })
 			})
 		</script>
 	</body>

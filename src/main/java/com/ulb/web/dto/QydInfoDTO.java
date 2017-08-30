@@ -1,6 +1,8 @@
 package com.ulb.web.dto;
 
 
+import java.util.List;
+
 /**
  * Created by wangpeng on 25/07/2017.
  */
@@ -11,6 +13,8 @@ public class QydInfoDTO {
     private String corpId;
 
     private String cityCode;
+
+    private List<Comment2InfoDTO> list;
 
     public String getIsAdmin() {
         return isAdmin;
@@ -34,5 +38,13 @@ public class QydInfoDTO {
 
     public void setCityCode(String cityCode) {
         this.cityCode = cityCode;
+    }
+
+    public List<Comment2InfoDTO> getList() {
+        return list;
+    }
+
+    public void setList(List<Comment2InfoDTO> list) {
+        this.list = list;
     }
 }

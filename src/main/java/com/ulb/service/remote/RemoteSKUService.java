@@ -3,6 +3,8 @@ package com.ulb.service.remote;
 
 import java.util.List;
 
+import com.ulb.web.dto.Comment2DTO;
+import com.ulb.web.dto.CommentDTO;
 import com.ulb.web.dto.OperaterOrderDTO;
 import com.ulb.web.dto.OrderDetailDTO;
 import com.ulb.web.dto.ResultDTO;
@@ -44,4 +46,9 @@ public interface RemoteSKUService {
     @Headers({"Content-type:application/json;charset=UTF-8"})
     @PUT("/WNXG/ulb/api/new_enter_prise_my_company/order/{orderId}")
     Call<ResultDTO> updateOrder(@Path("orderId")String orderId,@Body OperaterOrderDTO operaterOrderDTO);
+
+
+    @Headers({"Content-type:application/json;charset=UTF-8"})
+    @POST("/WNXG/ulb/api/new_enter_prise/skuComment")
+    Call<ResultDTO> comment(@Body CommentDTO commentDTO);
 }

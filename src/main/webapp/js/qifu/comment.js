@@ -7,13 +7,14 @@ $(function() {
 		}
 		var m = n + 1;
 		$("#eva").html(m + "星");
-		if(m == 1) {
-			document.getElementById("grade").value = 1;
-		} else if(m == 2 || m == 3 || m == 4) {
-			document.getElementById("grade").value = 2;
-		} else if(m == 5) {
-			document.getElementById("grade").value = 3;
-		}
+		$("#grade").val(m);
+		// if(m == 1) {
+		// 	document.getElementById("grade").value = 1;
+		// } else if(m == 2 || m == 3 || m == 4) {
+		// 	document.getElementById("grade").value = 2;
+		// } else if(m == 5) {
+		// 	document.getElementById("grade").value = 3;
+		// }
 		// $("#service_eva").addClass("show");
 		// $("#sharp").css("display", "block");
 		
@@ -92,7 +93,67 @@ $(function() {
 			
 	    };
 	$('#last input').click(function(){
-		var s = check()
-		console.log(s)
+		if(check()){
+
+			if($('#orderId').val()){
+				var comment = {
+					"oid": $('#orderId').val(),
+					"grade" : $("#grade").val(),
+					"remark":$("#msg").val(),
+					"cityCode":localStorage.current_city_code
+				}
+
+
+				$.ajax({
+				   url:"/ulb/sku/comment.shtml",
+				   type:"POST",
+				   data:JSON.stringify(comment),
+				   contentType:"application/json; charset=utf-8",
+				   dataType:"json",
+				   success: function(result){
+					   if(result && result.status== 200){
+						   layer_tip(result.message,function () {
+							   location.href = "/ulb/sku/order/"+$('#orderId').val() +"/"+localStorage.current_city_code+".shtml";
+						   });
+					   }else{
+
+					   }
+				   },
+				   error: function(result){
+
+				   }
+			   })
+			}else{
+				var comment = {
+					"companyCode": localStorage.corpId,
+					"grade" : $("#grade").val(),
+					"content":$("#msg").val(),
+					"serviceId":2
+				}
+
+
+				$.ajax({
+						   url:"/ulb/qf/comment.shtml",
+						   type:"POST",
+						   data:JSON.stringify(comment),
+						   contentType:"application/json; charset=utf-8",
+						   dataType:"json",
+						   success: function(result){
+							   if(result && result.status== 200){
+								   layer_tip(result.message,function () {
+									   location.href = "/dingding/qyd.shtml?corpid="+localStorage.corpId +"&isAdmin=true&cityCode="+localStorage.current_city_code;
+								   });
+							   }else{
+
+							   }
+						   },
+						   error: function(result){
+
+						   }
+					   })
+			}
+
+		}
+
 	})
 })

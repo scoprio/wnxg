@@ -2,6 +2,11 @@ package com.ulb.service.remote;
 
 
 
+import java.util.List;
+
+import com.ulb.web.dto.Comment2DTO;
+import com.ulb.web.dto.Comment2InfoDTO;
+import com.ulb.web.dto.OrderRecordDTO;
 import com.ulb.web.dto.QFOrderRecordDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
 import com.ulb.web.dto.QFRepairPostDTO;
@@ -33,9 +38,17 @@ public interface RemoteQFService {
     @POST("/WNXG/ulb/api/new_enter_prise_my_company/addedOrder")
     Call<ResultDTO> postRepair(@Body QFRepairPostDTO qfRepairPostDTO);
 
+
+    @Headers({"Content-type:application/json;charset=UTF-8"})
+    @POST("/WNXG/ulb/api/new_enter_prise_my_company/companyComment")
+    Call<ResultDTO> comment(@Body Comment2DTO comment2DTO);
+
 //    @GET("/WNXG/ulb/api/new_enter_prise_my_order/repairDetails/{userID}")
 //    Call<List<SKURecordDTO>> getSKUOrderRecord(@Path("userId") String userId);
 //
 //    @GET("/WNXG/ulb/api/new_enter_prise/usefulTime")
 //    Call<List<UsefulTimeDTO>> getUsefulTime();
+
+    @GET("/WNXG/ulb/api/new_enter_prise_my_company/orderList/{serviceId}")
+    Call<List<Comment2InfoDTO>> getComments(@Path("serviceId") String serviceId);
 }

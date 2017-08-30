@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ulb.service.generator.APIServiceGenrator;
+import com.ulb.service.remote.RemoteQFService;
 import com.ulb.service.remote.RemoteSKUService;
+import com.ulb.web.dto.Comment2DTO;
+import com.ulb.web.dto.CommentDTO;
 import com.ulb.web.dto.OperaterOrderDTO;
 import com.ulb.web.dto.OrderDetailDTO;
 import com.ulb.web.dto.ResultDTO;
@@ -56,4 +59,11 @@ public class SKUService {
         return response.body();
     }
 
+
+    public ResultDTO comment(CommentDTO commentDTO) throws IOException {
+        RemoteSKUService service = APIServiceGenrator.createRequsetService(RemoteSKUService.class);
+        Call<ResultDTO> call = service.comment(commentDTO);
+        Response<ResultDTO> response = call.execute();
+        return response.body();
+    }
 }

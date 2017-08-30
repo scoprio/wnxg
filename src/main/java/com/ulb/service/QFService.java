@@ -6,6 +6,8 @@ import java.util.List;
 import com.ulb.service.generator.APIServiceGenrator;
 import com.ulb.service.remote.RemoteQFService;
 import com.ulb.service.remote.RemoteSKUService;
+import com.ulb.web.dto.Comment2DTO;
+import com.ulb.web.dto.Comment2InfoDTO;
 import com.ulb.web.dto.QFOrderRecordDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
 import com.ulb.web.dto.QFRepairPostDTO;
@@ -36,9 +38,19 @@ public class QFService {
 //    }
 
 
+
+
+
     public ResultDTO order(QFOrderRecordDTO qfOrderRecordDTO) throws IOException {
         RemoteQFService service = APIServiceGenrator.createRequsetService(RemoteQFService.class);
         Call<ResultDTO> call = service.postOrder(qfOrderRecordDTO);
+        Response<ResultDTO> response = call.execute();
+        return response.body();
+    }
+
+    public ResultDTO comment(Comment2DTO comment2DTO) throws IOException {
+        RemoteQFService service = APIServiceGenrator.createRequsetService(RemoteQFService.class);
+        Call<ResultDTO> call = service.comment(comment2DTO);
         Response<ResultDTO> response = call.execute();
         return response.body();
     }
@@ -57,12 +69,12 @@ public class QFService {
         return response.body();
     }
 
-//    public List<SKURecordDTO> getSKUOrderRecord(String uid) throws IOException{
-//        RemoteSKUService service = APIServiceGenrator.createRequsetService(RemoteSKUService.class);
-//        Call<List<SKURecordDTO>> call = service.getSKUOrderRecord(uid);
-//        Response<List<SKURecordDTO>> response = call.execute();
-//        List<SKURecordDTO> list = response.body();
-//        return list;
-//    }
+    public List<Comment2InfoDTO> getComments(String serviceId) throws IOException{
+        RemoteQFService service = APIServiceGenrator.createRequsetService(RemoteQFService.class);
+        Call<List<Comment2InfoDTO>> call = service.getComments(serviceId);
+        Response<List<Comment2InfoDTO>> response = call.execute();
+        List<Comment2InfoDTO> list = response.body();
+        return list;
+    }
 
 }

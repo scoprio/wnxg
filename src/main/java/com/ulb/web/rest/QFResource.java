@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.ulb.service.QFService;
 import com.ulb.service.TimeService;
+import com.ulb.web.dto.Comment2DTO;
+import com.ulb.web.dto.CommentDTO;
 import com.ulb.web.dto.QFOrderRecordDTO;
 import com.ulb.web.dto.QFRecordDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
@@ -62,14 +64,35 @@ public class QFResource {
         return new ModelAndView("dingding/confirm_buy","qf",dto);
     }
 
-    @RequestMapping(value="comment",method=RequestMethod.GET)
-    public ModelAndView getComment(){
+    @RequestMapping(value="/qf/comment",method=RequestMethod.GET)
+    public ModelAndView getComment(HttpServletRequest request){
+        CommentDTO commentDTO = new CommentDTO();
+        commentDTO.setOid("");
+        return new ModelAndView("dingding/comment","comment",commentDTO);
+    }
 
-//        QFRecordDTO dto  = new QFRecordDTO();
-//        dto.setConfig(ConfigGetter.getConfig(request));
-//        dto.setCityCode(request.getParameter("cityCode"));
-//        dto.setAlipayInfo(AlipayInfoGetter.getAlipayInfo());
-        return new ModelAndView("dingding/comment");
+    @RequestMapping(value="/qf/comment.shtml",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, Object>> comment(@RequestBody Comment2DTO comment2DTO){
+
+        Map<String, Object> resultMap = new LinkedHashMap<>();
+        try {
+            ResultDTO resultDTO = qfService.comment(comment2DTO);
+            if(resultDTO.getCode().equals("200")){
+                resultMap.put("message", "评论成功！");
+                resultMap.put("status", 200);
+            }else{
+                resultMap.put("message", "服务端失败！");
+                resultMap.put("status", 500);
+            }
+
+        } catch (IOException e) {
+            resultMap.put("status", 500);
+            resultMap.put("message", "应用端失败！");
+            e.printStackTrace();
+        }
+        return new ResponseEntity(resultMap,HttpStatus.OK);
     }
 
     @RequestMapping(value="reservation",method=RequestMethod.GET)

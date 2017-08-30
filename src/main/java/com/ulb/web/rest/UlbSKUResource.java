@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import com.alibaba.druid.support.spring.stat.annotation.Stat;
 import com.ulb.service.SKUService;
 import com.ulb.service.TimeService;
+import com.ulb.web.dto.Comment2DTO;
+import com.ulb.web.dto.CommentDTO;
 import com.ulb.web.dto.OperaterOrderDTO;
 import com.ulb.web.dto.OperaterOrderWithIdDTO;
 import com.ulb.web.dto.OrderDataDetailDTO;
@@ -158,6 +160,37 @@ public class UlbSKUResource {
             e.printStackTrace();
         }
         return new ModelAndView("dingding/order_details","order",orderDetailDTO);
+    }
+
+    @RequestMapping(value="/sku/comment",method=RequestMethod.GET)
+    public ModelAndView getComment(HttpServletRequest request){
+        CommentDTO commentDTO = new CommentDTO();
+        commentDTO.setOid(request.getParameter("orderId"));
+        return new ModelAndView("dingding/comment","comment",commentDTO);
+    }
+
+    @RequestMapping(value="/sku/comment.shtml",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, Object>> comment(@RequestBody CommentDTO commentDTO){
+
+        Map<String, Object> resultMap = new LinkedHashMap<>();
+        try {
+            ResultDTO resultDTO = skuService.comment(commentDTO);
+            if(resultDTO.getCode().equals("200")){
+                resultMap.put("status", 200);
+                resultMap.put("message", "评论成功！");
+            }else{
+                resultMap.put("message", "服务端失败！");
+                resultMap.put("status", 500);
+            }
+
+        } catch (IOException e) {
+            resultMap.put("message", "应用端失败！");
+            resultMap.put("status", 500);
+            e.printStackTrace();
+        }
+        return new ResponseEntity(resultMap,HttpStatus.OK);
     }
 
 }

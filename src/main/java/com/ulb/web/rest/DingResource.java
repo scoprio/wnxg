@@ -1,13 +1,20 @@
 package com.ulb.web.rest;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import com.alibaba.fastjson.JSON;
 import com.dingtalk.open.client.api.model.corp.CorpUserDetail;
+import com.ulb.service.QFService;
 import com.ulb.web.demo.auth.AuthHelper;
 import com.ulb.web.demo.user.UserHelper;
+import com.ulb.web.dto.Comment2DTO;
+import com.ulb.web.dto.Comment2InfoDTO;
 import com.ulb.web.dto.DingDingConfigDTO;
 import com.ulb.web.dto.QydInfoDTO;
 import com.ulb.web.util.AlipayInfoGetter;
@@ -34,8 +41,10 @@ public class DingResource {
 
     public static final Logger LOGGER = LoggerFactory.getLogger(DingResource.class);
 
-    public static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    public static SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
+    @Resource
+    private QFService qfService;
 
     @RequestMapping(value="index",method=RequestMethod.GET)
     public ModelAndView userIndex(HttpServletRequest request){
@@ -121,12 +130,20 @@ public class DingResource {
         qydInfoDTO.setCityCode(cityCode);
         qydInfoDTO.setCorpId(corpId);
         qydInfoDTO.setIsAdmin(isAdmin);
+
+        List<Comment2InfoDTO> list = null;
+        try {
+            list = qfService.getComments("2");
+
+            for(Comment2InfoDTO comment2InfoDTO:list){
+                Date date = new Date(comment2InfoDTO.getCreateTime());
+                comment2InfoDTO.setCreateDate(df.format(date));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        qydInfoDTO.setList(list);
         return new ModelAndView("dingding/qyd_detail","qydInfo",qydInfoDTO);
     }
-
-//    @RequestMapping(value="goBuy",method=RequestMethod.GET)
-//    public ModelAndView gotBuy(){
-//        return new ModelAndView("dingding/go_buy");
-//    }
 
 }

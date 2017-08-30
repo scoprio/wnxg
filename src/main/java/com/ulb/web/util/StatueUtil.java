@@ -25,7 +25,7 @@ public class StatueUtil {
         statueMap.put("15","小哥同意退单（小哥原因）");
         statueMap.put("16","小哥同意退单（客户原因）");
         statueMap.put("17","小哥申请取消订单");
-        statueMap.put("18","小哥转出订单");
+        statueMap.put("18","此订单终止，已为您重新下单");
         statueMap.put("19","客户申请更换小哥");
         statueMap.put("20","小哥同意更换");
         statueMap.put("21","小哥驳回更换");

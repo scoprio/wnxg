@@ -38,7 +38,7 @@ public class OrderRecordDTO {
     private String onum;
 
 
-
+    private String commentDisplay;
 
     /**订单详情**/
 
@@ -214,5 +214,13 @@ public class OrderRecordDTO {
 
     public void setOnum(String onum) {
         this.onum = onum;
+    }
+
+    public String getCommentDisplay() {
+        return commentDisplay;
+    }
+
+    public void setCommentDisplay(String commentDisplay) {
+        this.commentDisplay = commentDisplay;
     }
 }

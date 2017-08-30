@@ -96,6 +96,12 @@ public class MyResource {
                     dto.setDisplay("none");
                 }
 
+                if(dto.getPid() == 7){
+                    dto.setCommentDisplay("inline-block");
+                }else{
+                    dto.setCommentDisplay("none");
+                }
+
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -117,6 +123,12 @@ public class MyResource {
                     dto.setDisplay("inline-block");
                 }else{
                     dto.setDisplay("none");
+                }
+
+                if(dto.getPid() == 7){
+                    dto.setCommentDisplay("inline-block");
+                }else{
+                    dto.setCommentDisplay("none");
                 }
                 dto.setOnum("wnxg"+dto.getOnum());
             }

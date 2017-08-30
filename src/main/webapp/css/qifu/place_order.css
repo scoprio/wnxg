@@ -306,13 +306,13 @@
 	padding: 0 .3rem;
     background: #e6e6e6;
     text-align: center;
-    line-height: .58rem;
+    line-height: .88rem;
 }
 .choosedate p span{
 	color: #ff943e;
 }
 .choosedate p span,.choosedate p i{
-	font-size: .28rem;
+	font-size: .32rem;
 }
 .fleft {
 	width: 55%;

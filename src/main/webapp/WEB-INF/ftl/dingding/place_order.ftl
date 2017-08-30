@@ -37,6 +37,24 @@
             localStorage.nonceStr = '${sku.config.nonceStr?default("")}';
             localStorage.signature = '${sku.config.signature?default("")}';
 
+            dd.ready(function() {
+
+                dd.ui.webViewBounce.disable({
+                    onSuccess: function() {
+                    },
+                    onFail: function() {
+                    }
+                });
+                dd.biz.navigation.setTitle({
+                       title: '万能小哥',
+                       onSuccess: function(data) {
+                       },
+                       onFail: function(err) {
+                           log.e(JSON.stringify(err));
+                       }
+                   });
+            });
+
 			$(function() {
 
                 var input_time = $("#date");

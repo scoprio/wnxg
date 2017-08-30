@@ -23,6 +23,7 @@ import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
+import org.springframework.http.HttpRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -208,6 +209,12 @@ public class MyResource {
         return new ModelAndView("dingding/about_wnxg");
     }
 
+
+    @RequestMapping(value="help/pay",method=RequestMethod.GET)
+    public ModelAndView pay(HttpServletRequest request){
+
+        return new ModelAndView("dingding/FAQ");
+    }
 
     @RequestMapping(value = "my/feedback.shtml",
             method = RequestMethod.POST,

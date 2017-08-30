@@ -18,7 +18,7 @@
 				<div class="my_right">
 					<p>${qifuInfo.info.service_name?default('未设置')}</p>
 					<p><span>服务周期：</span><span>${qifuInfo.info.period?default('未设置')}</span></p>
-					<p><span>服务详情：</span><span>${qifuInfo.info.service_name?default('未设置')} ${qifuInfo.info.buy_time?default('未设置')} 个月</span></p>
+					<p><span>服务详情：</span><span>${qifuInfo.info.service_name?default('未设置')} ${qifuInfo.info.buy_time?default('未设置')} 天</span></p>
 					<p><span>订单金额：</span><span>${qifuInfo.info.money?default('未设置')}元</span></p>
 				</div>
 			</div>

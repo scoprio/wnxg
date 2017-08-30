@@ -87,26 +87,29 @@
                     "cityCode":localStorage.current_city_code,
                     "operater": 1
                 }
-                $.ajax({
-                           url:"${basePath}/ulb/sku/order.shtml",
-                           type:"PUT",
-                           data:JSON.stringify(skuOrder),
-                           contentType:"application/json; charset=utf-8",
-                           dataType:"json",
-                           success: function(result){
-                               if(result && result.status== 200){
-                                   layer_tip(result.message,function () {
-                                       location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml";
-                                   })
 
-                               }else{
-                                   layer_tip(result.message);
-                               }
-                           },
-                           error: function(result){
-                               console.log(result.message);
-                           }
-                       })
+                layer_confirm("确定取消订单",function(){$.ajax({
+                                                           url:"${basePath}/ulb/sku/order.shtml",
+                                                           type:"PUT",
+                                                           data:JSON.stringify(skuOrder),
+                                                           contentType:"application/json; charset=utf-8",
+                                                           dataType:"json",
+                                                           success: function(result){
+                                                               if(result && result.status== 200){
+                                                                   layer_tip(result.message,function () {
+                                                                       location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml";
+                                                                   })
+
+                                                               }else{
+                                                                   layer_tip(result.message);
+                                                               }
+                                                           },
+                                                           error: function(result){
+                                                               console.log(result.message);
+                                                           }
+                                                       });},function(){});
+
+
             }
 
             var array1 = new Array();

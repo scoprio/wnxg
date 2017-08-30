@@ -279,6 +279,7 @@
 		</div>
 		<div class="qyd_foot border_top"><input type="button" value="立即购买" class="submit_btn"/></div>
 		<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/qifu/common.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 
 			$(function() {

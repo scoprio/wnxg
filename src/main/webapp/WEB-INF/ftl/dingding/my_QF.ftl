@@ -54,7 +54,7 @@
 						<li>
 							<p class="record_order"><span>订单编号：</span><span>${repair.order_num?default('未设置')}</span><span>${repair.stateName?default('未设置')}</span></p>
 							<div class="recordbox">
-								<div class="record_left"><img src="${basePath}/images/1tu.png"/></div>
+								<div class="record_left"><img src="${basePath}/images/${repair.repairId?default('1tu')}.png"/></div>
 								<div class="record_right">
 									<p><span>维修类目：</span><span>${repair.repair_name?default('未设置')}</span></p>
 									<p><span>维修商品：</span><span>${repair.repair_name?default('未设置')}</span></p>

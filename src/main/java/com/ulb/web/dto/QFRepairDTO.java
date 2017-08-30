@@ -7,6 +7,7 @@ package com.ulb.web.dto;
 public class QFRepairDTO {
 
     private String repair_name;//对应维修类目名称
+    private String repairId;
     private String order_num;//订单编号
     private String order_state;//订单状态
     private String commodity_name;//维修商品名称
@@ -18,6 +19,13 @@ public class QFRepairDTO {
 
     private String stateName;
 
+    public String getRepairId() {
+        return repairId;
+    }
+
+    public void setRepairId(String repairId) {
+        this.repairId = repairId;
+    }
 
     public String getRepair_name() {
         return repair_name;

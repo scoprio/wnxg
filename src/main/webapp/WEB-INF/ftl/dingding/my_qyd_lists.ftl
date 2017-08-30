@@ -28,7 +28,7 @@
                         <li><i>服务详情</i><span>${order.serviceName?default('未设置')} ${order.buyTime?default('未设置')} 天</span></li>
                         <li><i>订单金额</i><span>${order.money?default('未设置')}</span></li>
                     </ul>
-                    <p class="lists_btn"><a href="tel:400-6633-750">联系客服</a></p>
+                    <p class="lists_btn"><a href="tel:400-6633-750">联系客服</a> <a href="tel:400-6633-750">联系客服</a></p>
                 </li>
 
 

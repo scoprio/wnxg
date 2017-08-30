@@ -72,6 +72,19 @@ public class QFResource {
         return new ModelAndView("dingding/comment");
     }
 
+    @RequestMapping(value="reservation",method=RequestMethod.GET)
+    public ModelAndView getReservation(HttpServletRequest request){
+        ReservationTimeDTO reservationTimeDTO = new ReservationTimeDTO();
+        String recordId = request.getParameter("recordId");
+        try {
+            reservationTimeDTO.setUsefulTime(JSONArray.fromObject(timeService.getUsefulTime()).toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        reservationTimeDTO.setRecordId(recordId);
+        return new ModelAndView("dingding/reservation","reservation",reservationTimeDTO);
+    }
+
 
     @RequestMapping(value = "/qf/order.shtml",
             method = RequestMethod.POST,

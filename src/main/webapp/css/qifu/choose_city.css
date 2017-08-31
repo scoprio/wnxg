@@ -58,12 +58,16 @@
 .letter ul {
 	list-style-type: none;
 }
-
+.letter ul li{
+	height: 0.55rem;
+}
 .letter ul li a {
 	text-decoration: none;
 	color: #929292;
 	font-size: .26rem;
 	padding: 0 0.2rem;
+	display: block;
+	height: 100%;
 }
 
 .city {

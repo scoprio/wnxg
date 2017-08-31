@@ -18,6 +18,9 @@ public class ConfigGetter {
         String queryString = request.getQueryString();
 
         String corpId = request.getParameter("corpid");
+        if(corpId == null){
+            corpId = request.getParameter("corpId");
+        }
         String appId = request.getParameter("appid");
 //        String corpId = "ding7b7ae2d7653b9f7e35c2f4657eb6378f";
 //        String appId = "117461615";

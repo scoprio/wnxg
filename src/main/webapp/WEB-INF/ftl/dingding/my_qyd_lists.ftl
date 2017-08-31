@@ -11,7 +11,6 @@
         <script src="${basePath}/js/dingding.order.js" baseUrl="${basePath}"></script>
         <script>
 
-            alert('${qyd.config.agentId?default("")}');
             localStorage.agentId ='${qyd.config.agentId?default("")}';
             localStorage.corpId ='${qyd.config.corpId?default("")}';
             localStorage.timeStamp ='${qyd.config.timeStamp?default("")}';

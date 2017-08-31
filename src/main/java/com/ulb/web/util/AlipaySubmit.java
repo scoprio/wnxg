@@ -35,7 +35,7 @@ public class AlipaySubmit {
         String mysign = "";
         // System.out.println("签名："+prestr);
         if(signtype.equals("RSA")){
-            mysign = AlipayConfig.RSA.sign(prestr, AlipayConfig.PRIVATE_KEY, AlipayConfig.input_charset);
+            mysign = RSA.sign(prestr, AlipayConfig.PRIVATE_KEY, AlipayConfig.input_charset);
         }
         return mysign;
     }
@@ -92,7 +92,7 @@ public class AlipaySubmit {
      * 建立请求，以表单HTML形式构造（默认）
      * @param sParaTemp 请求参数数组
      * @param strMethod 提交方式。两个值可选：post、get
-     * @param  确认按钮显示文字
+     * @param
      * @return 提交表单HTML文本
      */
     public static String buildRequestWap(String signtype,Map<String, String> sParaTemp, String strMethod) {

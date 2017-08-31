@@ -29,6 +29,10 @@ public class QydOrderRecordDTO {
 
     private String orderNum;
 
+    private String commentDisplay;
+
+    private String payDisplay;
+
 
     public String getAddress() {
         return address;
@@ -148,5 +152,21 @@ public class QydOrderRecordDTO {
 
     public void setOrderNum(String orderNum) {
         this.orderNum = orderNum;
+    }
+
+    public String getCommentDisplay() {
+        return commentDisplay;
+    }
+
+    public void setCommentDisplay(String commentDisplay) {
+        this.commentDisplay = commentDisplay;
+    }
+
+    public String getPayDisplay() {
+        return payDisplay;
+    }
+
+    public void setPayDisplay(String payDisplay) {
+        this.payDisplay = payDisplay;
     }
 }

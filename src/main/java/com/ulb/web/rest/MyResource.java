@@ -163,18 +163,28 @@ public class MyResource {
                 switch (dto.getState()){
                     case 0:
                         dto.setStateName("待支付");
+                        dto.setCommentDisplay("none");
+                        dto.setPayDisplay("inline-block");
                         break;
                     case 1:
                         dto.setStateName("支付成功,未生效");
+                        dto.setCommentDisplay("inline-block");
+                        dto.setPayDisplay("none");
                         break;
                     case 2:
                         dto.setStateName("取消订单");
+                        dto.setCommentDisplay("none");
+                        dto.setPayDisplay("none");
                         break;
                     case 4:
                         dto.setStateName("支付成功，已生效");
+                        dto.setCommentDisplay("inline-block");
+                        dto.setPayDisplay("none");
                         break;
                     default:
                         dto.setStateName("已失效");
+                        dto.setCommentDisplay("none");
+                        dto.setPayDisplay("none");
                 }
             }
         } catch (IOException e) {

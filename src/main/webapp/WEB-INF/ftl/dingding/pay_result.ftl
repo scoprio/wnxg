@@ -19,10 +19,10 @@
 		<div class="result_foot"><a href="" class="returnQF">返回企业盾</a></div>
 	</body>
 	<script>
-		function () {
+        $(function() {
 			var qydUrl = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode="+localStorage.current_city_code;
             $('.returnQF').attr("href",qydUrl);
-        }
+        });
 
 
 	</script>

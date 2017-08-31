@@ -102,8 +102,21 @@
                                              })
                                              notify_url = array2.notify_url;
 
-                                             alert(notify_url);
-                                             location.href = "${basePath}"+notify_url;
+//                                             alert(notify_url);
+                                             if(notify_url){
+                                                 location.href = "${basePath}"+notify_url;
+                                             }else{
+                                                 dd.device.notification.alert({
+                                                          message: "亲，您的企业盾已提交，但未支付，请到企业盾列表支付",
+                                                          title: "",//可传空
+                                                          buttonName: "好的",
+                                                          onSuccess : function() {
+                                                              location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";
+                                                          },
+                                                          onFail : function(err) {}
+                                                      });
+                                             }
+
     //                                         console.log(array);
     //                                         console.log(array2);
     //                                         console.log(notify_url)
@@ -111,19 +124,19 @@
     //                                         alert(JSON.stringify(result));
                                          },
                                          onFail: function (err) {
-
+                                             dd.device.notification.alert({
+                                                  message: "亲，您的企业盾已提交，但未支付，请到企业盾列表支付",
+                                                  title: "",//可传空
+                                                  buttonName: "好的",
+                                                  onSuccess : function() {
+                                                      location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";
+                                                  },
+                                                  onFail : function(err) {}
+                                              });
                                          }
                                     });
 
-                                       <#--dd.device.notification.alert({-->
-                                            <#--message: "亲，您的维修单已提交，小哥接单后会主动与您联系，请保持手机畅通",-->
-                                            <#--title: "",//可传空-->
-                                            <#--buttonName: "好的",-->
-                                            <#--onSuccess : function() {-->
-                                                <#--location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";-->
-                                            <#--},-->
-                                            <#--onFail : function(err) {}-->
-                                        <#--});-->
+
 								   }else{
                                        layer_tip(result.message);
                                    }

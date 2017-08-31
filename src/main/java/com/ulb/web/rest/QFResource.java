@@ -33,6 +33,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -120,7 +121,6 @@ public class QFResource {
         Map<String, Object> resultMap = new LinkedHashMap<>();
         try {
             ResultWithQFDTO resultWithQFDTO = qfService.order(qfOrderRecordDTO);
-//            ResultWithQFDTO resultWithQFDTO = new ResultWithQFDTO();
             if(resultWithQFDTO.getCode().equals("200")){
                 resultMap.put("status", 200);
                 resultMap.put("message", "下单成功！");
@@ -206,6 +206,46 @@ public class QFResource {
             resultMap.put("message", "应用端预约失败！");
             e.printStackTrace();
         }
+        return new ResponseEntity(resultMap,HttpStatus.OK);
+    }
+
+
+    @RequestMapping(value = "/qf/orderPayInfo.shtml",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, Object>> repair(HttpServletRequest request){
+        String orderId = request.getParameter("orderId");
+        Map<String, Object> resultMap = new LinkedHashMap<>();
+        QFRecordDetailDTO qfRecordDetailDTO = null;
+        try {
+            qfRecordDetailDTO = qfService.getQFRecordDetail(orderId);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String notifyUrl = "/ulb/qf/pay/"+orderId +".shtml";
+        String alipayInfo = AlipayInfoGetter.getAlipayInfo("企业盾购买:"+orderId,orderId,qfRecordDetailDTO.getInfo().getMoney(),notifyUrl);
+        if(ObjectUtils.isEmpty(qfRecordDetailDTO)){
+            resultMap.put("status", 200);
+            resultMap.put("alipayInfo", alipayInfo);
+        }else{
+            resultMap.put("status", 500);
+            resultMap.put("alipayInfo", "");
+        }
+//        try {
+//            ResultDTO resultDTO = qfService.repair(qfRepairPostDTO);
+//            if(resultDTO.getCode().equals("200")){
+//                resultMap.put("status", 200);
+//                resultMap.put("message", "预约成功！");
+//            }else{
+//                resultMap.put("status", 500);
+//                resultMap.put("message", "服务端预约失败！");
+//            }
+//
+//        } catch (IOException e) {
+//            resultMap.put("status", 500);
+//            resultMap.put("message", "应用端预约失败！");
+//            e.printStackTrace();
+//        }
         return new ResponseEntity(resultMap,HttpStatus.OK);
     }
 }

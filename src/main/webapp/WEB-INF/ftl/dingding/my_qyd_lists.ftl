@@ -28,7 +28,7 @@
                         <li><i>服务详情</i><span>${order.serviceName?default('未设置')} ${order.buyTime?default('未设置')} 天</span></li>
                         <li><i>订单金额</i><span>${order.money?default('未设置')}</span></li>
                     </ul>
-                    <p class="lists_btn"><a class="commentOrder" onclick="commentOrder()" href="javascript:void(0);" style="display: inline-block">评论</a> <a href="tel:400-6633-750">联系客服</a></p>
+                    <p class="lists_btn"><a class="commentOrder" onclick="commentOrder()" href="javascript:void(0);" style="display: ${order.commentDisplay?default('none')}">评论</a> <a class="commentOrder" onclick="payOrder(${order.id?default('未设置')})" href="javascript:void(0);" style="display: ${order.payDisplay?default('none')}">支付</a><a href="tel:400-6633-750">联系客服</a></p>
                 </li>
 
 
@@ -49,6 +49,83 @@
 			function commentOrder(){
                 location.href = "${basePath}/ulb/qf/comment.shtml";
 			}
+
+
+            function payOrder(orderId){
+
+                $.ajax({
+                           url:"${basePath}/ulb/qf/orderPayInfo.shtml?orderId"+orderId,
+                           type:"GET",
+                           contentType:"application/json; charset=utf-8",
+                           dataType:"json",
+                           success: function(result){
+                               if(result && result.status== 200){
+                                   alert(result.alipayInfo);
+                                   dd.biz.alipay.pay({
+                                     info: result.alipayInfo, // 订单信息，
+                                     onSuccess: function (result) {
+
+                                         var afterPayInfo = result.result;
+
+                                         var array = afterPayInfo.split('&')
+                                         var array2 = {};
+                                         var notify_url = "";
+                                         array.forEach(function(item,i){
+                                             var key = item.split('=')[0];
+                                             var value = item.split('=')[1];
+                                             array2[key] = value;
+                                         })
+                                         notify_url = array2.notify_url;
+
+//                                             alert(notify_url);
+                                         if(notify_url){
+                                             location.href = "${basePath}"+notify_url;
+                                         }else{
+                                             dd.device.notification.alert({
+                                                  message: "亲，您的企业盾支付失败，请到联系客服",
+                                                  title: "",//可传空
+                                                  buttonName: "好的",
+                                                  onSuccess : function() {
+                                                      location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";
+                                                  },
+                                                  onFail : function(err) {}
+                                              });
+                                         }
+
+                                     },
+                                     onFail: function (err) {
+                                         dd.device.notification.alert({
+                                              message: "亲，您的企业盾支付失败，请到联系客服",
+                                              title: "",//可传空
+                                              buttonName: "好的",
+                                              onSuccess : function() {
+                                                  location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";
+                                              },
+                                              onFail : function(err) {}
+                                          });
+                                     }
+                                 });
+
+
+                               }else{
+                                   dd.device.notification.alert({
+                                        message: "亲，您的企业盾支付失败，请到联系客服",
+                                        title: "",//可传空
+                                        buttonName: "好的",
+                                        onSuccess : function() {
+                                            location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";
+                                        },
+                                        onFail : function(err) {}
+                                    });
+                               }
+                           },
+                           error: function(result){
+                               layer_tip(result.message);
+                               console.log(result);
+                           }
+                       });
+                location.href = "${basePath}/ulb/qf/comment.shtml";
+            }
 
 			$(function() {
 				$('.more').click(function() {

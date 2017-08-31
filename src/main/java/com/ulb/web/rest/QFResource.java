@@ -12,6 +12,8 @@ import com.ulb.service.QFService;
 import com.ulb.service.TimeService;
 import com.ulb.web.dto.Comment2DTO;
 import com.ulb.web.dto.CommentDTO;
+import com.ulb.web.dto.PayState2DTO;
+import com.ulb.web.dto.PayStateDTO;
 import com.ulb.web.dto.QFOrderRecordDTO;
 import com.ulb.web.dto.QFRecordDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
@@ -19,6 +21,8 @@ import com.ulb.web.dto.QFRepairDTO;
 import com.ulb.web.dto.QFRepairPostDTO;
 import com.ulb.web.dto.ReservationTimeDTO;
 import com.ulb.web.dto.ResultDTO;
+import com.ulb.web.dto.ResultWithQFDTO;
+import com.ulb.web.util.AlipayInfoGetter;
 import com.ulb.web.util.ConfigGetter;
 import com.ulb.web.util.StatueUtil;
 
@@ -116,9 +120,14 @@ public class QFResource {
         Map<String, Object> resultMap = new LinkedHashMap<>();
         try {
             ResultDTO resultDTO = qfService.order(qfOrderRecordDTO);
+            ResultWithQFDTO resultWithQFDTO = new ResultWithQFDTO();
             if(resultDTO.getCode().equals("200")){
                 resultMap.put("status", 200);
                 resultMap.put("message", "下单成功！");
+                String notifyUrl = "/ulb/qf/pay/"+resultWithQFDTO.getRecordId() +".shtml";
+                String alipayInfo = AlipayInfoGetter.getAlipayInfo("企业盾购买:"+resultWithQFDTO.getRecordId(),resultWithQFDTO.getRecordId(),resultWithQFDTO.getMoney(),notifyUrl);
+                resultMap.put("alipayInfo",alipayInfo);
+
             }else{
                 resultMap.put("status", 500);
                 resultMap.put("message", "服务端下单失败！");
@@ -154,6 +163,27 @@ public class QFResource {
         return new ModelAndView("dingding/my_QF","qifuInfo",qfRecordDetailDTO);
     }
 
+    @RequestMapping(value="/qf/pay/{qifuId}",method=RequestMethod.GET)
+    public ModelAndView pay(@PathVariable String qifuId){
+        PayStateDTO payStateDTO = new PayStateDTO();
+        payStateDTO.setPayState(1);
+
+        ResultDTO resultDTO = null;
+        try {
+            resultDTO = qfService.pay(qifuId,payStateDTO);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        PayState2DTO payState2DTO = new PayState2DTO();
+        if(resultDTO.getCode().equals("200")){
+            payState2DTO.setPayState(1);
+            payState2DTO.setMessage("购买成功");
+        }else{
+            payState2DTO.setPayState(0);
+            payState2DTO.setMessage("购买失败");
+        }
+        return new ModelAndView("dingding/pay_result","payState",payState2DTO);
+    }
 
 
     @RequestMapping(value = "/qf/repair.shtml",

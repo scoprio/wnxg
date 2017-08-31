@@ -85,15 +85,45 @@
                                dataType:"json",
                                success: function(result){
                                    if(result && result.status== 200){
-                                       dd.device.notification.alert({
-                                            message: "亲，您的维修单已提交，小哥接单后会主动与您联系，请保持手机畅通",
-                                            title: "",//可传空
-                                            buttonName: "好的",
-                                            onSuccess : function() {
-                                                location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";
-                                            },
-                                            onFail : function(err) {}
-                                        });
+
+                                    dd.biz.alipay.pay({
+                                     info: result.alipayInfo, // 订单信息，
+                                         onSuccess: function (result) {
+
+                                             var afterPayInfo = result.result;
+
+                                             var array = afterPayInfo.split('&')
+                                             var array2 = {};
+                                             var notify_url = "";
+                                             array.forEach(function(item,i){
+                                                 var key = item.split('=')[0];
+                                                 var value = item.split('=')[1];
+                                                 array2[key] = value;
+                                             })
+                                             notify_url = array2.notify_url;
+
+                                             alert(notify_url);
+                                             location.href = "${basePath}"+notify_url;
+    //                                         console.log(array);
+    //                                         console.log(array2);
+    //                                         console.log(notify_url)
+    //                                         alert(result.result)
+    //                                         alert(JSON.stringify(result));
+                                         },
+                                         onFail: function (err) {
+
+                                         }
+                                    });
+
+                                       <#--dd.device.notification.alert({-->
+                                            <#--message: "亲，您的维修单已提交，小哥接单后会主动与您联系，请保持手机畅通",-->
+                                            <#--title: "",//可传空-->
+                                            <#--buttonName: "好的",-->
+                                            <#--onSuccess : function() {-->
+                                                <#--location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";-->
+                                            <#--},-->
+                                            <#--onFail : function(err) {}-->
+                                        <#--});-->
 								   }else{
                                        layer_tip(result.message);
                                    }
@@ -155,7 +185,7 @@
                         <a href="javascript:void(0);" class="agreement">《万能企业盾协议》</a>
                     </p>
                 </div>
-                <input type="button" id="" value="立即下单" class="pay_now" />
+                <input type="button" id="" value="立即购买" class="pay_now" />
             </footer>
         </form>
 

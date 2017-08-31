@@ -6,7 +6,9 @@ import java.util.List;
 
 import com.ulb.web.dto.Comment2DTO;
 import com.ulb.web.dto.Comment2InfoDTO;
+import com.ulb.web.dto.OperaterOrderDTO;
 import com.ulb.web.dto.OrderRecordDTO;
+import com.ulb.web.dto.PayStateDTO;
 import com.ulb.web.dto.QFOrderRecordDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
 import com.ulb.web.dto.QFRepairPostDTO;
@@ -17,6 +19,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 /**
@@ -51,4 +54,9 @@ public interface RemoteQFService {
 
     @GET("/WNXG/ulb/api/new_enter_prise_my_company/orderList/{serviceId}")
     Call<List<Comment2InfoDTO>> getComments(@Path("serviceId") String serviceId);
+
+    @Headers({"Content-type:application/json;charset=UTF-8"})
+    @PUT("/WNXG/ulb/api/new_enter_prise_my_company/afterOnline/{qfId}")
+    Call<ResultDTO> payOrder(@Path("qfId")String qfId,@Body PayStateDTO payStateDTO);
+
 }

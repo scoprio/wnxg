@@ -17,7 +17,8 @@ dd.config({
 						  'device.notification.confirm',
 						  'device.notification.alert',
 						  'device.notification.prompt',
-						  'biz.map.locate']
+						  'biz.map.locate',
+						  'biz.alipay.pay']
 		});
 
 

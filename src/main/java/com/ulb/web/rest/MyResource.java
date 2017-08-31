@@ -194,6 +194,7 @@ public class MyResource {
         return new ModelAndView("dingding/FAQ");
     }
 
+
     @RequestMapping(value="help/newbie_guide",method=RequestMethod.GET)
     public ModelAndView getHelpNoviceBoot(){
         return new ModelAndView("dingding/newbie_guide");

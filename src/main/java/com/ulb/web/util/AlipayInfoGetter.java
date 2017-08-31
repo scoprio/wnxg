@@ -1,5 +1,7 @@
 package com.ulb.web.util;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,13 +11,13 @@ import java.util.Map;
  */
 public class AlipayInfoGetter {
 
-    public static String getAlipayInfo(){
+    public static String getAlipayInfo(String subject,String out_trade_no,String money,String notifyUrl){
 
 
-        String subject = "scoprio测试";
-        String out_trade_no = "1111111";
-        String money = "0.01";
-        String notifyUrl = "http://wnxg.hz.taeapp.com/dingding/help/FAQ.shtml";
+//        String subject = "scoprio测试";
+//        String out_trade_no = "1113111";
+//        String money = "0.01";
+//        String notifyUrl = "http://wnxg.hz.taeapp.com/dingding/help/FAQ.shtml";
         Map<String, String> sParaTemp = new HashMap<>();
         sParaTemp.put("service", AlipayConfig.service);
         sParaTemp.put("partner", AlipayConfig.partner);
@@ -30,6 +32,13 @@ public class AlipayInfoGetter {
         // 待请求参数数组
         String mysign = AlipaySubmit.buildRequestMysign(sParaTemp, "RSA");
 
+        String ecodeSign = null;
+        try {
+            ecodeSign = URLEncoder.encode(mysign,"utf-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+
         String info = "partner=" + AlipayConfig.partner +
                       "&seller_id=" + AlipayConfig.seller_id +
                       "&out_trade_no=" + out_trade_no +
@@ -40,7 +49,7 @@ public class AlipayInfoGetter {
                       "&service="+ AlipayConfig.service+
                       "&payment_type=1"+
                       "&_input_charset=" + AlipayConfig.input_charset +
-                      "&sign="+ mysign + "&sign_type=RSA";
+                      "&sign="+ ecodeSign + "&sign_type=RSA";
 
         return info;
 

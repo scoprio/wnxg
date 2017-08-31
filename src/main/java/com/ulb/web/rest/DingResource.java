@@ -49,7 +49,7 @@ public class DingResource {
     @RequestMapping(value="index",method=RequestMethod.GET)
     public ModelAndView userIndex(HttpServletRequest request){
         DingDingConfigDTO dto = ConfigGetter.getConfig(request);
-        dto.setAlipayInfo(AlipayInfoGetter.getAlipayInfo());
+//        dto.setAlipayInfo(AlipayInfoGetter.getAlipayInfo());
         return new ModelAndView("dingding/index","_config",dto);
     }
 

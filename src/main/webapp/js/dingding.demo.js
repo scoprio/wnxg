@@ -390,6 +390,22 @@ dd.ready(function() {
         }
     });
 
+
+	dd.biz.util.share({
+		  type: 1,//分享类型，0:全部组件 默认； 1:只能分享到钉钉；2:不能分享，只有刷新按钮
+		  url: "http://lwurl.to/7Iia0",
+		  title: "万能小哥",
+		  content: "万能小哥为您提供完善的企业电器维修保障服务",
+		  image: "/images/shareLogo.png",
+		  onSuccess : function() {
+			  //onSuccess将在分享完成之后回调
+			  /**/
+		  },
+		  onFail : function(err) {
+			  alert('share error: ' + JSON.stringify(err));
+		  }
+	  });
+
 	dd.runtime.permission.requestAuthCode({
 		corpId : localStorage.corpId,
 		onSuccess : function(info) {

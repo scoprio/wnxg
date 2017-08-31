@@ -135,13 +135,18 @@ public class MyResource {
     @RequestMapping(value="my_company_order/{corpId}/{cityCode}",method=RequestMethod.GET)
     public ModelAndView getCropOrders(@PathVariable String corpId,@PathVariable String cityCode){
 
+        MyOrderRecordDTO myOrderRecordDTO = new MyOrderRecordDTO();
+
         List<OrderRecordDTO> list = null;
+        List<OrderRecordDTO> list1 = new ArrayList<>();
+        List<OrderRecordDTO> list2 = new ArrayList<>();
         try {
             list = myService.getCropSKUOrderRecord(corpId,cityCode);
             for(OrderRecordDTO dto:list){
                 dto.setCityCode(cityCode);
                 dto.setStatusName(StatueUtil.getStatueName(dto.getPid().toString()));
-                if(dto.getPid() == 1||dto.getPid() ==2 ||dto.getPid()==3){
+                dto.setOnum("wnxg"+dto.getOnum());
+                if(dto.getPid() == 1 ||dto.getPid() ==2 ||dto.getPid()==3){
                     dto.setDisplay("inline-block");
                 }else{
                     dto.setDisplay("none");
@@ -152,12 +157,25 @@ public class MyResource {
                 }else{
                     dto.setCommentDisplay("none");
                 }
-                dto.setOnum("wnxg"+dto.getOnum());
+
+
+                if(dto.getPid() == 1 || dto.getPid() == 2 || dto.getPid() == 3 ||dto.getPid() == 4 ||dto.getPid() == 5 ){
+                    list1.add(dto);
+                } else if(dto.getPid() == 7 || dto.getPid() == 8 ||dto.getPid() == 18|| dto.getPid() == 22){
+                    list2.add(dto);
+                }else{
+                    list1.add(dto);
+                }
+
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new ModelAndView("dingding/my_order","orders",list);
+
+        myOrderRecordDTO.setList(list);
+        myOrderRecordDTO.setList1(list1);
+        myOrderRecordDTO.setList2(list2);
+        return new ModelAndView("dingding/my_order","orders",myOrderRecordDTO);
 
     }
 

@@ -16,7 +16,9 @@ import com.ulb.service.TimeService;
 import com.ulb.web.dto.FeedbackDTO;
 import com.ulb.web.dto.OrderRecordDTO;
 import com.ulb.web.dto.QydOrderRecordDTO;
+import com.ulb.web.dto.QydWithConfigDTO;
 import com.ulb.web.dto.UserDTO;
+import com.ulb.web.util.ConfigGetter;
 import com.ulb.web.util.StatueUtil;
 
 import org.apache.commons.lang.StringUtils;
@@ -142,9 +144,13 @@ public class MyResource {
 
     @RequestMapping(value="my_qyd_lists",method=RequestMethod.GET)
     public ModelAndView getQydLists(HttpServletRequest request){
+
+        QydWithConfigDTO qydWithConfigDTO = new QydWithConfigDTO();
         String corpId = request.getParameter("corpId");
         String cityCode = request.getParameter("cityCode");
         List<QydOrderRecordDTO> list = null;
+
+        qydWithConfigDTO.setConfig(ConfigGetter.getConfig(request));
         try {
             list = myService.getQydOrderRecord(corpId);
             for(QydOrderRecordDTO dto:list){
@@ -187,10 +193,11 @@ public class MyResource {
                         dto.setPayDisplay("none");
                 }
             }
+            qydWithConfigDTO.setList(list);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new ModelAndView("dingding/my_qyd_lists","qydOrders",list);
+        return new ModelAndView("dingding/my_qyd_lists","qyd",qydWithConfigDTO);
 
     }
 

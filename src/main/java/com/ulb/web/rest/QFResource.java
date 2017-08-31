@@ -225,11 +225,12 @@ public class QFResource {
         String notifyUrl = "/ulb/qf/pay/"+orderId +".shtml";
         String alipayInfo = AlipayInfoGetter.getAlipayInfo("企业盾购买:"+orderId,orderId,qfRecordDetailDTO.getInfo().getMoney(),notifyUrl);
         if(ObjectUtils.isEmpty(qfRecordDetailDTO)){
-            resultMap.put("status", 200);
-            resultMap.put("alipayInfo", alipayInfo);
-        }else{
             resultMap.put("status", 500);
             resultMap.put("alipayInfo", "");
+
+        }else{
+            resultMap.put("status", 200);
+            resultMap.put("alipayInfo", alipayInfo);
         }
 //        try {
 //            ResultDTO resultDTO = qfService.repair(qfRepairPostDTO);

@@ -7,15 +7,28 @@
 		<title>我的企业盾列表</title>
         <link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css"/>
         <link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/my_qyd_lists.css"/>
-	</head>
+        <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
+        <script src="${basePath}/js/dingding.order.js" baseUrl="${basePath}"></script>
+        <script>
+
+
+            localStorage.agentId ='${qyd.config.agentId?default("")}';
+            localStorage.corpId ='${qyd.config.corpId?default("")}';
+            localStorage.timeStamp ='${qyd.config.timeStamp?default("")}';
+            localStorage.nonceStr = '${qyd.config.nonceStr?default("")}';
+            localStorage.signature = '${qyd.config.signature?default("")}';
+
+        </script>
+    </head>
+
 
 	<body>
 
 
 
-		<#if qydOrders?exists && qydOrders?size gt 0 >
+		<#if qyd.list?exists && qyd.list?size gt 0 >
         <ul class="lists_ul" >
-			<#list qydOrders as order>
+			<#list qyd.list as order>
 
                 <li class="lists_li" title="${order.id?default('未设置')}">
                     <#--<p class="lists_img"><img src="${basePath}/images/weishengxiao.png" /></p>-->
@@ -54,7 +67,7 @@
             function payOrder(orderId){
 
                 $.ajax({
-                           url:"${basePath}/ulb/qf/orderPayInfo.shtml?orderId"+orderId,
+                           url:"${basePath}/ulb/qf/orderPayInfo.shtml?orderId="+orderId,
                            type:"GET",
                            contentType:"application/json; charset=utf-8",
                            dataType:"json",
@@ -77,7 +90,7 @@
                                          })
                                          notify_url = array2.notify_url;
 
-//                                             alert(notify_url);
+                                         alert(notify_url);
                                          if(notify_url){
                                              location.href = "${basePath}"+notify_url;
                                          }else{
@@ -86,7 +99,7 @@
                                                   title: "",//可传空
                                                   buttonName: "好的",
                                                   onSuccess : function() {
-                                                      location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";
+                                                      location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode="+localStorage.current_city_code;
                                                   },
                                                   onFail : function(err) {}
                                               });
@@ -99,7 +112,7 @@
                                               title: "",//可传空
                                               buttonName: "好的",
                                               onSuccess : function() {
-                                                  location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";
+                                                  location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode="+localStorage.current_city_code;
                                               },
                                               onFail : function(err) {}
                                           });
@@ -113,7 +126,7 @@
                                         title: "",//可传空
                                         buttonName: "好的",
                                         onSuccess : function() {
-                                            location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";
+                                            location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode="+localStorage.current_city_code;
                                         },
                                         onFail : function(err) {}
                                     });
@@ -124,7 +137,6 @@
                                console.log(result);
                            }
                        });
-                location.href = "${basePath}/ulb/qf/comment.shtml";
             }
 
 			$(function() {

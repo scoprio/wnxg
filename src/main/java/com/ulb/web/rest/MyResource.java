@@ -3,6 +3,7 @@ package com.ulb.web.rest;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.ulb.service.MyService;
 import com.ulb.service.TimeService;
 import com.ulb.web.dto.FeedbackDTO;
+import com.ulb.web.dto.MyOrderRecordDTO;
 import com.ulb.web.dto.OrderRecordDTO;
 import com.ulb.web.dto.QydOrderRecordDTO;
 import com.ulb.web.dto.QydWithConfigDTO;
@@ -86,7 +88,11 @@ public class MyResource {
     @RequestMapping(value="my_order/{dingdingUId}/{cityCode}",method=RequestMethod.GET)
     public ModelAndView getOrders(@PathVariable String dingdingUId,@PathVariable String cityCode){
 
+        MyOrderRecordDTO myOrderRecordDTO = new MyOrderRecordDTO();
+
         List<OrderRecordDTO> list = null;
+        List<OrderRecordDTO> list1 = new ArrayList<>();
+        List<OrderRecordDTO> list2 = new ArrayList<>();
         try {
             list = myService.getSKUOrderRecord(dingdingUId,cityCode);
             for(OrderRecordDTO dto:list){
@@ -105,11 +111,24 @@ public class MyResource {
                     dto.setCommentDisplay("none");
                 }
 
+
+                if(dto.getPid() == 1 || dto.getPid() == 2 || dto.getPid() == 3 ||dto.getPid() == 4 ||dto.getPid() == 5 ){
+                    list1.add(dto);
+                } else if(dto.getPid() == 7 || dto.getPid() == 8 ||dto.getPid() == 18|| dto.getPid() == 22){
+                    list2.add(dto);
+                }else{
+                    list1.add(dto);
+                }
+
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return new ModelAndView("dingding/my_order","orders",list);
+
+        myOrderRecordDTO.setList(list);
+        myOrderRecordDTO.setList1(list1);
+        myOrderRecordDTO.setList2(list2);
+        return new ModelAndView("dingding/my_order","orders",myOrderRecordDTO);
 
     }
 

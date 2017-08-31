@@ -20,9 +20,9 @@
 			<div class="sidebox" style="display: block;">
 
 
-				<#if orders?exists && orders?size gt 0 >
+				<#if orders.list?exists && orders.list?size gt 0 >
                 <ul>
-					<#list orders as order>
+					<#list orders.list as order>
 
                         <li>
                             <p class="order_p1">订单编号：<span>${order.onum?default('未设置')}</span><i>${order.statusName?default('未完成')}</i></p>
@@ -52,22 +52,66 @@
 
 			</div>
 			<div class="sidebox">
-				<ul>
+            <#if orders.list1?exists && orders.list1?size gt 0 >
+                <ul>
+                    <#list orders.list1 as order>
 
-				</ul>
+                        <li>
+                            <p class="order_p1">订单编号：<span>${order.onum?default('未设置')}</span><i>${order.statusName?default('未完成')}</i></p>
+                            <div class="order_box border_bottom border_top">
+                                <a href="${basePath}/ulb/sku/order/${order.oid}/${order.cityCode}.shtml">
+                                    <div class="pdiv">
+                                        <p><i>维修项目</i><span>${order.repairName?default('未设置')}</span></p>
+                                        <p><i>下单时间</i><span>${order.downTime?default('未设置')}</span></p>
+                                        <p><i>上门时间</i><span>${order.yuyueTime?default('未设置')}</span></p>
+                                        <p><i>下单地址</i><span>${order.address?default('未设置')}</span></p>
+                                    </div>
+                                </a>
+                            </div>
+                            <p class="order_p2">
+                                <a class="commentOrder" onclick="commentOrder(${order.oid})" href="javascript:void(0);" style="display: ${order.commentDisplay?default('none')}">评论</a>
+                                <a class="cancelOrder" onclick="cancelOrder(${order.oid?default('未设置')})" href="javascript:void(0);" style="display: ${order.display?default('none')}">取消订单</a>
+                                <a href="tel:400-6633-750">联系客服</a></p>
+                        </li>
+                    </#list>
+                </ul>
+            <#else>
                 <div class="order_nodata border_top">
                     <div><img src="${basePath}/images/bill4.png"/></div>
                     <p>您现在还没有此类订单</p>
                 </div>
+            </#if>
 			</div>
 			<div class="sidebox">
-				<ul>
+            <#if orders.list2?exists && orders.list2?size gt 0 >
+                <ul>
+                    <#list orders.list2 as order>
 
-				</ul>
+                        <li>
+                            <p class="order_p1">订单编号：<span>${order.onum?default('未设置')}</span><i>${order.statusName?default('未完成')}</i></p>
+                            <div class="order_box border_bottom border_top">
+                                <a href="${basePath}/ulb/sku/order/${order.oid}/${order.cityCode}.shtml">
+                                    <div class="pdiv">
+                                        <p><i>维修项目</i><span>${order.repairName?default('未设置')}</span></p>
+                                        <p><i>下单时间</i><span>${order.downTime?default('未设置')}</span></p>
+                                        <p><i>上门时间</i><span>${order.yuyueTime?default('未设置')}</span></p>
+                                        <p><i>下单地址</i><span>${order.address?default('未设置')}</span></p>
+                                    </div>
+                                </a>
+                            </div>
+                            <p class="order_p2">
+                                <a class="commentOrder" onclick="commentOrder(${order.oid})" href="javascript:void(0);" style="display: ${order.commentDisplay?default('none')}">评论</a>
+                                <a class="cancelOrder" onclick="cancelOrder(${order.oid?default('未设置')})" href="javascript:void(0);" style="display: ${order.display?default('none')}">取消订单</a>
+                                <a href="tel:400-6633-750">联系客服</a></p>
+                        </li>
+                    </#list>
+                </ul>
+            <#else>
                 <div class="order_nodata border_top">
                     <div><img src="${basePath}/images/bill4.png"/></div>
                     <p>您现在还没有此类订单</p>
                 </div>
+            </#if>
 			</div>
 			<div class="sidebox">
 				<ul>
@@ -92,7 +136,7 @@
                     "operater": 1
                 }
 
-                layer_confirm("确定取消订单",function(){$.ajax({
+                layer_confirm("您确认要取消订单吗？",function(){$.ajax({
                                                            url:"${basePath}/ulb/sku/order.shtml",
                                                            type:"PUT",
                                                            data:JSON.stringify(skuOrder),
@@ -116,55 +160,55 @@
 
             }
 
-            var array1 = new Array();
-            var array2 = new Array();
-            var rArray3 = new Array();
-			<#list orders as order>
-			    var status = '${order.pid}';
+            <#--var array1 = new Array();-->
+            <#--var array2 = new Array();-->
+            <#--var rArray3 = new Array();-->
+			<#--<#list orders as order>-->
+			    <#--var status = '${order.pid}';-->
 
-				if(status == '1' ||status == '2'||status == '3'||status == '4'||status == '5'
-                   ||status == '11'||status == '12'||status == '13'||status == '14'||status == '15'
-                   ||status == '16'||status == '17'||status == '19'||status == '20'||status == '21'
-                   ||status == '23'||status == '24'||status == '25'||status == '26'||status == '27'||status == '41'){
-					var order = {};
-					order.oid = ${order.oid};
-					order.downTime = '${order.downTime?default('未设置')}';
-					order.yuyueTime = '${order.yuyueTime?default('未设置')}';
-					order.address = '${order.address?default('未设置')}';
-					order.repairName = '${order.repairName?default('未设置')}';
-                    order.statusName = '${order.statusName?default('未设置')}';
-                    order.cityCode = '${order.cityCode?default('未设置')}';
-                    order.onum = '${order.onum?default('未设置')}';
-                	array1.push(order)
-					console.log(array1);
-				}
-				if(status == '7' ||status == '8' ||status == '18' ||status == '22'){
-                    var order = {};
-                    order.oid = ${order.oid};
-                    order.downTime = '${order.downTime?default('未设置')}';
-                    order.yuyueTime = '${order.yuyueTime?default('未设置')}';
-                    order.address = '${order.address?default('未设置')}';
-                    order.repairName = '${order.repairName?default('未设置')}';
-                    order.statusName = '${order.statusName?default('未设置')}';
-                    order.cityCode = '${order.cityCode?default('未设置')}';
-                    order.onum = '${order.onum?default('未设置')}';
-                	array2.push(order);
-                	console.log(array2);
-				}
-				if(status == '7'){
-                    var order = {};
-                    order.oid = ${order.oid};
-                    order.downTime = '${order.downTime?default('未设置')}';
-                    order.yuyueTime = '${order.yuyueTime?default('未设置')}';
-                    order.address = '${order.address?default('未设置')}';
-                    order.repairName = '${order.repairName?default('未设置')}';
-                    order.statusName = '${order.statusName?default('未设置')}';
-                    order.cityCode = '${order.cityCode?default('未设置')}';
-                	rArray3.push(order)
-                	console.log(rArray3);
-				}
+				<#--if(status == '1' ||status == '2'||status == '3'||status == '4'||status == '5'-->
+                   <#--||status == '11'||status == '12'||status == '13'||status == '14'||status == '15'-->
+                   <#--||status == '16'||status == '17'||status == '19'||status == '20'||status == '21'-->
+                   <#--||status == '23'||status == '24'||status == '25'||status == '26'||status == '27'||status == '41'){-->
+					<#--var order = {};-->
+					<#--order.oid = ${order.oid};-->
+					<#--order.downTime = '${order.downTime?default('未设置')}';-->
+					<#--order.yuyueTime = '${order.yuyueTime?default('未设置')}';-->
+					<#--order.address = '${order.address?default('未设置')}';-->
+					<#--order.repairName = '${order.repairName?default('未设置')}';-->
+                    <#--order.statusName = '${order.statusName?default('未设置')}';-->
+                    <#--order.cityCode = '${order.cityCode?default('未设置')}';-->
+                    <#--order.onum = '${order.onum?default('未设置')}';-->
+                	<#--array1.push(order)-->
+					<#--console.log(array1);-->
+				<#--}-->
+				<#--if(status == '7' ||status == '8' ||status == '18' ||status == '22'){-->
+                    <#--var order = {};-->
+                    <#--order.oid = ${order.oid};-->
+                    <#--order.downTime = '${order.downTime?default('未设置')}';-->
+                    <#--order.yuyueTime = '${order.yuyueTime?default('未设置')}';-->
+                    <#--order.address = '${order.address?default('未设置')}';-->
+                    <#--order.repairName = '${order.repairName?default('未设置')}';-->
+                    <#--order.statusName = '${order.statusName?default('未设置')}';-->
+                    <#--order.cityCode = '${order.cityCode?default('未设置')}';-->
+                    <#--order.onum = '${order.onum?default('未设置')}';-->
+                	<#--array2.push(order);-->
+                	<#--console.log(array2);-->
+				<#--}-->
+				<#--if(status == '7'){-->
+                    <#--var order = {};-->
+                    <#--order.oid = ${order.oid};-->
+                    <#--order.downTime = '${order.downTime?default('未设置')}';-->
+                    <#--order.yuyueTime = '${order.yuyueTime?default('未设置')}';-->
+                    <#--order.address = '${order.address?default('未设置')}';-->
+                    <#--order.repairName = '${order.repairName?default('未设置')}';-->
+                    <#--order.statusName = '${order.statusName?default('未设置')}';-->
+                    <#--order.cityCode = '${order.cityCode?default('未设置')}';-->
+                	<#--rArray3.push(order)-->
+                	<#--console.log(rArray3);-->
+				<#--}-->
 
-			</#list>
+			<#--</#list>-->
 
             function order_fill(){
                 // 未完成
@@ -250,7 +294,7 @@
 					$('.order_content .sidebox').eq($(this).index()).show().siblings().hide();
 				})
 
-             	order_fill();
+//             	order_fill();
 			})
 		</script>
 	</body>

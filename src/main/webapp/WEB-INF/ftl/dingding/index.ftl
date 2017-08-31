@@ -27,19 +27,19 @@
             localStorage.signature = '${_config.signature}';
 
 
-            <#--function  alipay(){-->
-                <#--var alipayInfo = '${_config.alipayInfo}'-->
-                <#--alert("支付相关信息：" + alipayInfo)-->
-                <#--dd.biz.alipay.pay({-->
-                      <#--info: alipayInfo, // 订单信息，-->
-                      <#--onSuccess: function (result) {-->
-                          <#--alert(JSON.parse(result));-->
-                      <#--},-->
-                      <#--onFail: function (err) {-->
+            function  alipay(){
+                var alipayInfo = '${_config.alipayInfo}'
+                alert("支付相关信息：" + alipayInfo)
+                dd.biz.alipay.pay({
+                      info: alipayInfo, // 订单信息，
+                      onSuccess: function (result) {
+                          alert(JSON.parse(result));
+                      },
+                      onFail: function (err) {
 
-                      <#--}-->
-                  <#--});-->
-            <#--}-->
+                      }
+                  });
+            }
 
         </script>
 
@@ -64,7 +64,7 @@
         <a href="javascript:void(0);" class="city_current" id="citychoose" >北京</a>
         <a href="" class="person_center"></a>
     </div>
-    <div class="banner"><a class="zhifudiaoyong"><img src="/images/banner.png"/></a></div>
+    <div class="banner"><a onclick="alipay()" href="javascript：void(0);"><img src="/images/banner.png"/></a></div>
     <div class="tab">
         <table border="0" cellspacing="0" cellpadding="0">
 

@@ -138,7 +138,7 @@
                 	array1.push(order)
 					console.log(array1);
 				}
-				if(status == '8' ||status == '18' ||status == '22'){
+				if(status == '7' ||status == '8' ||status == '18' ||status == '22'){
                     var order = {};
                     order.oid = ${order.oid};
                     order.downTime = '${order.downTime?default('未设置')}';
@@ -215,7 +215,7 @@
                     })
                     $('.sidebox').eq(2).find('ul').html('')
                     $('.sidebox').eq(2).find('ul').append(result_done);
-                    $('.sidebox').eq(2).find('.order_nodata').show()
+                    $('.sidebox').eq(2).find('.order_nodata').hide()
                 }
                 else{
                     $('.sidebox').eq(2).find('.order_nodata').show()

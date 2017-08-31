@@ -61,6 +61,8 @@ public interface Constant {
 	
 	/**retrofit 地址**/
 	static final String REQUEST_URL = IConfig.get("retrofit.request.url");
+
+	static final String PRIVATE_KEY = IConfig.get("private.key");
 	static String VERSION = String.valueOf(System.currentTimeMillis());//版本号，重启的时间
 	
 	

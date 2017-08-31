@@ -34,7 +34,7 @@
 
 					<div id="sharp"></div>
 					<div class="textarea">
-						<textarea name="msg"  id="msg" maxlength="200" placeholder="您对此次服务满意吗？您对评价会让我们对您提供更好的服务哦～"></textarea>
+						<textarea name="msg"  id="msg" maxlength="200" placeholder="您对我们服务满意吗？您的评价会让我们对您提供更好的服务哦～"></textarea>
 						<p class="gptu">
 							<var style="color: #999 ;font-style: normal;">--</var>/200
 						</p>

@@ -27,20 +27,6 @@
             localStorage.signature = '${_config.signature}';
 
 
-            function  alipay(){
-                var alipayInfo = '${_config.alipayInfo}'
-                alert("支付相关信息：" + alipayInfo)
-                dd.biz.alipay.pay({
-                      info: alipayInfo, // 订单信息，
-                      onSuccess: function (result) {
-                          alert(JSON.parse(result));
-                      },
-                      onFail: function (err) {
-
-                      }
-                  });
-            }
-
         </script>
 
         <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
@@ -192,7 +178,20 @@
 		
 	</body>
     <script>
+        function  alipay(){
+            var alipayInfo = '${_config.alipayInfo}'
+            alert("支付相关信息：" + alipayInfo)
+            alert(1);
+            dd.biz.alipay.pay({
+                  info: alipayInfo, // 订单信息，
+                  onSuccess: function (result) {
+                      alert(JSON.parse(result));
+                  },
+                  onFail: function (err) {
 
+                  }
+              });
+        }
 
 
     </script>

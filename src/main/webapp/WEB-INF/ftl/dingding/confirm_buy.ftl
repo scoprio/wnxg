@@ -85,7 +85,7 @@
                                dataType:"json",
                                success: function(result){
                                    if(result && result.status== 200){
-
+                                    alert(result.alipayInfo);
                                     dd.biz.alipay.pay({
                                      info: result.alipayInfo, // 订单信息，
                                          onSuccess: function (result) {

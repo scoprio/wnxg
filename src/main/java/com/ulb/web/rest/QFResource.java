@@ -119,13 +119,13 @@ public class QFResource {
     public ResponseEntity<Map<String, Object>> order(@RequestBody QFOrderRecordDTO qfOrderRecordDTO){
         Map<String, Object> resultMap = new LinkedHashMap<>();
         try {
-            ResultDTO resultDTO = qfService.order(qfOrderRecordDTO);
-            ResultWithQFDTO resultWithQFDTO = new ResultWithQFDTO();
-            if(resultDTO.getCode().equals("200")){
+            ResultWithQFDTO resultWithQFDTO = qfService.order(qfOrderRecordDTO);
+//            ResultWithQFDTO resultWithQFDTO = new ResultWithQFDTO();
+            if(resultWithQFDTO.getCode().equals("200")){
                 resultMap.put("status", 200);
                 resultMap.put("message", "下单成功！");
                 String notifyUrl = "/ulb/qf/pay/"+resultWithQFDTO.getRecordId() +".shtml";
-                String alipayInfo = AlipayInfoGetter.getAlipayInfo("企业盾购买:"+resultWithQFDTO.getRecordId(),resultWithQFDTO.getRecordId(),resultWithQFDTO.getMoney(),notifyUrl);
+                String alipayInfo = AlipayInfoGetter.getAlipayInfo("企业盾购买:"+resultWithQFDTO.getRecordId(),resultWithQFDTO.getRecordId().toString(),resultWithQFDTO.getMoney().toString(),notifyUrl);
                 resultMap.put("alipayInfo",alipayInfo);
 
             }else{

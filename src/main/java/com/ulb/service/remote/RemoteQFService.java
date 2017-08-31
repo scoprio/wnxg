@@ -13,6 +13,7 @@ import com.ulb.web.dto.QFOrderRecordDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
 import com.ulb.web.dto.QFRepairPostDTO;
 import com.ulb.web.dto.ResultDTO;
+import com.ulb.web.dto.ResultWithQFDTO;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -34,7 +35,7 @@ public interface RemoteQFService {
 
     @Headers({"Content-type:application/json;charset=UTF-8"})
     @POST("/WNXG/ulb/api/new_enter_prise_my_company/enterprise")
-    Call<ResultDTO> postOrder(@Body QFOrderRecordDTO qfOrderRecordDTO);
+    Call<ResultWithQFDTO> postOrder(@Body QFOrderRecordDTO qfOrderRecordDTO);
 
 
     @Headers({"Content-type:application/json;charset=UTF-8"})

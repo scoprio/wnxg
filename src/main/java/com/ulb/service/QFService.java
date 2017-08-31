@@ -13,6 +13,7 @@ import com.ulb.web.dto.QFOrderRecordDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
 import com.ulb.web.dto.QFRepairPostDTO;
 import com.ulb.web.dto.ResultDTO;
+import com.ulb.web.dto.ResultWithQFDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKURecordDTO;
 
@@ -42,10 +43,10 @@ public class QFService {
 
 
 
-    public ResultDTO order(QFOrderRecordDTO qfOrderRecordDTO) throws IOException {
+    public ResultWithQFDTO order(QFOrderRecordDTO qfOrderRecordDTO) throws IOException {
         RemoteQFService service = APIServiceGenrator.createRequsetService(RemoteQFService.class);
-        Call<ResultDTO> call = service.postOrder(qfOrderRecordDTO);
-        Response<ResultDTO> response = call.execute();
+        Call<ResultWithQFDTO> call = service.postOrder(qfOrderRecordDTO);
+        Response<ResultWithQFDTO> response = call.execute();
         return response.body();
     }
 

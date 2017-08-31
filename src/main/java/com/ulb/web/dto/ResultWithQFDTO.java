@@ -1,5 +1,7 @@
 package com.ulb.web.dto;
 
+import java.math.BigDecimal;
+
 /**
  * Created by wangpeng on 21/08/2017.
  */
@@ -9,9 +11,10 @@ public class ResultWithQFDTO {
 
     private String message;
 
-    private String recordId;
+    private Integer recordId;
 
-    private String money;
+    private BigDecimal money;
+
 
     public String getCode() {
         return code;
@@ -29,19 +32,19 @@ public class ResultWithQFDTO {
         this.message = message;
     }
 
-    public String getRecordId() {
+    public Integer getRecordId() {
         return recordId;
     }
 
-    public void setRecordId(String recordId) {
+    public void setRecordId(Integer recordId) {
         this.recordId = recordId;
     }
 
-    public String getMoney() {
+    public BigDecimal getMoney() {
         return money;
     }
 
-    public void setMoney(String money) {
+    public void setMoney(BigDecimal money) {
         this.money = money;
     }
 }

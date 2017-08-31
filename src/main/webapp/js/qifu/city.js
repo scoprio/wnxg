@@ -33,12 +33,14 @@ $(function () {
     function choosecity(){
         var result = '';
         var result2 = '';
+        var result_letter = ''
         if(choose_city) {
             $.each(choose_city,function(index, obj){
                result2 += '<div class="city-list">'+'<span class="city-letter" id='+obj.sortword+'>'+obj.sortword+'</span>'+'</div>'
-                            
+               result_letter +='<li>< a href="javascript:;">'+obj.sortword+'</ a></li>'
             })
             $('.city').prepend(result2)
+            $('.letter ul').prepend(result_letter);
             $.each(choose_city, function (index, obj) {
                     result='';
                     $.each(obj.citys, function (index, obj) {   

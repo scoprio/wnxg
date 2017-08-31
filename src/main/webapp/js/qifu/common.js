@@ -25,14 +25,16 @@ function layer_tip(form_tip,fun){
           $('.layer_box').text(form_tip);
           setTimeout(function(){
               $('.layer_box').remove();
-              fun();
+              if(fun){
+                fun();
+              }
           },2000)
     }
     
 }
 
 function layer_confirm(tip,sure,cancel) {
-    var confirm_box = $('<div class="wrapper"><div class = "confirm_box"><h2>提示</h2><p></p ><div class="btn_box"><button class="sure">确定</button><button class="cancel">取消</button></div></div></div>')
+    var confirm_box = $('<div class="wrapper"><div class = "confirm_box"><h2>提示</h2><p></p ><div class="btn_box"><button class="sure">取消订单</button><button class="cancel">我再想想</button></div></div></div>')
     $('body').append(confirm_box);
     $('.wrapper').css({
                           "position":"fixed",
@@ -81,12 +83,13 @@ function layer_confirm(tip,sure,cancel) {
                                  "height":"40px",
                                  "background":"transparent",
                                  "border":"none",
-                                 "color":"#41a3e8",
+                                 "color":"#ff943e",
                                  "font-size":"16px",
                                  "outline":"none"
                              })
     $('.sure').css({
-                       "border-right":"#dedede solid 1px"
+                       "border-right":"#dedede solid 1px",
+                       "color":"#999"
                    })
     $('.confirm_box p').text(tip);
     $('.sure').click(function(){

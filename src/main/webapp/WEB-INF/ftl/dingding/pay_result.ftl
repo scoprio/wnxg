@@ -9,14 +9,30 @@
         <script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
-		<section>
-			<div class="pay_box">
-				<div class="pay_img"><img src="${basePath}/images/icon_gaimaichenggong.png"/></div>
-				<p class="pay_results">${payState.message}</p>
-				<p class="pay_tip">24小时内客服人员将会与您联系上门巡检细节</p>
-			</div>
-		</section>
-		<div class="result_foot"><a href="" class="returnQF">返回企业盾</a></div>
+
+    <section>
+
+        <div class="pay_box">
+
+            <div class="pay_img"><img src="${basePath}/images/icon_gaimaichenggong.png"/></div>
+
+            <p class="pay_results">${payState.message}</p>
+
+            <p class="pay_tip">72小时内客服人员将会与您联系上门巡检细节</p>
+
+        </div>
+        <div class="tip">
+            <p>温馨提示 </p>
+            <ul>
+                <li>1、服务时间：08：00 －18：00 </li>
+                <li>2、服务热线：400－6633－750 </li>
+                <li>3、建议提前24小时预约，以便得到更快捷的服务，因为每日申请维修的用户较多，如遇排队的情况，请予以谅解</li>
+            </ul>
+        </div>
+
+    </section>
+
+    <div class="result_foot"><a href="" class="returnQF">返回企业盾</a></div>
 	</body>
 	<script>
         $(function() {

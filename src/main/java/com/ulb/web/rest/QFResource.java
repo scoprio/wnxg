@@ -177,7 +177,7 @@ public class QFResource {
         PayState2DTO payState2DTO = new PayState2DTO();
         if(resultDTO.getCode().equals("200")){
             payState2DTO.setPayState(1);
-            payState2DTO.setMessage("购买成功");
+            payState2DTO.setMessage("恭喜您购买成功");
         }else{
             payState2DTO.setPayState(0);
             payState2DTO.setMessage("购买失败");

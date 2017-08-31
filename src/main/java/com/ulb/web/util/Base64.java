@@ -269,5 +269,10 @@ public final class Base64 {
             }  
         }  
         return newSize;  
-    }  
+    }
+
+    public static void main(String [] args){
+        String a = encode("sss1111111111".getBytes());
+        System.out.print(a);
+    }
 }  

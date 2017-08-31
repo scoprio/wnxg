@@ -367,7 +367,7 @@
 				<li class="contact_wayli"><span>详细地址</span><textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="1" cols="40" placeholder="请输入具体门牌号" id="addr" autocomplete="off" oninput="Iscomplete()"></textarea></li>
 				<li class="contact_wayli"><span>称呼</span><input type="text" id="username" value="" autocomplete="off" oninput="Iscomplete()" /></li>
 				<li class="contact_wayli"><span>联系电话</span><input type="tel" name="" id="telephone" value="" autocomplete="off" oninput="Iscomplete()"/></li>
-				<li class="contact_wayli"><span>备注</span><textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="1" cols="40" placeholder="您有什么要求，请告知我们" id="desc" autocomplete="off" oninput="Iscomplete()"></textarea>
+				<li class="contact_wayli"><span>描述</span><textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="1" cols="40" placeholder="您有什么要求，请告知我们" id="desc" autocomplete="off" oninput="Iscomplete()"></textarea>
 					<#--<textarea data-adaptheight onpropertychange="this.style.posHeight=this.scrollHeight " name="" rows="3" cols="" placeholder="您可以将您需要维修的具体情况描述在此处。可以让小哥更好的为您提供服务。"-->
                               <#--id = "desc" autocomplete="off" oninput="Iscomplete()"></textarea>-->
 				</li>

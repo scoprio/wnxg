@@ -157,6 +157,7 @@ public class MyResource {
                 dto.setCityCode(cityCode);
                 String orderNum = StringUtils.leftPad(dto.getId().toString(),10,'0');
                 dto.setOrderNum("WNXG"+orderNum);
+
                 if(dto.getBeginTime() == null || dto.getEndTime() == null){
                     dto.setPeriod("未开通");
                 }else{

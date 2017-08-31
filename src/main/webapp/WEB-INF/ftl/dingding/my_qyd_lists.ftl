@@ -11,7 +11,7 @@
         <script src="${basePath}/js/dingding.order.js" baseUrl="${basePath}"></script>
         <script>
 
-
+            alert('${qyd.config.agentId?default("")}');
             localStorage.agentId ='${qyd.config.agentId?default("")}';
             localStorage.corpId ='${qyd.config.corpId?default("")}';
             localStorage.timeStamp ='${qyd.config.timeStamp?default("")}';
@@ -99,7 +99,7 @@
                                                   title: "",//可传空
                                                   buttonName: "好的",
                                                   onSuccess : function() {
-                                                      location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode="+localStorage.current_city_code;
+                                                      location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&appid=3919&cityCode="+localStorage.current_city_code;
                                                   },
                                                   onFail : function(err) {}
                                               });
@@ -112,7 +112,7 @@
                                               title: "",//可传空
                                               buttonName: "好的",
                                               onSuccess : function() {
-                                                  location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode="+localStorage.current_city_code;
+                                                  location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&appid=3919&cityCode="+localStorage.current_city_code;
                                               },
                                               onFail : function(err) {}
                                           });
@@ -126,7 +126,7 @@
                                         title: "",//可传空
                                         buttonName: "好的",
                                         onSuccess : function() {
-                                            location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode="+localStorage.current_city_code;
+                                            location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&appid=3919&cityCode="+localStorage.current_city_code;
                                         },
                                         onFail : function(err) {}
                                     });

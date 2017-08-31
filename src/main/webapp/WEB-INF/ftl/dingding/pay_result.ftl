@@ -20,7 +20,7 @@
 	</body>
 	<script>
         $(function() {
-			var qydUrl = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode="+localStorage.current_city_code;
+			var qydUrl = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&appid=3919&cityCode="+localStorage.current_city_code;
             $('.returnQF').attr("href",qydUrl);
         });
 

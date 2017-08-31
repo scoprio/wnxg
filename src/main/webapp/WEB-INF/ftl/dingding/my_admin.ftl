@@ -23,7 +23,7 @@
 
 		</ul>
 		<ul class="my_ul2 border_bottom border_top">
-            <a href="${basePath}/dingding/my_qyd_lists.shtml?corpId=${my.corpId}&cityCode=${my.cityCode}"><li><p>公司的企业盾</p></li></a>
+            <a href="${basePath}/dingding/my_qyd_lists.shtml?corpId=${my.corpId}&cityCode=${my.cityCode}&appid=3919"><li><p>公司的企业盾</p></li></a>
 			<a href="${basePath}/dingding/help.shtml"><li><p>帮助中心</p></li></a>
 		</ul>
 	</body>

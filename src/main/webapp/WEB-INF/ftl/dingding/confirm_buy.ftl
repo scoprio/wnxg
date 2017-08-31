@@ -111,7 +111,7 @@
                                                           title: "",//可传空
                                                           buttonName: "好的",
                                                           onSuccess : function() {
-                                                              location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";
+                                                              location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}&appid=3919";
                                                           },
                                                           onFail : function(err) {}
                                                       });
@@ -129,7 +129,7 @@
                                                   title: "",//可传空
                                                   buttonName: "好的",
                                                   onSuccess : function() {
-                                                      location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}";
+                                                      location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&cityCode=${qf.cityCode}&appid=3919";
                                                   },
                                                   onFail : function(err) {}
                                               });

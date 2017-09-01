@@ -57,7 +57,7 @@
 								<div class="record_left"><img src="${basePath}/images/${repair.repairId?default('1tu')}.png"/></div>
 								<div class="record_right">
 									<p><span>维修类目：</span><span>${repair.repair_name?default('未设置')}</span></p>
-									<p><span>维修商品：</span><span>${repair.repair_name?default('未设置')}</span></p>
+									<p><span>下单时间：</span><span>${repair.createTime?string('yyyy-MM-dd hh:mm:ss')}</span></p>
 									<p><span>预约时间：</span><span>${repair.order_time?default('未设置')}</span></p>
 								</div>
 							</div>

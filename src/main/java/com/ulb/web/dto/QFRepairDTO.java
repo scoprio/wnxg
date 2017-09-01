@@ -17,6 +17,8 @@ public class QFRepairDTO {
     private String id;//订单维修记录id
     private String pidName;//订单状态中文信息
 
+    private String createTime;
+
     private String stateName;
 
     public String getRepairId() {
@@ -105,5 +107,13 @@ public class QFRepairDTO {
 
     public void setStateName(String stateName) {
         this.stateName = stateName;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
     }
 }

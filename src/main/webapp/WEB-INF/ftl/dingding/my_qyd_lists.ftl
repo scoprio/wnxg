@@ -38,7 +38,7 @@
                         <li><i>联系人</i><span>${order.linkman?default('未设置')}</span></li>
                         <li><i>服务周期</i><span>${order.period?default('未设置')}</span></li>
                         <li><i>服务详情</i><span>${order.serviceName?default('未设置')} ${order.buyTime?default('未设置')} 天</span></li>
-                        <li><i>订单金额</i><span>${order.money?default('未设置')}</span></li>
+                        <li><i>订单金额</i><span>${order.moneyString?default('未设置')}</span></li>
                     </ul>
                     <p class="lists_btn"><a class="commentOrder" onclick="commentOrder()" href="javascript:void(0);" style="display: ${order.commentDisplay?default('none')}">评论</a> <a class="commentOrder" onclick="payOrder(${order.id?default('未设置')})" href="javascript:void(0);" style="display: ${order.payDisplay?default('none')}">支付</a><a href="tel:400-6633-750">联系客服</a></p>
                 </li>

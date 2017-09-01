@@ -192,9 +192,9 @@ public class MyResource {
             list = myService.getQydOrderRecord(corpId);
             for(QydOrderRecordDTO dto:list){
                 dto.setCityCode(cityCode);
-                String orderNum = StringUtils.leftPad(dto.getId().toString(),10,'0');
-                dto.setOrderNum("WNXG"+orderNum);
-
+//                String orderNum = StringUtils.leftPad(dto.getId().toString(),10,'0');
+                dto.setOrderNum("WNXG"+dto.getCreateTime());
+                dto.setMoneyString(dto.getMoney().toString());
                 if(dto.getBeginTime() == null || dto.getEndTime() == null){
                     dto.setPeriod("未开通");
                 }else{

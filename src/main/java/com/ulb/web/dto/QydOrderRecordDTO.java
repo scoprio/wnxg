@@ -18,9 +18,14 @@ public class QydOrderRecordDTO {
     private Integer isOverdue;
     private Integer buyNums;
 
+    private Long createTime;
+
     private Integer buyTime;
 
     private BigDecimal money;
+
+    private String moneyString;
+
     private String cityCode;
 
     private String stateName;
@@ -168,5 +173,21 @@ public class QydOrderRecordDTO {
 
     public void setPayDisplay(String payDisplay) {
         this.payDisplay = payDisplay;
+    }
+
+    public String getMoneyString() {
+        return moneyString;
+    }
+
+    public void setMoneyString(String moneyString) {
+        this.moneyString = moneyString;
+    }
+
+    public Long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
     }
 }

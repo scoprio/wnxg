@@ -51,4 +51,7 @@ $(function () {
         }
     }
 
+    var city_height = $(window).height()-50;
+    $('.city').height(city_height)
+
 })

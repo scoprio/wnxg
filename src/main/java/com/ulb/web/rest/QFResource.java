@@ -83,6 +83,7 @@ public class QFResource {
     public ResponseEntity<Map<String, Object>> comment(@RequestBody Comment2DTO comment2DTO){
 
         Map<String, Object> resultMap = new LinkedHashMap<>();
+        comment2DTO.setContent(StatueUtil.filterEmoji(comment2DTO.getContent().trim(),""));
         try {
             ResultDTO resultDTO = qfService.comment(comment2DTO);
             if(resultDTO.getCode().equals("200")){

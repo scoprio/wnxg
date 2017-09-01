@@ -277,6 +277,7 @@ public class MyResource {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<String, Object>>  save(@RequestBody FeedbackDTO feedbackDTO){
         Map<String, Object> resultMap = new LinkedHashMap<>();
+        feedbackDTO.setCommit(StatueUtil.filterEmoji(feedbackDTO.getCommit(),""));
         myService.insert(feedbackDTO);
         resultMap.put("message", "提交成功！");
         resultMap.put("status", 200);

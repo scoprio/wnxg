@@ -173,7 +173,7 @@ public class UlbSKUResource {
             method = RequestMethod.POST,
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<String, Object>> comment(@RequestBody CommentDTO commentDTO){
-
+        commentDTO.setRemark(StatueUtil.filterEmoji(commentDTO.getRemark().trim(),""));
         Map<String, Object> resultMap = new LinkedHashMap<>();
         try {
             ResultDTO resultDTO = skuService.comment(commentDTO);

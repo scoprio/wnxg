@@ -3,6 +3,8 @@ package com.ulb.web.util;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
+
 /**
  * Created by wangpeng on 24/08/2017.
  */
@@ -42,5 +44,13 @@ public class StatueUtil {
         new StatueUtil();
         return statueMap.get(statue);
 
+    }
+
+    public static String filterEmoji(String source,String slipStr) {
+        if(StringUtils.isNotBlank(source)){
+            return source.replaceAll("[\\ud800\\udc00-\\udbff\\udfff\\ud800-\\udfff]", slipStr);
+        }else{
+            return source;
+        }
     }
 }

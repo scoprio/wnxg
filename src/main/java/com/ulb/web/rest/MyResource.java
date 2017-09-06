@@ -93,6 +93,7 @@ public class MyResource {
         List<OrderRecordDTO> list = null;
         List<OrderRecordDTO> list1 = new ArrayList<>();
         List<OrderRecordDTO> list2 = new ArrayList<>();
+        myOrderRecordDTO.setTitle("我的订单");
         try {
             list = myService.getSKUOrderRecord(dingdingUId,cityCode);
             for(OrderRecordDTO dto:list){
@@ -140,6 +141,7 @@ public class MyResource {
         List<OrderRecordDTO> list = null;
         List<OrderRecordDTO> list1 = new ArrayList<>();
         List<OrderRecordDTO> list2 = new ArrayList<>();
+        myOrderRecordDTO.setTitle("公司的订单");
         try {
             list = myService.getCropSKUOrderRecord(corpId,cityCode);
             for(OrderRecordDTO dto:list){

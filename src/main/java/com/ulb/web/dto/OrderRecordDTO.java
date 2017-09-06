@@ -26,6 +26,7 @@ public class OrderRecordDTO {
 
     private String statusName;
     private String cityCode;
+    private String title;
     // 钉钉B端ID
     private int ori;
 
@@ -40,7 +41,17 @@ public class OrderRecordDTO {
 
     private String commentDisplay;
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
     /**订单详情**/
+
+
 
     public String getName() {
         return name;

@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>我的订单</title>
+		<title>${orders.title?default("我的订单")}</title>
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css"/>
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/my_order.css"/>
         <script src="${basePath}/js/qifu/common.js" type="text/javascript" charset="utf-8"></script>

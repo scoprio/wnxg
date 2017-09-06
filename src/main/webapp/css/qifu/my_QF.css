@@ -55,7 +55,7 @@
 	line-height: .3rem;
 }
 .message p:nth-of-type(2){
-	font-size: 0.2rem;
+	font-size: .3rem;
 }
 .message p:first-child {
 	font-size: .28rem;

@@ -157,9 +157,33 @@ table tr td:last-child{
     text-align: center;
 }
 
+
+#last:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid #e0e0e0;
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5) {
+    #last:after {
+        transform: scaleY(0.7)
+    }
+}
+
+@media (-webkit-min-device-pixel-ratio: 2) {
+    #last:after {
+        transform: scaleY(0.5)
+    }
+}
+
 .gptu{
 	position: absolute;
     bottom: .1rem;
     right: .3rem;
     color: #929292;
 }
+
+

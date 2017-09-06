@@ -137,25 +137,6 @@
     border:none;
     padding-bottom: 0.08rem;
 }
-.contact_way:after{
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    border-top: 1px solid #e0e0e0;
-}
-@media (-webkit-min-device-pixel-ratio: 1.5) {
-    .contact_way:after{
-        transform: scaleY(0.7)
-    }
-}
-
-@media (-webkit-min-device-pixel-ratio: 2) {
-    .contact_way:after{
-        transform: scaleY(0.5)
-    }
-}
 .contact_way .contact_wayli{
 	margin: 0 .3rem;
 	/*border-bottom: 1px solid #E0E0E0;*/

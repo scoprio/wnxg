@@ -26,6 +26,8 @@ public class SKURecordDTO {
 
     private String cityCode;
 
+    private String priceFormat;
+
     public String getRid() {
         return rid;
     }
@@ -96,5 +98,13 @@ public class SKURecordDTO {
 
     public void setCityCode(String cityCode) {
         this.cityCode = cityCode;
+    }
+
+    public String getPriceFormat() {
+        return priceFormat;
+    }
+
+    public void setPriceFormat(String priceFormat) {
+        this.priceFormat = priceFormat;
     }
 }

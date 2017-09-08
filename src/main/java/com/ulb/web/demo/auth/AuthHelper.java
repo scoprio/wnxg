@@ -17,6 +17,7 @@ import com.dingtalk.open.client.api.model.corp.JsapiTicket;
 import com.dingtalk.open.client.api.model.isv.CorpAuthToken;
 import com.dingtalk.open.client.api.service.corp.JsapiService;
 import com.dingtalk.open.client.api.service.isv.IsvService;
+import com.ulb.core.statics.Constant;
 import com.ulb.web.demo.Env;
 import com.ulb.web.demo.OApiException;
 import com.ulb.web.demo.OApiResultException;
@@ -152,6 +153,12 @@ public class AuthHelper {
 
 	public static String getAgentId(String corpId, String appId) throws OApiException {
 		String agentId = null;
+		String endTime = FileUtils.getValue("ticket", "endTime").toString();
+		long curTime = System.currentTimeMillis();
+		if (endTime == null || Long.valueOf(endTime) - curTime < 0){
+			agentId = Constant.AGENTID;
+			return agentId;
+		}
 		String accessToken = FileUtils.getValue("ticket", "suiteToken").toString();
 		String url = "https://oapi.dingtalk.com/service/get_auth_info?suite_access_token=" + accessToken;
 		JSONObject args = new JSONObject();

@@ -357,7 +357,7 @@
 					<p class="order_name">维修类目：<span>${sku.name}</span></p>
 					<p class="remark">${sku.content?default('无')}</p>
 					<div>
-						<p class="priceshow"><i>&yen;</i><span>${sku.price?default('0')}</span> <input type="button" name="" id="" value="服务说明" /></p>
+						<p class="priceshow"><i>&yen;</i><span>${sku.priceFormat?default('价格面议')}</span> <input type="button" name="" id="" value="服务说明" /></p>
 					</div>
 				</div>
 			</div>

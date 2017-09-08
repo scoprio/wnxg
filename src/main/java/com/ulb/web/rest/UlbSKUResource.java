@@ -1,6 +1,7 @@
 package com.ulb.web.rest;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -68,6 +69,11 @@ public class UlbSKUResource {
             dto.setUsefulTime(JSONArray.fromObject(timeService.getUsefulTime()).toString());
             dto.setConfig(ConfigGetter.getConfig(request));
             dto.setCityCode(cityCode);
+            if(dto.getPrice().compareTo(new BigDecimal(0)) == 0){
+                dto.setPriceFormat("价格面议");
+            }else{
+                dto.setPriceFormat(dto.getPrice().toString());
+            }
         } catch (IOException e) {
             LOGGER.error("从服务请求SKU详情失败");
             e.printStackTrace();

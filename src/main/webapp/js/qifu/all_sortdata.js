@@ -66,6 +66,11 @@ var sort_data = {
             "title":"综合布线",
             "pic":baseUrl + "/images/3528.png",
             "money":"30"
+        },{
+            "id":3596,
+            "title":"巡检服务",
+            "pic":baseUrl + "/images/3596.png",
+            "money":"30"
         }
         
     ],
@@ -111,6 +116,11 @@ var sort_data = {
             "title":"饮水机清洗",
             "pic":baseUrl + "/images/3535.png",
             "money":"278"
+        },{
+            "id":3596,
+            "title":"巡检服务",
+            "pic":baseUrl + "/images/3596.png",
+            "money":"30"
         }
 
     ],
@@ -348,6 +358,11 @@ var sort_data = {
             "title":"防盗门锁开启(叶片钥匙)",
             "pic":baseUrl + "/images/3574.png",
             "money":"150"
+        },{
+            "id":3596,
+            "title":"巡检服务",
+            "pic":baseUrl + "/images/3596.png",
+            "money":"30"
         }
         
         

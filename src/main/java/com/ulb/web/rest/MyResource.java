@@ -148,11 +148,6 @@ public class MyResource {
                 dto.setCityCode(cityCode);
                 dto.setStatusName(StatueUtil.getStatueName(dto.getPid().toString()));
                 dto.setOnum("wnxg"+dto.getOnum());
-                if(dto.getPid() == 1 ||dto.getPid() ==2 ||dto.getPid()==3){
-                    dto.setDisplay("inline-block");
-                }else{
-                    dto.setDisplay("none");
-                }
 
                 if(dto.getPid() == 7){
                     dto.setCommentDisplay("inline-block");
@@ -160,10 +155,16 @@ public class MyResource {
                     dto.setCommentDisplay("none");
                 }
 
+                if(dto.getPid() == 1 ||dto.getPid() ==2 ||dto.getPid()==3){
+                    dto.setDisplay("inline-block");
+                }else{
+                    dto.setDisplay("none");
+                }
+
 
                 if(dto.getPid() == 1 || dto.getPid() == 2 || dto.getPid() == 3 ||dto.getPid() == 4 ||dto.getPid() == 5 ){
                     list1.add(dto);
-                } else if(dto.getPid() == 7 || dto.getPid() == 8 ||dto.getPid() == 18|| dto.getPid() == 22){
+                } else if(dto.getPid() == 8 || dto.getPid() == 7 ||dto.getPid() == 18|| dto.getPid() == 22){
                     list2.add(dto);
                 }else{
                     list1.add(dto);
@@ -224,6 +225,11 @@ public class MyResource {
                         break;
                     case 4:
                         dto.setStateName("支付成功，已生效");
+                        dto.setCommentDisplay("inline-block");
+                        dto.setPayDisplay("none");
+                        break;
+                    case 5:
+                        dto.setStateName("已退款");
                         dto.setCommentDisplay("inline-block");
                         dto.setPayDisplay("none");
                         break;

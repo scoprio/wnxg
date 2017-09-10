@@ -26,7 +26,6 @@
             localStorage.nonceStr = '${_config.nonceStr}';
             localStorage.signature = '${_config.signature}';
 
-
         </script>
 
         <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>

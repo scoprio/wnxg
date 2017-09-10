@@ -427,9 +427,11 @@ dd.ready(function() {
 					var myUrl;
 					var qydUrl;
 					if(dingdingUserInfo.isAdmin || dingdingUserInfo.isBoss){
+						localStorage.isAdmin = true;
 						myUrl = baseUrl+"/dingding/my_admin.shtml?uuid="+localStorage.dingdingUserId+"&cityCode="+current_city_code+"&corpid="+localStorage.corpId;
 						qydUrl = baseUrl+"/dingding/qyd.shtml?corpid="+localStorage.corpId+"&isAdmin=true&cityCode="+current_city_code;
 					}else{
+						localStorage.isAdmin = false;
 						myUrl = baseUrl+"/dingding/my.shtml?uuid="+localStorage.dingdingUserId+"&cityCode="+current_city_code+"&corpid="+localStorage.corpId;
 						qydUrl = baseUrl+"/dingding/qyd.shtml?corpid="+localStorage.corpId+"&isAdmin=false&cityCode="+current_city_code;
 					}

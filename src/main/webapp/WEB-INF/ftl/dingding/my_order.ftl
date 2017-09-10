@@ -16,7 +16,6 @@
             localStorage.timeStamp ='${orders.config.timeStamp?default("")}';
             localStorage.nonceStr = '${orders.config.nonceStr?default("")}';
             localStorage.signature = '${orders.config.signature?default("")}';
-
         </script>
     </head>
 	<body>
@@ -171,11 +170,16 @@
                                                                  location.href = "${basePath}"+notify_url;
                                                              }else{
                                                                  dd.device.notification.alert({
-                                                                                                  message: "亲，您的企业盾支付失败，请到联系客服",
+                                                                                                  message: "亲，您的支付失败，请到联系客服",
                                                                                                   title: "",//可传空
                                                                                                   buttonName: "好的",
                                                                                                   onSuccess : function() {
-                                                                                                      location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&appid=3919&cityCode="+localStorage.current_city_code;
+                                                                                                      <#--if(${orders.flag?default("0")} == "0"){-->
+                                                                                                       location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid=3919";
+//                                                                                                      }else{
+//
+//                                                                                                      }
+                                                                                                      <#--location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&appid=3919&cityCode="+localStorage.current_city_code;-->
                                                                                                   },
                                                                                                   onFail : function(err) {}
                                                                                               });
@@ -184,11 +188,11 @@
                                                          },
                                                          onFail: function (err) {
                                                              dd.device.notification.alert({
-                                                                                              message: "亲，您的企业盾支付失败，请到联系客服",
+                                                                                              message: "亲，您的支付失败，请到联系客服",
                                                                                               title: "",//可传空
                                                                                               buttonName: "好的",
                                                                                               onSuccess : function() {
-                                                                                                  location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&appid=3919&cityCode="+localStorage.current_city_code;
+                                                                                                  location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid=3919";
                                                                                               },
                                                                                               onFail : function(err) {}
                                                                                           });
@@ -198,11 +202,11 @@
 
                                }else{
                                    dd.device.notification.alert({
-                                                                    message: "亲，您的企业盾支付失败，请到联系客服",
+                                                                    message: "亲，您的支付失败，请到联系客服",
                                                                     title: "",//可传空
                                                                     buttonName: "好的",
                                                                     onSuccess : function() {
-                                                                        location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&appid=3919&cityCode="+localStorage.current_city_code;
+                                                                        location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid=3919";
                                                                     },
                                                                     onFail : function(err) {}
                                                                 });
@@ -231,7 +235,7 @@
                            success: function(result){
                                if(result && result.status== 200){
                                    layer_tip(result.message,function () {
-                                       location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml";
+                                       location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid=3919";
                                    })
 
                                }else{

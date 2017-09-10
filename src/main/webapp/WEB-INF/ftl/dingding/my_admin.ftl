@@ -18,8 +18,8 @@
 			</div>
 		</div>
 		<ul class="my_ul1 border_bottom border_top">
-			<a href="${basePath}/dingding/my_order/${my.userId}/${my.cityCode}.shtml"><li><p>我的订单</p></li></a>
-            <a href="${basePath}/dingding/my_company_order/${my.corpId}/${my.cityCode}.shtml"><li><p>公司的订单</p></li></a>
+			<a href="${basePath}/dingding/my_order/${my.userId}/${my.cityCode}.shtml?corpId=${my.corpId}&appid=3919"><li><p>我的订单</p></li></a>
+            <a href="${basePath}/dingding/my_company_order/${my.corpId}/${my.cityCode}.shtml?corpId=${my.corpId}&appid=3919"><li><p>公司的订单</p></li></a>
 
 		</ul>
 		<ul class="my_ul2 border_bottom border_top">

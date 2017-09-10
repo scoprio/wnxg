@@ -17,6 +17,8 @@ public class MyOrderRecordDTO {
 
     private String title;
 
+    private String flag;
+
     public String getTitle() {
         return title;
     }
@@ -55,5 +57,13 @@ public class MyOrderRecordDTO {
 
     public void setConfig(DingDingConfigDTO config) {
         this.config = config;
+    }
+
+    public String getFlag() {
+        return flag;
+    }
+
+    public void setFlag(String flag) {
+        this.flag = flag;
     }
 }

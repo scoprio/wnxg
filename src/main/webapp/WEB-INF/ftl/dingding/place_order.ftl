@@ -322,7 +322,7 @@
                                             title: "",//可传空
                                             buttonName: "好的",
                                             onSuccess : function() {
-                                                location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/${sku.cityCode}.shtml";
+                                                location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/${sku.cityCode}.shtml?corpId="+localStorage.corpId+"&appid=3919";
                                             },
                                             onFail : function(err) {}
                                         });

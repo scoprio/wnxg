@@ -36,7 +36,7 @@
 	</body>
 	<script>
         $(function() {
-			var orderUrl = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml";
+			var orderUrl = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid=3919";
             $('.returnQF').attr("href",orderUrl);
         });
 

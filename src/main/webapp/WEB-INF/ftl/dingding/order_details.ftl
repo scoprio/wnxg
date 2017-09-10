@@ -146,7 +146,7 @@
                                success: function(result){
                                    if(result && result.status== 200){
                                        layer_tip(result.message,function () {
-                                           location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml";
+                                           location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid=3919";
                                        })
                                    }else{
                                        layer_tip(result.message);

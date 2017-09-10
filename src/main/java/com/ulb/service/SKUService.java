@@ -14,6 +14,7 @@ import com.ulb.web.dto.OrderDetailDTO;
 import com.ulb.web.dto.PayStateDTO;
 import com.ulb.web.dto.ResultDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
+import com.ulb.web.dto.SKUOrderStateDTO;
 import com.ulb.web.dto.SKURecordDTO;
 
 import org.springframework.stereotype.Service;
@@ -68,7 +69,7 @@ public class SKUService {
         return response.body();
     }
 
-    public ResultDTO pay(String orderId,String cityCode,PayStateDTO payStateDTO) throws IOException {
+    public ResultDTO pay(String orderId,String cityCode,SKUOrderStateDTO payStateDTO) throws IOException {
         RemoteSKUService service = APIServiceGenrator.createRequsetService(RemoteSKUService.class);
         Call<ResultDTO> call = service.payOrder(orderId,cityCode,payStateDTO);
         Response<ResultDTO> response = call.execute();

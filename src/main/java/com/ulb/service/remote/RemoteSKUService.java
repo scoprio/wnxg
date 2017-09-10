@@ -10,6 +10,7 @@ import com.ulb.web.dto.OrderDetailDTO;
 import com.ulb.web.dto.PayStateDTO;
 import com.ulb.web.dto.ResultDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
+import com.ulb.web.dto.SKUOrderStateDTO;
 import com.ulb.web.dto.SKURecordDTO;
 import com.ulb.web.dto.UsefulTimeDTO;
 
@@ -55,5 +56,5 @@ public interface RemoteSKUService {
 
     @Headers({"Content-type:application/json;charset=UTF-8"})
     @PUT("/WNXG/ulb/api/new_enter_prise_my_company/afterOnline/{orderId}/{cityCode}")
-    Call<ResultDTO> payOrder(@Path("orderId")String orderId,@Path("orderId")String cityCode,@Body PayStateDTO payStateDTO);
+    Call<ResultDTO> payOrder(@Path("orderId")String orderId,@Path("orderId")String cityCode,@Body SKUOrderStateDTO payStateDTO);
 }

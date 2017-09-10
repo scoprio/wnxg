@@ -26,6 +26,7 @@ import com.ulb.web.dto.QFRecordDetailDTO;
 import com.ulb.web.dto.QFRepairDTO;
 import com.ulb.web.dto.ResultDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
+import com.ulb.web.dto.SKUOrderStateDTO;
 import com.ulb.web.dto.SKURecordDTO;
 import com.ulb.web.util.AlipayInfoGetter;
 import com.ulb.web.util.ConfigGetter;
@@ -230,8 +231,8 @@ public class UlbSKUResource {
 
     @RequestMapping(value="/sku/pay/{orderId}/{cityCode}",method=RequestMethod.GET)
     public ModelAndView pay(@PathVariable String orderId,@PathVariable String cityCode){
-        PayStateDTO payStateDTO = new PayStateDTO();
-        payStateDTO.setPayState(1);
+        SKUOrderStateDTO payStateDTO = new SKUOrderStateDTO();
+        payStateDTO.setPid(7);
 
         ResultDTO resultDTO = null;
         try {

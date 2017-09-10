@@ -165,8 +165,9 @@
                                                                  array2[key] = value;
                                                              })
                                                              notify_url = array2.notify_url;
-
+                                                             alert(notify_url);
                                                              if(notify_url){
+
                                                                  location.href = "${basePath}"+notify_url;
                                                              }else{
                                                                  dd.device.notification.alert({

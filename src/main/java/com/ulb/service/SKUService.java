@@ -11,6 +11,7 @@ import com.ulb.web.dto.Comment2DTO;
 import com.ulb.web.dto.CommentDTO;
 import com.ulb.web.dto.OperaterOrderDTO;
 import com.ulb.web.dto.OrderDetailDTO;
+import com.ulb.web.dto.PayStateDTO;
 import com.ulb.web.dto.ResultDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKURecordDTO;
@@ -63,6 +64,13 @@ public class SKUService {
     public ResultDTO comment(CommentDTO commentDTO) throws IOException {
         RemoteSKUService service = APIServiceGenrator.createRequsetService(RemoteSKUService.class);
         Call<ResultDTO> call = service.comment(commentDTO);
+        Response<ResultDTO> response = call.execute();
+        return response.body();
+    }
+
+    public ResultDTO pay(String orderId,String cityCode,PayStateDTO payStateDTO) throws IOException {
+        RemoteSKUService service = APIServiceGenrator.createRequsetService(RemoteSKUService.class);
+        Call<ResultDTO> call = service.payOrder(orderId,cityCode,payStateDTO);
         Response<ResultDTO> response = call.execute();
         return response.body();
     }

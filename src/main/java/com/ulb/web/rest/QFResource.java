@@ -216,7 +216,7 @@ public class QFResource {
     @RequestMapping(value = "/qf/orderPayInfo.shtml",
             method = RequestMethod.GET,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Map<String, Object>> repair(HttpServletRequest request){
+    public ResponseEntity<Map<String, Object>> getPayInfo(HttpServletRequest request){
         String orderId = request.getParameter("orderId");
         Map<String, Object> resultMap = new LinkedHashMap<>();
         QFRecordDetailDTO qfRecordDetailDTO = null;
@@ -235,21 +235,6 @@ public class QFResource {
             resultMap.put("status", 200);
             resultMap.put("alipayInfo", alipayInfo);
         }
-//        try {
-//            ResultDTO resultDTO = qfService.repair(qfRepairPostDTO);
-//            if(resultDTO.getCode().equals("200")){
-//                resultMap.put("status", 200);
-//                resultMap.put("message", "预约成功！");
-//            }else{
-//                resultMap.put("status", 500);
-//                resultMap.put("message", "服务端预约失败！");
-//            }
-//
-//        } catch (IOException e) {
-//            resultMap.put("status", 500);
-//            resultMap.put("message", "应用端预约失败！");
-//            e.printStackTrace();
-//        }
         return new ResponseEntity(resultMap,HttpStatus.OK);
     }
 }

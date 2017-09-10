@@ -13,6 +13,8 @@ public class MyOrderRecordDTO {
 
     private List<OrderRecordDTO> list2;
 
+    private DingDingConfigDTO config;
+
     private String title;
 
     public String getTitle() {
@@ -45,5 +47,13 @@ public class MyOrderRecordDTO {
 
     public void setList2(List<OrderRecordDTO> list2) {
         this.list2 = list2;
+    }
+
+    public DingDingConfigDTO getConfig() {
+        return config;
+    }
+
+    public void setConfig(DingDingConfigDTO config) {
+        this.config = config;
     }
 }

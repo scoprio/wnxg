@@ -20,11 +20,14 @@ import com.ulb.web.dto.OperaterOrderDTO;
 import com.ulb.web.dto.OperaterOrderWithIdDTO;
 import com.ulb.web.dto.OrderDataDetailDTO;
 import com.ulb.web.dto.OrderDetailDTO;
+import com.ulb.web.dto.PayState2DTO;
+import com.ulb.web.dto.PayStateDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
 import com.ulb.web.dto.QFRepairDTO;
 import com.ulb.web.dto.ResultDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKURecordDTO;
+import com.ulb.web.util.AlipayInfoGetter;
 import com.ulb.web.util.ConfigGetter;
 import com.ulb.web.util.StatueUtil;
 
@@ -36,6 +39,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -197,6 +201,53 @@ public class UlbSKUResource {
             e.printStackTrace();
         }
         return new ResponseEntity(resultMap,HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/sku/orderPayInfo.shtml",
+            method = RequestMethod.GET,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, Object>> getPayInfo(HttpServletRequest request){
+        String orderId = request.getParameter("orderId");
+        String cityCode = request.getParameter("cityCode");
+        Map<String, Object> resultMap = new LinkedHashMap<>();
+        OrderDetailDTO  orderDetailDTO = null;
+        try {
+            orderDetailDTO = skuService.getSKUOrderService(orderId,cityCode);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        String notifyUrl = "/ulb/sku/pay/"+orderId +"/"+ cityCode+".shtml";
+        String alipayInfo = AlipayInfoGetter.getAlipayInfo("企业盾购买:"+orderId,orderId,orderDetailDTO.getTotalFee().toString(),notifyUrl);
+        if(ObjectUtils.isEmpty(orderDetailDTO)){
+            resultMap.put("alipayInfo", "");
+            resultMap.put("status", 500);
+        }else{
+            resultMap.put("status", 200);
+            resultMap.put("alipayInfo", alipayInfo);
+        }
+        return new ResponseEntity(resultMap,HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/sku/pay/{orderId}/{cityCode}",method=RequestMethod.GET)
+    public ModelAndView pay(@PathVariable String orderId,@PathVariable String cityCode){
+        PayStateDTO payStateDTO = new PayStateDTO();
+        payStateDTO.setPayState(1);
+
+        ResultDTO resultDTO = null;
+        try {
+            resultDTO = skuService.pay(orderId,cityCode,payStateDTO);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        PayState2DTO payState2DTO = new PayState2DTO();
+        if(resultDTO.getCode().equals("200")){
+            payState2DTO.setPayState(1);
+            payState2DTO.setMessage("支付成功");
+        }else{
+            payState2DTO.setPayState(0);
+            payState2DTO.setMessage("支付失败");
+        }
+        return new ModelAndView("dingding/pay_order_result","payState",payState2DTO);
     }
 
 }

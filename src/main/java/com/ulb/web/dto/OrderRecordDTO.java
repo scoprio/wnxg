@@ -40,6 +40,7 @@ public class OrderRecordDTO {
 
 
     private String commentDisplay;
+    private String payDisplay;
 
     public String getTitle() {
         return title;
@@ -233,5 +234,13 @@ public class OrderRecordDTO {
 
     public void setCommentDisplay(String commentDisplay) {
         this.commentDisplay = commentDisplay;
+    }
+
+    public String getPayDisplay() {
+        return payDisplay;
+    }
+
+    public void setPayDisplay(String payDisplay) {
+        this.payDisplay = payDisplay;
     }
 }

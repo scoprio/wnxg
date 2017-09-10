@@ -86,7 +86,7 @@ public class MyResource {
     }
 
     @RequestMapping(value="my_order/{dingdingUId}/{cityCode}",method=RequestMethod.GET)
-    public ModelAndView getOrders(@PathVariable String dingdingUId,@PathVariable String cityCode){
+    public ModelAndView getOrders(@PathVariable String dingdingUId,@PathVariable String cityCode,HttpServletRequest request){
 
         MyOrderRecordDTO myOrderRecordDTO = new MyOrderRecordDTO();
 
@@ -94,6 +94,7 @@ public class MyResource {
         List<OrderRecordDTO> list1 = new ArrayList<>();
         List<OrderRecordDTO> list2 = new ArrayList<>();
         myOrderRecordDTO.setTitle("我的订单");
+        myOrderRecordDTO.setConfig(ConfigGetter.getConfig(request));
         try {
             list = myService.getSKUOrderRecord(dingdingUId,cityCode);
             for(OrderRecordDTO dto:list){
@@ -121,6 +122,12 @@ public class MyResource {
                     list1.add(dto);
                 }
 
+                if(dto.getPid() == 1){
+                    dto.setPayDisplay("inline-block");
+                }else{
+                    dto.setPayDisplay("none");
+                }
+
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -134,7 +141,7 @@ public class MyResource {
     }
 
     @RequestMapping(value="my_company_order/{corpId}/{cityCode}",method=RequestMethod.GET)
-    public ModelAndView getCropOrders(@PathVariable String corpId,@PathVariable String cityCode){
+    public ModelAndView getCropOrders(@PathVariable String corpId,@PathVariable String cityCode,HttpServletRequest request){
 
         MyOrderRecordDTO myOrderRecordDTO = new MyOrderRecordDTO();
 
@@ -142,6 +149,7 @@ public class MyResource {
         List<OrderRecordDTO> list1 = new ArrayList<>();
         List<OrderRecordDTO> list2 = new ArrayList<>();
         myOrderRecordDTO.setTitle("公司的订单");
+        myOrderRecordDTO.setConfig(ConfigGetter.getConfig(request));
         try {
             list = myService.getCropSKUOrderRecord(corpId,cityCode);
             for(OrderRecordDTO dto:list){
@@ -159,6 +167,12 @@ public class MyResource {
                     dto.setDisplay("inline-block");
                 }else{
                     dto.setDisplay("none");
+                }
+
+                if(dto.getPid() == 27){
+                    dto.setPayDisplay("inline-block");
+                }else{
+                    dto.setPayDisplay("none");
                 }
 
 

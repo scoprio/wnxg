@@ -187,7 +187,7 @@ var sort_data = {
         },
         {
             "id": 3590,
-            "title": "光源更换维修（格栅灯、筒灯、LED等 ",
+            "title": "光源更换维修（格栅灯、筒灯、LED等）",
             "pic":baseUrl + "/images/3590.png",
             "money":"50"
         },

@@ -90,7 +90,7 @@
                                 <td>80</td>
                             </tr>
                             <tr>
-                                <td>灯箱线路</td>
+                                <td>公司室内LOGO标示加固</td>
                                 <td>15</td>
                             </tr>
                             <tr>
@@ -174,11 +174,11 @@
                                 <td>50</td>
                             </tr>
                             <tr>
-                                <td>水龙头安装（混水）</td>
+                                <td>角阀更换</td>
                                 <td>50</td>
                             </tr>
                             <tr>
-                                <td>水龙头安装（普通）</td>
+                                <td>卫生间排风扇</td>
                                 <td>70</td>
                             </tr>
                             <tr>
@@ -194,13 +194,8 @@
                                 <td>小便池疏通（手动）</td>
                                 <td>80</td>
                             </tr>
-                            <tr>
-                                <td>巡检项目</td>
-                                <td>巡检项目维修</td>
-                                <td>面议</td>
-                            </tr>
                         </table>
-						<div class="qyd_remark">
+                        <div class="qyd_remark">
 							<div>备注：</div>
 							<div>
 								<p>1、购买后3日内会对企业提供一次上门巡检服务，确认符合标准之后服务正式开始；</p>

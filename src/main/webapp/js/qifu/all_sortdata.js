@@ -127,19 +127,19 @@ var sort_data = {
     "sort2":[
         {
             "id":3536,
-            "title":"开关更换维修",
+            "title":"墙壁开关检测维修",
             "pic":baseUrl + "/images/3536.png",
             "money":"50"
         },
         {
             "id":3537,
-            "title":"空气开关拆换维修",
+            "title":"空开更换维修",
             "pic":baseUrl + "/images/3537.png",
             "money":"50"
         },
         {
             "id":3538,
-            "title":"墙体插座更换维修",
+            "title":"墙体、工位插座更换维修",
             "pic":baseUrl + "/images/3538.png",
             "money":"50"
         },
@@ -211,7 +211,7 @@ var sort_data = {
         },
         {
             "id":3550,
-            "title":"木门合页更换维修",
+            "title":"实木门合页检测维修",
             "pic":baseUrl + "/images/3550.png",
             "money":"60"
         },

@@ -151,7 +151,7 @@ var sort_data = {
         },
         {
             "id":3540,
-            "title":"地插更换维修",
+            "title":"地插检测维修",
             "pic":baseUrl + "/images/3540.png",
             "money":"50"
         },

@@ -132,6 +132,12 @@ var sort_data = {
             "money":"50"
         },
         {
+            "id": 3589,
+            "title": "空调开关更换维修",
+            "pic":baseUrl + "/images/3589.png",
+            "money":"50"
+        },
+        {
             "id":3537,
             "title":"空开更换维修",
             "pic":baseUrl + "/images/3537.png",
@@ -156,6 +162,18 @@ var sort_data = {
             "money":"50"
         },
         {
+            "id": 3586,
+            "title": "强电线路检测维修",
+            "pic":baseUrl + "/images/3586.png",
+            "money":"70"
+        },
+        {
+            "id": 3587,
+            "title": "网络线路检测维修",
+            "pic":baseUrl + "/images/3587.png",
+            "money":"70"
+        },
+        {
             "id":3541,
             "title":"强电布线",
             "pic":baseUrl + "/images/3541.png",
@@ -166,6 +184,12 @@ var sort_data = {
             "title":"灯具检测维修",
             "pic":baseUrl + "/images/3542.png",
             "money":"70"
+        },
+        {
+            "id": 3590,
+            "title": "光源更换维修（格栅灯、筒灯、LED等 ",
+            "pic":baseUrl + "/images/3590.png",
+            "money":"50"
         },
         {
             "id":3543,
@@ -201,6 +225,24 @@ var sort_data = {
             "id":3548,
             "title":"家具护角安装维修",
             "pic":baseUrl + "/images/3548.png",
+            "money":"50"
+        },
+        {
+            "id": 3585,
+            "title": "工位、办公桌检测维修",
+            "pic":baseUrl + "/images/3585.png",
+            "money":"50"
+        },
+        {
+            "id": 3583,
+            "title": "家具综合维修（博古架、沙发、茶几、花几）",
+            "pic":baseUrl + "/images/3583.png",
+            "money":"100"
+        },
+        {
+            "id": 3584,
+            "title": "文件柜、更衣柜检测维修",
+            "pic":baseUrl + "/images/3584.png",
             "money":"50"
         },
         {
@@ -258,7 +300,7 @@ var sort_data = {
             "money":"65"
         },{
             "id": 3576,
-            "value": "窗帘检测维修",
+            "title": "窗帘检测维修",
             "pic":baseUrl + "/images/3576.png",
             "money":"65"
         },
@@ -269,6 +311,24 @@ var sort_data = {
             "money":"50"
         },
         {
+            "id": 3582,
+            "title": "实木门门锁更换维修",
+            "pic":baseUrl + "/images/3582.png",
+            "money":"80"
+        },
+        {
+            "id": 3580,
+            "title": "闭门器检测维修",
+            "pic":baseUrl + "/images/3580.png",
+            "money":"50"
+        },
+        {
+            "id": 3581,
+            "title": "玻璃窗综合检测维修",
+            "pic":baseUrl + "/images/3581.png",
+            "money":"50"
+        },
+        {
             "id":3559,
             "title":"洗手盆上水管或下水管维修",
             "pic":baseUrl + "/images/3559.png",
@@ -276,9 +336,39 @@ var sort_data = {
         },
         {
             "id":3560,
-            "title":"盆上水管和下水管全套更换",
+            "title":"洗手盆上水管和下水管全套更换",
             "pic":baseUrl + "/images/3560.png",
             "money":"100"
+        },
+        {
+            "id": 3591,
+            "title": "水龙头安装（感应）",
+            "pic":baseUrl + "/images/3591.png",
+            "money":"80"
+        },
+        {
+            "id": 3592,
+            "title": "水龙头安装（普通）",
+            "pic":baseUrl + "/images/3592.png",
+            "money":"70"
+        },
+        {
+            "id": 3593,
+            "title": "水龙头安装（混水）",
+            "pic":baseUrl + "/images/3593.png",
+            "money":"50"
+        },
+        {
+            "id": 3594,
+            "title": "马桶配件安装",
+            "pic":baseUrl + "/images/3594.png",
+            "money":"50"
+        },
+        {
+            "id": 3595,
+            "title": "蹲便延时开关更换",
+            "pic":baseUrl + "/images/3595.png",
+            "money":"70"
         },
         {
             "id":3561,
@@ -363,101 +453,12 @@ var sort_data = {
             "title":"防盗门锁开启(叶片钥匙)",
             "pic":baseUrl + "/images/3574.png",
             "money":"150"
-        },{
-            "id": 3580,
-            "title": "闭门器检测维修",
-            "pic":baseUrl + "/images/3580.png",
-            "money":"50"
-        },
-        {
-            "id": 3581,
-            "title": "玻璃窗综合检测维修",
-            "pic":baseUrl + "/images/3581.png",
-            "money":"50"
-        },
-        {
-            "id": 3582,
-            "title": "实木门门锁更换维修",
-            "pic":baseUrl + "/images/3582.png",
-            "money":"80"
-        },
-        {
-            "id": 3583,
-            "title": "家具综合维修（博古架、沙发、茶几、花几）",
-            "pic":baseUrl + "/images/3583.png",
-            "money":"100"
-        },
-        {
-            "id": 3584,
-            "title": "文件柜、更衣柜检测维修",
-            "pic":baseUrl + "/images/3584.png",
-            "money":"50"
-        },
-        {
-            "id": 3585,
-            "title": "工位、办公桌检测维修",
-            "pic":baseUrl + "/images/3585.png",
-            "money":"50"
-        },
-        {
-            "id": 3586,
-            "title": "强电线路检测维修",
-            "pic":baseUrl + "/images/3586.png",
-            "money":"70"
-        },
-        {
-            "id": 3587,
-            "title": "网络线路检测维修",
-            "pic":baseUrl + "/images/3587.png",
-            "money":"70"
         },
         {
             "id": 3588,
             "title": "音箱线路检测维修",
             "pic":baseUrl + "/images/3588.png",
             "money":"15"
-        },
-        {
-            "id": 3589,
-            "title": "空调开关更换维修",
-            "pic":baseUrl + "/images/3589.png",
-            "money":"50"
-        },
-        {
-            "id": 3590,
-            "title": "光源更换维修（格栅灯、筒灯、LED等 ",
-            "pic":baseUrl + "/images/3590.png",
-            "money":"50"
-        },
-        {
-            "id": 3591,
-            "title": "水龙头安装（感应）",
-            "pic":baseUrl + "/images/3591.png",
-            "money":"80"
-        },
-        {
-            "id": 3592,
-            "title": "水龙头安装（普通）",
-            "pic":baseUrl + "/images/3592.png",
-            "money":"70"
-        },
-        {
-            "id": 3593,
-            "title": "水龙头安装（混水）",
-            "pic":baseUrl + "/images/3593.png",
-            "money":"50"
-        },
-        {
-            "id": 3594,
-            "title": "马桶配件安装",
-            "pic":baseUrl + "/images/3594.png",
-            "money":"50"
-        },
-        {
-            "id": 3595,
-            "title": "蹲便延时开关更换",
-            "pic":baseUrl + "/images/3595.png",
-            "money":"70"
         },
         {
             "id":3596,

@@ -483,7 +483,7 @@
 
                     <p class="title">十四、其他</p>
                     <p class="last_p">用户签署或点击"同意并继续"按钮即视为用户完全接受本协议，在点击之前请用户再次确认已知悉并完全理解本协议的全部内容。</p>
-                        <div class="close_agree_wrap"><input type="button" value="同意并继续" class="close_agree"></div>
+                        <div class="close_agree_wrap"><input type="button" value="返回" class="close_agree"></div>
                 </div>
             </div>
         </div>

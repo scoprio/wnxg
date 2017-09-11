@@ -123,7 +123,7 @@ public class MyResource {
                     list1.add(dto);
                 }
 
-                if(dto.getPid() == 1){
+                if(dto.getPid() == 27){
                     dto.setPayDisplay("inline-block");
                 }else{
                     dto.setPayDisplay("none");

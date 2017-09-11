@@ -42,7 +42,7 @@
                     </ul>
                     <p class="lists_btn"><a class="commentOrder" onclick="commentOrder()" href="javascript:void(0);" style="display: ${order.commentDisplay?default('none')}">评论</a>
                         <a class="commentOrder" onclick="payOrder(${order.id?default('未设置')})" href="javascript:void(0);" style="display: ${order.payDisplay?default('none')}">支付</a>
-                        <a href="tel:400-6633-750">联系客服</a></p>
+                        <a href="javascript:void(0);" onclick="telephone()">联系客服</a></p>
                 </li>
 
 
@@ -59,6 +59,15 @@
 		<script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
 		<script type="text/javascript">
 
+            function telephone(){
+                dd.biz.telephone.showCallMenu({
+                      phoneNumber: '400-6633-750',
+                      code: '+86', // 国家代号，中国是+86
+                      showDingCall: true, // 是否显示钉钉电话
+                      onSuccess : function() {},
+                      onFail : function() {}
+                  })
+            }
 
 			function commentOrder(){
                 location.href = "${basePath}/ulb/qf/comment.shtml";

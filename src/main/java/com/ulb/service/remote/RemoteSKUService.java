@@ -55,6 +55,6 @@ public interface RemoteSKUService {
     Call<ResultDTO> comment(@Body CommentDTO commentDTO);
 
     @Headers({"Content-type:application/json;charset=UTF-8"})
-    @PUT("/WNXG/ulb/api/new_enter_prise_my_company/afterOnline/{orderId}/{cityCode}")
-    Call<ResultDTO> payOrder(@Path("orderId")String orderId,@Path("orderId")String cityCode,@Body SKUOrderStateDTO payStateDTO);
+    @PUT("/WNXG/ulb/api/new_enter_prise_my_order/afterOnline/{orderId}/{cityCode}")
+    Call<ResultDTO> payOrder(@Path("orderId")String orderId,@Path("cityCode")String cityCode,@Body SKUOrderStateDTO payStateDTO);
 }

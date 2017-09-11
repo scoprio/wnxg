@@ -49,7 +49,7 @@
                                 <a class="commentOrder" onclick="commentOrder(${order.oid})" href="javascript:void(0);" style="display: ${order.commentDisplay?default('none')}">评论</a>
                                 <a class="cancelOrder" onclick="cancelOrder(${order.oid?default('未设置')})" href="javascript:void(0);" style="display: ${order.display?default('none')}">取消订单</a>
                                 <a class="commentOrder" onclick="payOrder(${order.oid?default('未设置')})" href="javascript:void(0);" style="display: ${order.payDisplay?default('none')}">支付</a>
-                                <a href="tel:400-6633-750">联系客服</a></p>
+                                <a href="javascript:void(0);" onclick="telephone()">联系客服</a></p>
                         </li>
 					</#list>
                 </ul>
@@ -82,7 +82,7 @@
                                 <a class="commentOrder" onclick="commentOrder(${order.oid})" href="javascript:void(0);" style="display: ${order.commentDisplay?default('none')}">评论</a>
                                 <a class="cancelOrder" onclick="cancelOrder(${order.oid?default('未设置')})" href="javascript:void(0);" style="display: ${order.display?default('none')}">取消订单</a>
                                 <a class="commentOrder" onclick="payOrder(${order.oid?default('未设置')})" href="javascript:void(0);" style="display: ${order.payDisplay?default('none')}">支付</a>
-                                <a href="tel:400-6633-750">联系客服</a></p>
+                                <a href="javascript:void(0);" onclick="telephone()">联系客服</a></p>
                         </li>
                     </#list>
                 </ul>
@@ -113,7 +113,7 @@
                             <p class="order_p2">
                                 <a class="commentOrder" onclick="commentOrder(${order.oid})" href="javascript:void(0);" style="display: ${order.commentDisplay?default('none')}">评论</a>
                                 <a class="cancelOrder" onclick="cancelOrder(${order.oid?default('未设置')})" href="javascript:void(0);" style="display: ${order.display?default('none')}">取消订单</a>
-                                <a href="tel:400-6633-750">联系客服</a></p>
+                                <a href="javascript:void(0);" onclick="telephone()">联系客服</a></p>
                         </li>
                     </#list>
                 </ul>
@@ -138,6 +138,16 @@
 
             function commentOrder(orderId){
                 location.href = "${basePath}/ulb/sku/comment.shtml?orderId="+orderId;
+            }
+
+            function telephone(){
+                dd.biz.telephone.showCallMenu({
+                    phoneNumber: '400-6633-750',
+                    code: '+86', // 国家代号，中国是+86
+                    showDingCall: true, // 是否显示钉钉电话
+                    onSuccess : function() {},
+                    onFail : function() {}
+                })
             }
 
 

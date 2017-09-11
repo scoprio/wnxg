@@ -18,6 +18,7 @@ dd.config({
 						  'device.notification.alert',
 						  'device.notification.prompt',
 						  'biz.map.locate',
+						  'biz.telephone.showCallMenu',
 						  'biz.alipay.pay']
 		});
 

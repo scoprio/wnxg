@@ -218,7 +218,7 @@ public class UlbSKUResource {
             e.printStackTrace();
         }
         String notifyUrl = "/ulb/sku/pay/"+orderId +"/"+ cityCode+".shtml";
-        String alipayInfo = AlipayInfoGetter.getAlipayInfo("万能小哥支付:"+orderId,orderId,"0.01",notifyUrl);
+        String alipayInfo = AlipayInfoGetter.getAlipayInfo("万能小哥支付:"+orderId,orderId,orderDetailDTO.getTotalFee().toString(),notifyUrl);
         if(ObjectUtils.isEmpty(orderDetailDTO)){
             resultMap.put("alipayInfo", "");
             resultMap.put("status", 500);

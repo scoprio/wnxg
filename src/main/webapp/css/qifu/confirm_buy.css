@@ -512,12 +512,12 @@ section {
 	margin-bottom: .32rem;
 }
 .agreement_content p:nth-last-of-type(1){
-    padding-bottom: 1.1rem;
+    /*padding-bottom: 1.1rem;*/
 }
 .agreement_content .title {
 	margin-bottom: .2rem;
 	font-size: .26rem;
-	color: #666;
+	color: #222;
 	text-indent: 0;
 }
 
@@ -542,4 +542,45 @@ section {
 
 i {
 	font-size: .24rem;
+}
+
+.line_p{
+	text-decoration: underline;
+	color: #222 !important;
+	font-style: italic;
+}
+.title_h1 {
+	font-size: .4rem !important;
+	text-align: center !important;
+    color: #222 !important;
+    text-indent: 0;
+}
+.agreement_content table{
+	width: 90%;
+	border: 1px solid #222;
+	margin: 0 auto;
+	margin-bottom: 1.3rem;
+}
+
+.agreement_content table .th1,.agreement_content table .th2{
+	width: 20%;
+}
+.agreement_content table td,.agreement_content table th{
+	padding: .1rem;
+	text-align: center;
+	border: 1px solid #222;
+	vertical-align: middle;
+}
+.agreement_content table td p{
+	margin: 0;
+    color: #222;
+    font-size: .24rem;
+    line-height: .4rem;
+    text-indent: 0;
+}
+.agreement_content table caption{
+	border: 1px solid;
+    border-bottom: 0;
+    padding: .3rem 0;
+    font-size: .4rem;
 }

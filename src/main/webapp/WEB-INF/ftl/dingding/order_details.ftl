@@ -9,7 +9,7 @@
         <meta name="format-detection" content="address=no;">
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-		<title>订单详情</title>
+        <title>订单详情</title>
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css" />
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/order_details.css" />
 	</head>

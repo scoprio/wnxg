@@ -4,7 +4,12 @@
 		<meta charset="UTF-8">
 		<title>支付结果</title>
 		<meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width" />
-		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css"/>
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="format-detection" content="email=no" />
+        <meta name="format-detection" content="address=no;">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css"/>
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/pay_result.css"/>
         <script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
 	</head>

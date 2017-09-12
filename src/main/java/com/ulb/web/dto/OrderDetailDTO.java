@@ -18,7 +18,7 @@ public class OrderDetailDTO {
     private Integer pid;
     private String downTime;
     private String yuyueTime;
-    private Integer cost;
+    private BigDecimal cost;
     private Integer costMaterial;
     private Integer surcharge;
     private String uidKh;
@@ -123,11 +123,11 @@ public class OrderDetailDTO {
         this.yuyueTime = yuyueTime;
     }
 
-    public Integer getCost() {
+    public BigDecimal getCost() {
         return cost;
     }
 
-    public void setCost(Integer cost) {
+    public void setCost(BigDecimal cost) {
         this.cost = cost;
     }
 

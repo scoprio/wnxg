@@ -56,11 +56,6 @@ dd.ready(function() {
 		   onFail : function(err) {}
 	   });
 
-	// dd.biz.navigation.setRight({
-	// 		   show: true,//控制按钮显示， true 显示， false 隐藏， 默认true
-	// 		   control: true,//是否控制点击事件，true 控制，false 不控制， 默认false
-	// 		   text: '分享',//控制显示文本，空字符串表示显示默认文本
-	// 		   onSuccess : function(result) {}
 
 
 

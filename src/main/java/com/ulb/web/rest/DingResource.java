@@ -3,7 +3,9 @@ package com.ulb.web.rest;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -49,8 +51,19 @@ public class DingResource {
     @RequestMapping(value="index",method=RequestMethod.GET)
     public ModelAndView userIndex(HttpServletRequest request){
         DingDingConfigDTO dto = ConfigGetter.getConfig(request);
-//        dto.setAlipayInfo(AlipayInfoGetter.getAlipayInfo());
         return new ModelAndView("dingding/index","_config",dto);
+    }
+
+    @RequestMapping(value="access.shtml",method=RequestMethod.GET)
+    public ResponseEntity<Map<String, Object>> access(HttpServletRequest request){
+        Map<String, Object> resultMap = new LinkedHashMap<>();
+        DingDingConfigDTO dto = ConfigGetter.getConfig(request);
+        resultMap.put("agentId",dto.getAgentId());
+        resultMap.put("corpId",dto.getCorpId());
+        resultMap.put("timeStamp",dto.getTimeStamp());
+        resultMap.put("nonceStr",dto.getNonceStr());
+        resultMap.put("signature",dto.getSignature());
+        return new ResponseEntity(resultMap,HttpStatus.OK);
     }
 
 

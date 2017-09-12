@@ -220,12 +220,22 @@ var sort_data = {
             "title":"家具合页更换维修",
             "pic":baseUrl + "/images/3547.png",
             "money":"60"
+        },{
+            "id":3575,
+            "title":"家具滑轮更换维修（办公椅、储物小柜）",
+            "pic":baseUrl + "/images/3575.png",
+            "money":"80"
         },
         {
             "id":3548,
             "title":"家具护角安装维修",
             "pic":baseUrl + "/images/3548.png",
             "money":"50"
+        },{
+            "id":3588,
+            "title":"公司室内LOGO标示加固",
+            "pic":baseUrl + "/images/3588.png",
+            "money":"15"
         },
         {
             "id": 3585,
@@ -300,7 +310,7 @@ var sort_data = {
             "money":"65"
         },{
             "id": 3576,
-            "title": "窗帘检测维修",
+            "title": "窗帘检测维修（卷帘、拉帘、百叶窗）",
             "pic":baseUrl + "/images/3576.png",
             "money":"65"
         },
@@ -348,13 +358,13 @@ var sort_data = {
         },
         {
             "id": 3592,
-            "title": "水龙头安装（普通）",
+            "title": "卫生间排风扇",
             "pic":baseUrl + "/images/3592.png",
             "money":"70"
         },
         {
             "id": 3593,
-            "title": "水龙头安装（混水）",
+            "title": "角阀更换",
             "pic":baseUrl + "/images/3593.png",
             "money":"50"
         },
@@ -454,12 +464,7 @@ var sort_data = {
             "pic":baseUrl + "/images/3574.png",
             "money":"150"
         },
-        {
-            "id": 3588,
-            "title": "音箱线路检测维修",
-            "pic":baseUrl + "/images/3588.png",
-            "money":"15"
-        },
+       
         {
             "id":3596,
             "title":"巡检服务",

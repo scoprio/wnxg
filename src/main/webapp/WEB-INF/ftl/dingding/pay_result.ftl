@@ -11,7 +11,10 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css"/>
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/pay_result.css"/>
+        <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
         <script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/qifu/dingding_comm.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/dingding.order.js" baseUrl="${basePath}"></script>
 	</head>
 	<body>
 

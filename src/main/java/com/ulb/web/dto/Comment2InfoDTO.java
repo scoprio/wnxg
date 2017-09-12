@@ -13,6 +13,8 @@ public class Comment2InfoDTO {
 
     private String createDate;
 
+    private Integer grade;
+
 
     public String getContent() {
         return content;
@@ -44,5 +46,13 @@ public class Comment2InfoDTO {
 
     public void setCreateDate(String createDate) {
         this.createDate = createDate;
+    }
+
+    public Integer getGrade() {
+        return grade;
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
     }
 }

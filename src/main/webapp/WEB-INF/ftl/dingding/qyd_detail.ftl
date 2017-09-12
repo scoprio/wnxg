@@ -12,6 +12,10 @@
         <title>万能企业盾</title>
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/reset_h5.css" />
 		<link rel="stylesheet" type="text/css" href="${basePath}/css/qifu/qyd_detail.css" />
+        <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
+        <script src="${basePath}/js/qifu/jquery-1.11.3.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/qifu/dingding_comm.js" type="text/javascript" charset="utf-8"></script>
+        <script src="${basePath}/js/dingding.order.js" baseUrl="${basePath}"></script>
 	</head>
 
 	<body>
@@ -251,13 +255,8 @@
 							<#--<div class="pl_left"><img src="${basePath}/images/logo1.png" /></div>-->
 							<div class="pl_right">
 								<p><span>${qydComment.companyName?default("无")}</span><span>${qydComment.createDate?default("无")}</span></p>
-								<ul class="star">
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<li></li>
-									<span>非常好</span>
+								<ul class="star" data—size="${qydComment.grade?default("5")}">
+
 								</ul>
 								<p>${qydComment.content?default("无")}</p>
 							</div>
@@ -286,6 +285,15 @@
 		<script type="text/javascript">
 
 			$(function() {
+
+                $('.pl_box .pl_list').each(function(i,item){
+                    var size = $(item).find('.star').attr('data-size');
+                    var starNode = '';
+                    for(var i= 0;i<size;i++){
+                        starNode += '<li></li>'
+                    }
+                    $(item).find('.star').prepend(starNode)
+                })
 
                 $('.submit_btn').click(function() {
 

@@ -19,7 +19,6 @@ public class DingDingConfigDTO {
 
     private String appid;
 
-    private String alipayInfo;
 
     public String getJsticket() {
         return jsticket;
@@ -77,11 +76,4 @@ public class DingDingConfigDTO {
         this.appid = appid;
     }
 
-    public String getAlipayInfo() {
-        return alipayInfo;
-    }
-
-    public void setAlipayInfo(String alipayInfo) {
-        this.alipayInfo = alipayInfo;
-    }
 }

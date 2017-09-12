@@ -243,6 +243,12 @@ public class MyResource {
                         dto.setStateName("支付成功，已生效");
                         dto.setCommentDisplay("inline-block");
                         dto.setPayDisplay("none");
+
+                        if(dto.getIsOverdue() == 2){
+                            dto.setStateName("已过期");
+                            dto.setCommentDisplay("none");
+                            dto.setPayDisplay("none");
+                        }
                         break;
                     case 5:
                         dto.setStateName("已退款");

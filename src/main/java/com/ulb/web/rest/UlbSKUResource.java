@@ -167,6 +167,9 @@ public class UlbSKUResource {
                 Date updateDateTime = new Date(dto.getUpdatetime());
                 dto.setUpdateDateTime(sdf.format(updateDateTime));
             }
+            orderDetailDTO.setCostString(orderDetailDTO.getCost().toString());
+            orderDetailDTO.setCostMaterialString(orderDetailDTO.getCostMaterial().toString());
+            orderDetailDTO.setSurchargeString(orderDetailDTO.getSurcharge().toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -218,7 +221,7 @@ public class UlbSKUResource {
             e.printStackTrace();
         }
         String notifyUrl = "/ulb/sku/pay/"+orderId +"/"+ cityCode+".shtml";
-        String alipayInfo = AlipayInfoGetter.getAlipayInfo("万能小哥支付:"+orderId,orderId,orderDetailDTO.getTotalFee().toString(),notifyUrl);
+        String alipayInfo = AlipayInfoGetter.getAlipayInfo("万能小哥:"+orderDetailDTO.getRepairName(),orderId,orderDetailDTO.getTotalFee().toString(),notifyUrl);
         if(ObjectUtils.isEmpty(orderDetailDTO)){
             resultMap.put("alipayInfo", "");
             resultMap.put("status", 500);

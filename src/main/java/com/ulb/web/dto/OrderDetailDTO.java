@@ -19,8 +19,12 @@ public class OrderDetailDTO {
     private String downTime;
     private String yuyueTime;
     private BigDecimal cost;
-    private Integer costMaterial;
-    private Integer surcharge;
+    private BigDecimal costMaterial;
+    private BigDecimal surcharge;
+
+    private String costString;
+    private String costMaterialString;
+    private String surchargeString;
     private String uidKh;
     private String cityCode;
     private String orderState;
@@ -131,19 +135,19 @@ public class OrderDetailDTO {
         this.cost = cost;
     }
 
-    public Integer getCostMaterial() {
+    public BigDecimal getCostMaterial() {
         return costMaterial;
     }
 
-    public void setCostMaterial(Integer costMaterial) {
+    public void setCostMaterial(BigDecimal costMaterial) {
         this.costMaterial = costMaterial;
     }
 
-    public Integer getSurcharge() {
+    public BigDecimal getSurcharge() {
         return surcharge;
     }
 
-    public void setSurcharge(Integer surcharge) {
+    public void setSurcharge(BigDecimal surcharge) {
         this.surcharge = surcharge;
     }
 
@@ -273,5 +277,29 @@ public class OrderDetailDTO {
 
     public void setSlDisplay(String slDisplay) {
         this.slDisplay = slDisplay;
+    }
+
+    public String getCostString() {
+        return costString;
+    }
+
+    public void setCostString(String costString) {
+        this.costString = costString;
+    }
+
+    public String getCostMaterialString() {
+        return costMaterialString;
+    }
+
+    public void setCostMaterialString(String costMaterialString) {
+        this.costMaterialString = costMaterialString;
+    }
+
+    public String getSurchargeString() {
+        return surchargeString;
+    }
+
+    public void setSurchargeString(String surchargeString) {
+        this.surchargeString = surchargeString;
     }
 }

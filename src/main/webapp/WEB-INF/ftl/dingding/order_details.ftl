@@ -53,9 +53,9 @@
 				<li><i>联系人</i><span>${order.userName}  ${order.userPhone}</span></li>
 				<li><i>地址</i><span>${order.address}</span></li>
 				<li><i>平台报价</i><span>${order.platformPrice?default('面议')}</span></li>
-				<li><i>人工费</i><span>${order.cost?default('面议')}</span></li>
-				<li><i>材料费</i><span>${order.costMaterial?default('面议')}</span></li>
-				<li><i>附加费</i><span>${order.surcharge?default('面议')}</span></li>
+				<li><i>人工费</i><span>${order.costString?default('面议')}</span></li>
+				<li><i>材料费</i><span>${order.costMaterialString?default('面议')}</span></li>
+				<li><i>附加费</i><span>${order.surchargeString?default('面议')}</span></li>
 				<li><i>下单时间</i><span>${order.downTime}</span></li>
 
                 <div class="order_code" style="display: ${order.display?default('none')}">
@@ -96,11 +96,11 @@
                         </div>
                         <div class="seventh_row">
                             <span>人工费金额：</span>
-                            <span class="fix_cost msg">${order.cost?default('面议')}</span>
+                            <span class="fix_cost msg">${order.costString?default('面议')}</span>
                         </div>
                         <div class="last_row">
                             <span>材料费金额：</span>
-                            <span class="take_cost msg">${order.costMaterial?default('面议')}</span>
+                            <span class="take_cost msg">${order.costMaterialString?default('面议')}</span>
                         </div>
                     </div>
                     <div class="detail">

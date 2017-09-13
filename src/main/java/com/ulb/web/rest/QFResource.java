@@ -180,6 +180,7 @@ public class QFResource {
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
+                    dto.setState("100");
                     break;
                 case "5":
                     dto.setStateImage("yiguoqi.png");

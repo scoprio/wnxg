@@ -21,7 +21,7 @@ var data = {
         },
         {
         	"id":3536,
-            "title":"开关更换维修",
+            "title":"墙壁开关检测维修",
             "pic":baseUrl + "/images/3536.png",
             "money":"50"
         },
@@ -47,7 +47,7 @@ var data = {
         },
         {
         	"id":3540,
-            "title":"地插更换维修",
+            "title":"地插检测维修",
             "pic":baseUrl + "/images/3540.png",
             "money":"50"
         },
@@ -59,7 +59,7 @@ var data = {
         },
         {
         	"id":3538,
-            "title":"墙体插座更换维修",
+            "title":"墙体、工位插座更换维修",
             "pic":baseUrl + "/images/3538.png",
             "money":"50"
         }

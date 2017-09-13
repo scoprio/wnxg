@@ -87,19 +87,27 @@
         $(function() {
 			$(".btn_subscribe").click(function() {
                 if('${qifuInfo.info.state}' == '0') {
+                    $("footer input").css("background","#ccc");
+                    $("footer input").attr("disabled",true);
                     layer_tip("您的企业盾待支付!");
                 }else if('${qifuInfo.info.state}' == '1'){
+                    $("footer input").css("background","#ccc");
+                    $("footer input").attr("disabled",true);
                     layer_tip("您的企业盾支付成功,未生效，待巡检后生效")
                 }else if('${qifuInfo.info.state}' == '4'){
                     location.href = "${basePath}/ulb/reservation.shtml?recordId=${qifuInfo.info.serivce_id}";
                 }else{
+                    $("footer input").css("background","#ccc");
+                    $("footer input").attr("disabled",true);
                     layer_tip("您的企业盾已失效")
 				}
             })
 			if(${qifuInfo.repairList?size} == '10'){
+                $("footer input").css("background","#ccc");
+                $("footer input").attr("disabled",true);
                 layer_tip("亲，你本月的万能企业盾维修次数已用完。如有维修需求，请单独下单!",function () {
-                    $("footer input").css("background","#ccc");
-                    $("footer input").attr("disabled",true)
+
+
                 })
 			}
         })

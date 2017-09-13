@@ -151,4 +151,5 @@ public class QFCompanyInfoDTO {
     public void setStateImage(String stateImage) {
         this.stateImage = stateImage;
     }
+
 }

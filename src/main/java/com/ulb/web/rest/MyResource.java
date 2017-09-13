@@ -246,7 +246,7 @@ public class MyResource {
                         dto.setStateName("支付成功，已生效");
                         dto.setCommentDisplay("inline-block");
                         dto.setPayDisplay("none");
-                        dto.setStateImage("weishengxiao.png");
+                        dto.setStateImage("yishengxiao.png");
                         if(dto.getIsOverdue() == 2){
                             dto.setStateName("已过期");
                             dto.setCommentDisplay("none");

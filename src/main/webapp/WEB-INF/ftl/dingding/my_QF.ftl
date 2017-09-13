@@ -31,18 +31,8 @@
 			</div>
 			<div class="message">
 				<p class="msg_img">
-					<#--<span>${qifuInfo.info.state?default('未设置')}</span>-->
-				<#--<#if qifuInfo.info.state == "0" >-->
-					<#--<img src="${basePath}/images/weishengxiao.png"/>-->
-				<#--<#elseif qifuInfo.info.state == "1">-->
-                    <#--<img src="${basePath}/images/weishengxiao.png"/>-->
-				<#--<#elseif qifuInfo.info.state == "2">-->
-                    <#--<img src="${basePath}/images/yiguoqi.png"/>-->
-				<#--<#elseif qifuInfo.info.state == "4">-->
-                    <#--<img src="${basePath}/images/yishengxiao.png"/>-->
-				<#--<#else>-->
-                    <#--<img src="${basePath}/images/yiguoqi.png"/>-->
-				<#--</#if>-->
+
+                    <img src="${basePath}/images/${qifuInfo.info.stateImage?default('weishengxiao.png')}"/>
 				</p>
 				<#--<p class="msg_edit">修改</p>-->
 				<p>企业信息</p>

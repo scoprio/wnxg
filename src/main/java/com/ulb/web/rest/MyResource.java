@@ -228,37 +228,43 @@ public class MyResource {
                         dto.setStateName("待支付");
                         dto.setCommentDisplay("none");
                         dto.setPayDisplay("inline-block");
+                        dto.setStateImage("weishengxiao.png");
                         break;
                     case 1:
                         dto.setStateName("支付成功,未生效");
                         dto.setCommentDisplay("inline-block");
                         dto.setPayDisplay("none");
+                        dto.setStateImage("weishengxiao.png");
                         break;
                     case 2:
                         dto.setStateName("取消订单");
                         dto.setCommentDisplay("none");
                         dto.setPayDisplay("none");
+                        dto.setStateImage("weishengxiao.png");
                         break;
                     case 4:
                         dto.setStateName("支付成功，已生效");
                         dto.setCommentDisplay("inline-block");
                         dto.setPayDisplay("none");
-
+                        dto.setStateImage("weishengxiao.png");
                         if(dto.getIsOverdue() == 2){
                             dto.setStateName("已过期");
                             dto.setCommentDisplay("none");
                             dto.setPayDisplay("none");
+                            dto.setStateImage("yiguoqi.png");
                         }
                         break;
                     case 5:
                         dto.setStateName("已退款");
                         dto.setCommentDisplay("inline-block");
                         dto.setPayDisplay("none");
+                        dto.setStateImage("yiguoqi.png");
                         break;
                     default:
                         dto.setStateName("已失效");
                         dto.setCommentDisplay("none");
                         dto.setPayDisplay("none");
+                        dto.setStateImage("yiguoqi.png");
                 }
             }
             qydWithConfigDTO.setList(list);

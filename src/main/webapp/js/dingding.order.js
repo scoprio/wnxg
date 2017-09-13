@@ -24,14 +24,6 @@ dd.config({
 
 
 dd.ready(function() {
-    dd.biz.navigation.setTitle({
-        title: '万能小哥',
-        onSuccess: function(data) {
-        },
-        onFail: function(err) {
-            log.e(JSON.stringify(err));
-        }
-    });
 
 	dd.biz.navigation.setRight({
 		   show: true,//控制按钮显示， true 显示， false 隐藏， 默认true

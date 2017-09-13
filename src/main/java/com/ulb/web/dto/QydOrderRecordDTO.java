@@ -30,6 +30,8 @@ public class QydOrderRecordDTO {
 
     private String stateName;
 
+    private String stateImage;
+
     private String period;
 
     private String orderNum;
@@ -189,5 +191,13 @@ public class QydOrderRecordDTO {
 
     public void setCreateTime(Long createTime) {
         this.createTime = createTime;
+    }
+
+    public String getStateImage() {
+        return stateImage;
+    }
+
+    public void setStateImage(String stateImage) {
+        this.stateImage = stateImage;
     }
 }

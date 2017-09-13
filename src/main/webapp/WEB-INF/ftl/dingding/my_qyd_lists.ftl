@@ -35,7 +35,7 @@
 			<#list qyd.list as order>
 
                 <li class="lists_li" title="${order.id?default('未设置')}">
-                    <#--<p class="lists_img"><img src="${basePath}/images/weishengxiao.png" /></p>-->
+                    <p class="lists_img"><img src="${basePath}/images/${order.stateImage?default('weishengxiao.png')}" /></p>
                     <p class="lists_title"><span>${order.serviceName?default('未设置')}</span><i>${order.stateName?default('未设置')}</i></p>
                     <ul class="lists_detl border_bottom border_top">
                         <li><i>企业盾编号</i><span>${order.orderNum?default('未设置')}</span></li>

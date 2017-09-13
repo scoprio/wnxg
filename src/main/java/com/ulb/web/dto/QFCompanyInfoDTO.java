@@ -20,6 +20,7 @@ public class QFCompanyInfoDTO {
     private String serivce_id;
     private String state;
     private String buy_time;
+    private String stateImage;
 
     private String period;
 
@@ -141,5 +142,13 @@ public class QFCompanyInfoDTO {
 
     public void setPeriod(String period) {
         this.period = period;
+    }
+
+    public String getStateImage() {
+        return stateImage;
+    }
+
+    public void setStateImage(String stateImage) {
+        this.stateImage = stateImage;
     }
 }

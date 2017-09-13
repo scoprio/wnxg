@@ -1,6 +1,9 @@
 package com.ulb.web.rest;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,6 +17,7 @@ import com.ulb.web.dto.Comment2DTO;
 import com.ulb.web.dto.CommentDTO;
 import com.ulb.web.dto.PayState2DTO;
 import com.ulb.web.dto.PayStateDTO;
+import com.ulb.web.dto.QFCompanyInfoDTO;
 import com.ulb.web.dto.QFOrderRecordDTO;
 import com.ulb.web.dto.QFRecordDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
@@ -153,6 +157,35 @@ public class QFResource {
                 qfRecordDetailDTO.getInfo().setPeriod("未开通");
             }else{
                 qfRecordDetailDTO.getInfo().setPeriod(qfRecordDetailDTO.getInfo().getBegin_time() +" 到 "+ qfRecordDetailDTO.getInfo().getEnd_time());
+            }
+            QFCompanyInfoDTO dto = qfRecordDetailDTO.getInfo();
+
+            switch (qfRecordDetailDTO.getInfo().getState()){
+                case "0":
+                    dto.setStateImage("weishengxiao.png");
+                    break;
+                case "1":
+                    dto.setStateImage("weishengxiao.png");
+                    break;
+                case "2":
+                    dto.setStateImage("weishengxiao.png");
+                    break;
+                case "4":
+                    dto.setStateImage("yishengxiao.png");
+                    SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+                    try {
+                        if(sdf.parse(dto.getEnd_time()).before(new Date())){
+                            dto.setStateImage("yiguoqi.png");
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    break;
+                case "5":
+                    dto.setStateImage("yiguoqi.png");
+                    break;
+                default:
+                    dto.setStateImage("yiguoqi.png");
             }
             List<QFRepairDTO> list =  qfRecordDetailDTO.getRepairList();
             for(QFRepairDTO qfRepairDTO :list){

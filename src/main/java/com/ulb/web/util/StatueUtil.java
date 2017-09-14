@@ -33,7 +33,7 @@ public class StatueUtil {
         statueMap.put("21","小哥驳回更换");
         statueMap.put("22","管理员终止订单");
         statueMap.put("23","管理员终止订单");
-        statueMap.put("24","等待客户确认支付");
+        statueMap.put("24","等待客户确认完成");
         statueMap.put("25","客户确认付款");
         statueMap.put("26","等待选择支付方式");
         statueMap.put("27","等待客户支付");

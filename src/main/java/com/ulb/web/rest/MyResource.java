@@ -258,7 +258,7 @@ public class MyResource {
                         dto.setStateName("已退款");
                         dto.setCommentDisplay("inline-block");
                         dto.setPayDisplay("none");
-                        dto.setStateImage("yiguoqi.png");
+                        dto.setStateImage("yituikuan.png");
                         break;
                     default:
                         dto.setStateName("已失效");

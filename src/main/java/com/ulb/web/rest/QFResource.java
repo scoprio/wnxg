@@ -175,15 +175,16 @@ public class QFResource {
                     SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
                     try {
                         if(sdf.parse(dto.getEnd_time()).before(new Date())){
+                            dto.setState("100");
                             dto.setStateImage("yiguoqi.png");
                         }
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-                    dto.setState("100");
+
                     break;
                 case "5":
-                    dto.setStateImage("yiguoqi.png");
+                    dto.setStateImage("yituikuan.png");
                     break;
                 default:
                     dto.setStateImage("yiguoqi.png");

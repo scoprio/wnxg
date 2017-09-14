@@ -188,15 +188,21 @@
 .recordbox .record_right p {
 	margin-bottom: .18rem;
 }
-
+.recordbox .record_right{
+    width: 64%;
+    float: left;
+}
 .recordbox .record_right p span:first-child {
 	color: #666;
+    float: left;
 }
 
 .recordbox .record_right p span:last-child,
 .recordbox .record_right p span:nth-child(2) {
 	color: #999;
 	font-size: .26rem;
+    float: left;
+    width: 3rem;
 }
 
 

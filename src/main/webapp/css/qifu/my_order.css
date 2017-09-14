@@ -1,3 +1,4 @@
+
 html,body{
 	height: 100%;
 }
@@ -138,8 +139,8 @@ html,body{
 }
 .order_box .pdiv{
 	float: left;
-    width: 5.5rem;
-    margin-left: .2rem;
+	width: 6.6rem;
+	margin-left: .2rem;
 }
 .order_box .pdiv p{
 	overflow: hidden;
@@ -152,7 +153,7 @@ html,body{
 }
 .order_box .pdiv span{
 	float: left;
-	width: 4.1rem;
+	width: 5.1rem;
 	color: #929292;
 }
 .order_p2 {

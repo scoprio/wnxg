@@ -16,7 +16,19 @@
 		<script src="${basePath}/js/qifu/my_QF.js" type="text/javascript" charset="utf-8"></script>
         <script src="${basePath}/js/qifu/common.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript" src="http://g.alicdn.com/dingding/open-develop/1.6.9/dingtalk.js"></script>
-        <script src="${basePath}/js/qifu/dingding_comm.js" type="text/javascript" charset="utf-8"></script>
+
+
+        <script>
+
+            localStorage.agentId ='${qifuInfo.config.agentId?default("")}';
+            localStorage.corpId ='${qifuInfo.config.corpId?default("")}';
+            localStorage.timeStamp ='${qifuInfo.config.timeStamp?default("")}';
+            localStorage.nonceStr = '${qifuInfo.config.nonceStr?default("")}';
+            localStorage.signature = '${qifuInfo.config.signature?default("")}';
+
+        </script>
+
+        <script src="${basePath}/js/dingding.order.js" type="text/javascript" charset="utf-8"></script>
 	</head>
 	<body>
 		<section style="display: -webkit-flex;-webkit-flex-direction: column;">
@@ -59,9 +71,9 @@
 								</div>
 							</div>
 							<div class="record_btn">
-
-                                <a  onclick="confirmOrder(${repair.id?default('未设置')})" href="javascript:void(0);" style="display: ${repair.confirmDisplay?default('none')}">确认完成</a>
-								<a  href="tel:400-6633-750" class="notescontact_kf" type="button" name="" id="" >联系客服</a></div>
+                                <a href="javascript:void(0);" onclick="telephone()" class="notescontact_kf" type="button">联系客服</a>
+                                <#--<a  onclick="confirmOrder(${repair.id?default('未设置')})" href="javascript:void(0);" style="display: ${repair.confirmDisplay?default('none')}">确认完成</a>-->
+								<#--<a  href="tel:400-6633-750" class="notescontact_kf" type="button" name="" id="" >联系客服</a></div>-->
 						</li>
 					</#list>
 				<#else>
@@ -80,6 +92,16 @@
 		
 	</body>
 	<script type="text/javascript">
+
+        function telephone(){
+            dd.biz.telephone.showCallMenu({
+				  phoneNumber: '400-6633-750',
+				  code: '+86', // 国家代号，中国是+86
+				  showDingCall: true, // 是否显示钉钉电话
+				  onSuccess : function() {},
+				  onFail : function() {}
+			  })
+        }
 		$(".record").ready(function(){
 			var windowHeight = $(window).height();
   			if($(this).height() < windowHeight){

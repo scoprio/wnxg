@@ -148,9 +148,11 @@ public class QFResource {
     }
 
     @RequestMapping(value="my_qifu/{qifuId}",method=RequestMethod.GET)
-    public ModelAndView getOrders(@PathVariable String qifuId){
+    public ModelAndView getOrders(@PathVariable String qifuId,HttpServletRequest request){
 
         QFRecordDetailDTO qfRecordDetailDTO = new QFRecordDetailDTO();
+
+        qfRecordDetailDTO.setConfig(ConfigGetter.getConfig(request));
         try {
             qfRecordDetailDTO = qfService.getQFRecordDetail(qifuId);
             if(qfRecordDetailDTO.getInfo().getBegin_time().trim().length() == 0|| qfRecordDetailDTO.getInfo().getEnd_time().trim().length()== 0){
@@ -193,9 +195,7 @@ public class QFResource {
             for(QFRepairDTO qfRepairDTO :list){
                 qfRepairDTO.setStateName(StatueUtil.getStatueName(qfRepairDTO.getOrder_state()));
                 if(qfRepairDTO.getOrder_state().equals("24") || qfRepairDTO.getOrder_state().equals("27")){
-                    qfRepairDTO.setConfirmDisplay("inline-block");
-                }else{
-                    qfRepairDTO.setConfirmDisplay("none");
+                    qfRepairDTO.setStateName("确认完成");
                 }
                 qfRepairDTO.setCreateTime( StringUtils.substringBeforeLast(qfRepairDTO.getCreateTime(),"."));
             }

@@ -13,6 +13,8 @@ public class QFRecordDetailDTO {
 
     private List<QFRepairDTO> repairList;
 
+    private DingDingConfigDTO config;
+
 
     public QFCompanyInfoDTO getInfo() {
         return info;
@@ -28,5 +30,13 @@ public class QFRecordDetailDTO {
 
     public void setRepairList(List<QFRepairDTO> repairList) {
         this.repairList = repairList;
+    }
+
+    public DingDingConfigDTO getConfig() {
+        return config;
+    }
+
+    public void setConfig(DingDingConfigDTO config) {
+        this.config = config;
     }
 }

@@ -160,7 +160,7 @@
 
                 $('.lists_ul').find('ul').click(function(){
 					var qfId = $(this).parent('li').attr('title');
-					location.href = "${basePath}/ulb/my_qifu/"+qfId+".shtml";
+					location.href = "${basePath}/ulb/my_qifu/"+qfId+".shtml?corpId="+localStorage.corpId+"&appid=3919";
                 })
 			})
 

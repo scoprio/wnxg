@@ -192,6 +192,9 @@ public class QFResource {
             List<QFRepairDTO> list =  qfRecordDetailDTO.getRepairList();
             for(QFRepairDTO qfRepairDTO :list){
                 qfRepairDTO.setStateName(StatueUtil.getStatueName(qfRepairDTO.getOrder_state()));
+                if(qfRepairDTO.getOrder_state() == "27"){
+                    qfRepairDTO.setStateName("维修完成");
+                }
                 qfRepairDTO.setCreateTime( StringUtils.substringBeforeLast(qfRepairDTO.getCreateTime(),"."));
             }
 

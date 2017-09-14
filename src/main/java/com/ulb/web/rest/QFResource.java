@@ -152,7 +152,6 @@ public class QFResource {
 
         QFRecordDetailDTO qfRecordDetailDTO = new QFRecordDetailDTO();
 
-        qfRecordDetailDTO.setConfig(ConfigGetter.getConfig(request));
         try {
             qfRecordDetailDTO = qfService.getQFRecordDetail(qifuId);
             if(qfRecordDetailDTO.getInfo().getBegin_time().trim().length() == 0|| qfRecordDetailDTO.getInfo().getEnd_time().trim().length()== 0){
@@ -203,6 +202,10 @@ public class QFResource {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        qfRecordDetailDTO.setConfig(ConfigGetter.getConfig(request));
+        LOGGER.info("agentid:"+qfRecordDetailDTO.getConfig().getAgentId());
+        LOGGER.info("cropid:"+qfRecordDetailDTO.getConfig().getCorpId());
         return new ModelAndView("dingding/my_QF","qifuInfo",qfRecordDetailDTO);
     }
 

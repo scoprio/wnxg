@@ -36,9 +36,6 @@ public interface RemoteSKUService {
     @POST("/WNXG/ulb/api/new_enter_prise/order")
     Call<ResultDTO> postOrder(@Body SKUOrderRecordDTO skuOrderRecordDTO);
 
-//    @GET("/WNXG/ulb/api/new_enter_prise_my_order/repairDetails/{userID}")
-//    Call<List<SKURecordDTO>> getSKUOrderRecord(@Path("userId") String userId);
-
     @GET("/WNXG/ulb/api/new_enter_prise/usefulTime")
     Call<List<UsefulTimeDTO>> getUsefulTime();
 

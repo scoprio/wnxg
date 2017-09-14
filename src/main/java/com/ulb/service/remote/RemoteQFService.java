@@ -47,11 +47,6 @@ public interface RemoteQFService {
     @POST("/WNXG/ulb/api/new_enter_prise_my_company/companyComment")
     Call<ResultDTO> comment(@Body Comment2DTO comment2DTO);
 
-//    @GET("/WNXG/ulb/api/new_enter_prise_my_order/repairDetails/{userID}")
-//    Call<List<SKURecordDTO>> getSKUOrderRecord(@Path("userId") String userId);
-//
-//    @GET("/WNXG/ulb/api/new_enter_prise/usefulTime")
-//    Call<List<UsefulTimeDTO>> getUsefulTime();
 
     @GET("/WNXG/ulb/api/new_enter_prise_my_company/orderList/{serviceId}")
     Call<List<Comment2InfoDTO>> getComments(@Path("serviceId") String serviceId);

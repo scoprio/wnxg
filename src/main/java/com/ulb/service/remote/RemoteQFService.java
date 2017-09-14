@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.ulb.web.dto.Comment2DTO;
 import com.ulb.web.dto.Comment2InfoDTO;
+import com.ulb.web.dto.OperaterDTO;
 import com.ulb.web.dto.OperaterOrderDTO;
 import com.ulb.web.dto.OrderRecordDTO;
 import com.ulb.web.dto.PayStateDTO;
@@ -58,7 +59,7 @@ public interface RemoteQFService {
 
 
     @Headers({"Content-type:application/json;charset=UTF-8"})
-    @PUT("/WNXG/ulb/api/new_enter_prise_my_order/afterOnline/{orderId}/{cityCode}")
-    Call<ResultDTO> confirmOrder(@Path("orderId")String orderId,@Body SKUOrderStateDTO payStateDTO);
+    @PUT("/WNXG/ulb/api/new_enter_prise_my_company/companyOrder/{orderId}")
+    Call<ResultDTO> confirmOrder(@Path("orderId")String orderId,@Body OperaterDTO operaterDTO);
 
 }

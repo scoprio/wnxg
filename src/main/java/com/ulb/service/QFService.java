@@ -8,6 +8,7 @@ import com.ulb.service.remote.RemoteQFService;
 import com.ulb.service.remote.RemoteSKUService;
 import com.ulb.web.dto.Comment2DTO;
 import com.ulb.web.dto.Comment2InfoDTO;
+import com.ulb.web.dto.OperaterDTO;
 import com.ulb.web.dto.PayStateDTO;
 import com.ulb.web.dto.QFOrderRecordDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
@@ -88,9 +89,9 @@ public class QFService {
         return list;
     }
 
-    public ResultDTO confirmOrder(String orderId,String cityCode,SKUOrderStateDTO payStateDTO) throws IOException {
+    public ResultDTO confirmOrder(String orderId,OperaterDTO operaterDTO) throws IOException {
         RemoteQFService service = APIServiceGenrator.createRequsetService(RemoteQFService.class);
-        Call<ResultDTO> call = service.confirmOrder(orderId,payStateDTO);
+        Call<ResultDTO> call = service.confirmOrder(orderId,operaterDTO);
         Response<ResultDTO> response = call.execute();
         return response.body();
     }

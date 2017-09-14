@@ -15,6 +15,7 @@ import com.ulb.service.QFService;
 import com.ulb.service.TimeService;
 import com.ulb.web.dto.Comment2DTO;
 import com.ulb.web.dto.CommentDTO;
+import com.ulb.web.dto.OperaterDTO;
 import com.ulb.web.dto.PayState2DTO;
 import com.ulb.web.dto.PayStateDTO;
 import com.ulb.web.dto.QFCompanyInfoDTO;
@@ -285,15 +286,15 @@ public class QFResource {
     }
 
     @RequestMapping(value="/qf/confirm/{orderId}",method=RequestMethod.GET)
-    public ResponseEntity<Map<String, Object>> confirm(@PathVariable String orderId,@PathVariable String cityCode){
+    public ResponseEntity<Map<String, Object>> confirm(@PathVariable String orderId){
 
         Map<String, Object> resultMap = new LinkedHashMap<>();
-        SKUOrderStateDTO payStateDTO = new SKUOrderStateDTO();
-        payStateDTO.setPid(7);
+        OperaterDTO operaterDTO = new OperaterDTO();
+        operaterDTO.setOperater(2);
 
         ResultDTO resultDTO = null;
         try {
-            resultDTO = qfService.confirmOrder(orderId,cityCode,payStateDTO);
+            resultDTO = qfService.confirmOrder(orderId,operaterDTO);
         } catch (IOException e) {
             e.printStackTrace();
         }

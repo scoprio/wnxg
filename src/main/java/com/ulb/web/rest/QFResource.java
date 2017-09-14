@@ -261,7 +261,7 @@ public class QFResource {
             e.printStackTrace();
         }
         String notifyUrl = "/ulb/qf/pay/"+orderId +".shtml";
-        String alipayInfo = AlipayInfoGetter.getAlipayInfo("企业盾购买:"+orderId,orderId,qfRecordDetailDTO.getInfo().getMoney(),notifyUrl);
+        String alipayInfo = AlipayInfoGetter.getAlipayInfo("万能小哥：企业盾购买",orderId,qfRecordDetailDTO.getInfo().getMoney(),notifyUrl);
         if(ObjectUtils.isEmpty(qfRecordDetailDTO)){
             resultMap.put("status", 500);
             resultMap.put("alipayInfo", "");

@@ -131,7 +131,7 @@ public class QFResource {
                 resultMap.put("status", 200);
                 resultMap.put("message", "下单成功！");
                 String notifyUrl = "/ulb/qf/pay/"+resultWithQFDTO.getRecordId() +".shtml";
-                String alipayInfo = AlipayInfoGetter.getAlipayInfo("企业盾购买:"+resultWithQFDTO.getRecordId(),resultWithQFDTO.getRecordId().toString(),resultWithQFDTO.getMoney().toString(),notifyUrl);
+                String alipayInfo = AlipayInfoGetter.getAlipayInfo("万能小哥：企业盾购买",resultWithQFDTO.getRecordId().toString(),resultWithQFDTO.getMoney().toString(),notifyUrl);
                 resultMap.put("alipayInfo",alipayInfo);
 
             }else{

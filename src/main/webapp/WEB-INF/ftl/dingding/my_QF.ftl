@@ -73,7 +73,7 @@
 							</div>
 							<div class="record_btn">
                                 <a href="javascript:void(0);" onclick="telephone()" class="notescontact_kf" type="button">联系客服</a>
-                                <#--<a  onclick="confirmOrder(${repair.id?default('未设置')})" href="javascript:void(0);" style="display: ${repair.confirmDisplay?default('none')}">确认完成</a>-->
+                                <a  onclick="confirmOrder(${repair.id?default('未设置')})" href="javascript:void(0);" style="display: ${repair.confirmDisplay?default('none')}">确认完成</a>
 								<#--<a  href="tel:400-6633-750" class="notescontact_kf" type="button" name="" id="" >联系客服</a></div>-->
 						</li>
 					</#list>
@@ -112,7 +112,7 @@
 
         function confirmOrder(orderId){
             $.ajax({
-				   url:"${basePath}/ulb/sku/confirm/"+orderId+"/"+localStorage.current_city_code+".shtml",
+				   url:"${basePath}/ulb/qf/confirm/"+orderId+".shtml",
 				   type:"GET",
 				   contentType:"application/json; charset=utf-8",
 				   dataType:"json",

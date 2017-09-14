@@ -15,6 +15,7 @@ import com.ulb.web.dto.QFRepairPostDTO;
 import com.ulb.web.dto.ResultDTO;
 import com.ulb.web.dto.ResultWithQFDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
+import com.ulb.web.dto.SKUOrderStateDTO;
 import com.ulb.web.dto.SKURecordDTO;
 
 import org.springframework.stereotype.Service;
@@ -85,6 +86,13 @@ public class QFService {
         Response<List<Comment2InfoDTO>> response = call.execute();
         List<Comment2InfoDTO> list = response.body();
         return list;
+    }
+
+    public ResultDTO confirmOrder(String orderId,String cityCode,SKUOrderStateDTO payStateDTO) throws IOException {
+        RemoteQFService service = APIServiceGenrator.createRequsetService(RemoteQFService.class);
+        Call<ResultDTO> call = service.confirmOrder(orderId,payStateDTO);
+        Response<ResultDTO> response = call.execute();
+        return response.body();
     }
 
 }

@@ -26,6 +26,7 @@ import com.ulb.web.dto.QFRepairPostDTO;
 import com.ulb.web.dto.ReservationTimeDTO;
 import com.ulb.web.dto.ResultDTO;
 import com.ulb.web.dto.ResultWithQFDTO;
+import com.ulb.web.dto.SKUOrderStateDTO;
 import com.ulb.web.util.AlipayInfoGetter;
 import com.ulb.web.util.ConfigGetter;
 import com.ulb.web.util.StatueUtil;
@@ -194,7 +195,9 @@ public class QFResource {
             for(QFRepairDTO qfRepairDTO :list){
                 qfRepairDTO.setStateName(StatueUtil.getStatueName(qfRepairDTO.getOrder_state()));
                 if(qfRepairDTO.getOrder_state().equals("24") || qfRepairDTO.getOrder_state().equals("27")){
-                    qfRepairDTO.setStateName("确认完成");
+                    qfRepairDTO.setConfirmDisplay("inline-block");
+                }else{
+                    qfRepairDTO.setConfirmDisplay("none");
                 }
                 qfRepairDTO.setCreateTime( StringUtils.substringBeforeLast(qfRepairDTO.getCreateTime(),"."));
             }
@@ -277,6 +280,29 @@ public class QFResource {
         }else{
             resultMap.put("status", 200);
             resultMap.put("alipayInfo", alipayInfo);
+        }
+        return new ResponseEntity(resultMap,HttpStatus.OK);
+    }
+
+    @RequestMapping(value="/qf/confirm/{orderId}",method=RequestMethod.GET)
+    public ResponseEntity<Map<String, Object>> confirm(@PathVariable String orderId,@PathVariable String cityCode){
+
+        Map<String, Object> resultMap = new LinkedHashMap<>();
+        SKUOrderStateDTO payStateDTO = new SKUOrderStateDTO();
+        payStateDTO.setPid(7);
+
+        ResultDTO resultDTO = null;
+        try {
+            resultDTO = qfService.confirmOrder(orderId,cityCode,payStateDTO);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if(resultDTO.getCode().equals("200")){
+            resultMap.put("status", 200);
+            resultMap.put("message", "确认完成！");
+        }else{
+            resultMap.put("message", "服务端失败！");
+            resultMap.put("status", 500);
         }
         return new ResponseEntity(resultMap,HttpStatus.OK);
     }

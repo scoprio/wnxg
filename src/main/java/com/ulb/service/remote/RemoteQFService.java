@@ -14,6 +14,7 @@ import com.ulb.web.dto.QFRecordDetailDTO;
 import com.ulb.web.dto.QFRepairPostDTO;
 import com.ulb.web.dto.ResultDTO;
 import com.ulb.web.dto.ResultWithQFDTO;
+import com.ulb.web.dto.SKUOrderStateDTO;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -54,5 +55,10 @@ public interface RemoteQFService {
     @Headers({"Content-type:application/json;charset=UTF-8"})
     @PUT("/WNXG/ulb/api/new_enter_prise_my_company/afterOnline/{qfId}")
     Call<ResultDTO> payOrder(@Path("qfId")String qfId,@Body PayStateDTO payStateDTO);
+
+
+    @Headers({"Content-type:application/json;charset=UTF-8"})
+    @PUT("/WNXG/ulb/api/new_enter_prise_my_order/afterOnline/{orderId}/{cityCode}")
+    Call<ResultDTO> confirmOrder(@Path("orderId")String orderId,@Body SKUOrderStateDTO payStateDTO);
 
 }

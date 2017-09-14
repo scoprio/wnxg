@@ -18,7 +18,7 @@ public class StatueUtil {
         statueMap.put("3","沟通顺利，等待小哥上门");
         statueMap.put("4","小哥已出发，上门中");
         statueMap.put("5","维修进行中");
-        statueMap.put("7","维修完毕，邀请评价");
+        statueMap.put("7","维修完毕");
         statueMap.put("8","用户已评论，订单完成");
         statueMap.put("11","申请退单（小哥原因)");
         statueMap.put("12","申请退单（客户原因）");

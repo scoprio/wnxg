@@ -254,4 +254,28 @@ public class UlbSKUResource {
         return new ModelAndView("dingding/pay_order_result","payState",payState2DTO);
     }
 
+    @RequestMapping(value="/sku/confirm/{orderId}/{cityCode}",method=RequestMethod.GET)
+    public ResponseEntity<Map<String, Object>> confirm(@PathVariable String orderId,@PathVariable String cityCode){
+
+        Map<String, Object> resultMap = new LinkedHashMap<>();
+        SKUOrderStateDTO payStateDTO = new SKUOrderStateDTO();
+        payStateDTO.setPid(7);
+
+        ResultDTO resultDTO = null;
+        try {
+            resultDTO = skuService.pay(orderId,cityCode,payStateDTO);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        PayState2DTO payState2DTO = new PayState2DTO();
+        if(resultDTO.getCode().equals("200")){
+            resultMap.put("status", 200);
+            resultMap.put("message", "确认完成！");
+        }else{
+            resultMap.put("message", "服务端失败！");
+            resultMap.put("status", 500);
+        }
+        return new ResponseEntity(resultMap,HttpStatus.OK);
+    }
+
 }

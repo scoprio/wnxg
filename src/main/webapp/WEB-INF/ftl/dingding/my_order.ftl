@@ -242,7 +242,8 @@
                     "operater": 1
                 }
 
-                layer_confirm("您确认要取消订单吗？",function(){$.ajax({
+                layer_confirm("您确认要取消订单吗？",function(){
+                    $.ajax({
                            url:"${basePath}/ulb/sku/order.shtml",
                            type:"PUT",
                            data:JSON.stringify(skuOrder),

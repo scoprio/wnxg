@@ -21,6 +21,8 @@ public class QFRepairDTO {
 
     private String stateName;
 
+    private String confirmDisplay;
+
     public String getRepairId() {
         return repairId;
     }
@@ -115,5 +117,13 @@ public class QFRepairDTO {
 
     public void setCreateTime(String createTime) {
         this.createTime = createTime;
+    }
+
+    public String getConfirmDisplay() {s
+        return confirmDisplay;
+    }
+
+    public void setConfirmDisplay(String confirmDisplay) {
+        this.confirmDisplay = confirmDisplay;
     }
 }

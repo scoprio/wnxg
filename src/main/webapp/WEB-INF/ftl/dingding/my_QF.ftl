@@ -58,7 +58,10 @@
 									<p><span>预约时间：</span><span>${repair.order_time?default('未设置')}</span></p>
 								</div>
 							</div>
-							<div class="record_btn"><a  href="tel:400-6633-750" class="notescontact_kf" type="button" name="" id="" >联系客服</a></div>
+							<div class="record_btn">
+
+                                <a  onclick="confirmOrder(${order.oid?default('未设置')})" href="javascript:void(0);" style="display: ${order.confirmDisplay?default('none')}">确认完成</a>
+								<a  href="tel:400-6633-750" class="notescontact_kf" type="button" name="" id="" >联系客服</a></div>
 						</li>
 					</#list>
 				<#else>
@@ -83,6 +86,28 @@
       			$(this).height(windowHeight);
   			}
 		})
+
+        function confirmOrder(orderId){
+            $.ajax({
+				   url:"${basePath}/ulb/sku/confirm/"+orderId+"/"+localStorage.current_city_code+".shtml",
+				   type:"GET",
+				   contentType:"application/json; charset=utf-8",
+				   dataType:"json",
+				   success: function(result){
+					   if(result && result.status== 200){
+						   layer_tip("确认完成",function () {
+                               location.reload();
+						   })
+
+					   }else{
+						   layer_tip(result.message);
+					   }
+				   },
+				   error: function(result){
+					   console.log(result.message);
+				   }
+			   });
+		}
 
         $(function() {
 			$(".btn_subscribe").click(function() {

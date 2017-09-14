@@ -119,7 +119,7 @@ public class QFRepairDTO {
         this.createTime = createTime;
     }
 
-    public String getConfirmDisplay() {s
+    public String getConfirmDisplay() {
         return confirmDisplay;
     }
 

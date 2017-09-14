@@ -60,7 +60,7 @@
 							</div>
 							<div class="record_btn">
 
-                                <a  onclick="confirmOrder(${order.oid?default('未设置')})" href="javascript:void(0);" style="display: ${order.confirmDisplay?default('none')}">确认完成</a>
+                                <a  onclick="confirmOrder(${repair.id?default('未设置')})" href="javascript:void(0);" style="display: ${repair.confirmDisplay?default('none')}">确认完成</a>
 								<a  href="tel:400-6633-750" class="notescontact_kf" type="button" name="" id="" >联系客服</a></div>
 						</li>
 					</#list>

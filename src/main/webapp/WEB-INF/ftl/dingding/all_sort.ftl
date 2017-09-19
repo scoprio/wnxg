@@ -112,7 +112,7 @@
                     if(list) {
                         for(var i = 0; i < list.length; i++) {
 
-                            var orderUrl = "${basePath}/ulb/sku/" +list[i].id+"/"+sort_city_code+".shtml?corpid="+corpId+"&appid=3919";
+                            var orderUrl = "${basePath}/ulb/sku/" +list[i].id+"/"+sort_city_code+".shtml?corpid="+corpId+"&appid="+localStorage.appId;
                             result += '<li>' + '<a href="'+orderUrl+'">'+
                                       '<div class="all_pic">' + '<img src="' + list[i].pic + '" alt="">' + '</div>' +
                                       '<div class="all_price">' +

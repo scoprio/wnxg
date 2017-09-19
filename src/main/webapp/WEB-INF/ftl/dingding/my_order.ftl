@@ -191,7 +191,7 @@
                                                                                                   buttonName: "好的",
                                                                                                   onSuccess : function() {
                                                                                                       <#--if(${orders.flag?default("0")} == "0"){-->
-                                                                                                       location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid=3919";
+                                                                                                       location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
 //                                                                                                      }else{
 //
 //                                                                                                      }
@@ -208,7 +208,7 @@
                                                                                               title: "",//可传空
                                                                                               buttonName: "好的",
                                                                                               onSuccess : function() {
-                                                                                                  location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid=3919";
+                                                                                                  location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
                                                                                               },
                                                                                               onFail : function(err) {}
                                                                                           });
@@ -222,7 +222,7 @@
                                                                     title: "",//可传空
                                                                     buttonName: "好的",
                                                                     onSuccess : function() {
-                                                                        location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid=3919";
+                                                                        location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
                                                                     },
                                                                     onFail : function(err) {}
                                                                 });
@@ -252,7 +252,7 @@
                            success: function(result){
                                if(result && result.status== 200){
                                    layer_tip(result.message,function () {
-                                       location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid=3919";
+                                       location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
                                    })
 
                                }else{

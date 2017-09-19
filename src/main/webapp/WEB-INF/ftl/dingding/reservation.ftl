@@ -293,7 +293,7 @@
                                success: function(result){
                                    if(result && result.status== 200){
                                        layer_tip(result.message,function () {
-                                           location.href = "${basePath}/ulb/my_qifu/${reservation.recordId}.shtml?corpId="+localStorage.corpId+"&appid=3919";
+                                           location.href = "${basePath}/ulb/my_qifu/${reservation.recordId}.shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
                                        });
                                    }else{
 

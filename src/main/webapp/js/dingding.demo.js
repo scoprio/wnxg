@@ -516,7 +516,7 @@ dd.ready(function() {
 								   }else{
 									   myUrl = baseUrl+"/dingding/my.shtml?uuid="+dingdingUserInfo.userid+"&cityCode="+current_city_code;
 								   }
-								   change_url(current_city_code+".shtml?corpid="+localStorage.corpId+"&appid=3919");
+								   change_url(current_city_code+".shtml?corpid="+localStorage.corpId+"&appid="+localStorage.appId);
 								   $('.person_center').attr("href",myUrl);
 							   },
 							   onFail : function(err) {}

@@ -40,7 +40,7 @@ $(function(){
             var list = data['list'+page];
             if(list){
                 for(var i = 0; i < list.length; i++) {
-                    orderUrl = baseUrl + "/ulb/sku/" +list[i].id+"/"+current_city_code+".shtml?corpid="+localStorage.corpId+"&appid=3919";
+                    orderUrl = baseUrl + "/ulb/sku/" +list[i].id+"/"+current_city_code+".shtml?corpid="+localStorage.corpId+"&appid="+localStorage.appId;
                     result += '<li id='+list[i].id+'>' + '<div class="hot_pic">' + '<img src="' + list[i].pic +'" alt="">' + '</div>' +
                             '<div class="hot_price">' +
                             '<p>' + list[i].title + ' </p>' +
@@ -72,7 +72,7 @@ $(function(){
     $('.city').delegate('p', 'click', function(event) {
         current_city = $(this).text();
         current_city_code = $(this).attr('id');
-        change_url(current_city_code+".shtml?corpid="+localStorage.corpId+"&appid=3919");
+        change_url(current_city_code+".shtml?corpid="+localStorage.corpId+"&appid="+localStorage.appId);
         localStorage.current_city = current_city;
         localStorage.current_city_code = current_city_code;
 

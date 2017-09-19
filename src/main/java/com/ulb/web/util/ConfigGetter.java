@@ -66,7 +66,7 @@ public class ConfigGetter {
         dto.setNonceStr(nonceStr);
         dto.setSignature(signature);
         dto.setJsticket(ticket);
-
+        dto.setAppid(appId);
         return dto;
 
     }

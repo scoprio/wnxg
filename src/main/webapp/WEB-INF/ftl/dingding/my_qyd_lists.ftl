@@ -112,7 +112,7 @@
                                                   title: "",//可传空
                                                   buttonName: "好的",
                                                   onSuccess : function() {
-                                                      location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&appid=3919&cityCode="+localStorage.current_city_code;
+                                                      location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId+"&cityCode="+localStorage.current_city_code;
                                                   },
                                                   onFail : function(err) {}
                                               });
@@ -125,7 +125,7 @@
                                               title: "",//可传空
                                               buttonName: "好的",
                                               onSuccess : function() {
-                                                  location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&appid=3919&cityCode="+localStorage.current_city_code;
+                                                  location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId+"&cityCode="+localStorage.current_city_code;
                                               },
                                               onFail : function(err) {}
                                           });
@@ -139,7 +139,7 @@
                                         title: "",//可传空
                                         buttonName: "好的",
                                         onSuccess : function() {
-                                            location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&appid=3919&cityCode="+localStorage.current_city_code;
+                                            location.href = "${basePath}/dingding/my_qyd_lists.shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId+"&cityCode="+localStorage.current_city_code;
                                         },
                                         onFail : function(err) {}
                                     });
@@ -160,7 +160,7 @@
 
                 $('.lists_ul').find('ul').click(function(){
 					var qfId = $(this).parent('li').attr('title');
-					location.href = "${basePath}/ulb/my_qifu/"+qfId+".shtml?corpId="+localStorage.corpId+"&appid=3919";
+					location.href = "${basePath}/ulb/my_qifu/"+qfId+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
                 })
 			})
 

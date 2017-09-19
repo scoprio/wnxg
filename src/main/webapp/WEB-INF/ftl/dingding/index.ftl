@@ -24,7 +24,7 @@
                 <#--"signature":'${_config.signature}'-->
             <#--}-->
 
-
+            localStorage.appId ='${_config.appid}';
             localStorage.agentId ='${_config.agentId}';
             localStorage.corpId ='${_config.corpId}';
             localStorage.timeStamp ='${_config.timeStamp}';

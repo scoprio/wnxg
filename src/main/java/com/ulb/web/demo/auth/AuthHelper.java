@@ -1,12 +1,17 @@
 package com.ulb.web.demo.auth;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
 import java.net.URLDecoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Formatter;
+import java.util.List;
 import java.util.Timer;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,12 +22,27 @@ import com.dingtalk.open.client.api.model.corp.JsapiTicket;
 import com.dingtalk.open.client.api.model.isv.CorpAuthToken;
 import com.dingtalk.open.client.api.service.corp.JsapiService;
 import com.dingtalk.open.client.api.service.isv.IsvService;
-import com.ulb.core.statics.Constant;
+import com.ulb.service.generator.APIServiceGenrator;
+import com.ulb.service.remote.RemoteDDService;
 import com.ulb.web.demo.Env;
 import com.ulb.web.demo.OApiException;
 import com.ulb.web.demo.OApiResultException;
 import com.ulb.web.demo.utils.FileUtils;
 import com.ulb.web.demo.utils.HttpHelper;
+import com.ulb.web.dto.ConversationDTO;
+import com.ulb.web.dto.DDMessageDTO;
+import com.ulb.web.dto.DingResultDTO;
+import com.ulb.web.dto.KeyValueDTO;
+import com.ulb.web.dto.OAMessageBodyDTO;
+import com.ulb.web.dto.OAMessageDTO;
+import com.ulb.web.dto.OAMessageHeadDTO;
+import com.ulb.web.dto.OrderDetailDTO;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.util.ObjectUtils;
+
+import retrofit2.Call;
+import retrofit2.Response;
 
 public class AuthHelper {
 
@@ -156,22 +176,21 @@ public class AuthHelper {
 		String endTime = FileUtils.getValue("ticket", "endTime").toString();
 		long curTime = System.currentTimeMillis();
 		if (endTime == null || Long.valueOf(endTime) - curTime < 0){
-			agentId = Constant.AGENTID;
-			return agentId;
+			agentId = FileUtils.getValue("permanentcode", corpId).toString();
 		}
+
 		String accessToken = FileUtils.getValue("ticket", "suiteToken").toString();
 		String url = "https://oapi.dingtalk.com/service/get_auth_info?suite_access_token=" + accessToken;
+
 		JSONObject args = new JSONObject();
 		args.put("suite_key", Env.SUITE_KEY);
 		args.put("auth_corpid", corpId);
 		args.put("permanent_code", FileUtils.getValue("permanentcode", corpId));
 		JSONObject response = HttpHelper.httpPost(url, args);
-
 		if (response.containsKey("auth_info")) {
 			JSONArray agents = (JSONArray) ((JSONObject) response.get("auth_info")).get("agent");
 
 			for (int i = 0; i < agents.size(); i++) {
-
 				if (((JSONObject) agents.get(i)).get("appid").toString().equals(appId)) {
 					agentId = ((JSONObject) agents.get(i)).get("agentid").toString();
 					break;
@@ -181,6 +200,97 @@ public class AuthHelper {
 			throw new OApiResultException("agentid");
 		}
 		return agentId;
+	}
+
+	public static int sendToConversation(ConversationDTO conversationDTO,OrderDetailDTO  orderDetailDTO) throws OApiException {
+		NumberFormat currency = NumberFormat.getCurrencyInstance();
+
+		String uid = conversationDTO.getUid();
+		String cid = conversationDTO.getCid();
+		String cropId = conversationDTO.getCropId();
+		DDMessageDTO ddMessageDTO = new DDMessageDTO();
+
+
+
+		List<KeyValueDTO> list = new ArrayList<>();
+
+		KeyValueDTO keyValueDTO0 = new KeyValueDTO("预约时间",orderDetailDTO.getYuyueTime());
+
+		KeyValueDTO keyValueDTO1 = new KeyValueDTO("服务类型",orderDetailDTO.getRepairName());
+		KeyValueDTO keyValueDTO2 = new KeyValueDTO("问题描述",orderDetailDTO.getRemark());
+		KeyValueDTO keyValueDTO3 = new KeyValueDTO("联系人",orderDetailDTO.getUserName()+" "+orderDetailDTO.getUserPhone());
+		KeyValueDTO keyValueDTO4 = new KeyValueDTO("地址",orderDetailDTO.getAddress());
+		KeyValueDTO keyValueDTO5 = new KeyValueDTO("平台报价", StringUtils.isEmpty(orderDetailDTO.getPlatformPrice())?"CNY0.00":"CNY"+String.format("%.2f",orderDetailDTO.getPlatformPrice()));
+		KeyValueDTO keyValueDTO6 = new KeyValueDTO("人工费", ObjectUtils.isEmpty(orderDetailDTO.getCost())?currency.format(BigDecimal.ZERO):orderDetailDTO.getCost().toString());
+		KeyValueDTO keyValueDTO7 = new KeyValueDTO("材料费", ObjectUtils.isEmpty(orderDetailDTO.getCostMaterial())?currency.format(BigDecimal.ZERO):currency.format(orderDetailDTO.getCostMaterial()));
+		KeyValueDTO keyValueDTO8 = new KeyValueDTO("附加费", ObjectUtils.isEmpty(orderDetailDTO.getPlatformPrice())?currency.format(BigDecimal.ZERO):currency.format(orderDetailDTO.getPlatformPrice()));
+		KeyValueDTO keyValueDTO9 = new KeyValueDTO("下单时间", StringUtils.isEmpty(orderDetailDTO.getPlatformPrice())?currency.format(BigDecimal.ZERO):currency.format(orderDetailDTO.getPlatformPrice()));
+		list.add(keyValueDTO0);
+		list.add(keyValueDTO1);
+		list.add(keyValueDTO2);
+		list.add(keyValueDTO3);
+		list.add(keyValueDTO4);
+		list.add(keyValueDTO5);
+		list.add(keyValueDTO6);
+		list.add(keyValueDTO7);
+		list.add(keyValueDTO8);
+		list.add(keyValueDTO9);
+		OAMessageHeadDTO oaMessageHeadDTO = new OAMessageHeadDTO("FFBBBBBB","万能小哥维修订单");
+		OAMessageBodyDTO oaMessageBodyDTO = new OAMessageBodyDTO();
+		oaMessageBodyDTO.setTitle("万能小哥维修订单");
+		oaMessageBodyDTO.setForm(list);
+
+
+		OAMessageDTO oaMessageDTO = new OAMessageDTO();
+		oaMessageDTO.setMessage_url("https://www.dingtalk.com");
+		oaMessageDTO.setHead(oaMessageHeadDTO);
+		oaMessageDTO.setBody(oaMessageBodyDTO);
+
+		ddMessageDTO.setSender(uid);
+		ddMessageDTO.setCid(cid);
+		ddMessageDTO.setMsgtype("oa");
+		ddMessageDTO.setOa(oaMessageDTO);
+
+		String accessToken = null;
+		try {
+			accessToken = getAccessToken(cropId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		RemoteDDService service = APIServiceGenrator.createRequsetService(RemoteDDService.class,"https://oapi.dingtalk.com");
+		Call<DingResultDTO> call = service.sendToConversation(accessToken, ddMessageDTO);
+		Response<DingResultDTO> response = null;
+		try {
+			response = call.execute();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		DingResultDTO resultDTO = response.body();
+
+//		String url = "https://oapi.dingtalk.com/message/send_to_conversation?access_token=" + accessToken;
+
+
+//		AuthHelper.getAccessToken(corpId)
+//		JSONObject args = new JSONObject();
+//		args.put("sender", "");
+//		args.put("cid", cid);
+//		args.put("msgtype", "oa");
+//		args.put("permanent_code", FileUtils.getValue("permanentcode", corpId));
+//		JSONObject response = HttpHelper.httpPost(url, args);
+//		if (response.containsKey("auth_info")) {
+//			JSONArray agents = (JSONArray) ((JSONObject) response.get("auth_info")).get("agent");
+//
+//			for (int i = 0; i < agents.size(); i++) {
+//				if (((JSONObject) agents.get(i)).get("appid").toString().equals(appId)) {
+//					agentId = ((JSONObject) agents.get(i)).get("agentid").toString();
+//					break;
+//				}
+//			}
+//		} else {
+//			throw new OApiResultException("agentid");
+//		}
+		return resultDTO.getErrcode();
 	}
 
 //	public static String getSsoToken() throws OApiException {
@@ -195,5 +305,18 @@ public class AuthHelper {
 //		return ssoToken;
 //
 //	}
+
+
+	public static void main(String args[]){
+		NumberFormat currency = NumberFormat.getCurrencyInstance(); //建立货币格式化引用
+		NumberFormat percent = NumberFormat.getPercentInstance();  //建立百分比格式化引用
+		percent.setMaximumFractionDigits(3); //百分比小数点最多3位
+
+		BigDecimal loanAmount = new BigDecimal("0"); //贷款金额
+//		BigDecimal interestRate = new BigDecimal("0.008"); //利率
+//		BigDecimal interest = loanAmount.multiply(interestRate); //相乘
+
+		System.out.println("贷款金额:\t" + currency.format(loanAmount)); //贷款
+	}
 
 }

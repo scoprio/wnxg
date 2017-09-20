@@ -14,8 +14,11 @@ import javax.servlet.http.HttpServletRequest;
 import com.alibaba.druid.support.spring.stat.annotation.Stat;
 import com.ulb.service.SKUService;
 import com.ulb.service.TimeService;
+import com.ulb.web.demo.OApiException;
+import com.ulb.web.demo.auth.AuthHelper;
 import com.ulb.web.dto.Comment2DTO;
 import com.ulb.web.dto.CommentDTO;
+import com.ulb.web.dto.ConversationDTO;
 import com.ulb.web.dto.OperaterOrderDTO;
 import com.ulb.web.dto.OperaterOrderWithIdDTO;
 import com.ulb.web.dto.OrderDataDetailDTO;
@@ -117,6 +120,7 @@ public class UlbSKUResource {
         OperaterOrderDTO operaterOrderDTO = new OperaterOrderDTO();
         operaterOrderDTO.setCityCode(operaterOrderWithIdDTO.getCityCode());
         operaterOrderDTO.setOperater(operaterOrderWithIdDTO.getOperater());
+        operaterOrderDTO.setReason(operaterOrderWithIdDTO.getReason());
         try {
             ResultDTO resultDTO = skuService.updateOrder(operaterOrderWithIdDTO.getId(),operaterOrderDTO);
             if(resultDTO.getCode().equals("200")){
@@ -252,6 +256,44 @@ public class UlbSKUResource {
             payState2DTO.setMessage("支付失败");
         }
         return new ModelAndView("dingding/pay_order_result","payState",payState2DTO);
+    }
+
+
+    @RequestMapping(value = "/sku/order/conversation.shtml",
+            method = RequestMethod.POST,
+            produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Map<String, Object>> sendToConversation(@RequestBody ConversationDTO conversationDTO){
+        Map<String, Object> resultMap = new LinkedHashMap<>();
+
+
+        int result;
+
+        OrderDetailDTO  orderDetailDTO = null;
+        try {
+            orderDetailDTO = skuService.getSKUOrderService(conversationDTO.getOrderId(),conversationDTO.getCityCode());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+
+            result = AuthHelper.sendToConversation(conversationDTO,orderDetailDTO);
+
+            if(result == 0){
+                resultMap.put("status", 200);
+                resultMap.put("message", "发送成功！");
+            }else{
+                resultMap.put("message", "发送失败！");
+                resultMap.put("status", 300);
+            }
+        } catch (OApiException e) {
+
+            resultMap.put("message", "服务端请求异常！");
+            resultMap.put("status", 500);
+            e.printStackTrace();
+        }
+
+
+        return new ResponseEntity(resultMap,HttpStatus.OK);
     }
 
 

@@ -10,6 +10,8 @@ public class OperaterOrderDTO {
 
     private Integer operater;
 
+    private String reason;
+
     public String getCityCode() {
         return cityCode;
     }
@@ -24,5 +26,13 @@ public class OperaterOrderDTO {
 
     public void setOperater(Integer operater) {
         this.operater = operater;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 }

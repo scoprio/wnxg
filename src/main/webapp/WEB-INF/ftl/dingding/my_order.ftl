@@ -54,6 +54,8 @@
                                 <a class="commentOrder" onclick="commentOrder(${order.oid})" href="javascript:void(0);" style="display: ${order.commentDisplay?default('none')}">评论</a>
                                 <a class="cancelOrder" onclick="cancelOrder(${order.oid?default('未设置')})" href="javascript:void(0);" style="display: ${order.display?default('none')}">取消订单</a>
                                 <a class="commentOrder" onclick="payOrder(${order.oid?default('未设置')})" href="javascript:void(0);" style="display: ${order.payDisplay?default('none')}">支付</a>
+                                <a onclick="auditYesOrder(${order.oid?default('未设置')})" href="javascript:void(0);" style="display: ${order.auditDisplay?default('none')}">审核通过</a>
+                                <a onclick="auditNoOrder(${order.oid?default('未设置')})" href="javascript:void(0);" style="display: ${order.auditDisplay?default('none')}">审核不通过</a>
                                 <a href="javascript:void(0);" onclick="telephone()">联系客服</a></p>
                         </li>
 					</#list>
@@ -143,6 +145,95 @@
 
             function commentOrder(orderId){
                 location.href = "${basePath}/ulb/sku/comment.shtml?orderId="+orderId;
+            }
+
+            function auditYesOrder(orderId) {
+                var skuOrder = {
+                    "id":orderId,
+                    "cityCode":localStorage.current_city_code,
+                    "operater": 2
+                }
+
+                layer_confirm("您确认要审核通过订单吗？",function(){
+                    $.ajax({
+                               url:"${basePath}/ulb/sku/order.shtml",
+                               type:"PUT",
+                               data:JSON.stringify(skuOrder),
+                               contentType:"application/json; charset=utf-8",
+                               dataType:"json",
+                               success: function(result){
+                                   if(result && result.status== 200){
+                                       layer_tip("审核通过",function () {
+                                           location.reload();
+                                           <#--location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;-->
+                                       })
+
+                                   }else{
+                                       layer_tip(result.message);
+                                       location.reload();
+                                   }
+                               },
+                               error: function(result){
+                                   layer_tip(result.message);
+                                   location.reload();
+                                   console.log(result.message);
+                               }
+                           });},function(){});
+            }
+
+
+            function auditNoOrder(orderId) {
+                dd.device.notification.prompt({
+                      message: "不通过理由？",
+                      defaultText:"",
+                      buttonLabels: ['确认', '取消'],
+                      onSuccess : function(result) {
+                          alert(JSON.stringify(result));
+                          if(result.buttonIndex == 0){
+                              var skuOrder = {
+                                  "id":orderId,
+                                  "cityCode":localStorage.current_city_code,
+                                  "operater": 3,
+                                  "reason":result.value
+                              }
+
+                              $.ajax({
+                                 url:"${basePath}/ulb/sku/order.shtml",
+                                 type:"PUT",
+                                 data:JSON.stringify(skuOrder),
+                                 contentType:"application/json; charset=utf-8",
+                                 dataType:"json",
+                                 success: function(result){
+                                     if(result && result.status== 200){
+                                         layer_tip("审核不通过，终止订单",function () {
+                                             location.reload();
+                                         <#--location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;-->
+                                         })
+
+                                     }else{
+                                         layer_tip(result.message);
+                                         location.reload();
+                                     }
+                                 },
+                                 error: function(result){
+                                     layer_tip(result.message);
+                                     location.reload();
+                                     console.log(result.message);
+                                 }
+                             });
+                          }else{
+
+                          }
+                          //onSuccess将在点击button之后回调
+                          /*
+                          {
+                              buttonIndex: 0, //被点击按钮的索引值，Number类型，从0开始
+                              value: '' //输入的值
+                          }
+                          */
+                      },
+                      onFail : function(err) {}
+                  });
             }
 
             function telephone(){

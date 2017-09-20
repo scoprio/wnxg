@@ -13,6 +13,7 @@ public class StatueUtil {
     private static Map<String,String> statueMap = new HashMap<>();
 
     private StatueUtil(){
+        statueMap.put("-1","待审核");
         statueMap.put("1","已下单，系统派单中");
         statueMap.put("2","已接单，请注意接听电话");
         statueMap.put("3","沟通顺利，等待小哥上门");
@@ -32,7 +33,7 @@ public class StatueUtil {
         statueMap.put("20","小哥同意更换");
         statueMap.put("21","小哥驳回更换");
         statueMap.put("22","管理员终止订单");
-        statueMap.put("23","管理员终止订单");
+        statueMap.put("23","管理员同意取消订单");
         statueMap.put("24","等待客户确认完成");
         statueMap.put("25","客户确认付款");
         statueMap.put("26","等待选择支付方式");

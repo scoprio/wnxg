@@ -47,7 +47,6 @@ public class ConfigGetter {
             ticket = AuthHelper.getJsapiTicket(accessToken, corpId);
             signature = AuthHelper.sign(ticket, nonceStr, timeStamp, signedUrl);
             agentid = AuthHelper.getAgentId(corpId, appId);
-
 //            accessToken = "1111";
 //            ticket = "111";
 //            signature = "111";

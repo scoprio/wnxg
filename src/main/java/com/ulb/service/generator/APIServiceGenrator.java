@@ -62,6 +62,29 @@ public class APIServiceGenrator {
      * @return
      */
     public static <S> S createRequsetService(Class<S> serviceClass) {
+//        HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
+//        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+//
+//        OkHttpClient client = new OkHttpClient.Builder()
+//                .retryOnConnectionFailure(true)
+//                .connectTimeout(10, TimeUnit.SECONDS)
+//                .readTimeout(30, TimeUnit.SECONDS)
+//                .addInterceptor(httpLoggingInterceptor)
+//                .build();
+//
+//        Retrofit builder = new Retrofit.Builder()
+//                .client(client)
+//                .baseUrl(Constant.REQUEST_URL)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build();
+
+//        return builder.create(serviceClass);
+
+        return createRequsetService(serviceClass,Constant.REQUEST_URL);
+    }
+
+
+    public static <S> S createRequsetService(Class<S> serviceClass,String url) {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -74,7 +97,7 @@ public class APIServiceGenrator {
 
         Retrofit builder = new Retrofit.Builder()
                 .client(client)
-                .baseUrl(Constant.REQUEST_URL)
+                .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 

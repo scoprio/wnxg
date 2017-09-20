@@ -12,6 +12,8 @@ public class OperaterOrderWithIdDTO {
 
     private Integer operater;
 
+    private String reason;
+
     public String getId() {
         return id;
     }
@@ -34,5 +36,13 @@ public class OperaterOrderWithIdDTO {
 
     public void setOperater(Integer operater) {
         this.operater = operater;
+    }
+
+    public String getReason() {
+        return reason;
+    }
+
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 }

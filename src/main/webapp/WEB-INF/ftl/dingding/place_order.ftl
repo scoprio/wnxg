@@ -322,15 +322,56 @@
                                dataType:"json",
                                success: function(result){
                                    if(result && result.status== 200){
-                                       dd.device.notification.alert({
-                                            message: "亲，您的维修单已提交，小哥接单后会主动与您联系，请保持手机畅通",
-                                            title: "",//可传空
-                                            buttonName: "好的",
-                                            onSuccess : function() {
-                                                location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/${sku.cityCode}.shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
+
+                                       dd.biz.chat.pickConversation({
+                                            corpId: localStorage.corpId, //企业id
+                                            isConfirm:'true', //是否弹出确认窗口，默认为true
+                                            onSuccess : function(result) {
+                                                alert(JSON.stringify(result));
+                                                result.cid;
+                                                $.ajax({
+                                                   url:"${basePath}/ulb/sku/order.shtml",
+                                                   type:"PUT",
+                                                   data:JSON.stringify(skuOrder),
+                                                   contentType:"application/json; charset=utf-8",
+                                                   dataType:"json",
+                                                   success: function(result){
+                                                       if(result && result.status== 200){
+                                                           layer_tip("审核通过",function () {
+                                                               location.reload();
+                                                           <#--location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;-->
+                                                           })
+
+                                                       }else{
+                                                           layer_tip(result.message);
+                                                           location.reload();
+                                                       }
+                                                   },
+                                                   error: function(result){
+                                                       layer_tip(result.message);
+                                                       location.reload();
+                                                       console.log(result.message);
+                                                   }
+                                               });
+
+                                                //onSuccess将在选择结束之后调用
+                                                // 该cid和服务端开发文档-普通会话消息接口配合使用，而且只能使用一次，之后将失效
+                                                /*{
+                                                    cid: 'xxxx',
+                                                    title:'xxx'
+                                                }*/
                                             },
-                                            onFail : function(err) {}
-                                        });
+                                            onFail : function() {}
+                                        })
+                                       <#--dd.device.notification.alert({-->
+                                            <#--message: "亲，您的维修单已提交，小哥接单后会主动与您联系，请保持手机畅通",-->
+                                            <#--title: "",//可传空-->
+                                            <#--buttonName: "好的",-->
+                                            <#--onSuccess : function() {-->
+                                                <#--location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/${sku.cityCode}.shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;-->
+                                            <#--},-->
+                                            <#--onFail : function(err) {}-->
+                                        <#--});-->
                                    }else{
                                        layer_tip(result.message);
                                    }

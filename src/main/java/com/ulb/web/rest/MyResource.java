@@ -128,6 +128,7 @@ public class MyResource {
                 }else{
                     dto.setPayDisplay("none");
                 }
+                dto.setAuditDisplay("none");
 
             }
         } catch (IOException e) {
@@ -158,6 +159,13 @@ public class MyResource {
                 dto.setCityCode(cityCode);
                 dto.setStatusName(StatueUtil.getStatueName(dto.getPid().toString()));
                 dto.setOnum("wnxg"+dto.getOnum());
+
+                if(dto.getPid() == -1){
+                    dto.setAuditDisplay("inline-block");
+                }else{
+                    dto.setAuditDisplay("none");
+                }
+
 
                 if(dto.getPid() == 7){
                     dto.setCommentDisplay("inline-block");

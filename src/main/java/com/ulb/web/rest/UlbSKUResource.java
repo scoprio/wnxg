@@ -28,6 +28,7 @@ import com.ulb.web.dto.PayStateDTO;
 import com.ulb.web.dto.QFRecordDetailDTO;
 import com.ulb.web.dto.QFRepairDTO;
 import com.ulb.web.dto.ResultDTO;
+import com.ulb.web.dto.ResultWithOrderDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKUOrderStateDTO;
 import com.ulb.web.dto.SKURecordDTO;
@@ -96,9 +97,10 @@ public class UlbSKUResource {
     public ResponseEntity<Map<String, Object>> order(@RequestBody SKUOrderRecordDTO skuOrderRecordDTO){
         Map<String, Object> resultMap = new LinkedHashMap<>();
         try {
-            ResultDTO resultDTO = skuService.order(skuOrderRecordDTO);
+            ResultWithOrderDTO resultDTO = skuService.order(skuOrderRecordDTO);
             if(resultDTO.getCode().equals("200")){
                 resultMap.put("status", 200);
+                resultMap.put("recordId",resultDTO.getRecordId());
                 resultMap.put("message", "下单成功！");
             }else{
                 resultMap.put("message", "服务端下单失败！");
@@ -264,12 +266,12 @@ public class UlbSKUResource {
             produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Map<String, Object>> sendToConversation(@RequestBody ConversationDTO conversationDTO){
         Map<String, Object> resultMap = new LinkedHashMap<>();
-
-
         int result;
 
         OrderDetailDTO  orderDetailDTO = null;
         try {
+
+
             orderDetailDTO = skuService.getSKUOrderService(conversationDTO.getOrderId(),conversationDTO.getCityCode());
         } catch (IOException e) {
             e.printStackTrace();

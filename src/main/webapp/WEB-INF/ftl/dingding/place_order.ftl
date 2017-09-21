@@ -322,34 +322,39 @@
                                dataType:"json",
                                success: function(result){
                                    if(result && result.status== 200){
-
                                        dd.biz.chat.pickConversation({
                                             corpId: localStorage.corpId, //企业id
                                             isConfirm:'true', //是否弹出确认窗口，默认为true
-                                            onSuccess : function(result) {
-                                                alert(JSON.stringify(result));
-                                                result.cid;
+                                            onSuccess : function(dingResult) {
+                                                var message = {
+                                                    "cid":dingResult.cid,
+                                                    "uid":localStorage.dingdingUserId,
+                                                    "cropId":localStorage.corpId,
+                                                    "cityCode":localStorage.current_city_code,
+                                                    "orderId":result.recordId,
+                                                    "type":0
+                                                }
                                                 $.ajax({
-                                                   url:"${basePath}/ulb/sku/order.shtml",
-                                                   type:"PUT",
-                                                   data:JSON.stringify(skuOrder),
+                                                   url:"${basePath}/ulb/sku/order/conversation.shtml",
+                                                   type:"POST",
+                                                   data:JSON.stringify(message),
                                                    contentType:"application/json; charset=utf-8",
                                                    dataType:"json",
-                                                   success: function(result){
-                                                       if(result && result.status== 200){
-                                                           layer_tip("审核通过",function () {
-                                                               location.reload();
-                                                           <#--location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;-->
+                                                   success: function(sendResult){
+                                                       if(sendResult && sendResult.status== 200){
+                                                           layer_tip("发送成功",function () {
+//                                                               location.reload();
+                                                           location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
                                                            })
 
                                                        }else{
                                                            layer_tip(result.message);
-                                                           location.reload();
+                                                           location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
                                                        }
                                                    },
                                                    error: function(result){
                                                        layer_tip(result.message);
-                                                       location.reload();
+                                                       location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
                                                        console.log(result.message);
                                                    }
                                                });

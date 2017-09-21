@@ -154,31 +154,83 @@
                     "operater": 2
                 }
 
-                layer_confirm("您确认要审核通过订单吗？",function(){
-                    $.ajax({
-                               url:"${basePath}/ulb/sku/order.shtml",
-                               type:"PUT",
-                               data:JSON.stringify(skuOrder),
-                               contentType:"application/json; charset=utf-8",
-                               dataType:"json",
-                               success: function(result){
-                                   if(result && result.status== 200){
-                                       layer_tip("审核通过",function () {
-                                           location.reload();
-                                           <#--location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;-->
-                                       })
 
-                                   }else{
-                                       layer_tip(result.message);
-                                       location.reload();
-                                   }
-                               },
-                               error: function(result){
-                                   layer_tip(result.message);
-                                   location.reload();
-                                   console.log(result.message);
-                               }
-                           });},function(){});
+                dd.device.notification.confirm({
+                       message: "您确认要审核通过订单吗?",
+                       title: "提示",
+                       buttonLabels: ['确定', '我再想想'],
+                       onSuccess : function(result1) {
+                           if(result1.buttonIndex == 0){
+                               $.ajax({
+                                          url:"${basePath}/ulb/sku/order.shtml",
+                                          type:"PUT",
+                                          data:JSON.stringify(skuOrder),
+                                          contentType:"application/json; charset=utf-8",
+                                          dataType:"json",
+                                          success: function(result){
+                                              if(result && result.status== 200){
+
+                                                  dd.biz.chat.pickConversation({
+                                                   corpId: localStorage.corpId, //企业id
+                                                   isConfirm:'true', //是否弹出确认窗口，默认为true
+                                                   onSuccess : function(dingResult) {
+                                                       var message = {
+                                                           "cid":dingResult.cid,
+                                                           "uid":localStorage.dingdingUserId,
+                                                           "cropId":localStorage.corpId,
+                                                           "cityCode":localStorage.current_city_code,
+                                                           "orderId":orderId,
+                                                           "type":1
+                                                       }
+                                                       $.ajax({
+                                                                  url:"${basePath}/ulb/sku/order/conversation.shtml",
+                                                                  type:"POST",
+                                                                  data:JSON.stringify(message),
+                                                                  contentType:"application/json; charset=utf-8",
+                                                                  dataType:"json",
+                                                                  success: function(sendResult){
+                                                                      if(sendResult && sendResult.status== 200){
+                                                                          layer_tip("审核通过,发送通知",function () {
+                                                                              location.reload();
+                                                                          })
+
+                                                                      }else{
+                                                                          layer_tip(result.message);
+                                                                          location.reload();
+                                                                      }
+                                                                  },
+                                                                  error: function(result){
+                                                                      layer_tip(result.message);
+                                                                      location.reload();
+                                                                      console.log(result.message);
+                                                                  }
+                                                              });
+                                                   },
+                                                   onFail : function() {}
+                                               })
+
+
+                                              }else{
+                                                  layer_tip(result.message);
+                                                  location.reload();
+                                              }
+                                          },
+                                          error: function(result){
+                                              layer_tip(result.message);
+                                              location.reload();
+                                              console.log(result.message);
+                                          }
+                                      })
+                           }
+                           //onSuccess将在点击button之后回调
+                           /*
+                           {
+                               buttonIndex: 0 //被点击按钮的索引值，Number类型，从0开始
+                           }
+                           */
+                       },
+                       onFail : function(err) {}
+                   });
             }
 
 
@@ -188,7 +240,6 @@
                       defaultText:"",
                       buttonLabels: ['确认', '取消'],
                       onSuccess : function(result) {
-                          alert(JSON.stringify(result));
                           if(result.buttonIndex == 0){
                               var skuOrder = {
                                   "id":orderId,
@@ -205,10 +256,58 @@
                                  dataType:"json",
                                  success: function(result){
                                      if(result && result.status== 200){
-                                         layer_tip("审核不通过，终止订单",function () {
-                                             location.reload();
-                                         <#--location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;-->
-                                         })
+
+                                         dd.biz.chat.pickConversation({
+                                              corpId: localStorage.corpId, //企业id
+                                              isConfirm:'true', //是否弹出确认窗口，默认为true
+                                              onSuccess : function(dingResult) {
+                                                  var message = {
+                                                      "cid":dingResult.cid,
+                                                      "uid":localStorage.dingdingUserId,
+                                                      "cropId":localStorage.corpId,
+                                                      "cityCode":localStorage.current_city_code,
+                                                      "orderId":orderId,
+                                                      "type":1
+                                                  }
+                                                  $.ajax({
+                                                             url:"${basePath}/ulb/sku/order/conversation.shtml",
+                                                             type:"POST",
+                                                             data:JSON.stringify(message),
+                                                             contentType:"application/json; charset=utf-8",
+                                                             dataType:"json",
+                                                             success: function(sendResult){
+                                                                 if(sendResult && sendResult.status== 200){
+                                                                     layer_tip("审核不通过，终止订单,发送通知",function () {
+                                                                         location.reload();
+                                                                     })
+
+                                                                 }else{
+                                                                     layer_tip(result.message);
+                                                                     location.reload();
+                                                                 }
+                                                             },
+                                                             error: function(result){
+                                                                 layer_tip(result.message);
+                                                                 location.reload();
+                                                                 console.log(result.message);
+                                                             }
+                                                         });
+
+                                                  //onSuccess将在选择结束之后调用
+                                                  // 该cid和服务端开发文档-普通会话消息接口配合使用，而且只能使用一次，之后将失效
+                                                  /*{
+                                                      cid: 'xxxx',
+                                                      title:'xxx'
+                                                  }*/
+                                              },
+                                              onFail : function() {}
+                                          })
+
+
+                                         <#--layer_tip("审核不通过，终止订单",function () {-->
+                                             <#--location.reload();-->
+                                         <#--&lt;#&ndash;location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;&ndash;&gt;-->
+                                         <#--})-->
 
                                      }else{
                                          layer_tip(result.message);

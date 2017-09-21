@@ -2,6 +2,7 @@ package com.ulb.service.remote;
 
 
 import java.util.List;
+import java.util.Map;
 
 import com.ulb.web.dto.CommentDTO;
 import com.ulb.web.dto.DDMessageDTO;
@@ -21,6 +22,8 @@ import retrofit2.http.Headers;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
+import retrofit2.http.QueryMap;
+import retrofit2.http.Url;
 
 /**
  * 调用DD服务端
@@ -30,7 +33,7 @@ import retrofit2.http.Path;
 public interface RemoteDDService {
 
     @Headers({"Content-type:application/json;charset=UTF-8"})
-    @POST("/message/send_to_conversation?access_token={access_token}")
-    Call<DingResultDTO> sendToConversation(@Path("access_token") String access_token,@Body DDMessageDTO ddMessageDTO);
+    @POST
+    Call<DingResultDTO> sendToConversation(@Url String url, @QueryMap Map<String, String> maps, @Body DDMessageDTO ddMessageDTO);
 
 }

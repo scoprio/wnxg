@@ -9,6 +9,7 @@ import com.ulb.web.dto.OperaterOrderDTO;
 import com.ulb.web.dto.OrderDetailDTO;
 import com.ulb.web.dto.PayStateDTO;
 import com.ulb.web.dto.ResultDTO;
+import com.ulb.web.dto.ResultWithOrderDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKUOrderStateDTO;
 import com.ulb.web.dto.SKURecordDTO;
@@ -45,7 +46,7 @@ public interface RemoteSKUService {
      */
     @Headers({"Content-type:application/json;charset=UTF-8"})
     @POST("/WNXG/ulb/api/new_enter_prise/order")
-    Call<ResultDTO> postOrder(@Body SKUOrderRecordDTO skuOrderRecordDTO);
+    Call<ResultWithOrderDTO> postOrder(@Body SKUOrderRecordDTO skuOrderRecordDTO);
 
     /**
      * 获取下单时间

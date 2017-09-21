@@ -13,6 +13,7 @@ import com.ulb.web.dto.OperaterOrderDTO;
 import com.ulb.web.dto.OrderDetailDTO;
 import com.ulb.web.dto.PayStateDTO;
 import com.ulb.web.dto.ResultDTO;
+import com.ulb.web.dto.ResultWithOrderDTO;
 import com.ulb.web.dto.SKUOrderRecordDTO;
 import com.ulb.web.dto.SKUOrderStateDTO;
 import com.ulb.web.dto.SKURecordDTO;
@@ -40,10 +41,10 @@ public class SKUService {
     }
 
 
-    public ResultDTO order(SKUOrderRecordDTO skuOrderRecordDTO) throws IOException {
+    public ResultWithOrderDTO order(SKUOrderRecordDTO skuOrderRecordDTO) throws IOException {
         RemoteSKUService service = APIServiceGenrator.createRequsetService(RemoteSKUService.class);
-        Call<ResultDTO> call = service.postOrder(skuOrderRecordDTO);
-        Response<ResultDTO> response = call.execute();
+        Call<ResultWithOrderDTO> call = service.postOrder(skuOrderRecordDTO);
+        Response<ResultWithOrderDTO> response = call.execute();
         return response.body();
     }
 

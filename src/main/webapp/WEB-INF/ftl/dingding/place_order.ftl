@@ -342,13 +342,13 @@
                                                    dataType:"json",
                                                    success: function(sendResult){
                                                        if(sendResult && sendResult.status== 200){
-                                                           layer_tip("发送成功",function () {
+                                                           layer_tip("下单消息发送成功",function () {
 //                                                               location.reload();
                                                            location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
                                                            })
 
                                                        }else{
-                                                           layer_tip(result.message);
+                                                           layer_tip("消息发送失败");
                                                            location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
                                                        }
                                                    },

@@ -190,12 +190,13 @@
                                                                   dataType:"json",
                                                                   success: function(sendResult){
                                                                       if(sendResult && sendResult.status== 200){
-                                                                          layer_tip("审核通过,发送通知",function () {
+                                                                          layer_tip("审核通过,发送通知成功",function () {
                                                                               location.reload();
                                                                           })
 
                                                                       }else{
-                                                                          layer_tip(result.message);
+                                                                          layer_tip("消息发送失败");
+//                                                                          layer_tip(result.message);
                                                                           location.reload();
                                                                       }
                                                                   },
@@ -277,12 +278,12 @@
                                                              dataType:"json",
                                                              success: function(sendResult){
                                                                  if(sendResult && sendResult.status== 200){
-                                                                     layer_tip("审核不通过，终止订单,发送通知",function () {
+                                                                     layer_tip("审核不通过，终止订单,发送通知成功",function () {
                                                                          location.reload();
                                                                      })
 
                                                                  }else{
-                                                                     layer_tip(result.message);
+                                                                     layer_tip("消息发送失败");
                                                                      location.reload();
                                                                  }
                                                              },

@@ -211,11 +211,11 @@ public class AuthHelper {
 		String cropId = conversationDTO.getCropId();
 
 		String accessToken ="";
-//		try {
-//			accessToken = getAccessToken(cropId);
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
+		try {
+			accessToken = getAccessToken(cropId);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		System.out.println("conversation----"+"accessToken:"+accessToken+",uid:"+uid+",cid:"+cid);
 		DDMessageDTO ddMessageDTO = new DDMessageDTO();

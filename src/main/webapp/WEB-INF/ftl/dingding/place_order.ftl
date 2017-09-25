@@ -322,52 +322,90 @@
                                dataType:"json",
                                success: function(result){
                                    if(result && result.status== 200){
-                                       dd.biz.chat.pickConversation({
-                                            corpId: localStorage.corpId, //企业id
-                                            isConfirm:'true', //是否弹出确认窗口，默认为true
-                                            onSuccess : function(dingResult) {
-                                                var message = {
-                                                    "cid":dingResult.cid,
-                                                    "uid":localStorage.dingdingUserId,
-                                                    "cropId":localStorage.corpId,
-                                                    "cityCode":localStorage.current_city_code,
-                                                    "orderId":result.recordId,
-                                                    "type":0
-                                                }
-                                                $.ajax({
-                                                   url:"${basePath}/ulb/sku/order/conversation.shtml",
-                                                   type:"POST",
-                                                   data:JSON.stringify(message),
-                                                   contentType:"application/json; charset=utf-8",
-                                                   dataType:"json",
-                                                   success: function(sendResult){
-                                                       if(sendResult && sendResult.status== 200){
-                                                           layer_tip("下单消息发送成功",function () {
+                                       var message = {
+                                               "uid":localStorage.dingdingUserId,
+                                               "cropId":localStorage.corpId,
+                                               "appId":localStorage.appId,
+                                               "cityCode":localStorage.current_city_code,
+                                               "orderId":result.recordId,
+                                               "type":0
+                                       }
+                                       $.ajax({
+                                          url:"${basePath}/ulb/sku/order/conversation.shtml",
+                                          type:"POST",
+                                          data:JSON.stringify(message),
+                                          contentType:"application/json; charset=utf-8",
+                                          dataType:"json",
+                                          success: function(sendResult){
+                                              if(sendResult && sendResult.status== 200){
+                                                  layer_tip("下单消息发送成功",function () {
 //                                                               location.reload();
-                                                           location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
-                                                           })
+                                                      location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
+                                                  })
 
-                                                       }else{
-                                                           layer_tip("消息发送失败");
-                                                           location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
-                                                       }
-                                                   },
-                                                   error: function(result){
-                                                       layer_tip(result.message);
-                                                       location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
-                                                       console.log(result.message);
-                                                   }
-                                               });
+                                              }else{
+                                                  layer_tip("消息发送失败");
+                                                  location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
+                                              }
+                                          },
+                                          error: function(result){
+                                              layer_tip(result.message);
+                                              location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;
+                                              console.log(result.message);
+                                          }
+                                      });
 
-                                                //onSuccess将在选择结束之后调用
-                                                // 该cid和服务端开发文档-普通会话消息接口配合使用，而且只能使用一次，之后将失效
-                                                /*{
-                                                    cid: 'xxxx',
-                                                    title:'xxx'
-                                                }*/
-                                            },
-                                            onFail : function() {}
-                                        })
+
+                                       <#--dd.biz.chat.pickConversation({-->
+                                            <#--corpId: localStorage.corpId, //企业id-->
+                                            <#--isConfirm:'true', //是否弹出确认窗口，默认为true-->
+                                            <#--onSuccess : function(dingResult) {-->
+                                                <#--var message = {-->
+                                                    <#--"cid":dingResult.cid,-->
+                                                    <#--"uid":localStorage.dingdingUserId,-->
+                                                    <#--"cropId":localStorage.corpId,-->
+                                                    <#--"appId",localStorage.appId,-->
+                                                    <#--"cityCode":localStorage.current_city_code,-->
+                                                    <#--"orderId":result.recordId,-->
+                                                    <#--"type":0-->
+                                                <#--}-->
+                                                <#--$.ajax({-->
+                                                   <#--url:"${basePath}/ulb/sku/order/conversation.shtml",-->
+                                                   <#--type:"POST",-->
+                                                   <#--data:JSON.stringify(message),-->
+                                                   <#--contentType:"application/json; charset=utf-8",-->
+                                                   <#--dataType:"json",-->
+                                                   <#--success: function(sendResult){-->
+                                                       <#--if(sendResult && sendResult.status== 200){-->
+                                                           <#--layer_tip("下单消息发送成功",function () {-->
+<#--//                                                               location.reload();-->
+                                                           <#--location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;-->
+                                                           <#--})-->
+
+                                                       <#--}else{-->
+                                                           <#--layer_tip("消息发送失败");-->
+                                                           <#--location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;-->
+                                                       <#--}-->
+                                                   <#--},-->
+                                                   <#--error: function(result){-->
+                                                       <#--layer_tip(result.message);-->
+                                                       <#--location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;-->
+                                                       <#--console.log(result.message);-->
+                                                   <#--}-->
+                                               <#--});-->
+
+                                                <#--//onSuccess将在选择结束之后调用-->
+                                                <#--// 该cid和服务端开发文档-普通会话消息接口配合使用，而且只能使用一次，之后将失效-->
+                                                <#--/*{-->
+                                                    <#--cid: 'xxxx',-->
+                                                    <#--title:'xxx'-->
+                                                <#--}*/-->
+                                            <#--},-->
+                                            <#--onFail : function() {-->
+                                                <#--layer_tip("请手动将下单信息提交给管理员审核");-->
+                                                <#--location.href = "${basePath}/dingding/my_order/"+localStorage.dingdingUserId+"/"+localStorage.current_city_code+".shtml?corpId="+localStorage.corpId+"&appid="+localStorage.appId;-->
+                                            <#--}-->
+                                        <#--})-->
                                        <#--dd.device.notification.alert({-->
                                             <#--message: "亲，您的维修单已提交，小哥接单后会主动与您联系，请保持手机畅通",-->
                                             <#--title: "",//可传空-->

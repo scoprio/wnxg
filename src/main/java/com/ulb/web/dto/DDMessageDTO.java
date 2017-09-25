@@ -5,28 +5,38 @@ package com.ulb.web.dto;
  */
 public class DDMessageDTO {
 
-    private String sender;
+    private String touser;
 
-    private String cid;
+    private String toparty;
+
+    private String agentid;
 
     private String msgtype;
 
     private OAMessageDTO oa;
 
-    public String getSender() {
-        return sender;
+    public String getTouser() {
+        return touser;
     }
 
-    public void setSender(String sender) {
-        this.sender = sender;
+    public void setTouser(String touser) {
+        this.touser = touser;
     }
 
-    public String getCid() {
-        return cid;
+    public String getToparty() {
+        return toparty;
     }
 
-    public void setCid(String cid) {
-        this.cid = cid;
+    public void setToparty(String toparty) {
+        this.toparty = toparty;
+    }
+
+    public String getAgentid() {
+        return agentid;
+    }
+
+    public void setAgentid(String agentid) {
+        this.agentid = agentid;
     }
 
     public String getMsgtype() {

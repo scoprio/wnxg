@@ -33,7 +33,9 @@ import com.ulb.web.demo.utils.FileUtils;
 import com.ulb.web.demo.utils.HttpHelper;
 import com.ulb.web.dto.ConversationDTO;
 import com.ulb.web.dto.DDMessageDTO;
+import com.ulb.web.dto.DingAdminDTO;
 import com.ulb.web.dto.DingResultDTO;
+import com.ulb.web.dto.DingReturnAdminDTO;
 import com.ulb.web.dto.KeyValueDTO;
 import com.ulb.web.dto.OAMessageBodyDTO;
 import com.ulb.web.dto.OAMessageDTO;
@@ -209,6 +211,7 @@ public class AuthHelper {
 		String uid = conversationDTO.getUid();
 		String cid = conversationDTO.getCid();
 		String cropId = conversationDTO.getCropId();
+		String appId = conversationDTO.getAppId();
 
 		String accessToken ="";
 		try {
@@ -217,12 +220,38 @@ public class AuthHelper {
 			e.printStackTrace();
 		}
 
-		System.out.println("conversation----"+"accessToken:"+accessToken+",uid:"+uid+",cid:"+cid);
+		System.out.println("conversation1----"+"accessToken:"+accessToken+",uid:"+uid+",cid:"+cid);
 		DDMessageDTO ddMessageDTO = new DDMessageDTO();
 
 
 		switch (conversationDTO.getType()){
 			case 0:
+
+				/**
+				 * 获取管理员
+				 */
+				StringBuffer sbAdmin = new StringBuffer();
+
+				RemoteDDService service = APIServiceGenrator.createRequsetService(RemoteDDService.class,"https://oapi.dingtalk.com");
+				Map<String, String> maps = new HashMap<>();
+				maps.put("access_token",accessToken);
+				Call<DingReturnAdminDTO> call0 = service.getAdmin("/user/get_admin",maps);
+
+				DingReturnAdminDTO dingReturnAdminDTO = null;
+				try {
+					dingReturnAdminDTO = call0.execute().body();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
+				if(dingReturnAdminDTO.getErrcode() == 0){
+					for(DingAdminDTO dingAdminDTO:dingReturnAdminDTO.getAdminList()){
+						if(sbAdmin.length() > 0){
+							sbAdmin.append("|");
+						}
+						sbAdmin.append(dingAdminDTO.getUserid());
+					}
+				}
 
 				List<KeyValueDTO> list = new ArrayList<>();
 
@@ -246,7 +275,7 @@ public class AuthHelper {
 //		        list.add(keyValueDTO7);
 //		        list.add(keyValueDTO8);
 //		        list.add(keyValueDTO9);
-				OAMessageHeadDTO oaMessageHeadDTO = new OAMessageHeadDTO("FFBBBBBB","万能小哥维修订单");
+				OAMessageHeadDTO oaMessageHeadDTO = new OAMessageHeadDTO("FFBBBBBB","管理员您好，有需要您审核的订单");
 				OAMessageBodyDTO oaMessageBodyDTO = new OAMessageBodyDTO();
 				oaMessageBodyDTO.setTitle("万能小哥维修订单");
 				oaMessageBodyDTO.setForm(list);
@@ -255,9 +284,11 @@ public class AuthHelper {
 				OAMessageDTO oaMessageDTO = new OAMessageDTO();
 				oaMessageDTO.setHead(oaMessageHeadDTO);
 				oaMessageDTO.setBody(oaMessageBodyDTO);
+				oaMessageDTO.setMessage_url("https://www.dingtalk.com/");
 
-				ddMessageDTO.setSender(uid);
-				ddMessageDTO.setCid(cid);
+				ddMessageDTO.setTouser(sbAdmin.toString());
+				ddMessageDTO.setToparty("");
+				ddMessageDTO.setAgentid(getAgentId(cropId, appId));
 				ddMessageDTO.setMsgtype("oa");
 				ddMessageDTO.setOa(oaMessageDTO);
 				break;
@@ -285,10 +316,10 @@ public class AuthHelper {
 				OAMessageDTO oaMessageDTO1 = new OAMessageDTO();
 				oaMessageDTO1.setHead(oaMessageHeadDTO1);
 				oaMessageDTO1.setBody(oaMessageBodyDTO1);
-
-
-				ddMessageDTO.setSender(uid);
-				ddMessageDTO.setCid(cid);
+				oaMessageDTO1.setMessage_url("https://www.dingtalk.com/");
+				ddMessageDTO.setTouser(orderDetailDTO.getEmployeeid());
+				ddMessageDTO.setToparty("");
+				ddMessageDTO.setAgentid(getAgentId(cropId, appId));
 				ddMessageDTO.setMsgtype("oa");
 				ddMessageDTO.setOa(oaMessageDTO1);
 
@@ -302,7 +333,7 @@ public class AuthHelper {
 		RemoteDDService service = APIServiceGenrator.createRequsetService(RemoteDDService.class,"https://oapi.dingtalk.com");
 		Map<String, String> maps = new HashMap<>();
 		maps.put("access_token",accessToken);
-		Call<DingResultDTO> call = service.sendToConversation("/message/send_to_conversation",maps, ddMessageDTO);
+		Call<DingResultDTO> call = service.sendToConversation("/message/send",maps, ddMessageDTO);
 
 
 		Response<DingResultDTO> response = null;

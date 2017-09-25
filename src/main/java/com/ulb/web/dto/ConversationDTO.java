@@ -15,6 +15,8 @@ public class ConversationDTO {
 
     private String orderId;
 
+    private String appId;
+
     private int type;
 
     public String getCid() {
@@ -63,5 +65,13 @@ public class ConversationDTO {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public String getAppId() {
+        return appId;
+    }
+
+    public void setAppId(String appId) {
+        this.appId = appId;
     }
 }

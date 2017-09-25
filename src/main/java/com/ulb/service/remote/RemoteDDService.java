@@ -7,6 +7,7 @@ import java.util.Map;
 import com.ulb.web.dto.CommentDTO;
 import com.ulb.web.dto.DDMessageDTO;
 import com.ulb.web.dto.DingResultDTO;
+import com.ulb.web.dto.DingReturnAdminDTO;
 import com.ulb.web.dto.OperaterOrderDTO;
 import com.ulb.web.dto.OrderDetailDTO;
 import com.ulb.web.dto.ResultDTO;
@@ -35,5 +36,8 @@ public interface RemoteDDService {
     @Headers({"Content-type:application/json;charset=UTF-8"})
     @POST
     Call<DingResultDTO> sendToConversation(@Url String url, @QueryMap Map<String, String> maps, @Body DDMessageDTO ddMessageDTO);
+
+    @GET
+    Call<DingReturnAdminDTO> getAdmin(@Url String url, @QueryMap Map<String, String> maps);
 
 }

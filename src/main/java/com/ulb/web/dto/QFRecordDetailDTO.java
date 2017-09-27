@@ -15,6 +15,7 @@ public class QFRecordDetailDTO {
 
     private DingDingConfigDTO config;
 
+    private int size;
 
     public QFCompanyInfoDTO getInfo() {
         return info;
@@ -38,5 +39,13 @@ public class QFRecordDetailDTO {
 
     public void setConfig(DingDingConfigDTO config) {
         this.config = config;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 }

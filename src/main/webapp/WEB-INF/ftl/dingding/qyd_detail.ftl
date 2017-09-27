@@ -299,7 +299,7 @@
                     if('${qydInfo.isAdmin}' == 'true'){
                         location.href = "${basePath}/ulb/qf.shtml?corpid=${qydInfo.corpId}&appid="+localStorage.appId+"&cityCode=${qydInfo.cityCode}";
                     }else{
-                        layer_tip("联系管理员开通");
+                        layer_tip("您无权限，该产品只能管理员购买");
                     }
 
                 });

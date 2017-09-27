@@ -156,8 +156,8 @@
                 $("footer input").css("background","#ccc");
                 $("footer input").attr("disabled",true);
             }
-
-            if(${qifuInfo.repairList?size} == '10'){
+            repairList
+            if(${qifuInfo.repairList?size} >= 10){
                 $("footer input").css("background","#ccc");
                 $("footer input").attr("disabled",true);
                 layer_tip("亲，你本月的万能企业盾维修次数已用完。如有维修需求，请单独下单!",function () {

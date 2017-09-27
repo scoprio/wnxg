@@ -156,7 +156,6 @@
                 $("footer input").css("background","#ccc");
                 $("footer input").attr("disabled",true);
             }
-            repairList
             if(${qifuInfo.repairList?size} >= 10){
                 $("footer input").css("background","#ccc");
                 $("footer input").attr("disabled",true);

@@ -20,6 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.dingtalk.open.client.ServiceFactory;
+import com.dingtalk.open.client.api.model.corp.CorpUserDetail;
 import com.dingtalk.open.client.api.model.corp.JsapiTicket;
 import com.dingtalk.open.client.api.model.isv.CorpAuthToken;
 import com.dingtalk.open.client.api.service.corp.JsapiService;
@@ -29,6 +30,7 @@ import com.ulb.service.remote.RemoteDDService;
 import com.ulb.web.demo.Env;
 import com.ulb.web.demo.OApiException;
 import com.ulb.web.demo.OApiResultException;
+import com.ulb.web.demo.user.UserHelper;
 import com.ulb.web.demo.utils.FileUtils;
 import com.ulb.web.demo.utils.HttpHelper;
 import com.ulb.web.dto.ConversationDTO;
@@ -253,6 +255,14 @@ public class AuthHelper {
 					}
 				}
 
+				CorpUserDetail corpUserDetail = null;
+				try {
+					corpUserDetail = UserHelper.getUser(accessToken, uid);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+
 				List<KeyValueDTO> list = new ArrayList<>();
 
 				KeyValueDTO keyValueDTO0 = new KeyValueDTO("预约时间：",orderDetailDTO.getYuyueTime());
@@ -275,9 +285,10 @@ public class AuthHelper {
 //		        list.add(keyValueDTO7);
 //		        list.add(keyValueDTO8);
 //		        list.add(keyValueDTO9);
-				OAMessageHeadDTO oaMessageHeadDTO = new OAMessageHeadDTO("FFBBBBBB","管理员您好，有需要您审核的订单");
+
+				OAMessageHeadDTO oaMessageHeadDTO = new OAMessageHeadDTO("FFBBBBBB","管理员您好，您的公司"+corpUserDetail.getName()+"发起了维修申请，需要您去万能小哥应用中去审核.");
 				OAMessageBodyDTO oaMessageBodyDTO = new OAMessageBodyDTO();
-				oaMessageBodyDTO.setTitle("万能小哥维修订单");
+				oaMessageBodyDTO.setTitle("管理员您好，您的公司"+corpUserDetail.getName()+"发起了维修申请，需要您去万能小哥应用中去审核.");
 				oaMessageBodyDTO.setForm(list);
 
 

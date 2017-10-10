@@ -3,10 +3,6 @@ var choose_city=[
         "sortword":"B",
         "citys": [
             {
-                "id": "baoding",
-                "title": "保定"
-            },
-            {
                 "id": "bj",
                 "title": "北京"
             }
@@ -22,10 +18,6 @@ var choose_city=[
             {
                 "id": "changsha",
                 "title": "长沙"
-            },
-            {
-                "id": "chengde",
-                "title": "承德"
             },
             {
                 "id": "chengdu",
@@ -53,10 +45,10 @@ var choose_city=[
     {
         "sortword":"H",
         "citys": [
-            {
-                "id": "hefei",
-                "title": "合肥"
-            },
+            // {
+            //     "id": "hefei",
+            //     "title": "合肥"
+            // },
             {
                 "id": "huhehaote",
                 "title": "呼和浩特"
@@ -68,27 +60,28 @@ var choose_city=[
 
         ]
     },
-    {
-        "sortword":"J",
-        "citys": [
-            {
-                "id": "jingjiang",
-                "title": "靖江"
-            }
-
-        ]
-    },
+    // {
+    //     "sortword":"J",
+    //     "citys": [
+    //         {
+    //             "id": "jingjiang",
+    //             "title": "靖江"
+    //         }
+    //
+    //     ]
+    // },
     {
         "sortword":"Q",
         "citys": [
             {
                 "id": "qingdao",
                 "title": "青岛"
-            },
-            {
-                "id": "qingyuan",
-                "title": "清远"
             }
+            // ,
+            // {
+            //     "id": "qingyuan",
+            //     "title": "清远"
+            // }
 
         ]
     },
@@ -150,16 +143,17 @@ var choose_city=[
                 "title": "西安"
             }
         ]
-    },
-    {
-        "sortword":"Z",
-        "citys": [
-            {
-                "id": "zhengzhou",
-                "title": "郑州"
-            }
-        ]
     }
+    // ,
+    // {
+    //     "sortword":"Z",
+    //     "citys": [
+    //         {
+    //             "id": "zhengzhou",
+    //             "title": "郑州"
+    //         }
+    //     ]
+    // }
 
 
 ];

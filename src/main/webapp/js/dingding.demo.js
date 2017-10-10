@@ -60,11 +60,11 @@ var openCitys = [
 		"name": "长沙",
 		"name2": "长沙市"
 	},
-	{
-		"code": "zhengzhou",
-		"name": "郑州",
-		"name2": "郑州市"
-	},
+	// {
+	// 	"code": "zhengzhou",
+	// 	"name": "郑州",
+	// 	"name2": "郑州市"
+	// },
 	{
 		"code": "nanjing",
 		"name": "南京",
@@ -145,11 +145,11 @@ var openCitys = [
 		"name": "济南",
 		"name2": "济南市"
 	},
-	{
-		"code": "jingjiang",
-		"name": "靖江",
-		"name2": "靖江市"
-	},
+	// {
+	// 	"code": "jingjiang",
+	// 	"name": "靖江",
+	// 	"name2": "靖江市"
+	// },
 	{
 		"code": "yuncheng",
 		"name": "运城",
@@ -200,21 +200,21 @@ var openCitys = [
 		"name": "贵阳",
 		"name2": "贵阳市"
 	},
-	{
-		"code": "chengde",
-		"name": "承德",
-		"name2": "承德市"
-	},
+	// {
+	// 	"code": "chengde",
+	// 	"name": "承德",
+	// 	"name2": "承德市"
+	// },
 	{
 		"code": "changchun",
 		"name": "长春",
 		"name2": "长春市"
 	},
-	{
-		"code": "hefei",
-		"name": "合肥",
-		"name2": "合肥市"
-	},
+	// {
+	// 	"code": "hefei",
+	// 	"name": "合肥",
+	// 	"name2": "合肥市"
+	// },
 	{
 		"code": "lvliang",
 		"name": "吕梁",
@@ -264,21 +264,21 @@ var openCitys = [
 		"name": "常州",
 		"name2": "常州市"
 	},
-	{
-		"code": "qingyuan",
-		"name": "清远",
-		"name2": "清远市"
-	},
+	// {
+	// 	"code": "qingyuan",
+	// 	"name": "清远",
+	// 	"name2": "清远市"
+	// },
 	{
 		"code": "anyang",
 		"name": "安阳",
 		"name2": "安阳市"
 	},
-	{
-		"code": "baoding",
-		"name": "保定",
-		"name2": "保定市"
-	},
+	// {
+	// 	"code": "baoding",
+	// 	"name": "保定",
+	// 	"name2": "保定市"
+	// },
 	{
 		"code": "luoyang",
 		"name": "洛阳",

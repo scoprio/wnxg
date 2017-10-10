@@ -153,6 +153,7 @@ public class QFResource {
     public ModelAndView getOrders(@PathVariable String qifuId,HttpServletRequest request){
 
         QFRecordDetailDTO qfRecordDetailDTO = new QFRecordDetailDTO();
+        int size = 0;
 
         try {
             qfRecordDetailDTO = qfService.getQFRecordDetail(qifuId);
@@ -194,18 +195,28 @@ public class QFResource {
             }
             List<QFRepairDTO> list =  qfRecordDetailDTO.getRepairList();
             for(QFRepairDTO qfRepairDTO :list){
+
+
                 qfRepairDTO.setStateName(StatueUtil.getStatueName(qfRepairDTO.getOrder_state()));
                 if(qfRepairDTO.getOrder_state().equals("24") || qfRepairDTO.getOrder_state().equals("27")){
                     qfRepairDTO.setConfirmDisplay("inline-block");
                 }else{
                     qfRepairDTO.setConfirmDisplay("none");
                 }
+
+                if("22".equals(qfRepairDTO.getOrder_state())){
+
+                }else{
+                    size++;
+                }
+
                 qfRepairDTO.setCreateTime( StringUtils.substringBeforeLast(qfRepairDTO.getCreateTime(),"."));
             }
 
         } catch (IOException e) {
             e.printStackTrace();
         }
+        qfRecordDetailDTO.setSize(size);
 
         qfRecordDetailDTO.setConfig(ConfigGetter.getConfig(request));
         LOGGER.info("agentid:"+qfRecordDetailDTO.getConfig().getAgentId());

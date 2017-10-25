@@ -310,7 +310,9 @@ public class AuthHelper {
 				OAMessageDTO oaMessageDTO = new OAMessageDTO();
 				oaMessageDTO.setHead(oaMessageHeadDTO);
 				oaMessageDTO.setBody(oaMessageBodyDTO);
-				oaMessageDTO.setMessage_url("https://www.dingtalk.com/");
+
+				String messageUrl = "dingtalk://dingtalkclient/page/link?url=http%3a%2f%2fwnxgtest.hz.taeapp.com%2fdingding%2findex.shtml%3fcorpid%3d%24CORPID%24%26appid%3d4198&pc_slide=true";
+				oaMessageDTO.setMessage_url(messageUrl);
 
 				ddMessageDTO.setTouser(sbAdmin.toString());
 				ddMessageDTO.setToparty("");
@@ -342,7 +344,9 @@ public class AuthHelper {
 				OAMessageDTO oaMessageDTO1 = new OAMessageDTO();
 				oaMessageDTO1.setHead(oaMessageHeadDTO1);
 				oaMessageDTO1.setBody(oaMessageBodyDTO1);
-				oaMessageDTO1.setMessage_url("https://www.dingtalk.com/");
+
+				String messageUrl1 = "dingtalk://dingtalkclient/page/link?url=http%3a%2f%2fwnxgtest.hz.taeapp.com%2fdingding%2findex.shtml%3fcorpid%3d%24CORPID%24%26appid%3d4198&pc_slide=true";
+				oaMessageDTO1.setMessage_url(messageUrl1);
 				ddMessageDTO.setTouser(orderDetailDTO.getEmployeeid());
 				ddMessageDTO.setToparty("");
 				ddMessageDTO.setAgentid(getAgentId(cropId, appId));

@@ -44,7 +44,6 @@ import com.ulb.web.dto.OAMessageDTO;
 import com.ulb.web.dto.OAMessageHeadDTO;
 import com.ulb.web.dto.OrderDetailDTO;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.util.ObjectUtils;
 
 import retrofit2.Call;
@@ -208,7 +207,23 @@ public class AuthHelper {
 		return agentId;
 	}
 
+
+
+
+
+
 	public static int sendToConversation(ConversationDTO conversationDTO,OrderDetailDTO  orderDetailDTO) throws OApiException {
+
+
+//		DingTalkClient client = new DefaultDingTalkClient("https://eco.taobao.com/router/rest");
+//		SmartworkBpmsProcessSyncRequest req = new SmartworkBpmsProcessSyncRequest();
+//		req.setAgentId(41605932L);
+//		req.setSrcProcessCode("PROC-EF6YJL35P2-SCKICSB7P750S0YISYKV3-17IBLGZI-1");
+//		req.setTargetProcessCode("PROC-EF6YJL35P2-SCKICSB7P750S0YISYKV3-17IBLGZI-1");
+//		req.setBizCategoryId("fab.purchase");
+//		req.setProcessName("请假审批");
+//		SmartworkBpmsProcessSyncResponse rsp = client.execute(req, access_token);
+//		System.out.println(rsp.getBody());
 
 		String uid = conversationDTO.getUid();
 		String cid = conversationDTO.getCid();

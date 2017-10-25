@@ -436,7 +436,7 @@
 	</head>
 
 	<body>
-		<div class="flow border_bottom">
+		<div class="flow border_bottom" style="padding: 0">
 			<div><img src="${basePath}/images/liucheng_1.png" /></div>
 		</div>
 		<form>
